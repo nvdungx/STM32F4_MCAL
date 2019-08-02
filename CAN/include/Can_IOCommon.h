@@ -1,4 +1,10 @@
-/* Can_IOCommon.h: define base address and structure of bxCAN Hw STM32F407VG */
+/*******************************************************************************
+* File:         Can_IOCommon.h
+* Revision:
+* Author:
+* Date:         02.08.2019
+* Description:  define base address and structure of bxCAN Hw STM32F407VG
+*******************************************************************************/
 
 #ifndef CAN_IOCOMMON_H
 #define CAN_IOCOMMON_H
