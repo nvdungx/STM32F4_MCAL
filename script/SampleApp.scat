@@ -5,7 +5,14 @@
 * Date:         02.08.2019
 * Description:  ARM linker script
 *******************************************************************************/
-
+LOAD_REGION 0x00000000 0x00200000
+{
+  ;; Maximum of 256 exceptions (256*4 bytes == 0x400)
+  VECTORS 0x0 0x400
+  {
+    Interrupt_VectorTable.o (vectortable_area, +FIRST)
+  }
+}
 LOAD_ROM 0x0000 0x8000       ; Name of load region (LOAD_ROM),
                              ; Start address for load region (0x0000),
                              ; Maximum size of load region (0x8000)
