@@ -65,7 +65,9 @@ Macro definitions - additional project specific macros
 #define DI      __disable_interrupt
 #define EI      __enable_interrupt
 #define HALT    __halt
-#define NOP     __no_operation
+#define NOP     __asm("nop")
 #define STOP    __stop
+#define WFI     __asm("wfi")
+#define WFE     __asm("wfe")
 
 #endif // COMPILER_H

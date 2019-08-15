@@ -1,19 +1,19 @@
-
-CC = $(TOOLCHAIN_PATH)/arm-none-eabi-gcc
-OBJCPY = $(TOOLCHAIN_PATH)/arm-none-eabi-objcopy
-GDB = $(TOOLCHAIN_PATH)/arm-none-eabi-gdb
-
-C_CPU_FLAGS = -mcpu=cortex-m4 -mthumb -mabi=aapcs -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mabi=aapcs
+CC = arm-none-eabi-gcc
+OBJCPY = arm-none-eabi-objcopy
+GDB = arm-none-eabi-gdb
+ 
+C_CPU_FLAGS = -mcpu=cortex-m4 -mthumb -mabi=aapcs -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mabi=aapcs 
 C_DEBUG_FLAGS = -g
 C_OTHER_FLAGS = -ffunction-sections -fdata-sections
 C_OPTIMIZATION_FLAGS = -O0
 C_LANGUAGE_FLAGS = -std=c11
 
 CFLAGS = $(C_CPU_FLAGS) $(C_DEBUG_FLAGS) $(C_OTHER_FLAGS) $(C_OPTIMIZATION_FLAGS)
-LD_FLAGS = -T cortex_m4.ld -Wl,-Map=project.map -Wl,--gc-sections -nostartfiles
+LD_FLAGS = -T SampleApp.ld -Wl,-Map=project.map -Wl,--gc-sections -nostartfiles
+ 
+SOURCES = Interrupt.c Interrupt_VectorTable.c SampleApp.c startup_stm32f407vg.s
+OBJECTS = Interrupt.o Interrupt_VectorTable.o SampleApp.o startup_stm32f407vg.o
 
-SOURCES = vector_table.c interrupt.c application.c
-OBJECTS = $(SOURCES:.c=.o)
 
 all: project.hex project.bin
 
@@ -30,4 +30,4 @@ project.hex: project.elf
 	$(OBJCPY) -O ihex $^ $@
  
 clean:
-rm -rf *.o *.elf *.bin *.hex *.map
+	rm -rf *.o *.elf *.bin *.hex *.map
