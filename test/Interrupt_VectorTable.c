@@ -7,8 +7,11 @@
 *******************************************************************************/
 #include "Interrupt_VectorTable.h"
 
-extern unsigned int _USER_STACK;
-extern void __user_reset_init(void);
+// #ifndef __STACK_SIZE
+  // #define __STACK_SIZE  0x00000400
+// #endif
+// static uint8_t stack[__STACK_SIZE] __attribute__ ((aligned(8), used, section(".stack")));
+
 
 /* You can use __attribute__((section(..))) for functions
   or variables as an alternative to #pragma arm section. */
@@ -18,9 +21,9 @@ extern void __user_reset_init(void);
 ExecFuncPtr exception_table[] __attribute__((section(".vectortable_area"))) =
 {
   /* This initial stack pointer address section is define in link file */
-  (ExecFuncPtr)(&_USER_STACK),
+  (ExecFuncPtr)(&__StackTop),
   /* Initial PC, set to entry point */
-  (ExecFuncPtr)(&__user_reset_init),
+  __user_reset_init,
   NMIException,
   HardFaultException,
   MemManageException,

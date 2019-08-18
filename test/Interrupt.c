@@ -38,7 +38,7 @@ void SysTickHandler(void)
 }
 void dummy_handler(void)
 {
-  static unsigned char dummy_var = 0;
+  static unsigned int dummy_var = 0;
   dummy_var++;
   if(dummy_var == 100)
   {

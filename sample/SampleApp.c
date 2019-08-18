@@ -40,3 +40,8 @@ Std_ReturnType add_list(List* ele)
   mylist._next = ele;
   ele->_pre = &mylist;
 }
+
+void System_Init(void)
+{
+  arr[0] = 0xFF;
+}

@@ -16,4 +16,7 @@ extern void dummy_handler(void);
 
 extern ExecFuncPtr exception_table[];
 
+extern unsigned int const __StackTop;
+extern void __user_reset_init(void);
+
 #endif

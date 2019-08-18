@@ -31,3 +31,15 @@ project.hex: project.elf
  
 clean:
 	rm -rf *.o *.elf *.bin *.hex *.map
+
+# -c -mcpu=cortex-m4 -mthumb -gdwarf-2 -MD -Wall -O0 -mapcs-frame -mthumb-interwork
+ # -I <path> C:/Users/NDY3HC/Desktop/Tool/Keil_v5/ARM/CMSIS/Include
+ # -D<macro>="<value>" -D<macro> -Wa,-alhms="*.lst" -o *.o 
+ 
+# -mcpu=cortex-m4 -mthumb --gdwarf-2 -mthumb-interwork --MD *.d
+ # -IC:/Users/NDY3HC/Desktop/Tool/Keil_v5/ARM/CMSIS/Include
+ # -alhms="*.lst" -o *.o 
+
+# -T ../../stm32/test/SampleApp.ld -mcpu=cortex-m4 -mthumb -mthumb-interwork -Wl,-Map="./test.map" 
+# -o test.elf 
+# *.o -nostartfiles -nodefaultlibs -lm
