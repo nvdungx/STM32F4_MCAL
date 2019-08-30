@@ -2,46 +2,41 @@
 
 void NMIException(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void HardFaultException(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void MemManageException(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void BusFaultException(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void UsageFaultException(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void SVCHandler(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void DebugMonitor(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void PendSVC(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void SysTickHandler(void)
 {
-  __asm("wfi");
+  WFI;
 }
 void dummy_handler(void)
 {
-  static unsigned int dummy_var = 0;
-  dummy_var++;
-  if(dummy_var == 100)
-  {
-    dummy_var = 0;
-  }
+  WFI;
 }

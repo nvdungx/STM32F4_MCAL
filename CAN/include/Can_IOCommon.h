@@ -89,9 +89,16 @@ typedef struct Can_Filter_STag {
 #define CAN1_BASEADDR 0x40006400UL
 #define CAN2_BASEADDR 0x40006800UL
 
-#define Can1_CtrlSts (*(volatile Can_CtrlSts *)(CAN1_BASEADDR + 0UL))
-#define Can2_CtrlSts (*(volatile Can_CtrlSts *)(CAN2_BASEADDR + 0UL))
+#define CAN1_CtrlSts (*(volatile Can_CtrlSts *)(CAN1_BASEADDR + 0UL))
+#define CAN2_CtrlSts (*(volatile Can_CtrlSts *)(CAN2_BASEADDR + 0UL))
 
+#define CAN1_TxMbx (*(volatile Can_TxMbx *)(CAN1_BASEADDR + 0x180UL))
+#define CAN2_TxMbx (*(volatile Can_TxMbx *)(CAN2_BASEADDR + 0x180UL))
+
+#define CAN1_RxMbx (*(volatile Can_RxMbx *)(CAN1_BASEADDR + 0x1B0UL))
+#define CAN2_RxMbx (*(volatile Can_RxMbx *)(CAN2_BASEADDR + 0x1B0UL))
+
+#define CAN_ReceiveRule (*(volatile Can_Filter_STag *)(CAN1_BASEADDR + 0x200UL))
 
 
 
