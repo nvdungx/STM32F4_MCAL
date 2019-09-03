@@ -38,10 +38,10 @@ Macro definitions
 /* Temporary >> shall move to DEM module instead */
 #define CAN_E_DATALOST            0x01U
 
+#define CAN_MODULE_ID             0x80U
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/
-
 
 
 
@@ -49,4 +49,47 @@ Typedef definitions
 Global functions
 *******************************************************************************/
 
-#endif // CAN_H
+FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
+  P2VAR(Std_VersionInfoType, AUTOMATIC, CAN_APPL_DATA) versioninfo);
+
+FUNC(void, CAN_CODE_SLOW) Can_Init (
+  P2CONST(Can_ConfigType, CAN_APPL_DATA) Config);
+
+FUNC(void, CAN_CODE_SLOW) Can_DeInit (void);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
+  VAR(uint8, AUTOMATIC) Controller, VAR(uint16, AUTOMATIC) BaudRateConfigID);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (
+  VAR(uint8, AUTOMATIC) Controller, VAR(Can_ControllerStateType) Transition);
+
+FUNC(void, CAN_CODE_SLOW) Can_DisableControllerInterrupts (
+  VAR(uint8, AUTOMATIC) Controller);
+
+FUNC(void, CAN_CODE_SLOW) Can_EnableControllerInterrupts (
+  VAR(uint8, AUTOMATIC) Controller);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckWakeup (
+  VAR(uint8, AUTOMATIC) Controller);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState (
+  VAR(uint8, AUTOMATIC) ControllerId,
+    P2VAR(Can_ErrorStateType, AUTOMATIC) ErrorStatePtr);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode (
+  VAR(uint8, AUTOMATIC) Controller,
+    P2VAR(Can_ControllerStateType, AUTOMATIC) ControllerModePtr);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (
+  VAR(uint8, AUTOMATIC) ControllerId,
+    P2VAR(uint8, AUTOMATIC) RxErrorCounterPtr);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (
+  VAR(uint8, AUTOMATIC) ControllerId,
+    P2VAR(uint8, AUTOMATIC) TxErrorCounterPtr);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write (
+  VAR(Can_HwHandleType, AUTOMATIC) Hth,
+    P2CONST(Can_PduType, AUTOMATIC) PduInfo);
+
+#endif /* End of Can.h */

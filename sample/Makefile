@@ -1,4 +1,14 @@
-#include somefile.mak
+#*******************************************************************************
+# File:         Makefile
+# Revision:
+# Author:
+# Date:         03.09.2019
+# Description:  Makefile of SampleApp
+#*******************************************************************************
+
+include ../common/make/common.mak
+include ../modules/CAN/make/module.mak
+#include module shall be change to use input para in build script
 
 #specify device
 #specify module build
@@ -15,8 +25,10 @@ TOOLCHAIN_PATH = C:\Users\NDY3HC\Desktop\Tool\gcc\gcc-arm-none-eabi-7-2018-q2-up
 BASE=../
 
 CC = $(TOOLCHAIN_PATH)/arm-none-eabi-gcc
+LD = $(TOOLCHAIN_PATH)/arm-none-eabi-ld
 OBJCPY = $(TOOLCHAIN_PATH)/arm-none-eabi-objcopy
 GDB = $(TOOLCHAIN_PATH)/arm-none-eabi-gdb
+
 
 C_CPU_FLAGS = -mcpu=cortex-m4 -mthumb -mabi=aapcs -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mabi=aapcs
 C_DEBUG_FLAGS = -g
@@ -33,16 +45,6 @@ GC=-Wl,--gc-sections
 CFLAGS = $(C_CPU_FLAGS) $(C_DEBUG_FLAGS) $(C_OTHER_FLAGS) $(C_OPTIMIZATION_FLAGS)
 #--script=file warning, output mapfile , enable garbage collection of unused section
 LD_FLAGS = -T SampleApp.ld -Wl,-Map=SampleApp.map -Wl,--gc-sections -nostartfiles
-
-SRCFILES= $(BASE)/sample/SampleApp.c\
-          $(BASE)/common/interrupt/Interrupt.c\
-          $(BASE)/common/interrupt/Interrupt_VectorTable.c\
-          $(BASE)/common/arm/src/system_stm32f407VG.c
-
-INCFILES= $(BASE)/common/arm/include\
-          $(BASE)/common/arm/include\
-          $(BASE)/common/interrupt\
-          $(BASE)/common/interrupt
 
 OBJECTS = $(SRCFILES:.c=.o)
 

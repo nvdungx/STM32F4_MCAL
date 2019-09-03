@@ -1,9 +1,5 @@
-#define NULL_PTR (void *)0
+#include "SampleApp.h"
 
-#define TRUE 1
-#define FALSE 0
-
-typedef unsigned char Std_ReturnType;
 
 typedef struct List_STag
 {
@@ -12,7 +8,7 @@ typedef struct List_STag
   struct List_STag *_next;
 } List;
 
-unsigned char arr[4] = {1, 2, 3, 4};
+uint8 arr[4] = {1, 2, 3, 4};
 List mylist =
 {
   NULL_PTR,
@@ -24,7 +20,7 @@ Std_ReturnType add_list(List* ele);
 int main(void)
 {
   List newEle;
-  int LucVar[2] = {2,2};
+  uint32 LucVar[2] = {2,2};
   newEle.data_ptr = LucVar;
   add_list(&newEle);
   arr[0] = 0xFF;
@@ -39,6 +35,7 @@ Std_ReturnType add_list(List* ele)
 {
   mylist._next = ele;
   ele->_pre = &mylist;
+  return E_OK;
 }
 
 void System_Init(void)
