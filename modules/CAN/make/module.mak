@@ -6,6 +6,12 @@
 # Description:  make file rule of module part
 #*******************************************************************************
 
-SRCFILES += ../src/*.c
+# Fixed dir
+MODULE_SRC := $(wildcard $(BASE)/modules/$(MODULE)/src/*.c)
+# Fixed dir
+MODULE_INC := $(BASE)/modules/$(MODULE)/include
 
-INCFILES += ../include
+.PHONY : debug_module
+debug_module:
+	@echo MODULE_SRC: $(MODULE_SRC)
+	@echo MODULE_INC: $(MODULE_INC)

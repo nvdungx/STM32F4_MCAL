@@ -13,7 +13,10 @@ Includes
 *******************************************************************************/
 #include "ComStack_Types.h"
 #include "Can_GeneralTypes.h"
-#include "Can_Cfg.h"
+
+#include "Can_PBTypes.h"
+#include "MemMap.h"
+// #include "Can_Cfg.h"
 
 /*******************************************************************************
 Macro definitions
@@ -53,7 +56,7 @@ FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
   P2VAR(Std_VersionInfoType, AUTOMATIC, CAN_APPL_DATA) versioninfo);
 
 FUNC(void, CAN_CODE_SLOW) Can_Init (
-  P2CONST(Can_ConfigType, CAN_APPL_DATA) Config);
+  P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config);
 
 FUNC(void, CAN_CODE_SLOW) Can_DeInit (void);
 
@@ -61,7 +64,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   VAR(uint8, AUTOMATIC) Controller, VAR(uint16, AUTOMATIC) BaudRateConfigID);
 
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (
-  VAR(uint8, AUTOMATIC) Controller, VAR(Can_ControllerStateType) Transition);
+  VAR(uint8, AUTOMATIC) Controller,
+    VAR(Can_ControllerStateType, AUTOMATIC) Transition);
 
 FUNC(void, CAN_CODE_SLOW) Can_DisableControllerInterrupts (
   VAR(uint8, AUTOMATIC) Controller);
@@ -74,22 +78,26 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckWakeup (
 
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState (
   VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(Can_ErrorStateType, AUTOMATIC) ErrorStatePtr);
+    P2VAR(Can_ErrorStateType, AUTOMATIC, CAN_APPL_DATA) ErrorStatePtr);
 
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode (
   VAR(uint8, AUTOMATIC) Controller,
-    P2VAR(Can_ControllerStateType, AUTOMATIC) ControllerModePtr);
+    P2VAR(Can_ControllerStateType, AUTOMATIC, CAN_APPL_DATA) ControllerModePtr);
 
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (
   VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(uint8, AUTOMATIC) RxErrorCounterPtr);
+    P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) RxErrorCounterPtr);
 
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (
   VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(uint8, AUTOMATIC) TxErrorCounterPtr);
+    P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) TxErrorCounterPtr);
 
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write (
   VAR(Can_HwHandleType, AUTOMATIC) Hth,
-    P2CONST(Can_PduType, AUTOMATIC) PduInfo);
+    P2CONST(Can_PduType, AUTOMATIC, CAN_APPL_DATA) PduInfo);
+
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetIcomConfiguration (
+  VAR(uint8, AUTOMATIC) Controller,
+    VAR(IcomConfigIdType, AUTOMATIC) ConfigurationId);
 
 #endif /* End of Can.h */

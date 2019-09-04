@@ -35,7 +35,6 @@ Macro definitions - according AUTOSAR
 /* memclass is the memory class of the variable itself */
 /* ptrclass is the memory class to where the pointer points */
 /* ptrtype is the type of the object to where the pointer points */
-
 /* #define <PREFIX>_CODE_SLOW @far
    #define <PREFIX>_CODE_FAST @near
    FUNC(void, CAN_CODE_SLOW) Can_Init(void);

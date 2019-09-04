@@ -58,7 +58,7 @@ typedef unsigned int        uint8_least;
 typedef unsigned int        uint16_least;
 typedef unsigned int        uint32_least;
 typedef signed int          sint8_least;
-typedef signed int          sint16_least
+typedef signed int          sint16_least;
 typedef float               float32;
 typedef double              float64;
 

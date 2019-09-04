@@ -67,7 +67,7 @@ FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
  *  Description....... : This function initializes the module.
  */
 FUNC(void, CAN_CODE_SLOW) Can_Init (
-  P2CONST(Can_ConfigType, CAN_APPL_DATA) Config)
+  P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config)
 {
   
 }
@@ -233,7 +233,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (
   VAR(uint8, AUTOMATIC) Controller,
-    VAR(Can_ControllerStateType) Transition)
+    VAR(Can_ControllerStateType, AUTOMATIC) Transition)
 {
 
 }
@@ -314,7 +314,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckWakeup (
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState (
   VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(Can_ErrorStateType, AUTOMATIC) ErrorStatePtr)
+    P2VAR(Can_ErrorStateType, AUTOMATIC, CAN_APPL_DATA) ErrorStatePtr)
 {
 
 }
@@ -335,7 +335,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState (
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode (
   VAR(uint8, AUTOMATIC) Controller,
-    P2VAR(Can_ControllerStateType, AUTOMATIC) ControllerModePtr)
+    P2VAR(Can_ControllerStateType, AUTOMATIC, CAN_APPL_DATA) ControllerModePtr)
 {
 
 }
@@ -355,7 +355,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode (
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (
   VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(uint8, AUTOMATIC) RxErrorCounterPtr)
+    P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) RxErrorCounterPtr)
 {
 
 }
@@ -375,7 +375,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (
   VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(uint8, AUTOMATIC) TxErrorCounterPtr)
+    P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) TxErrorCounterPtr)
 {
 
 }
@@ -396,7 +396,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write (
   VAR(Can_HwHandleType, AUTOMATIC) Hth,
-    P2CONST(Can_PduType, AUTOMATIC) PduInfo)
+    P2CONST(Can_PduType, AUTOMATIC, CAN_APPL_DATA) PduInfo)
 {
 
 }
@@ -512,7 +512,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Mode (void)
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetIcomConfiguration (
   VAR(uint8, AUTOMATIC) Controller,
-  VAR(IcomConfigIdType, AUTOMATIC) ConfigurationId)
+    VAR(IcomConfigIdType, AUTOMATIC) ConfigurationId)
 {
 
 }
