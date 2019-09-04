@@ -14,9 +14,12 @@ Includes
 #include "ComStack_Types.h"
 #include "Can_GeneralTypes.h"
 
+#include "Can_Types.h"
 #include "Can_PBTypes.h"
 #include "MemMap.h"
 // #include "Can_Cfg.h"
+
+#include "Can_Internals.h"
 
 /*******************************************************************************
 Macro definitions
@@ -41,7 +44,16 @@ Macro definitions
 /* Temporary >> shall move to DEM module instead */
 #define CAN_E_DATALOST            0x01U
 
+/* These macro shall be generated in Can_Cfg.h */
 #define CAN_MODULE_ID             0x80U
+#define CAN_VENDOR_ID             0x00U
+#define SW_MINOR_VERSION          0x01U
+#define SW_MAJOR_VERSION          0x00U
+#define SW_PATCH_VERSION          0x00U
+#define NUMBER_CAN_CONTROLLER     0x02U
+
+
+
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/

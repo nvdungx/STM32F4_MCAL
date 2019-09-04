@@ -7,7 +7,7 @@
 #*******************************************************************************
 
 # specify base path of project << shall input by tool or change manually
-BASE := C:\Users\NDY3HC\Desktop\Tool\wp\stm32
+BASE := D:\Tool\Workspace\github\stm32
 MODULE := CAN
 
 include ../common/make/common.mak
@@ -25,7 +25,7 @@ include ../modules/$(MODULE)/make/module.mak
 #Device
 DEVICE=stm32f407VG
 
-TOOLCHAIN_PATH = C:\Users\NDY3HC\Desktop\Tool\gcc\gcc-arm-none-eabi-7-2018-q2-update-win32\bin
+TOOLCHAIN_PATH = D:\Tool\GNUToolsARMEmbedded\ARMCompiler\bin
 
 CC = $(TOOLCHAIN_PATH)/arm-none-eabi-gcc
 AS = $(TOOLCHAIN_PATH)/arm-none-eabi-as
@@ -52,17 +52,20 @@ LD_FLAGS = -T SampleApp.ld -Wl,-Map=SampleApp.map -Wl,--gc-sections -nostartfile
 SRCFILES += $(wildcard *.c) $(COMMON_SRC) $(MODULE_SRC)
 INCFILES += $(CURDIR) $(COMMON_INC) $(MODULE_INC)
 INCFILES := $(addprefix -I,$(INCFILES))
-OBJECTS := $(SRCFILES:.c=.o) startup_$(DEVICE).o
+# OBJECTS := $(SRCFILES:.c=.o)
+OBJECTS := $(notdir $(SRCFILES:.c=.o)) startup_$(DEVICE).o
+
+SRCFILES += $(STARTUP)
 
 all: project.hex project.bin
 
-%.o : %.c
-	$(CC) $(CFLAGS) $(INCFILES) -c $< -o $@
+$(OBJECTS) : $(SRCFILES)
+	$(CC) -c $(CFLAGS) $(INCFILES) $< -o $@
 
-startup_$(DEVICE).o : startup_$(DEVICE).s
-	$(AS) -c $(CFLAGS) $(INCFILES) $@ -o $<
+# startup_$(DEVICE).o : $(STARTUP)
+	# $(CC) -c $(CFLAGS) $(INCFILES) $< -o $@
 
-OBJECTS += startup_$(DEVICE).o
+# OBJECTS +=
 
 project.elf: $(OBJECTS)
 	$(CC) -o $@ $(C_CPU_FLAGS) $(LD_FLAGS) $^
@@ -80,3 +83,4 @@ clean:
 debug_vars:
 	@echo SRCFILES: $(SRCFILES)
 	@echo INCFILES: $(INCFILES)
+	@echo OBJECTS: $(OBJECTS)

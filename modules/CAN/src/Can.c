@@ -46,7 +46,7 @@ FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
   else
   {
     versioninfo->vendorID = CAN_VENDOR_ID;
-    versioninfo->moduleID =  ;
+    versioninfo->moduleID = CAN_MODULE_ID;
     versioninfo->sw_major_version = SW_MAJOR_VERSION;
     versioninfo->sw_minor_version = SW_MINOR_VERSION;
     versioninfo->sw_patch_version = SW_PATCH_VERSION;

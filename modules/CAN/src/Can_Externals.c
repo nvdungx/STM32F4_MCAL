@@ -29,7 +29,8 @@ Includes
   be configured by user */
 FUNC(boolean, CAN_CODE_FAST) LPDU_CALLOUTFUNCTION_NAME(
   VAR(uint8, AUTOMATIC) Hrh, VAR(Can_IdType, AUTOMATIC) CanId,
-    VAR(uint8, AUTOMATIC) CanDataLength, P2CONST(uint8, AUTOMATIC) CanSduPtr)
+    VAR(uint8, AUTOMATIC) CanDataLength,
+      P2CONST(uint8, AUTOMATIC, CAN_APPL_DATA) CanSduPtr)
 {
   /* User defined call out routine */
 }
