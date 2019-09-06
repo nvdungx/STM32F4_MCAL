@@ -5,9 +5,11 @@
 # Date:         03.09.2019
 # Description:  Makefile of SampleApp
 #*******************************************************************************
+#option input for makefile to parallel execution of rules
+MAKEFLAGS += -j
 
 # specify base path of project << shall input by tool or change manually
-BASE := D:\Tool\Workspace\github\stm32
+BASE := C:\Users\NDY3HC\Desktop\Tool\wp\stm32
 MODULE := CAN
 
 include ../common/make/common.mak
@@ -23,9 +25,9 @@ include ../modules/$(MODULE)/make/module.mak
 
 #rule to build sample app
 #Device
-DEVICE=stm32f407VG
+DEVICE=stm32f407vg
 
-TOOLCHAIN_PATH = D:\Tool\GNUToolsARMEmbedded\ARMCompiler\bin
+# TOOLCHAIN_PATH = D:\Tool\GNUToolsARMEmbedded\ARMCompiler\bin
 
 CC = $(TOOLCHAIN_PATH)/arm-none-eabi-gcc
 AS = $(TOOLCHAIN_PATH)/arm-none-eabi-as
@@ -53,27 +55,28 @@ SRCFILES += $(wildcard *.c) $(COMMON_SRC) $(MODULE_SRC)
 INCFILES += $(CURDIR) $(COMMON_INC) $(MODULE_INC)
 INCFILES := $(addprefix -I,$(INCFILES))
 # OBJECTS := $(SRCFILES:.c=.o)
-OBJECTS := $(notdir $(SRCFILES:.c=.o)) startup_$(DEVICE).o
+# to get the file name only and change to target .o file
+OBJECTS := $(notdir $(SRCFILES:.c=.o))
+# set the dir for searching source file required by static pattern
+vpath %.c $(sort $(dir $(SRCFILES)))
 
-SRCFILES += $(STARTUP)
+all: SampleApp.hex SampleApp.bin
 
-all: project.hex project.bin
+$(OBJECTS): %.o : %.c
+	$(CC) $(CFLAGS) $(INCFILES) -c $^ -o $@
 
-$(OBJECTS) : $(SRCFILES)
-	$(CC) -c $(CFLAGS) $(INCFILES) $< -o $@
+startup_$(DEVICE).o : $(STARTUP)
+	$(CC) $(CFLAGS) $(INCFILES) -c $< -o $@
 
-# startup_$(DEVICE).o : $(STARTUP)
-	# $(CC) -c $(CFLAGS) $(INCFILES) $< -o $@
+OBJECTS += startup_$(DEVICE).o
 
-# OBJECTS +=
-
-project.elf: $(OBJECTS)
+SampleApp.elf: $(OBJECTS)
 	$(CC) -o $@ $(C_CPU_FLAGS) $(LD_FLAGS) $^
 
-project.bin: project.elf
+SampleApp.bin: SampleApp.elf
 	$(OBJCPY) -O binary $^ $@
 
-project.hex: project.elf
+SampleApp.hex: SampleApp.elf
 	$(OBJCPY) -O ihex $^ $@
 
 clean:

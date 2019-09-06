@@ -38,7 +38,7 @@ FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
 {
   if (versioninfo == NULL_PTR)
   {
-    #ifdef DEV_ERROR_DETECT_API
+    #if(DEV_ERROR_DETECT_API == STD_ON)
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
       CAN_SID_GETVERSIONINFO, CAN_E_PARAM_POINTER);
     #endif
@@ -69,7 +69,62 @@ FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
 FUNC(void, CAN_CODE_SLOW) Can_Init (
   P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config)
 {
-  
+  uint8 Luc_Count;
+  boolean Lbl_DeInitSts;
+  #if(DEV_ERROR_DETECT_API == STD_ON)
+  Std_ReturnType Luc_StdResult;
+
+  Luc_StdResult = E_OK;
+  /* Check if Driver not in state CAN_UNINIT */
+  if (CAN_UNINIT != Can_DriverSts)
+  {
+    (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
+      CAN_SID_DEINIT, CAN_E_TRANSITION);
+    Luc_StdResult = E_NOT_OK;
+  }
+  /* Check all CAN Controllers is not in UNINIT mode */
+  else
+  {
+    /* access configuration structure, loop through all controller and check
+    the current sw status of each controller */
+    for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
+    {
+      /* Check sw status of controller */
+    }
+    if (E_OK == Luc_StdResult)
+    {
+    (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
+      CAN_SID_DEINIT, CAN_E_TRANSITION);
+    Luc_StdResult = E_NOT_OK;
+    }
+  }
+  #endif
+
+  #if(DEV_ERROR_DETECT_API == STD_ON)
+  if (E_OK == Luc_StdResult)
+  {
+  #endif
+    Lbl_DeInitSts = TRUE;
+    for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
+    {
+      Lbl_DeInitSts &= Can_HwInit(Luc_Count);
+    }
+    if (TRUE == Lbl_DeInitSts)
+    {
+      /* There are no fail during initialized process */
+      Can_DriverSts = CAN_READY;
+    }
+    else
+    {
+      /* There is fail during initialized controllers process */
+    }
+  #if(DEV_ERROR_DETECT_API == STD_ON)
+  }
+  else
+  {
+    /* No action required */
+  }
+  #endif
 }
 
 /*
@@ -89,7 +144,7 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
 {
   uint8 Luc_Count;
   boolean Lbl_DeInitSts;
-  #ifdef DEV_ERROR_DETECT_API
+  #if(DEV_ERROR_DETECT_API == STD_ON)
   Std_ReturnType Luc_StdResult;
 
   Luc_StdResult = E_OK;
@@ -107,7 +162,7 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
     the current sw status of each controller */
     for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
     {
-      
+      /* Check sw status of controller */
     }
     if (E_OK == Luc_StdResult)
     {
@@ -118,7 +173,7 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
   }
   #endif
 
-  #ifdef DEV_ERROR_DETECT_API
+  #if(DEV_ERROR_DETECT_API == STD_ON)
   if (E_OK == Luc_StdResult)
   {
   #endif
@@ -136,7 +191,7 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
     {
       /* There is fail during deinit controllers process */
     }
-  #ifdef DEV_ERROR_DETECT_API
+  #if(DEV_ERROR_DETECT_API == STD_ON)
   }
   else
   {
@@ -169,7 +224,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   Std_ReturnType Luc_StdResult;
 
   Luc_StdResult = E_OK;
-  #ifdef DEV_ERROR_DETECT_API
+  #if(DEV_ERROR_DETECT_API == STD_ON)
   /* Check if driver is initialized - Driver not in state CAN_READY */
   if (CAN_READY != Can_DriverSts)
   {
@@ -197,7 +252,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   }
   #endif
 
-  #ifdef DEV_ERROR_DETECT_API
+  #if(DEV_ERROR_DETECT_API == STD_ON)
   if (E_OK == Luc_StdResult)
   {
   #endif
@@ -207,7 +262,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   
     /* Configure the HW of requested Controller */
   
-  #ifdef DEV_ERROR_DETECT_API
+  #if(DEV_ERROR_DETECT_API == STD_ON)
   }
   else
   {
