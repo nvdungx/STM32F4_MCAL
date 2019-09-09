@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+  <!--
+    Document Owner:                 AUTOSAR
+    Document Responsibility:        AUTOSAR
+    Document Identification Number: 289
+    Document Status:                Final
+    Part of AUTOSAR Standard:       Classic Platform
+    Part of AUTOSAR Release:        4.4.0
+  -->
+  <ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <ISSUED-BY>AUTOSAR</ISSUED-BY>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+  <AR-PACKAGES>
+    <!-- AR-Package: AUTOSAR -->
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <!-- AR-Package: AUTOSAR -->
+        <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+          <SHORT-NAME>EcucDefs</SHORT-NAME>
+          <ELEMENTS>
+            <ECUC-DEFINITION-COLLECTION UUID="ECUC:4c30de73-30fc-43b3-a1b3-e74211eedff3">
+              <SHORT-NAME>AUTOSARParameterDefinition</SHORT-NAME>
+              <MODULE-REFS>
+                <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/ArtiOs</MODULE-REF>
+              </MODULE-REFS>
+            </ECUC-DEFINITION-COLLECTION>
+                  <!-- Module Definition: ArtiOs -->
+                  <ECUC-MODULE-DEF UUID="ECUC:87148dee-7bd7-42cd-85b5-2211305f3490">
+                     <SHORT-NAME>ArtiOs</SHORT-NAME>
+                     <DESC>
+                        <L-2 L="EN">The ArtiOs Module contains ARTI extensions to the EcucDefs/Os module.</L-2>
+                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                     </DESC>
+                     <ADMIN-DATA>
+                        <DOC-REVISIONS>
+                           <DOC-REVISION>
+                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
+                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                           </DOC-REVISION>
+                        </DOC-REVISIONS>
+                     </ADMIN-DATA>
+                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00001</RELATED-TRACE-ITEM-REF>
+                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                     <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                     <POST-BUILD-VARIANT-SUPPORT>false</POST-BUILD-VARIANT-SUPPORT>
+                     <SUPPORTED-CONFIG-VARIANTS>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-LINK-TIME</SUPPORTED-CONFIG-VARIANT>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+                     </SUPPORTED-CONFIG-VARIANTS>
+                     <CONTAINERS>
+                        <!-- Container Definition: ArtiOsClass -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:407dd9b4-0454-4bbe-ba9f-030c9f6fe697">
+                           <SHORT-NAME>ArtiOsClass</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">Contains the layout of an ARTI "Os" object, extending the EcuC OsOS.</L-2>
+                              <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00002</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <MULTIPLICITY-CONFIG-CLASSES>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                           </MULTIPLICITY-CONFIG-CLASSES>
+                           <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                           <REFERENCES>
+                              <!-- Reference Definition: ArtiOsAppModeClassRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:2543c018-e93d-4d83-aab8-7060068d1d7e">
+                                 <SHORT-NAME>ArtiOsAppModeClassRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Refers to the ArtiObjectClassParameter that defines the ArtiOsAppModeInstance parameter.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00003</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Arti/ArtiObjectClassParameter</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: ArtiOsInstance -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:696083fb-4846-4ead-8267-2b601f9fb8bb">
+                           <SHORT-NAME>ArtiOsInstance</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">Represents an instance of an ARTI "Os" object, extending the EcuC OsOS.</L-2>
+                              <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00004</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <MULTIPLICITY-CONFIG-CLASSES>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                           </MULTIPLICITY-CONFIG-CLASSES>
+                           <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                           <REFERENCES>
+                              <!-- Reference Definition: ArtiOsAppModeEcucRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:6aab3f95-94ea-477f-867d-536ff1e009d5">
+                                 <SHORT-NAME>ArtiOsAppModeEcucRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Refers to the EcucDefs/Os/OsAppMode of this OS.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00005</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Os/OsAppMode</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Reference Definition: ArtiOsAppModeInstanceRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:27d75b37-1075-4ec5-98d1-0cf7f925d12e">
+                                 <SHORT-NAME>ArtiOsAppModeInstanceRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Refers to the ArtiObjectInstanceParameter that contains the evaluation for the "application mode" of this OS.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00006</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Arti/ArtiObjectInstanceParameter</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Reference Definition: ArtiOsEcucRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:4ccdcb25-b09f-4f50-ab64-22122367b124">
+                                 <SHORT-NAME>ArtiOsEcucRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Refers to the EcucDefs/Os/OsOS of this OS.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00007</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Os/OsOS</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Reference Definition: ArtiOsTaskHookRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:9f2b7d96-7a32-4cc3-8306-b087284e5c02">
+                                 <SHORT-NAME>ArtiOsTaskHookRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Refers to a hook for a specific task.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00008</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                 <SCOPE>ECU</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Arti/ArtiHook</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: ArtiOsTaskClass -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:f4b3af52-d152-4341-a493-a38ae7d0a345">
+                           <SHORT-NAME>ArtiOsTaskClass</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">Contains the layout of an ARTI "OsTask" object, extending the EcuC OsTask.</L-2>
+                              <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00009</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <MULTIPLICITY-CONFIG-CLASSES>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                           </MULTIPLICITY-CONFIG-CLASSES>
+                           <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: ArtiOsTaskInstance -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:485b0f61-3e65-4100-a507-b9e4a4c9cf25">
+                           <SHORT-NAME>ArtiOsTaskInstance</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">Represents an instance of an ARTI "OsTask" object, extending the EcuC OsTask.</L-2>
+                              <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00010</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                           <MULTIPLICITY-CONFIG-CLASSES>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                 <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                              </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                           </MULTIPLICITY-CONFIG-CLASSES>
+                           <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                           <REFERENCES>
+                              <!-- Reference Definition: ArtiGenericComponentInstanceRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:badacb9d-24ec-4359-aa35-1099e50424ca">
+                                 <SHORT-NAME>ArtiGenericComponentInstanceRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Refers to an ArtiGenericComponentInstance that extends the OsTask.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00011</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/ArtiGeneric/ArtiGenericComponentInstance</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Reference Definition: ArtiOsTaskEcucRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:129f6697-aa8d-4ec0-a897-43cef1b128d0">
+                                 <SHORT-NAME>ArtiOsTaskEcucRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Refers to an ArtiGenericComponentInstance that extends the OsTask.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_ArtiOs_00012</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Os/OsTask</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                     </CONTAINERS>
+                  </ECUC-MODULE-DEF>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

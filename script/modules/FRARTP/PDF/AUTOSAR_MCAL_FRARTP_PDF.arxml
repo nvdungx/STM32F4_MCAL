@@ -1,0 +1,1327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+  <!--
+    Document Owner:                 AUTOSAR
+    Document Responsibility:        AUTOSAR
+    Document Identification Number: 289
+    Document Status:                Final
+    Part of AUTOSAR Standard:       Classic Platform
+    Part of AUTOSAR Release:        4.4.0
+  -->
+  <ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <ISSUED-BY>AUTOSAR</ISSUED-BY>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+  <AR-PACKAGES>
+    <!-- AR-Package: AUTOSAR -->
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <!-- AR-Package: AUTOSAR -->
+        <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+          <SHORT-NAME>EcucDefs</SHORT-NAME>
+          <ELEMENTS>
+            <ECUC-DEFINITION-COLLECTION UUID="ECUC:4c30de73-30fc-43b3-a1b3-e74211eedff3">
+              <SHORT-NAME>AUTOSARParameterDefinition</SHORT-NAME>
+              <MODULE-REFS>
+                <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/FrArTp</MODULE-REF>
+              </MODULE-REFS>
+            </ECUC-DEFINITION-COLLECTION>
+                  <!-- Module Definition: FrArTp -->
+                  <ECUC-MODULE-DEF UUID="ECUC:bfffe61a-1bd7-4b8d-85f7-cee6931cb543">
+                     <SHORT-NAME>FrArTp</SHORT-NAME>
+                     <DESC>
+                        <L-2 L="EN">Configuration of the FrArTp (FlexRay Transport Protocol) module.</L-2>
+                     </DESC>
+                     <ADMIN-DATA>
+                        <DOC-REVISIONS>
+                           <DOC-REVISION>
+                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
+                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                           </DOC-REVISION>
+                        </DOC-REVISIONS>
+                     </ADMIN-DATA>
+                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00001</RELATED-TRACE-ITEM-REF>
+                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                     <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                     <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+                     <SUPPORTED-CONFIG-VARIANTS>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+                     </SUPPORTED-CONFIG-VARIANTS>
+                     <CONTAINERS>
+                        <!-- Container Definition: FrArTpGeneral -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d5bcaff4-567a-4272-8758-7faeee4ae05c">
+                           <SHORT-NAME>FrArTpGeneral</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container contains the general configuration (parameters) of the FlexRay TP.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00012</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: FrArTpDevErrorDetect -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:8cbe5489-2294-4b35-826c-7e20a3b269e2">
+                                 <SHORT-NAME>FrArTpDevErrorDetect</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Switches the development error detection and notification on or off.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">* true: detection and notification is enabled.
+                                        * false: detection and notification is disabled.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00011</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: FrArTpHaveAckRt -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:2941d541-7731-416a-a4cb-f758b008bf2e">
+                                 <SHORT-NAME>FrArTpHaveAckRt</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Preprocessor switch for enabling the Acknowledgement and retry mechanisms.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00014</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: FrArTpHaveGrpSeg -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:db0c21bb-0d51-42d3-ba97-44552e586054">
+                                 <SHORT-NAME>FrArTpHaveGrpSeg</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Preprocessor switch for enabling segmentation of 1:n messages.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00015</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: FrArTpHaveLm -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:f7de932d-8d25-4503-a3ca-e1dba3c182ec">
+                                 <SHORT-NAME>FrArTpHaveLm</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Preprocessor switch for enabling the mechanism for message longer than allowed by.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00016</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: FrArTpHaveTc -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:b65f5bc0-3252-486e-a5e8-caef4d3a0c53">
+                                 <SHORT-NAME>FrArTpHaveTc</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Preprocessor switch for enabling Transmit Cancellation and Receive Cancellation.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00017</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: FrArTpMainFuncCycle -->
+                              <ECUC-FLOAT-PARAM-DEF UUID="ECUC:d93c4677-c68f-4b7a-af41-002d09edecf8">
+                                 <SHORT-NAME>FrArTpMainFuncCycle</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter contains the calling period of the TPs Main Function. The parameter is specified in seconds.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00020</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                 <MIN INTERVAL-TYPE="OPEN">0</MIN>
+                              </ECUC-FLOAT-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: FrArTpVersionInfoApi -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:079edbf3-4881-462e-8f1c-89d43738bc62">
+                                 <SHORT-NAME>FrArTpVersionInfoApi</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Preprocessor switch for enabling the Version info API.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00054</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                           </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: FrArTpMultipleConfig -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:97993d4a-7769-4798-aa92-461976ddbef6">
+                           <SHORT-NAME>FrArTpMultipleConfig</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container contains the configuration parameters and sub containers of the AUTOSAR FrArTp module.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00028</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: FrArTpChannel -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:676806cc-fb0f-496e-a505-11dc3ce82ef6">
+                                 <SHORT-NAME>FrArTpChannel</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This container contains the configuration (parameters) of one FlexRay TP channel.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00005</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: FrArTpAckType -->
+                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:7ac80ba2-db0b-4a4c-8ccf-c058e66b5540">
+                                       <SHORT-NAME>FrArTpAckType</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the type of acknowledgement which is used for the specific channel.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00002</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <LITERALS>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:6f14a34f-070b-910f-5fdd-b91469a08113">
+                                             <SHORT-NAME>FRARTP_ACK_WITHOUT_RT</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:9ca89fac-c521-8b7f-33fc-8622a1b2ff84">
+                                             <SHORT-NAME>FRARTP_ACK_WITH_RT</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d8dcbb75-1828-9857-5701-a15ba8cffcaf">
+                                             <SHORT-NAME>FRARTP_NO</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                       </LITERALS>
+                                    </ECUC-ENUMERATION-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpAdrType -->
+                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:fbf212e1-3eb4-408a-a2e7-952ba8bff386">
+                                       <SHORT-NAME>FrArTpAdrType</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter states the addressing type this connection has. The meanings of the values are one byte and two byte.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00008</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <LITERALS>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f1a159c3-7317-8b34-367d-e4fc092fb97f">
+                                             <SHORT-NAME>FRARTP_OB</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d2d18feb-09c6-8ecf-3005-8018be73dfd5">
+                                             <SHORT-NAME>FRARTP_TB</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                       </LITERALS>
+                                    </ECUC-ENUMERATION-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpConcurrentConnections -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:70d005eb-4b6c-48c9-8650-223812ff5371">
+                                       <SHORT-NAME>FrArTpConcurrentConnections</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the number of connections that can be active at the same time. If set to 0, all configured connections can be active at the same time.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00057</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                       <MAX>255</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpGrpSeg -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:fd40e0b6-4a5b-4123-b2f2-5d36a18499f6">
+                                       <SHORT-NAME>FrArTpGrpSeg</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Here can be specified, whether segmentation within a 1:n connection is allowed or not.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00013</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpLm -->
+                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:00c0ff2e-ea55-401b-add2-16b714ae2ea7">
+                                       <SHORT-NAME>FrArTpLm</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This specifies the maximum message length for the particular channel.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00019</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <LITERALS>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:3ef0325d-1b44-9845-2e5a-1acae4203099">
+                                             <SHORT-NAME>FRARTP_ISO</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2bb0ea6b-5ff2-9535-5541-714cae9f715d">
+                                             <SHORT-NAME>FRARTP_ISO6</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c8faf711-c384-95a5-4d85-54cb0ba3b6c7">
+                                             <SHORT-NAME>FRARTP_L4G</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                       </LITERALS>
+                                    </ECUC-ENUMERATION-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpMaxAr -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:4d538907-b70d-4699-8f56-8e7234286355">
+                                       <SHORT-NAME>FrArTpMaxAr</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the maximum number of trying to send a frame when a TIMEOUT AR occurs.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00021</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>255</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpMaxAs -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:4d7d6aaf-92b2-4001-ab30-fe6040a6acb6">
+                                       <SHORT-NAME>FrArTpMaxAs</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the maximum number of trying to send a frame when a TIMEOUT AS occurs.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00022</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>255</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpMaxBs -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:9505fed5-9588-4c03-8b0b-a1627d38b537">
+                                       <SHORT-NAME>FrArTpMaxBs</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the number of consecutive CFs between two FCs (block size). Valid values are 1 .. 16 when retry is activated, and 0 .. 255 otherwise.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00023</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>255</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpMaxRn -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:89d01884-23a7-478e-b641-52e479415a03">
+                                       <SHORT-NAME>FrArTpMaxRn</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the maximum number of retries (if retry is configured for the particular channel).</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00026</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>255</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpMaxWft -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:1d596a06-8fbe-4ab0-baaf-5189114b8f24">
+                                       <SHORT-NAME>FrArTpMaxWft</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the maximal number of wait frames to be sent for a pending connection.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00059</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>255</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpStMin -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:c593f78b-411f-44c5-bdfc-6cd25077dadb">
+                                       <SHORT-NAME>FrArTpStMin</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the minimum amount of time between two succeeding CFs of a 1:1 segmented transmission in seconds. Valid values are 0, 100µs, 200µs .. 900µs, 1ms, 2ms .. 127ms. The value can be changed at runtime using the FrArTp_ChangeParameter interface.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">FrArTpStMin must be an integer multiple of the cycle length multiplied with the multiplexing factor, i.e. FrArTpStMin = n * FrIfGdCycle * m, where n is an integer &gt;= 0 and m is the cycle multiplexor of those cycles where PDUs of the PDU pool are scheduled. 
+
+                                                Please note: Due to the scheduling strategies of FrArTp, FrArTpStMin can only be kept to a degree defined by the maximum temporal distance of the PDUs of a PDU pool within one FlexRay cycle.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00042</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">0.127</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpStMinGrpSeg -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:107fd25c-f800-4017-a568-f2faab13ad84">
+                                       <SHORT-NAME>FrArTpStMinGrpSeg</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the minimum amount of time between two succeeding CFs of a 1:n segmented transmission in seconds. Valid values are 0, 100µs, 200µs ... 900µs, 1ms, 2ms .. 127ms. The value can be changed at runtime using the FrArTp_ChangeParameter interface.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">FrArTpStMinGrpSeg must be an integer multiple of the cycle length multiplied with the multiplexing factor, i.e. FrArTpStMinGrpSeg = n * FrIfGdCycle * m, where n is an integer &gt;= 0 and m is the cycle multiplexor of those cycles where PDUs of the PDU pool are scheduled. 
+
+                                                Please note: Due to the scheduling strategies of FrArTp, FrArTpStMinGrpSeg can only be kept to a degree defined by the maximum temporal distance of the PDUs of a PDU pool within one FlexRay cycle.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00060</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">0.127</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpTc -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:7fe1452b-6e76-47fd-822b-84d512e89568">
+                                       <SHORT-NAME>FrArTpTc</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">With this switch Transmit Cancellation and Receive Cancellation can be turned on or off for this channel.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00043</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpTimeBr -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:525037db-2b41-44ec-a323-83e5bb925586">
+                                       <SHORT-NAME>FrArTpTimeBr</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the time in seconds between receiving the last CF of a block or an FF-x (or SF-x) and sending out an FC or AF.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">It is obvious that FRARTP_TIME_BR + (FRARTP_TIMEOUT_AR * FRARTP_MAX_AR) &lt; FRARTP_TIMEOUT_BS must hold (because the transmission duration on the bus has also to be considered).
+
+                                                This parameter is defined in ISO 15765-2. It is contained in the configuration as a performance requirement.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00044</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">65.535</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpTimeCs -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:52be0e3c-0912-4b1d-80a8-144d2ed34efe">
+                                       <SHORT-NAME>FrArTpTimeCs</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the time in seconds between the sending of two consecutive CFs or  between reception of an FC or AF and sending of the next CF .</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">It is obvious that FRARTP_TIME_CS + (FRARTP_TIMEOUT_AS * FRARTP_MAX_AS) &lt; FRARTP_TIMEOUT_CR must hold (because the transmission duration on the bus has also to be considered). 
+
+                                                This parameter is defined in ISO 15765-2. It is contained in the configuration as a performance requirement.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00046</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">65.535</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpTimeoutAr -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:af2272f8-9b82-465a-b640-fefd7582dc0c">
+                                       <SHORT-NAME>FrArTpTimeoutAr</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter states the timeout in seconds between the PDU transmit request of the Transport Layer to the FlexRay Interface and the corresponding confirmation of the FlexRay Interface on the receiver side (for FC or AF).</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00048</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">65.535</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpTimeoutAs -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:d5e8acba-4da6-4ec2-b73c-b11684d92d53">
+                                       <SHORT-NAME>FrArTpTimeoutAs</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter states the timeout in seconds between the PDU transmit request for the first PDU of the group used in the current connection of the Transport Layer to the FlexRay Interface and the corresponding confirmation of the FlexRay Interface (when having sent the last PDU of the</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">group used in this connection) on the sender side (SF-x, FF-x, CF).</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00049</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">65.535</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpTimeoutBs -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:21b6f6ba-d00f-4ae3-a59c-6abdc1e49bd5">
+                                       <SHORT-NAME>FrArTpTimeoutBs</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the timeout in seconds for waiting for an FC or AF on the sender side in a 1:1 connection.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00050</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">65.535</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: FrArTpTimeoutCr -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:76f8dcee-0a17-4eeb-bd8d-c1c719af4a06">
+                                       <SHORT-NAME>FrArTpTimeoutCr</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter defines the timeout value in seconds for waiting for a CF or FF-x (in case of retry) after receiving the last CF or after sending an FC or AF on the receiver side.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00051</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">65.535</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                 </PARAMETERS>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: FrArTpConnection -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:13a80df6-16e8-4e9b-940b-bbb23b65795a">
+                                       <SHORT-NAME>FrArTpConnection</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container contains the configuration (parameters) of one FlexRay TP connection.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">A connection can only belong to one channel.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00010</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: FrArTpConPrioPdus -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:eaba7439-31d8-432b-9541-9949b0793d64">
+                                             <SHORT-NAME>FrArTpConPrioPdus</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter defines the number of TxNPdus to which this connection has prioritized access. It must be ensured that the number of prioritized PDUs of all connections is smaller than the total number of TxNPdus in the associated PDU pool.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00058</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                             <MAX>255</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: FrArTpLa -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:e954e143-e9a7-4b6c-852d-8f18e1ca4dda">
+                                             <SHORT-NAME>FrArTpLa</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter defines the Local Address for the respective connection.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">When the local instance is the sender, this is the Source Address within the TP frame. 
+                                                        When the local instance is the receiver, this is the Target Address within the TP frame. 
+                                                        Note that in case of 1 byte addressing only the values from 0x0000 - 0x00FF are valid. 
+
+                                                        If this parameter is not configured, all related Rx N-SDUs must be configured to use the meta data item TARGET_ADDRESS_16, and all related Tx-N-SDUs must be configured to use the meta data item SOURCE_ADDRESS_16.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00018</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: FrArTpMultRec -->
+                                          <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:16ce2a19-fe14-4138-bccc-d9d65af5b845">
+                                             <SHORT-NAME>FrArTpMultRec</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter defines, whether this connection is an 1:1 ('false') or an 1:n ('true') connection.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">Of course, if the channel to which the connection is configured has retry or acknowledgement enabled, no retry or acknowledgement will occur in case the connection is an 1:n connection.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00027</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          </ECUC-BOOLEAN-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: FrArTpRa -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:d61dfa47-2482-40bc-8d65-015f5a973016">
+                                             <SHORT-NAME>FrArTpRa</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter defines the Remote Address for the respective connection.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">When the local instance is the sender, this is the Target Address within the TP frame. 
+                                                        When the local instance is the receiver, this is the Source Address within the TP frame. 
+                                                        Note that in case of 1 byte addressing only the values from 0x0000 - 0x00FF are valid. 
+
+                                                        If this parameter is not configured, all related Rx N-SDUs must be configured to use the meta data item SOURCE_ADDRESS_16, and all related Tx-N-SDUs must be configured to use the meta data item TARGET_ADDRESS_16.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00037</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: FrArTpRxSdu -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d8731acc-40fe-4633-853b-297b53ec6b1d">
+                                             <SHORT-NAME>FrArTpRxSdu</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Describes the Rx N-SDU. This N-SDU can produce meta data items of type SOURCE_ADDRESS_16 and TARGET_ADDRESS_16.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00038</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: FrArTpSduRxId -->
+                                                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:11449a7a-0e5f-4585-806f-e7b9943538f9">
+                                                   <SHORT-NAME>FrArTpSduRxId</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This is a unique identifier for a received message. This Id is used in the CancelReceive and ChangeParameter API call.</L-2>
+                                                   </DESC>
+                                                   <INTRODUCTION>
+                                                      <P>
+                                                         <L-1 L="EN">ImplementationType: PduIdType</L-1>
+                                                      </P>
+                                                   </INTRODUCTION>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00040</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>ECU</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                                   <MAX>65535</MAX>
+                                                   <MIN>0</MIN>
+                                                </ECUC-INTEGER-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <REFERENCES>
+                                                <!-- Reference Definition: FrArTpRxSduRef -->
+                                                <ECUC-REFERENCE-DEF UUID="ECUC:2fe49c20-df8f-4155-81c1-2a0028c467cd">
+                                                   <SHORT-NAME>FrArTpRxSduRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Reference to a PDU in the global PDU structure.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00039</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                                </ECUC-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                          <!-- Container Definition: FrArTpTxSdu -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:dfda3c7c-8f9c-4b60-9906-c46a84e4e450">
+                                             <SHORT-NAME>FrArTpTxSdu</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Describes the Tx N-SDU. This N-SDU can consume meta data items of type SOURCE_ADDRESS_16 and TARGET_ADDRESS_16.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00055</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: FrArTpSduTxId -->
+                                                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:53e537ea-84a2-43cd-a160-3507af15d05c">
+                                                   <SHORT-NAME>FrArTpSduTxId</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This is a unique identifier for a received or a to be transmitted message. With this (and by means of e.g. a lookup table) the PDU Router can route the message appropriately without dealing with the particularities of the Transport Layer. This parameter can also be seen as the identifier of a connection.</L-2>
+                                                   </DESC>
+                                                   <INTRODUCTION>
+                                                      <P>
+                                                         <L-1 L="EN">ImplementationType: PduIdType</L-1>
+                                                      </P>
+                                                   </INTRODUCTION>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00041</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>ECU</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                                   <MAX>65535</MAX>
+                                                   <MIN>0</MIN>
+                                                </ECUC-INTEGER-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <REFERENCES>
+                                                <!-- Reference Definition: FrArTpTxSduRef -->
+                                                <ECUC-REFERENCE-DEF UUID="ECUC:84f2bd32-9b3a-4b4f-8625-4c5869465f63">
+                                                   <SHORT-NAME>FrArTpTxSduRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Reference to a PDU in the global PDU structure.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00052</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                                </ECUC-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: FrArTpPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:41f834ea-0a7e-41f1-922b-6ec9fdfca831">
+                                       <SHORT-NAME>FrArTpPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Container to hold the PDU parameters.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">ImplementationType: PduInfoType</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00029</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: FrArTpPduDirection -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:65ff9cc6-6ff0-4283-91b9-2ef072d144e7">
+                                             <SHORT-NAME>FrArTpPduDirection</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter defines the direction of the PDU.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00030</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2cb53004-50a0-82ce-2f45-da59ced796d5">
+                                                   <SHORT-NAME>FRARTP_RX</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:addc0c7e-3173-8b87-4058-fae74c9b73f8">
+                                                   <SHORT-NAME>FRARTP_TX</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: FrArTpPduId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:32c3e70e-66b0-4889-9164-c9b77fd3817f">
+                                             <SHORT-NAME>FrArTpPduId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This is the identifier of the FlexRay Interface PDUs (Fr N-PDU, Fr L-SDU) in which the Transport Layer Frames of this channel should be transmitted.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">For FrArTpPduDirection == FRARTP_RX, this parameter specifies the ID that is used by FrIf when calling FrArTp_RxIndication, while for FrArTpPduDirection == FRARTP_TX this ID is used by FrIf when calling FrArTp_TxConfirmation or FrArTp_TriggerTransmit.
+
+                                                        ImplementationType: PduIdType</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00035</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>ECU</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: FrArTpPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:121b4008-ac40-47de-87e5-8aa17f5cccb9">
+                                             <SHORT-NAME>FrArTpPduRef</SHORT-NAME>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_FrArTp_00036</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                     </CONTAINERS>
+                  </ECUC-MODULE-DEF>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

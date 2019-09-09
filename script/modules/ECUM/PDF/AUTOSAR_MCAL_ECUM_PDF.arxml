@@ -1,0 +1,1698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+  <!--
+    Document Owner:                 AUTOSAR
+    Document Responsibility:        AUTOSAR
+    Document Identification Number: 289
+    Document Status:                Final
+    Part of AUTOSAR Standard:       Classic Platform
+    Part of AUTOSAR Release:        4.4.0
+  -->
+  <ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <ISSUED-BY>AUTOSAR</ISSUED-BY>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+  <AR-PACKAGES>
+    <!-- AR-Package: AUTOSAR -->
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <!-- AR-Package: AUTOSAR -->
+        <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+          <SHORT-NAME>EcucDefs</SHORT-NAME>
+          <ELEMENTS>
+            <ECUC-DEFINITION-COLLECTION UUID="ECUC:4c30de73-30fc-43b3-a1b3-e74211eedff3">
+              <SHORT-NAME>AUTOSARParameterDefinition</SHORT-NAME>
+              <MODULE-REFS>
+                <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/EcuM</MODULE-REF>
+              </MODULE-REFS>
+            </ECUC-DEFINITION-COLLECTION>
+                  <!-- Module Definition: EcuM -->
+                  <ECUC-MODULE-DEF UUID="ECUC:2cef58ce-79fe-4a40-935b-ee76b6a60605">
+                     <SHORT-NAME>EcuM</SHORT-NAME>
+                     <DESC>
+                        <L-2 L="EN">Configuration of the EcuM (ECU State Manager) module.</L-2>
+                     </DESC>
+                     <ADMIN-DATA>
+                        <DOC-REVISIONS>
+                           <DOC-REVISION>
+                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
+                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                           </DOC-REVISION>
+                        </DOC-REVISIONS>
+                     </ADMIN-DATA>
+                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00225</RELATED-TRACE-ITEM-REF>
+                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                     <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                     <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+                     <SUPPORTED-CONFIG-VARIANTS>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+                     </SUPPORTED-CONFIG-VARIANTS>
+                     <CONTAINERS>
+                        <!-- Container Definition: EcuMConfiguration -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:16fb469f-1f19-45e7-b4e5-555ae0f14089">
+                           <SHORT-NAME>EcuMConfiguration</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container contains the configuration (parameters) of the ECU State Manager.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00103</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: EcuMCommonConfiguration -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:8e610dbe-ea33-4a18-bca8-c4d70a9da2f1">
+                                 <SHORT-NAME>EcuMCommonConfiguration</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This container contains the common configuration (parameters) of the ECU State Manager.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00181</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: EcuMConfigConsistencyHash -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:0bae5ee1-7bcc-4635-a400-d245750296dd">
+                                       <SHORT-NAME>EcuMConfigConsistencyHash</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">In the pre-compile and link-time configuration phase a hash value is generated across all pre-compile and link-time parameters of all BSW modules.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">In the post-build phase a hash value is generated across all pre-compile and link-time parameters, except for parameters located in EcucParamConfContainerDef instances or subContainers which have been introduced at post-build configuration time.
+
+                                                This hash value is compared against each other and allows checking the consistency of the entire configuration.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00102</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>LINK</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>18446744073709551615</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                 </PARAMETERS>
+                                 <REFERENCES>
+                                    <!-- Reference Definition: EcuMDefaultAppMode -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:65c6e769-6d64-4d96-8675-7983ccee0258">
+                                       <SHORT-NAME>EcuMDefaultAppMode</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">The default application mode loaded when the ECU comes out of reset.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00104</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Os/OsAppMode</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                    <!-- Reference Definition: EcuMOSResource -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:c2dcaae0-bc92-410f-bdb9-adf1d91ecffc">
+                                       <SHORT-NAME>EcuMOSResource</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter is a reference to a OS resource which is used to bring the ECU into sleep mode.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">In case of multi core each core shall have an own OsResource.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00183</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Os/OsResource</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                 </REFERENCES>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: EcuMDefaultShutdownTarget -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:aebde982-c84c-47f2-ac81-1989258cbaef">
+                                       <SHORT-NAME>EcuMDefaultShutdownTarget</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container describes the default shutdown target to be selected by EcuM. The actual shutdown target may be overridden by the EcuM_SelectShutdownTarget service.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00105</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EcuMDefaultShutdownTarget -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:ccac5543-c698-41bb-869a-fa1a6acbf26f">
+                                             <SHORT-NAME>EcuMDefaultShutdownTarget</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter describes the state part of the default shutdown target selected when the ECU comes out of reset. If EcuMShutdownTargetSleep is selected, the parameter EcuMDefaultSleepModeRef selects the specific sleep mode.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00107</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f36aaca6-a0cc-925d-58a1-4862fed97f58">
+                                                   <SHORT-NAME>EcuMShutdownTargetOff</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c45941d2-2cca-89f2-5062-070ec82de00a">
+                                                   <SHORT-NAME>EcuMShutdownTargetReset</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:812918e0-5f3d-9111-6062-4fc555392f17">
+                                                   <SHORT-NAME>EcuMShutdownTargetSleep</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: EcuMDefaultResetModeRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:68b39a3a-9e3c-40c0-8b2f-d30262687598">
+                                             <SHORT-NAME>EcuMDefaultResetModeRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">If EcuMDefaultShutdownTarget is EcuMShutdownTargetReset, this parameter selects the default reset mode. Otherwise this parameter may be ignored.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00205</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMResetMode</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                          <!-- Symbolic Name Reference Definition: EcuMDefaultSleepModeRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:7cf854cf-a9cb-4ead-8eae-96bd1592bd0a">
+                                             <SHORT-NAME>EcuMDefaultSleepModeRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">If EcuMDefaultShutdownTarget is EcuMShutdownTargetSleep, this parameter selects the default sleep mode. Otherwise this parameter may be ignored.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00106</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMSleepMode</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMDriverInitListOne -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e108fe98-dc5c-4f3c-9d9e-5a4989fb20d0">
+                                       <SHORT-NAME>EcuMDriverInitListOne</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Container for Init Block I.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">This container holds a list of modules to be initialized. Each module in the list will be called for initialization in the list order.
+
+                                                All modules in this list are initialized before the OS is started and so these modules require no OS support.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00111</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: EcuMDriverInitItem -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:b37908f7-5536-96bf-545e-fa7e8d6d11e0">
+                                             <SHORT-NAME>EcuMDriverInitItem</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">These containers describe the entries in a driver init list.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00110</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <REQUIRES-INDEX>true</REQUIRES-INDEX>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleParameter -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:a50143a0-bea2-df92-120c-54c216ca74f6">
+                                                   <SHORT-NAME>EcuMModuleParameter</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Definition of the function prototype and the parameter passed to the function.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00224</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:da2b55c5-d991-2897-a61a-a1482456d7fa">
+                                                         <SHORT-NAME>NULL_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c7bc079c-7b1e-2894-988a-e401b8b0351b">
+                                                         <SHORT-NAME>POSTBUILD_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c99a9908-752c-2f90-92c5-15bb947fae47">
+                                                         <SHORT-NAME>VOID</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleService -->
+                                                <ECUC-STRING-PARAM-DEF UUID="ECUC:f7b11899-50e8-e38b-ef40-30412ee7e758">
+                                                   <SHORT-NAME>EcuMModuleService</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined "Init" is taken by default.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00124</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <MULTIPLICITY-CONFIG-CLASSES>
+                                                      <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   </MULTIPLICITY-CONFIG-CLASSES>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                      <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                                   </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                </ECUC-STRING-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <REFERENCES>
+                                                <!-- Foreign Reference Definition: EcuMModuleRef -->
+                                                <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:c45f91df-a9d3-e5c4-ef5c-076df7908fa3">
+                                                   <SHORT-NAME>EcuMModuleRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Foreign reference to the configuration of a module instance which shall be initialized by EcuM</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00223</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-TYPE>ECUC-MODULE-CONFIGURATION-VALUES</DESTINATION-TYPE>
+                                                </ECUC-FOREIGN-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMDriverInitListZero -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:320a0bfb-905f-484f-89cb-c8938c1921b4">
+                                       <SHORT-NAME>EcuMDriverInitListZero</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Container for Init Block 0.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">This container holds a list of modules to be initialized. Each module in the list will be called for initialization in the list order.
+
+                                                All modules in this list are initialized before the post-build configuration has been loaded and the OS is initialized. Therefore, these modules may not use post-build configuration.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00114</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: EcuMDriverInitItem -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:047a165a-0939-8fd2-408c-68c88f8b12c4">
+                                             <SHORT-NAME>EcuMDriverInitItem</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">These containers describe the entries in a driver init list.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00110</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <REQUIRES-INDEX>true</REQUIRES-INDEX>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleParameter -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:f6025103-72a5-d8a5-fe39-c30c18e875da">
+                                                   <SHORT-NAME>EcuMModuleParameter</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Definition of the function prototype and the parameter passed to the function.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00224</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2b2c6328-8d94-21aa-9248-0f922674d8de">
+                                                         <SHORT-NAME>NULL_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:18bd14ff-2f21-21a7-84b8-524bbace35ff">
+                                                         <SHORT-NAME>POSTBUILD_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:1a9ba66b-292f-28a3-7ef2-8405969daf2b">
+                                                         <SHORT-NAME>VOID</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleService -->
+                                                <ECUC-STRING-PARAM-DEF UUID="ECUC:48b225fc-04eb-dc9e-db6d-9e8b3105e83c">
+                                                   <SHORT-NAME>EcuMModuleService</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined "Init" is taken by default.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00124</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <MULTIPLICITY-CONFIG-CLASSES>
+                                                      <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   </MULTIPLICITY-CONFIG-CLASSES>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                      <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                                   </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                </ECUC-STRING-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <REFERENCES>
+                                                <!-- Foreign Reference Definition: EcuMModuleRef -->
+                                                <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:15609f42-5dd6-ded7-db89-75b7f9ae9087">
+                                                   <SHORT-NAME>EcuMModuleRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Foreign reference to the configuration of a module instance which shall be initialized by EcuM</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00223</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-TYPE>ECUC-MODULE-CONFIGURATION-VALUES</DESTINATION-TYPE>
+                                                </ECUC-FOREIGN-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMDriverRestartList -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a32e3888-bdad-4685-bcb5-18248c199379">
+                                       <SHORT-NAME>EcuMDriverRestartList</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">List of modules to be initialized.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00115</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: EcuMDriverInitItem -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:759e42e7-3687-8e08-7375-b8598f8b8489">
+                                             <SHORT-NAME>EcuMDriverInitItem</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">These containers describe the entries in a driver init list.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00110</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <REQUIRES-INDEX>true</REQUIRES-INDEX>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleParameter -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:67267d90-9ff3-d6db-3123-129d18e8e79f">
+                                                   <SHORT-NAME>EcuMModuleParameter</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Definition of the function prototype and the parameter passed to the function.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00224</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:9c508fb5-bae2-1fe0-c531-5f2326754aa3">
+                                                         <SHORT-NAME>NULL_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:89e1418c-5c6f-1fdd-b7a1-a1dcbacea7c4">
+                                                         <SHORT-NAME>POSTBUILD_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:8bbfd2f8-567d-26d9-b1db-d396969e20f0">
+                                                         <SHORT-NAME>VOID</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleService -->
+                                                <ECUC-STRING-PARAM-DEF UUID="ECUC:b9d65289-3239-dad4-0e56-ee1c31065a01">
+                                                   <SHORT-NAME>EcuMModuleService</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined "Init" is taken by default.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00124</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <MULTIPLICITY-CONFIG-CLASSES>
+                                                      <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   </MULTIPLICITY-CONFIG-CLASSES>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                      <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                                   </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                </ECUC-STRING-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <REFERENCES>
+                                                <!-- Foreign Reference Definition: EcuMModuleRef -->
+                                                <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:8684cbcf-8b24-dd0d-0e72-c548f9af024c">
+                                                   <SHORT-NAME>EcuMModuleRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Foreign reference to the configuration of a module instance which shall be initialized by EcuM</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00223</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-TYPE>ECUC-MODULE-CONFIGURATION-VALUES</DESTINATION-TYPE>
+                                                </ECUC-FOREIGN-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMSleepMode -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a9cbddde-5cd2-4616-9604-6041afbe9990">
+                                       <SHORT-NAME>EcuMSleepMode</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">These containers describe the configured sleep modes.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">The names of these containers specify the symbolic names of the different sleep modes.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00131</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>256</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EcuMSleepModeId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:6575d26f-25a3-419a-a1f9-73e213842f07">
+                                             <SHORT-NAME>EcuMSleepModeId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This ID identifies this sleep mode in services like EcuM_SelectShutdownTarget.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00132</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>ECU</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>255</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EcuMSleepModeSuspend -->
+                                          <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:3da7b115-6bc9-4855-a744-83e78ae2f17b">
+                                             <SHORT-NAME>EcuMSleepModeSuspend</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Flag, which is set true, if the CPU is suspended, halted, or powered off in the sleep mode. If the CPU keeps running in this sleep mode, then this flag must be set to false.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00136</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          </ECUC-BOOLEAN-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: EcuMSleepModeMcuModeRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:f6907e19-209e-44bc-b8f4-08b7922a9adb">
+                                             <SHORT-NAME>EcuMSleepModeMcuModeRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter is a reference to the corresponding MCU mode for this sleep mode.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00133</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuModeSettingConf</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                          <!-- Symbolic Name Reference Definition: EcuMWakeupSourceMask -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:35ef3ce4-a034-4906-8400-3b4b02eaa0b8">
+                                             <SHORT-NAME>EcuMWakeupSourceMask</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">These parameters are references to the wakeup sources that shall be enabled for this sleep mode.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00152</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMWakeupSource -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:0a729dd6-2641-4d68-95a0-5a26ca418457">
+                                       <SHORT-NAME>EcuMWakeupSource</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">These containers describe the configured wakeup sources.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00150</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>32</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EcuMCheckWakeupTimeout -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:bc20e5bf-7c5b-431c-b32f-b1218275d1c1">
+                                             <SHORT-NAME>EcuMCheckWakeupTimeout</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This Parameter is the initial Value for the Time of the EcuM to delay shut down of the ECU if the check of the Wakeup Source is done asynchronously (CheckWakeupTimer).</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">The unit is in seconds.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00208</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                             <MAX INTERVAL-TYPE="CLOSED">10</MAX>
+                                             <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EcuMValidationTimeout -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:db82044d-d3a9-40b9-a9f5-6d2f788d3266">
+                                             <SHORT-NAME>EcuMValidationTimeout</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">The validation timeout (period for which the ECU State Manager will wait for the validation of a wakeup event) can be defined for each wakeup source independently. The timeout is specified in seconds.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">When the timeout is not instantiated, there is no validation routine and the ECU Manager shall not validate the wakeup source.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00148</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
+                                             <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EcuMWakeupSourceId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:bdc9686e-5683-43b0-95b2-0f1cd8114964">
+                                             <SHORT-NAME>EcuMWakeupSourceId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter defines the identifier of this wakeup source.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00151</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>ECU</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>31</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EcuMWakeupSourcePolling -->
+                                          <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:5af33790-8355-4594-8989-195b1e09d64a">
+                                             <SHORT-NAME>EcuMWakeupSourcePolling</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter describes if the wakeup source needs polling.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00153</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          </ECUC-BOOLEAN-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: EcuMComMChannelRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:7ad19fd1-f48a-43da-9491-0efb37cd51df">
+                                             <SHORT-NAME>EcuMComMChannelRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter is a reference to a Network (channel) defined in the Communication Manager. No reference indicates that the wakeup source is not a communication channel.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00101</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                          <!-- Symbolic Name Reference Definition: EcuMComMPNCRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:829da2c9-1afe-4459-a565-b098479e264d">
+                                             <SHORT-NAME>EcuMComMPNCRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This is a reference to a one or more PNC's defined in the Communication Manager.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">No reference indicates that the wakeup source is not assigned to a partial network.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00228</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMPnc</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                          <!-- Symbolic Name Reference Definition: EcuMResetReasonRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:be6be3ac-3dd8-4fb4-9890-c767597eb3ef">
+                                             <SHORT-NAME>EcuMResetReasonRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter describes the mapping of reset reasons detected by the MCU driver into wakeup sources.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00128</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Mcu/McuPublishedInformation/McuResetReasonConf</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: EcuMFlexConfiguration -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e088e752-6fde-4e09-9190-f0619180e9b4">
+                                 <SHORT-NAME>EcuMFlexConfiguration</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This container contains the configuration (parameters) of the EcuMFlex.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">Only applicable if EcuMFlex is implemented.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00167</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <REFERENCES>
+                                    <!-- Symbolic Name Reference Definition: EcuMNormalMcuModeRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:ef0eb80f-8127-45a4-8e24-04744d48a5f8">
+                                       <SHORT-NAME>EcuMNormalMcuModeRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter is a reference to the normal MCU mode to be restored after a sleep.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00204</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Mcu/McuModuleConfiguration/McuModeSettingConf</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                    <!-- Reference Definition: EcuMPartitionRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:2eed4127-0af3-40e5-8a8c-2a8587e75f02">
+                                       <SHORT-NAME>EcuMPartitionRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Reference denotes the partition a EcuM shall run inside.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">Please note that in case of a multicore ECU  this reference is mandatory.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00217</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                 </REFERENCES>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: EcuMAlarmClock -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:750dd6de-13ec-48cf-befd-615fde9145b3">
+                                       <SHORT-NAME>EcuMAlarmClock</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">These containers describe the configured alarm clocks.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">The name of these conatiners allows giving a symbolic name to one alarm clock.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00184</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EcuMAlarmClockId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:49861b32-83d2-464f-afd2-24fb12a3e1e0">
+                                             <SHORT-NAME>EcuMAlarmClockId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This ID identifies this alarmclock.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00186</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>255</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EcuMAlarmClockTimeOut -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:9677f083-e76f-486e-8634-df1555753290">
+                                             <SHORT-NAME>EcuMAlarmClockTimeOut</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter allows to define a timeout for this alarm clock.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00188</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
+                                             <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: EcuMAlarmClockUser -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:e6ff4bc0-7648-4128-b239-de3f273d33d2">
+                                             <SHORT-NAME>EcuMAlarmClockUser</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter allows an alarm to be assigned to a user.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00195</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMDriverInitListBswM -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:eed220f8-6b3f-40a1-a83a-f053d08cb471">
+                                       <SHORT-NAME>EcuMDriverInitListBswM</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container holds a list of modules to be initialized by the BswM.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00226</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: EcuMDriverInitItem -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:c1422b56-e419-8824-5efb-9088d3fea581">
+                                             <SHORT-NAME>EcuMDriverInitItem</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">These containers describe the entries in a driver init list.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00110</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <REQUIRES-INDEX>true</REQUIRES-INDEX>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleParameter -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:b2ca6600-4d85-d0f7-1ca8-eacc5d5c0897">
+                                                   <SHORT-NAME>EcuMModuleParameter</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Definition of the function prototype and the parameter passed to the function.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00224</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e7f47825-6874-19fc-b0b7-37526ae86b9b">
+                                                         <SHORT-NAME>NULL_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d58529fc-0a01-19f9-a327-7a0bff41c8bc">
+                                                         <SHORT-NAME>POSTBUILD_PTR</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d763bb68-040f-20f5-9d61-abc5db1141e8">
+                                                         <SHORT-NAME>VOID</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EcuMModuleService -->
+                                                <ECUC-STRING-PARAM-DEF UUID="ECUC:057a3af8-dfcb-d4f0-f9dc-c64b75797af9">
+                                                   <SHORT-NAME>EcuMModuleService</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">The service to be called to initialize that module, e.g. Init, PreInit, Start etc. If nothing is defined "Init" is taken by default.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00124</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <MULTIPLICITY-CONFIG-CLASSES>
+                                                      <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   </MULTIPLICITY-CONFIG-CLASSES>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                      <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                                   </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                                </ECUC-STRING-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <REFERENCES>
+                                                <!-- Foreign Reference Definition: EcuMModuleRef -->
+                                                <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:d228b43f-38b6-d729-f9f8-9d783e222344">
+                                                   <SHORT-NAME>EcuMModuleRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Foreign reference to the configuration of a module instance which shall be initialized by EcuM</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00223</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-TYPE>ECUC-MODULE-CONFIGURATION-VALUES</DESTINATION-TYPE>
+                                                </ECUC-FOREIGN-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMFlexUserConfig -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:3058925d-af3b-4a8a-9252-bd6700407009">
+                                       <SHORT-NAME>EcuMFlexUserConfig</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">These containers describe the identifiers that are needed to refer to a software component or another appropriate entity in the system which uses the EcuMFlex Interfaces.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00201</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>256</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EcuMFlexUser -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:7cefee01-1e46-45e6-b582-678888f226cc">
+                                             <SHORT-NAME>EcuMFlexUser</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Parameter used to identify one user.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00146</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>255</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: EcuMFlexEcucPartitionRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:fe138ccd-1882-4c4c-ad96-ce9be41c7a07">
+                                             <SHORT-NAME>EcuMFlexEcucPartitionRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Denotes in which "EcucPartition" the user of the EcuM is executed.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00203</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMGoDownAllowedUsers -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:7d3d53a3-4f3d-4595-9bd9-4c2e42819a48">
+                                       <SHORT-NAME>EcuMGoDownAllowedUsers</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container describes the collection of allowed users which are allowed to call the EcuM_GoDownHaltPoll API (only applies in the case that the previously set shutdown target is TARGET_RESET or TARGET_OFF).</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00206</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: EcuMGoDownAllowedUserRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:79119397-b629-4210-a818-6071972fb77f">
+                                             <SHORT-NAME>EcuMGoDownAllowedUserRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This references an allowed user.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00207</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMResetMode -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:f2f88c2c-79a4-47d4-8e3a-750f1bb3624e">
+                                       <SHORT-NAME>EcuMResetMode</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">These containers describe the configured reset modes.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">The name of these containers allows one of the following symbolic names to be given to the different reset modes:
+                                                - ECUM_RESET_MCU
+                                                - ECUM_RESET_WDG
+                                                - ECUM_RESET_IO.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00172</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>256</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EcuMResetModeId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:0a945601-d809-4f20-9ffe-e90e4d9a60a4">
+                                             <SHORT-NAME>EcuMResetModeId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This ID identifies this reset mode in services like EcuM_SelectShutdownTarget.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00173</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>255</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMSetClockAllowedUsers -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:b2941bdd-11fe-440e-a773-bce84948a4fd">
+                                       <SHORT-NAME>EcuMSetClockAllowedUsers</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container describes the collection of allowed users which are allowed to call the EcuM_SetClock API.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00197</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: EcuMSetClockAllowedUserRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:6c8dce8f-f2da-4d1f-9a06-da9d9829e14e">
+                                             <SHORT-NAME>EcuMSetClockAllowedUserRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">These parameters describe the references to the users which are allowed to call the EcuM_SetClock API.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00198</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMFlexConfiguration/EcuMFlexUserConfig</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EcuMShutdownCause -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:76c32704-2514-4828-a00c-c26c6ae45534">
+                                       <SHORT-NAME>EcuMShutdownCause</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">These containers describe the configured shut down or reset causes.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">The name of these containers allows to give one of the following symbolic names to the different shut down causes:
+                                                - ECUM_CAUSE_ECU_STATE - ECU state machine entered a state for shutdown,
+                                                - ECUM_CAUSE_WDGM - WdgM detected failure,
+                                                - ECUM_CAUSE_DCM - Dcm requests shutdown (split into UDS services?),
+                                                - and values from configuration.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00175</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>256</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EcuMShutdownCauseId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:596b234d-0197-46f6-87ee-f6a25635fa91">
+                                             <SHORT-NAME>EcuMShutdownCauseId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This ID identifies this shut down cause.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00176</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>255</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: EcuMFlexGeneral -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2042330b-0dc9-451d-9f4d-48e741cee88f">
+                           <SHORT-NAME>EcuMFlexGeneral</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container holds the general, pre-compile configuration parameters for the EcuMFlex.</L-2>
+                           </DESC>
+                           <INTRODUCTION>
+                              <P>
+                                 <L-1 L="EN">Only applicable if EcuMFlex is implemented.</L-1>
+                              </P>
+                           </INTRODUCTION>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00168</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: EcuMAlarmClockPresent -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:b21df21d-f88f-4e68-a784-0b5b0836f989">
+                                 <SHORT-NAME>EcuMAlarmClockPresent</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This flag indicates whether the optional AlarmClock feature is present.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00199</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EcuMModeHandling -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:84de8697-4b3a-4a5e-8728-cccbbbdf18b5">
+                                 <SHORT-NAME>EcuMModeHandling</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">If false, Run Request Protocol is not performed.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00221</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EcuMResetLoopDetection -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:53a6ceed-b5cc-4bd4-8741-60747b77dd76">
+                                 <SHORT-NAME>EcuMResetLoopDetection</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">If false, no reset loop detection is performed. If this configuration parameter exists and is set to true, the callout "EcuM_LoopDetection" is called during startup of EcuM (during StartPreOS).</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00171</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EcuMSetProgrammableInterrupts -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:63786888-09f7-4b95-8a90-8c03c0ce45a3">
+                                 <SHORT-NAME>EcuMSetProgrammableInterrupts</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">If this configuration parameter exists and is to true, the callout "EcuM_AL_SetProgrammableInterrupts" is called during startup of EcuM (during StartPreOS).</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00210</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                           </PARAMETERS>
+                           <REFERENCES>
+                              <!-- Symbolic Name Reference Definition: EcuMAlarmWakeupSource -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:824c1dac-d512-4089-aa9e-15bf7d01a829">
+                                 <SHORT-NAME>EcuMAlarmWakeupSource</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter describes the reference to the EcuMWakeupSource being used for the EcuM AlarmClock.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00200</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: EcuMGeneral -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:fd0b9fcb-4de6-4f6d-9725-5c36640588db">
+                           <SHORT-NAME>EcuMGeneral</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container holds the general, pre-compile configuration parameters.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00116</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: EcuMDevErrorDetect -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:07363168-09da-4d24-b4be-b85eba468e64">
+                                 <SHORT-NAME>EcuMDevErrorDetect</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Switches the development error detection and notification on or off.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">* true: detection and notification is enabled.
+                                        * false: detection and notification is disabled.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00108</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EcuMIncludeDet -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:eb2066d7-d0e8-4fc5-bc8e-3a3d35c30a52">
+                                 <SHORT-NAME>EcuMIncludeDet</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">If defined, the according BSW module will be initialized by the ECU State Manager</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00118</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EcuMMainFunctionPeriod -->
+                              <ECUC-FLOAT-PARAM-DEF UUID="ECUC:40a1fc47-8607-49ff-be26-3f868176d15f">
+                                 <SHORT-NAME>EcuMMainFunctionPeriod</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter defines the schedule period of EcuM_MainFunction.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">Unit: [s]</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00121</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>ECU</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                 <MIN INTERVAL-TYPE="OPEN">0</MIN>
+                              </ECUC-FLOAT-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EcuMVersionInfoApi -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:fa4df206-514e-4273-98fe-65daf9b2536c">
+                                 <SHORT-NAME>EcuMVersionInfoApi</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Switches the version info API on or off</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuM_00149</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                           </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                     </CONTAINERS>
+                  </ECUC-MODULE-DEF>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,2056 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+  <!--
+    Document Owner:                 AUTOSAR
+    Document Responsibility:        AUTOSAR
+    Document Identification Number: 289
+    Document Status:                Final
+    Part of AUTOSAR Standard:       Classic Platform
+    Part of AUTOSAR Release:        4.4.0
+  -->
+  <ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <ISSUED-BY>AUTOSAR</ISSUED-BY>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+  <AR-PACKAGES>
+    <!-- AR-Package: AUTOSAR -->
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <!-- AR-Package: AUTOSAR -->
+        <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+          <SHORT-NAME>EcucDefs</SHORT-NAME>
+          <ELEMENTS>
+            <ECUC-DEFINITION-COLLECTION UUID="ECUC:4c30de73-30fc-43b3-a1b3-e74211eedff3">
+              <SHORT-NAME>AUTOSARParameterDefinition</SHORT-NAME>
+              <MODULE-REFS>
+                <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/KeyM</MODULE-REF>
+              </MODULE-REFS>
+            </ECUC-DEFINITION-COLLECTION>
+                  <!-- Module Definition: KeyM -->
+                  <ECUC-MODULE-DEF UUID="ECUC:2c32c289-42f6-4153-a1ce-77cd061d5106">
+                     <SHORT-NAME>KeyM</SHORT-NAME>
+                     <DESC>
+                        <L-2 L="EN">Configuration of the Mcu (Microcontroller Unit) module.</L-2>
+                     </DESC>
+                     <ADMIN-DATA>
+                        <DOC-REVISIONS>
+                           <DOC-REVISION>
+                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
+                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                           </DOC-REVISION>
+                        </DOC-REVISIONS>
+                     </ADMIN-DATA>
+                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00001</RELATED-TRACE-ITEM-REF>
+                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                     <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                     <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+                     <SUPPORTED-CONFIG-VARIANTS>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+                     </SUPPORTED-CONFIG-VARIANTS>
+                     <CONTAINERS>
+                        <!-- Container Definition: KeyMCertificate -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:3815cf41-1e38-4f31-8316-290f53f87b15">
+                           <SHORT-NAME>KeyMCertificate</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container contains the certificate configuration.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00003</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: KeyMCertAlgorithmType -->
+                              <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:833f15f1-acba-490a-89bc-2f3c96ee3100">
+                                 <SHORT-NAME>KeyMCertAlgorithmType</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specify in which format the certificate will be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00029</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:7b698de4-1cdd-930d-1de6-4a135b96504b">
+                                       <SHORT-NAME>ECC</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d89ee212-0317-9093-1ffe-6c1cb6e4cfa5">
+                                       <SHORT-NAME>RSA</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                 </LITERALS>
+                              </ECUC-ENUMERATION-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCertFormatType -->
+                              <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:86316f90-026e-413a-851c-9c2aced9aeb3">
+                                 <SHORT-NAME>KeyMCertFormatType</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specify in which format the certificate will be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00028</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:14001ae7-a508-9b51-4040-70c66da5e47f">
+                                       <SHORT-NAME>CRL</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f683747c-db25-9ada-11de-50afdbd1d4e3">
+                                       <SHORT-NAME>CVC</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c5465689-ad49-9c7e-0ec8-2f2c18e93e3d">
+                                       <SHORT-NAME>X509</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                 </LITERALS>
+                              </ECUC-ENUMERATION-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCertificateId -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:42bf49af-2780-4ce5-88d7-d3d0501fb612">
+                                 <SHORT-NAME>KeyMCertificateId</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Identifier of the certificate. The set of configured identifiers shall be consecutive and gapless.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00022</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                 <MAX>65535</MAX>
+                                 <MIN>0</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCertificateMaxLength -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:f1343d36-0755-43bc-a626-3da68b6f8744">
+                                 <SHORT-NAME>KeyMCertificateMaxLength</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specify the maximum length in bytes of the certificate.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00023</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX>65535</MAX>
+                                 <MIN>1</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCertificateName -->
+                              <ECUC-STRING-PARAM-DEF UUID="ECUC:e21f95a8-4e7a-4a1a-bb5d-8c0fd7c771cb">
+                                 <SHORT-NAME>KeyMCertificateName</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Provides a unique name of the certificate for identification. The certificate provisional will reference certificates by this unique name.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00024</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                    <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                 </ECUC-STRING-PARAM-DEF-VARIANTS>
+                              </ECUC-STRING-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCertificateVerifyCallbackNotificationFunc -->
+                              <ECUC-FUNCTION-NAME-DEF UUID="ECUC:ebcbed71-f13e-46e9-a146-da6c53f4c4ca">
+                                 <SHORT-NAME>KeyMCertificateVerifyCallbackNotificationFunc</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter provides the function name for the callback &lt;KeyM_CertificateVerifyCallbackNotification&gt;. It indicates if a certificate verification operation was finished and provides its status. If this parameter is omitted, no callback will be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00025</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                                    <ECUC-FUNCTION-NAME-DEF-CONDITIONAL/>
+                                 </ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                              </ECUC-FUNCTION-NAME-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMServiceCertificateCallbackNotificationFunc -->
+                              <ECUC-FUNCTION-NAME-DEF UUID="ECUC:d9025e69-d1ed-4faa-85bb-a00ed47f9de3">
+                                 <SHORT-NAME>KeyMServiceCertificateCallbackNotificationFunc</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter provides the function name for the service certificate callback &lt;KeyM_ServiceCertificateCallbackNotification&gt;. It indicates if a certificate service operation was finished and provides its status. If this parameter is not set, no callback will be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00026</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                                    <ECUC-FUNCTION-NAME-DEF-CONDITIONAL/>
+                                 </ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                              </ECUC-FUNCTION-NAME-DEF>
+                           </PARAMETERS>
+                           <REFERENCES>
+                              <!-- Reference Definition: KeyMCertCertificateElementRuleRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:2c88eb12-cf5a-4a2d-8ff9-8e27b3bed786">
+                                 <SHORT-NAME>KeyMCertCertificateElementRuleRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Reference to certificate element rules which should be verified within the certification validation step.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00034</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/KeyM/KeyMCertificateElementVerification/KeyMCertificateElementRule</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Symbolic Name Reference Definition: KeyMCertCsmSignatureVerifyJobRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:67ed4fda-4206-4e75-9111-2966e5d9902e">
+                                 <SHORT-NAME>KeyMCertCsmSignatureVerifyJobRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Reference to the CSM job that is used to verify the signature</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00030</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Csm/CsmJobs/CsmJob</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Symbolic Name Reference Definition: KeyMCertCsmSignatureVerifyKeyRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:e9ce61a5-4ce4-4d45-8c2b-cbc5b3b1c021">
+                                 <SHORT-NAME>KeyMCertCsmSignatureVerifyKeyRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">References to the CSM key associated to the CSM signature verify job. This parameter can be omitted if the certificate is stored in CSM and the public key automatically references to the signature verify job, e.g. with virtual key.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">If this configuration option is present, the public key of the certificate will be placed into this key and its element (No. #1) to store the key.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00031</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Csm/CsmKeys/CsmKey</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Reference Definition: KeyMCertPrivateKeyStorageCryptoKeyRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:aab20642-2950-456b-9bd7-7a168f45be8e">
+                                 <SHORT-NAME>KeyMCertPrivateKeyStorageCryptoKeyRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Defines a storage location of the private key of a certificate.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00033</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/KeyM/KeyMCryptoKey</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Symbolic Name Reference Definition: KeyMCertTimebaseRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:4d76500f-0d56-4ccd-9df5-1b47805e06e3">
+                                 <SHORT-NAME>KeyMCertTimebaseRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This is a reference to an StbM time base to validate the validity period. Alternatively, KeyMCertificateElementVerification with the KeyMCertificateElement of CertificateValidityPeriodNotBefore or CertificateValidityPeriodNotAfter could be used.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00032</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Reference Definition: KeyMCertUpperHierarchicalCertRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:1163298a-1bd8-48d9-a87b-4a9a50e9baeb">
+                                 <SHORT-NAME>KeyMCertUpperHierarchicalCertRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Identifier of the certificate that is the next higher in the PKI hierarchical structure. The reference points to itself for root certificates.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00027</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/KeyM/KeyMCertificate</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: KeyMCertificateElement -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:916dce37-7040-42ed-8d54-97c123489837">
+                                 <SHORT-NAME>KeyMCertificateElement</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This container contains the certificate element configuration.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00035</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: KeyMCertificateElementHasIteration -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e9b02987-4a5b-4d83-a066-ba6f2d9588d0">
+                                       <SHORT-NAME>KeyMCertificateElementHasIteration</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Defines if the certificate element can occur more than one time. If so, the iterator can be used to retrieve the individual data values of this certificate element.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00040</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: KeyMCertificateElementId -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:2621613d-e293-4088-85bc-a657a70f4c95">
+                                       <SHORT-NAME>KeyMCertificateElementId</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Identifier of a certificate element.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00036</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                       <MAX>65535</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: KeyMCertificateElementMaxLength -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:c48692bc-26ad-437e-976a-4d2cf53152d9">
+                                       <SHORT-NAME>KeyMCertificateElementMaxLength</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Maximum length in bytes</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00039</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>65535</MAX>
+                                       <MIN>1</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: KeyMCertificateElementObjectId -->
+                                    <ECUC-STRING-PARAM-DEF UUID="ECUC:6ed83f67-b000-43d8-9fe8-202e0b54217c">
+                                       <SHORT-NAME>KeyMCertificateElementObjectId</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This is the object identifier (OID) that is used to identify the certificate element within its element structure.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00037</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                          <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                       </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                    </ECUC-STRING-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: KeyMCertificateElementObjectType -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:8e8dce5a-8c49-474e-a3b7-9fd4cd0933ac">
+                                       <SHORT-NAME>KeyMCertificateElementObjectType</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Certificate elements are stored in ASN.1 format. In this item the type of ASN.1 TLV can be specified (e.g. INTEGER has the value '2'). This can be used to identify only such certificate elements. If the type is different, the element is not included in the search.</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">If KeyMCertificateElementObjectType is not specified, any ASN.1 encoding datatype is used to read the value.</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00041</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>255</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: KeyMCertificateElementOfStructure -->
+                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:99fb2f38-edfb-494f-8fcd-6601360e8797">
+                                       <SHORT-NAME>KeyMCertificateElementOfStructure</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This defines in which structure the certificate element is located.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00038</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <LITERALS>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:cf0b8f1b-a0c1-880f-4142-4c4b573c383f">
+                                             <SHORT-NAME>CertificateExtension</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:505ff123-0b64-875f-1159-99dd1ab0aac8">
+                                             <SHORT-NAME>CertificateIssuerName</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d770d6eb-e31d-87a9-3c3e-4682e65ecf9f">
+                                             <SHORT-NAME>CertificateIssuerUniqueIdentifier</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:8ed4b24f-3174-8afb-29bb-8bcace7e7dd4">
+                                             <SHORT-NAME>CertificateSerialNumber</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e058a766-245d-860a-216d-001f0d9bc2b5">
+                                             <SHORT-NAME>CertificateSignature</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:3041052c-9707-8fa5-1dad-668bfed6fdb1">
+                                             <SHORT-NAME>CertificateSignatureAlgorithm</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2ae4ffb4-a004-8d29-447f-f31453500bae">
+                                             <SHORT-NAME>CertificateSignatureAlgorithmID</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:fe382845-cd15-83b0-1621-95441fd8a35c">
+                                             <SHORT-NAME>CertificateSubjectName</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:bc35c764-4f88-8af1-2575-43c71d96b162">
+                                             <SHORT-NAME>CertificateSubjectPublicKeyInfo_PublicKeyAlgorithm</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f4bdb2c6-f6a3-8990-1c02-6226bb5e2229">
+                                             <SHORT-NAME>CertificateSubjectPublicKeyInfo_SubjectPublicKey</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:eb36acf8-f82e-84b4-3657-7178178bfd7c">
+                                             <SHORT-NAME>CertificateSubjectUniqueIdentifier</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:00417cdc-0652-8394-37b2-48d7e3607cf9">
+                                             <SHORT-NAME>CertificateValidityPeriodNotAfter</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c90bfb13-3774-890d-1f32-72924b0e4b56">
+                                             <SHORT-NAME>CertificateValidityPeriodNotBefore</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:4e9e83a1-00dd-8aad-3219-7dfd85a44c33">
+                                             <SHORT-NAME>CertificateVersionNumber</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                       </LITERALS>
+                                    </ECUC-ENUMERATION-PARAM-DEF>
+                                 </PARAMETERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: KeyMCertificateElementVerification -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:3ffd48cf-01a3-4efd-903f-21db48ed1901">
+                           <SHORT-NAME>KeyMCertificateElementVerification</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container defines if and how certificate elements are to be verified.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00004</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: KeyMCertificateElementCondition -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:17ab2852-86c7-4e7b-8d40-640f79e771cc">
+                                 <SHORT-NAME>KeyMCertificateElementCondition</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This container contains the configuration of KeyElement compare conditions which can be used as arguments for a KeyMCertificateElementRule.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">One KeyMCertificateElementCondition shall contain either one KeyMCertificateElementSwcCallback or one KeyMCertificateElementSwcSRDataElementRef or one KeyMCertificateElementSwcSRDataElementValueRef.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00042</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: KeyMCertElementConditionType -->
+                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:0a932241-93b6-477b-9fc7-3a9facc1ca5b">
+                                       <SHORT-NAME>KeyMCertElementConditionType</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter specifies what kind of comparison that is made for the evaluation of the mode condition.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00044</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <LITERALS>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:7b235705-7180-998d-3799-0b6c814c58ac">
+                                             <SHORT-NAME>KEYM_EQUALS</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d410a9cd-da8f-94bb-251d-8f83949c35c5">
+                                             <SHORT-NAME>KEYM_EQUALS_NOT</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:0c1d7340-a371-94fc-3f3f-f175ec04e6a8">
+                                             <SHORT-NAME>KEYM_GREATER_OR_EQUAL</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:bdfbc546-eb5c-94af-0e77-ee53c233ca08">
+                                             <SHORT-NAME>KEYM_LESS_OR_EQUAL</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:edd588b3-f709-9a5b-1959-0e84da279bcf">
+                                             <SHORT-NAME>KEYM_LESS_THAN</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                       </LITERALS>
+                                    </ECUC-ENUMERATION-PARAM-DEF>
+                                 </PARAMETERS>
+                                 <REFERENCES>
+                                    <!-- Reference Definition: KeyMCertificateElementRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:a8273668-6dda-4c41-bdf8-4a7fed4fe494">
+                                       <SHORT-NAME>KeyMCertificateElementRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Reference to a certificate element used for the condition.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00045</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/KeyM/KeyMCertificate/KeyMCertificateElement</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                 </REFERENCES>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: KeyMCertificateElementConditionValue -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:c11870ee-9aef-4325-8581-b1a710df3475">
+                                       <SHORT-NAME>KeyMCertificateElementConditionValue</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container contains the configuration of a compare value.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00046</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: KeyMCertificateElementConditionArray -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:89771f22-b2dc-4cdf-a312-c24056fd5649">
+                                             <SHORT-NAME>KeyMCertificateElementConditionArray</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This container contains the configuration of a array compare value.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00048</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SUB-CONTAINERS>
+                                                <!-- Container Definition: KeyMCertificateElementConditionArrayElement -->
+                                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:4495dc20-4a95-42cc-a198-65fc85d12f38">
+                                                   <SHORT-NAME>KeyMCertificateElementConditionArrayElement</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This container contains the configuration of a array compare value.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00054</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                                   <PARAMETERS>
+                                                      <!-- PARAMETER DEFINITION: KeyMCertificateElementConditionArrayElementIndex -->
+                                                      <ECUC-INTEGER-PARAM-DEF UUID="ECUC:4be41af0-534e-4c8d-a1d3-b2a5a72814f6">
+                                                         <SHORT-NAME>KeyMCertificateElementConditionArrayElementIndex</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">Index to an element of the compare value array.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00055</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <MAX>65535</MAX>
+                                                         <MIN>0</MIN>
+                                                      </ECUC-INTEGER-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: KeyMCertificateElementConditionArrayElementValue -->
+                                                      <ECUC-INTEGER-PARAM-DEF UUID="ECUC:e26110cd-6886-4560-bfb0-aadd9848615b">
+                                                         <SHORT-NAME>KeyMCertificateElementConditionArrayElementValue</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">Value of an array element compare value.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00056</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <MAX>18446744073709551615</MAX>
+                                                         <MIN>0</MIN>
+                                                      </ECUC-INTEGER-PARAM-DEF>
+                                                   </PARAMETERS>
+                                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                             </SUB-CONTAINERS>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                          <!-- Container Definition: KeyMCertificateElementConditionCerificateElement -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a0a5d896-ef4c-40c0-b0fa-1be6e13c4f9c">
+                                             <SHORT-NAME>KeyMCertificateElementConditionCerificateElement</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This container contains the configuration of a certificate element as a compare value.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00049</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <REFERENCES>
+                                                <!-- Reference Definition: KeyMCertificateElementRef -->
+                                                <ECUC-REFERENCE-DEF UUID="ECUC:487e7273-509c-41ca-9d43-d82a0f59669f">
+                                                   <SHORT-NAME>KeyMCertificateElementRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Reference to another certificate element.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00051</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/KeyM/KeyMCertificate/KeyMCertificateElement</DESTINATION-REF>
+                                                </ECUC-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                          <!-- Container Definition: KeyMCertificateElementConditionPrimitive -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1a82aa94-28e5-43e1-b16f-c6be50cdd91e">
+                                             <SHORT-NAME>KeyMCertificateElementConditionPrimitive</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This container contains the configuration of a primitive compare value.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00047</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: KeyMCertificateElementConditionPrimitiveValue -->
+                                                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:05ba59f2-a105-44f4-bb48-23fd7b4a0099">
+                                                   <SHORT-NAME>KeyMCertificateElementConditionPrimitiveValue</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Primitive compare value</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00053</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <MAX>18446744073709551615</MAX>
+                                                   <MIN>0</MIN>
+                                                </ECUC-INTEGER-PARAM-DEF>
+                                             </PARAMETERS>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                          <!-- Container Definition: KeyMCertificateElementConditionSenderReceiver -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2cacb3c7-dd85-48de-abc1-696513fe2634">
+                                             <SHORT-NAME>KeyMCertificateElementConditionSenderReceiver</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This container contains the configuration of a dynamic compare value in a sender-/receiver interface.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00050</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <REFERENCES>
+                                                <!-- Instance Reference Definition: KeyMCertificateElementConditionSenderReceiver -->
+                                                <ECUC-INSTANCE-REFERENCE-DEF UUID="ECUC:dd509ab8-cfe0-463e-9f54-9ae2d1753345">
+                                                   <SHORT-NAME>KeyMCertificateElementConditionSenderReceiver</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This parameter references a mode in a particular mode request port of a software component that is used for the condition.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00052</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <DESTINATION-CONTEXT>ROOT-SW-COMPOSITION-PROTOTYPE SW-COMPONENT-PROTOTYPE PORT-PROTOTYPE</DESTINATION-CONTEXT>
+                                                   <DESTINATION-TYPE>AUTOSAR-DATA-PROTOTYPE</DESTINATION-TYPE>
+                                                </ECUC-INSTANCE-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: KeyMCertificateElementRule -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1f2eba51-597b-47d9-be85-5c481d7e896c">
+                                 <SHORT-NAME>KeyMCertificateElementRule</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This container contains the configuration of a mode rule which represents a logical expression with KeyMCertificateElementCondition or other KeyMCertificateElementRule as arguments.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">All arguments are processed with the operator defined by KeyMLogicalOperator, for instance: Argument_A AND Argument_B AND Argument_C.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00043</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: KeyMLogicalOperator -->
+                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:9d8f4f53-0ef8-4e58-8b6e-e0358fadd2af">
+                                       <SHORT-NAME>KeyMLogicalOperator</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter specifies the logical operator to be used in the logical expression. If the expression only consists of a single condition this parameter shall not be used.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00057</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <LITERALS>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f673f9d3-40fe-8875-5cc3-e721ae892e1c">
+                                             <SHORT-NAME>KEYM_AND</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d92819d7-a5fd-94d8-5e6e-f21338ba99c9">
+                                             <SHORT-NAME>KEYM_OR</SHORT-NAME>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          </ECUC-ENUMERATION-LITERAL-DEF>
+                                       </LITERALS>
+                                    </ECUC-ENUMERATION-PARAM-DEF>
+                                 </PARAMETERS>
+                                 <REFERENCES>
+                                    <!-- Choice Reference Definition: KeyMArgumentRef -->
+                                    <ECUC-CHOICE-REFERENCE-DEF UUID="ECUC:5cf0c58f-8240-4063-a80c-77a1ab45fa1f">
+                                       <SHORT-NAME>KeyMArgumentRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This is a choice reference either to a condition or another rule serving as sub-expression.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00058</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <DESTINATION-REFS>
+                                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/KeyM/KeyMCertificateElementVerification/KeyMCertificateElementCondition</DESTINATION-REF>
+                                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/KeyM/KeyMCertificateElementVerification/KeyMCertificateElementRule</DESTINATION-REF>
+                                       </DESTINATION-REFS>
+                                    </ECUC-CHOICE-REFERENCE-DEF>
+                                 </REFERENCES>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: KeyMCryptoKey -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:cb7ddbfe-c4a8-4749-8527-7034a8ca7fc6">
+                           <SHORT-NAME>KeyMCryptoKey</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container contains the crypto keys that can be updated.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00005</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoCsmVerifyJobType -->
+                              <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:912bcc9b-1b55-42b7-8c00-0b1ca88a0787">
+                                 <SHORT-NAME>KeyMCryptoCsmVerifyJobType</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specifies what type of function for key verification operation is used.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00067</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:db421d3a-9092-93a2-0bff-e98bf3a66e3a">
+                                       <SHORT-NAME>KEYM_VERIFY_AEADDECRYPT</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:28f97ba7-2377-8926-15e3-0d6d279ba824">
+                                       <SHORT-NAME>KEYM_VERIFY_AEADENCRYPT</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:68014a02-2bf7-91fb-09f8-4e78d440ab96">
+                                       <SHORT-NAME>KEYM_VERIFY_DECRYPT</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:6f33b4fc-2d34-8dc3-411e-b5fe6f8ff122">
+                                       <SHORT-NAME>KEYM_VERIFY_ENCRYPT</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:55977295-4290-9726-146b-95377b17aa26">
+                                       <SHORT-NAME>KEYM_VERIFY_MACGENERATE</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:701a9f3a-c21b-9706-0fc3-48129d31ad10">
+                                       <SHORT-NAME>KEYM_VERIFY_MACVERIFY</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                 </LITERALS>
+                              </ECUC-ENUMERATION-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyCryptoProps -->
+                              <ECUC-STRING-PARAM-DEF UUID="ECUC:4c9fece2-ef77-4930-915d-322e6015d2ce">
+                                 <SHORT-NAME>KeyMCryptoKeyCryptoProps</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">If set, it will provide additional hints to the crypto key that is used by KeyM to identify the key.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">Typical approach is to set the value to the SHE-Slot ID where the key was placed to. If present, the KeyM will take the information and identify the key by its slot ID. The slot information will be extracted from the corresponding field of the M1M2M3 data.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00069</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                    <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                 </ECUC-STRING-PARAM-DEF-VARIANTS>
+                              </ECUC-STRING-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyGenerationInfo -->
+                              <ECUC-STRING-PARAM-DEF UUID="ECUC:f43d582f-210e-4025-be82-b023cc4f5b9c">
+                                 <SHORT-NAME>KeyMCryptoKeyGenerationInfo</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This data may contain static data for key derivation. If a key is configured to be derived from another key and this configuration item is set, the data will be added as salt.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00068</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                    <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                 </ECUC-STRING-PARAM-DEF-VARIANTS>
+                              </ECUC-STRING-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyGenerationType -->
+                              <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:4a4b5642-a609-4867-b42c-4873de2c5ec9">
+                                 <SHORT-NAME>KeyMCryptoKeyGenerationType</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specifies how the CryptoKey will be generated. If it is derived from another key or simply stored with KeyElementSet.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00061</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e4405b3e-528d-8e66-3c41-fc60dfaf503d">
+                                       <SHORT-NAME>KEYM_DERIVED_KEY</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a8ffc6d1-87bd-876e-373e-676c73491474">
+                                       <SHORT-NAME>KEYM_STORED_KEY</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                 </LITERALS>
+                              </ECUC-ENUMERATION-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyId -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:8975041a-b2a2-49ad-b6fc-33bba2022cc7">
+                                 <SHORT-NAME>KeyMCryptoKeyId</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Identifier of the crypto key. The set of configured identifiers shall be consecutive and gapless.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00059</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                 <MAX>65535</MAX>
+                                 <MIN>0</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyMaxLength -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:8fd4ffc9-082a-45ab-b12a-4987a23a0199">
+                                 <SHORT-NAME>KeyMCryptoKeyMaxLength</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">The maximum size in bytes of a CryptoKey.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00060</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX>4294967295</MAX>
+                                 <MIN>1</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyName -->
+                              <ECUC-STRING-PARAM-DEF UUID="ECUC:dc6e7951-c064-45c7-b2e8-5a05d04db2da">
+                                 <SHORT-NAME>KeyMCryptoKeyName</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Provides a unique name of the key for identification. The key master will reference keys by this unique key name.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00062</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                    <ECUC-STRING-PARAM-DEF-CONDITIONAL/>
+                                 </ECUC-STRING-PARAM-DEF-VARIANTS>
+                              </ECUC-STRING-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyStorage -->
+                              <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:48980e5b-3563-48e4-97eb-2c690cfbc0cf">
+                                 <SHORT-NAME>KeyMCryptoKeyStorage</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specify the storage location of the certificate.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00063</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d28b5682-e954-9226-0724-87757fef6526">
+                                       <SHORT-NAME>KEYM_STORAGE_IN_CSM</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:84416822-b507-967b-1f3b-b57b4e91ddeb">
+                                       <SHORT-NAME>KEYM_STORAGE_IN_NVM</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:b06db581-e813-8833-35bb-6597acf0ec04">
+                                       <SHORT-NAME>KEYM_STORAGE_IN_RAM</SHORT-NAME>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                 </LITERALS>
+                              </ECUC-ENUMERATION-PARAM-DEF>
+                           </PARAMETERS>
+                           <REFERENCES>
+                              <!-- Symbolic Name Reference Definition: KeyMCryptoKeyCsmKeySourceDeriveRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:7c31c6b4-3cfd-4216-a5d4-20b0f5162a9a">
+                                 <SHORT-NAME>KeyMCryptoKeyCsmKeySourceDeriveRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Defines a reference to the associated CSM key that is used as source for the key derivation of this key.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00064</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Csm/CsmKeys/CsmKey</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Symbolic Name Reference Definition: KeyMCryptoKeyCsmKeyTargetRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:5c0d2ee8-98a8-457a-ade4-e71b8ffcf60a">
+                                 <SHORT-NAME>KeyMCryptoKeyCsmKeyTargetRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Defines a reference to the associated CSM key that shall be generated.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00065</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Csm/CsmKeys/CsmKey</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                              <!-- Symbolic Name Reference Definition: KeyMCryptoKeyCsmVerifyJobRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:70948f00-8e9a-415e-a4be-f3433f38b43b">
+                                 <SHORT-NAME>KeyMCryptoKeyCsmVerifyJobRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Defines the crypto job that the key verify function can use for verification of a certain key.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00066</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Csm/CsmJobs/CsmJob</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: KeyMNvmBlock -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:aaecb708-e348-4e7f-98b9-55976b41bbda">
+                                 <SHORT-NAME>KeyMNvmBlock</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Configuration of optional usage of Nvm in case the KeyM module requires non volatile memory in the Ecu to store information (e.g. crypto keys or certificates).</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00070</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <REFERENCES>
+                                    <!-- Symbolic Name Reference Definition: KeyMNvmBlockDescriptorRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:d5177ff2-7eeb-4f17-8c72-ace047a6b8c6">
+                                       <SHORT-NAME>KeyMNvmBlockDescriptorRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Reference to the Nvm block description in the Nvm module configuration.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00071</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>ECU</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/NvM/NvMBlockDescriptor</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                 </REFERENCES>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: KeyMGeneral -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:9d2fb602-a28e-4112-9023-a1e4b8142752">
+                           <SHORT-NAME>KeyMGeneral</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container holds general configuration (parameters) for key manager.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00002</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: KeyMCertificateChainMaxDepth -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:93e8454c-327c-4c5d-af9e-86bef1e243ff">
+                                 <SHORT-NAME>KeyMCertificateChainMaxDepth</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Maximum number of certificates defined in a certificate chain.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00008</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX>255</MAX>
+                                 <MIN>1</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCertificateManagerEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:f173f54b-3515-437b-a967-89ce33c9bb97">
+                                 <SHORT-NAME>KeyMCertificateManagerEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the part that manages certificates.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00010</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyHandlerPrepareEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:41b3c83c-1579-4f21-8e15-5a8b096e7726">
+                                 <SHORT-NAME>KeyMCryptoKeyHandlerPrepareEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the key handler prepare function call. If set to true, the corresponding key handler function shall be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00018</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyHandlerServiceCertificateEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:fbe91daf-ff5f-4d8f-a12f-77d9c58a11a6">
+                                 <SHORT-NAME>KeyMCryptoKeyHandlerServiceCertificateEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the key handler service function call. If set to true, the certificate submodule function KeyM_KH_ServiceCertificate() shall be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00021</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyHandlerStartFinalizeEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:b516e06a-b1c2-4203-a4b4-45428261a079">
+                                 <SHORT-NAME>KeyMCryptoKeyHandlerStartFinalizeEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the key handler start and finalize function call. If set to true, the key handler functions KeyM_KH_Start() and KeyM_KH_Finalize() shall be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00017</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyHandlerUpdateEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:c1b319d8-348d-4493-9739-2ce852e061b7">
+                                 <SHORT-NAME>KeyMCryptoKeyHandlerUpdateEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the call to the key handler update function KeyM_KH_Update(). If set to true, the corresponding key handler function shall be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00019</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyHandlerVerifyEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e410b31b-0dcd-4955-8154-f88762d62f06">
+                                 <SHORT-NAME>KeyMCryptoKeyHandlerVerifyEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the call to the key handler verify function KeyM_KH_Verify(). If set to true, the corresponding key handler function shall be provided.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00020</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyManagerEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:aedc2796-e45a-4dad-b10f-da248b0c53a9">
+                                 <SHORT-NAME>KeyMCryptoKeyManagerEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the part that manages crypto key operations.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00011</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyPrepareFunctionEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:a9b1a74c-8aec-43b5-bfe1-416d6504f7fd">
+                                 <SHORT-NAME>KeyMCryptoKeyPrepareFunctionEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the prepare function of the key manager. If set to true, the KeyM_Prepare() function has to be called accordingly.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00013</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyStartFinalizeFunctionEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:3796e262-a4db-4891-a00d-6b7f4d2fbbc3">
+                                 <SHORT-NAME>KeyMCryptoKeyStartFinalizeFunctionEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the start and Finish function of the key manager. If set to true, the KeyM_Start() and KeyM_Finalize() functions have to be called.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00012</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyVerifyAsyncMode -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:0030a464-4346-4ad6-9206-996fddd7b8d3">
+                                 <SHORT-NAME>KeyMCryptoKeyVerifyAsyncMode</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter defines if the function KeyM_Verify() runs in synchronous or asynchronous mode</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00015</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMCryptoKeyVerifyFunctionEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:df771ead-177f-40b8-8b68-6a00fb321a29">
+                                 <SHORT-NAME>KeyMCryptoKeyVerifyFunctionEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the verify function of the key manager. If set to true, the KeyM_Verify() function can be called.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00014</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMDevErrorDetect -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:2d4d2418-06c2-4e91-bf73-494b04273e8f">
+                                 <SHORT-NAME>KeyMDevErrorDetect</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Switches the development error detection and notification on or off.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">- true: detection and notification is enabled.
+                                        - false: detection and notification is disabled.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00006</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMKeyCertNameMaxLength -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:824a6d50-891d-4098-abf6-0cc9ce186663">
+                                 <SHORT-NAME>KeyMKeyCertNameMaxLength</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Maximum length in bytes of certificate or key names used for the service interface.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00009</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX>255</MAX>
+                                 <MIN>1</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMMainFunctionPeriod -->
+                              <ECUC-FLOAT-PARAM-DEF UUID="ECUC:635a874c-e116-4bc1-8b5b-c20bcb85630f">
+                                 <SHORT-NAME>KeyMMainFunctionPeriod</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specifies the period of main function KeyM_MainFunction in seconds.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00007</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                 <MIN INTERVAL-TYPE="OPEN">0</MIN>
+                              </ECUC-FLOAT-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: KeyMServiceCertificateFunctionEnabled -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:4c250ea2-741a-4313-bd7b-4b14a4a3c9fe">
+                                 <SHORT-NAME>KeyMServiceCertificateFunctionEnabled</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables (TRUE) or disables (FALSE) the certificate service function of the key manager. If set to true, the KeyM_ServiceCertificate() function has to be called accordingly.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_KeyM_00016</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                           </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                     </CONTAINERS>
+                  </ECUC-MODULE-DEF>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

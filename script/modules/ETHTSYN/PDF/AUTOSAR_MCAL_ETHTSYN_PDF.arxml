@@ -1,0 +1,1541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+  <!--
+    Document Owner:                 AUTOSAR
+    Document Responsibility:        AUTOSAR
+    Document Identification Number: 289
+    Document Status:                Final
+    Part of AUTOSAR Standard:       Classic Platform
+    Part of AUTOSAR Release:        4.4.0
+  -->
+  <ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <ISSUED-BY>AUTOSAR</ISSUED-BY>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+  <AR-PACKAGES>
+    <!-- AR-Package: AUTOSAR -->
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <!-- AR-Package: AUTOSAR -->
+        <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+          <SHORT-NAME>EcucDefs</SHORT-NAME>
+          <ELEMENTS>
+            <ECUC-DEFINITION-COLLECTION UUID="ECUC:4c30de73-30fc-43b3-a1b3-e74211eedff3">
+              <SHORT-NAME>AUTOSARParameterDefinition</SHORT-NAME>
+              <MODULE-REFS>
+                <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/EthTSyn</MODULE-REF>
+              </MODULE-REFS>
+            </ECUC-DEFINITION-COLLECTION>
+                  <!-- Module Definition: EthTSyn -->
+                  <ECUC-MODULE-DEF UUID="ECUC:ef7ca060-383c-4345-bcef-cb7d6d00dedc">
+                     <SHORT-NAME>EthTSyn</SHORT-NAME>
+                     <DESC>
+                        <L-2 L="EN">Configuration of the Synchronized Time-base Manager (StbM) module with respect to global time handling on Ethernet.</L-2>
+                     </DESC>
+                     <ADMIN-DATA>
+                        <DOC-REVISIONS>
+                           <DOC-REVISION>
+                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
+                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                           </DOC-REVISION>
+                        </DOC-REVISIONS>
+                     </ADMIN-DATA>
+                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00001</RELATED-TRACE-ITEM-REF>
+                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                     <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                     <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+                     <SUPPORTED-CONFIG-VARIANTS>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+                     </SUPPORTED-CONFIG-VARIANTS>
+                     <CONTAINERS>
+                        <!-- Container Definition: EthTSynGeneral -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:4abfff0e-f4a2-4116-9884-99088bd9f63c">
+                           <SHORT-NAME>EthTSynGeneral</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This container holds the general parameters of the Ethernet-specific Synchronized Time-base Manager</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00003</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: EthTSynDestPhyAddr -->
+                              <ECUC-STRING-PARAM-DEF UUID="ECUC:7381302c-c2e6-42d7-82ca-00782fb8fe67">
+                                 <SHORT-NAME>EthTSynDestPhyAddr</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Destination Physical Address (MAC-Address).</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">Destination Physical Hardware Address (MAC-Address) of EthTSyn-gPTP Frames. Input format has to match xx:xx:xx:xx:xx:xx, where x stands for a hex value between 0 and F.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00058</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                    <ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                                       <DEFAULT-VALUE>01:80:C2:00:00:0E</DEFAULT-VALUE>
+                                    </ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                                 </ECUC-STRING-PARAM-DEF-VARIANTS>
+                              </ECUC-STRING-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynDevErrorDetect -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:97c1bf48-863c-4419-bdfa-7a95e310d14b">
+                                 <SHORT-NAME>EthTSynDevErrorDetect</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Switches the development error detection and notification on or off.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">* true: detection and notification is enabled.
+                                        * false: detection and notification is disabled.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00002</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynGlobalTimeRxToUplinkSwitchResidenceTime -->
+                              <ECUC-FLOAT-PARAM-DEF UUID="ECUC:d722990e-2646-43d8-b978-f4e415d2ad6e">
+                                 <SHORT-NAME>EthTSynGlobalTimeRxToUplinkSwitchResidenceTime</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter is specifying the default value used for the residence time of the Ethernet Switch [Ingress to Uplink].</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">This value is used by the EthTSyn if the calculation of the residence time failed.
+
+                                        Unit: seconds</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00060</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                 <MAX INTERVAL-TYPE="OPEN">4</MAX>
+                                 <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                              </ECUC-FLOAT-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynGlobalTimeUplinkToTxSwitchResidenceTime -->
+                              <ECUC-FLOAT-PARAM-DEF UUID="ECUC:4d897de5-d99b-4a55-b2c9-042466b1c463">
+                                 <SHORT-NAME>EthTSynGlobalTimeUplinkToTxSwitchResidenceTime</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter is specifying the default value used for the residence time of the Ethernet Switch [Uplink to Egress].</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">This value is used by the EthTSyn if the calculation of the residence time failed.
+
+                                        Unit: seconds</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00061</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                 <MAX INTERVAL-TYPE="OPEN">4</MAX>
+                                 <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                              </ECUC-FLOAT-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynHardwareTimestampSupport -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:3f62e37c-2192-48e6-8a7c-55c0e9390d01">
+                                 <SHORT-NAME>EthTSynHardwareTimestampSupport</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Activate/Deactivate the hardware time stamping functionality of the Ethernet hardware.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">True: Timestamp is retrieved from the Ethernet hardware
+                                        False: Timestamp is retrieved from the StbM</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00018</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynMainFunctionPeriod -->
+                              <ECUC-FLOAT-PARAM-DEF UUID="ECUC:7b8bdf27-fc9a-4fbc-97bd-7a50abb0fa2e">
+                                 <SHORT-NAME>EthTSynMainFunctionPeriod</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Schedule period of the main function EthTSyn_MainFunction.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">Unit: seconds.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00012</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                 <MIN INTERVAL-TYPE="OPEN">0</MIN>
+                              </ECUC-FLOAT-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynMasterSlaveConflictDetection -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:c1298a59-de67-4cfa-bec9-6364393c5c5a">
+                                 <SHORT-NAME>EthTSynMasterSlaveConflictDetection</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Enables master / slave conflict detection and notification.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">* true: detection and notification is enabled. 
+                                        * false: detection and notification is disabled.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00075</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynMessageCompliance -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:38b378b4-5457-4bd9-9a24-f43c2f60aa21">
+                                 <SHORT-NAME>EthTSynMessageCompliance</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">* true: IEEE 802.1AS compliant message format will be used.</L-2>
+                                 </DESC>
+                                 <INTRODUCTION>
+                                    <P>
+                                       <L-1 L="EN">* false: IEEE 802.1AS message format with AUTOSAR extension will be used.</L-1>
+                                    </P>
+                                 </INTRODUCTION>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00029</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynSwitchMgmtRxMessageBufferCount -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:661f6b20-3cc2-4cee-931f-8b71fc456a3f">
+                                 <SHORT-NAME>EthTSynSwitchMgmtRxMessageBufferCount</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This parameter is used to determine the amount of Rx message buffers available in the EthTSyn when EthTSyn is used in a Bridge configuration.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00059</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>10</DEFAULT-VALUE>
+                                 <MAX>254</MAX>
+                                 <MIN>1</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynVersionInfoApi -->
+                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:b2dd9067-201b-46f0-97fb-f28dd9b030d8">
+                                 <SHORT-NAME>EthTSynVersionInfoApi</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Activate/Deactivate the version information API (EthTSyn_GetVersionInfo). True: version information API activated False: version information API deactivated.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00015</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                              </ECUC-BOOLEAN-PARAM-DEF>
+                           </PARAMETERS>
+                           <REFERENCES>
+                              <!-- Reference Definition: EthTSynEthIfFrameType -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:e87231df-9332-41c5-bd06-593bd93288f1">
+                                 <SHORT-NAME>EthTSynEthIfFrameType</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">The chosen frame owner determines which frames (in respect to ethertype) are received.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00062</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EthIf/EthIfConfigSet/EthIfFrameOwnerConfig</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: EthTSynGlobalTimeDomain -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:ee0c077f-5d03-463d-9144-6a3c3f3bc7ef">
+                           <SHORT-NAME>EthTSynGlobalTimeDomain</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This represents the existence of a global time domain on Ethernet. The EthTSyn module can administrate several global time domains at the same time that in itself form a hierarchy of domains and sub-domains.</L-2>
+                           </DESC>
+                           <INTRODUCTION>
+                              <P>
+                                 <L-1 L="EN">If the EthTSyn exists it is assumed that at least one global time domain exists.</L-1>
+                              </P>
+                           </INTRODUCTION>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00004</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: EthTSynGlobalTimeDomainId -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:62241e1e-05ed-4b34-bd22-fa839f74b3a1">
+                                 <SHORT-NAME>EthTSynGlobalTimeDomainId</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">The global time domain ID.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00005</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX>31</MAX>
+                                 <MIN>0</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                              <!-- PARAMETER DEFINITION: EthTSynGlobalTimeSecureTmacLength -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:671014e4-2295-4054-b110-e58630db8f46">
+                                 <SHORT-NAME>EthTSynGlobalTimeSecureTmacLength</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Represents the number of bytes for the used Truncated Message Authentication Code (TMAC). If 0, no message authentication will be used.</L-2>
+                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00077</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                 <MAX>16</MAX>
+                                 <MIN>0</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                           </PARAMETERS>
+                           <REFERENCES>
+                              <!-- Symbolic Name Reference Definition: EthTSynSynchronizedTimeBaseRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:e2e57238-23bd-4436-8aac-2b4dac409201">
+                                 <SHORT-NAME>EthTSynSynchronizedTimeBaseRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Mandatory reference to the required synchronized time-base.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00013</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: EthTSynGlobalTimeFollowUpDataIDList -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:3266d7c3-85f8-46b9-b687-4d604f27c81a">
+                                 <SHORT-NAME>EthTSynGlobalTimeFollowUpDataIDList</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">The DataIDList for Follow_Up message ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00030</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: EthTSynGlobalTimeFollowUpDataIDListElement -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:02a18ef2-cba3-4e31-9cb4-289dae7bffec">
+                                       <SHORT-NAME>EthTSynGlobalTimeFollowUpDataIDListElement</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Element of the DataIDList for Follow_Up message ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00031</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>16</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>16</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EthTSynGlobalTimeFollowUpDataIDListIndex -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:55411683-3e13-4d90-98d6-99505fa5a5c1">
+                                             <SHORT-NAME>EthTSynGlobalTimeFollowUpDataIDListIndex</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Index of the DataIDList for Follow_Up message ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00032</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX>15</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EthTSynGlobalTimeFollowUpDataIDListValue -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:7d17dddb-b1d5-42be-84fe-3752dc2c7cb8">
+                                             <SHORT-NAME>EthTSynGlobalTimeFollowUpDataIDListValue</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Value of the DataIDList for Follow_Up message ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00033</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX>255</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: EthTSynPortConfig -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:58b27c34-99a1-4daa-8f49-58553cf0cfbd">
+                                 <SHORT-NAME>EthTSynPortConfig</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Configuration of the EthTSyn-Ports within the TimeDomain.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00063</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                 <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                 </MULTIPLICITY-CONFIG-CLASSES>
+                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: EthTSynFramePrio -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:0c68e20c-5bb4-4169-bf48-c720edffbca4">
+                                       <SHORT-NAME>EthTSynFramePrio</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This optional parameter, if present, indicates the priority of outgoing EthTSyn messages, if sent via VLAN (used for the 3-bit PCP field of the VLAN tag). If this optional parameter is not present, frames are sent without a priority and VLAN field.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00034</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>7</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: EthTSynGlobalTimeDebounceTime -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:ff066b4c-5397-4dc8-b07c-0a06dea0361f">
+                                       <SHORT-NAME>EthTSynGlobalTimeDebounceTime</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This represents the configuration of a TX debounce time for Sync and Follow_Up messages compared to a message before with the same PDU. Unit: seconds</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00048</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX INTERVAL-TYPE="CLOSED">4</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: EthTSynGlobalTimeMinMsgGap -->
+                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:dc2f166c-b26e-4e75-97a7-5c450026e1ee">
+                                       <SHORT-NAME>EthTSynGlobalTimeMinMsgGap</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This parameter represents the configuration of a minimum message gap time for received Timesync messages compared to a message before with the same PDU. If PDUs are received more often in between than this parameter allows, they shall be ignored.</L-2>
+                                          <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                       </DESC>
+                                       <INTRODUCTION>
+                                          <P>
+                                             <L-1 L="EN">Unit: seconds</L-1>
+                                          </P>
+                                       </INTRODUCTION>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00078</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                       <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                    </ECUC-FLOAT-PARAM-DEF>
+                                 </PARAMETERS>
+                                 <REFERENCES>
+                                    <!-- Symbolic Name Reference Definition: EthTSynGlobalTimeEthIfRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:1bded4f0-74ac-4076-9640-77079dad74c7">
+                                       <SHORT-NAME>EthTSynGlobalTimeEthIfRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This represents the reference to the Ethernet interface taken to fetch the global time information.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00065</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EthIf/EthIfConfigSet/EthIfController</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                    <!-- Symbolic Name Reference Definition: EthTSynSwitchManagementEthSwitchPortRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:fe05d31a-8e41-4eed-83b3-4e5361a417d0">
+                                       <SHORT-NAME>EthTSynSwitchManagementEthSwitchPortRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">In an AVB-Bridge config, this reference is used to assign the EthTSyn-Port to an Ethernet Switch-Port.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00066</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <VALUE-CONFIG-CLASSES>
+                                          <ECUC-VALUE-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-VALUE-CONFIGURATION-CLASS>
+                                       </VALUE-CONFIG-CLASSES>
+                                       <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EthSwt/EthSwtConfig/EthSwtPort</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                 </REFERENCES>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: EthTSynPdelayConfig -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a9d33232-960f-46a3-8b1f-7213b86b07a7">
+                                       <SHORT-NAME>EthTSynPdelayConfig</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Configuration of cyclic propagation delay measurement.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00068</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: EthTSynGlobalTimePdelayRespEnable -->
+                                          <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:801fc9cf-21c0-4977-beb0-57cb1db20804">
+                                             <SHORT-NAME>EthTSynGlobalTimePdelayRespEnable</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter allows disabling Pdelay_Resp / Pdelay_Resp_Follow_Up transmission, if no Pdelay_Req messages are expected.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">FALSE: No Pdelay requests expected. Pdelay_Resp / Pdelay_Resp_Follow_Up transmission is disabled.
+
+                                                        TRUE: Pdelay requests expected. Pdelay_Resp / Pdelay_Resp_Follow_Up transmission is enabled.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00069</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                                          </ECUC-BOOLEAN-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EthTSynGlobalTimePropagationDelay -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:2ff48583-f371-41e0-a76e-8d8c6171f1bf">
+                                             <SHORT-NAME>EthTSynGlobalTimePropagationDelay</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">If cyclic propagation delay measurement is enabled, this parameter represents the default value of the propagation delay until the first actually measured propagation delay is available.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">If cyclic propagation delay measurement is disabled, this parameter replaces a measured propagation delay by a fixed value.
+
+                                                        Unit: seconds</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00070</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                                             <MAX INTERVAL-TYPE="CLOSED">4</MAX>
+                                             <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EthTSynGlobalTimeTxPdelayReqPeriod -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:b3917c56-18e1-41c9-860d-1ac6c182b41e">
+                                             <SHORT-NAME>EthTSynGlobalTimeTxPdelayReqPeriod</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This represents configuration of the TX period for Pdelay_Req messages.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">A value of 0 disables the cyclic Pdelay measurement.
+
+                                                        Unit: seconds</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00071</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                             <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EthTSynPdelayLatencyThreshold -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:9186b7ee-cb37-41f1-a81e-04e2bbb5cb67">
+                                             <SHORT-NAME>EthTSynPdelayLatencyThreshold</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Threshold for calculated Pdelay. If a measured Pdelay exceeds EthTSynPdelayLatencyThreshold, this value is discarded.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">Unit: seconds</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00076</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <DEFAULT-VALUE>1E-5</DEFAULT-VALUE>
+                                             <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                             <MIN INTERVAL-TYPE="OPEN">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: EthTSynPdelayRespAndRespFollowUpTimeout -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:b43f54d3-14dd-46ed-b0ae-45c1bf2c8b17">
+                                             <SHORT-NAME>EthTSynPdelayRespAndRespFollowUpTimeout</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Timeout value for Pdelay_Resp and Pdelay_Resp_Follow_Up after a Pdelay_Req has been transmitted resp. a Pdelay_Resp has been received.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">A value of 0 deactivates this timeout observation. 
+
+                                                        Unit: seconds</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00074</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                             <VALUE-CONFIG-CLASSES>
+                                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                             </VALUE-CONFIG-CLASSES>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX INTERVAL-TYPE="CLOSED">4</MAX>
+                                             <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                       </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: EthTSynPortRole -->
+                                    <ECUC-CHOICE-CONTAINER-DEF UUID="ECUC:3afae85d-1b27-44cb-bf56-55ae79e25b23">
+                                       <SHORT-NAME>EthTSynPortRole</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Specifying the Role of the EthTSyn-Port (Master or Slave).</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00067</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <MULTIPLICITY-CONFIG-CLASSES>
+                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                       </MULTIPLICITY-CONFIG-CLASSES>
+                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                       <CHOICES>
+                                          <!-- Container Definition: EthTSynGlobalTimeMaster -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:20d1e409-b2eb-4086-bbe6-0525aff7c21c">
+                                             <SHORT-NAME>EthTSynGlobalTimeMaster</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Configuration of the global time master. Each global time domain is required to have exactly one global time master. This master may or may not exist on the configured ECU.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00008</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: EthTSynCyclicMsgResumeTime -->
+                                                <ECUC-FLOAT-PARAM-DEF UUID="ECUC:7bf17a76-df16-4b50-a941-00f73076e879">
+                                                   <SHORT-NAME>EthTSynCyclicMsgResumeTime</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Defines the time where the 1st regular cycle time based message transmission takes place, after an immediate transmission before. Unit: seconds</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00047</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                                   <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                                </ECUC-FLOAT-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynGlobalTimeTxCrcSecured -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:a968328a-0af9-4e9a-a9f8-09a63361f29d">
+                                                   <SHORT-NAME>EthTSynGlobalTimeTxCrcSecured</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents the configuration of whether or not CRC is supported.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00039</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:72dbe463-ee95-db29-0301-0c41d22c175b">
+                                                         <SHORT-NAME>CRC_NOT_SUPPORTED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:56bdd23b-6ffa-dd96-ead1-969d575e5e60">
+                                                         <SHORT-NAME>CRC_SUPPORTED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynGlobalTimeTxPeriod -->
+                                                <ECUC-FLOAT-PARAM-DEF UUID="ECUC:895a28b4-2c4e-4b59-ac47-70aadc1de237">
+                                                   <SHORT-NAME>EthTSynGlobalTimeTxPeriod</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents configuration of the TX period. Unit: seconds</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00010</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
+                                                   <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                                </ECUC-FLOAT-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynImmediateTimeSync -->
+                                                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:8a1c201a-aadc-4861-877a-7516549965df">
+                                                   <SHORT-NAME>EthTSynImmediateTimeSync</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Enables/Disables the cyclic polling of StbM_GetTimeBaseUpdateCounter() within EthTSyn_MainFunction().</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00046</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                </ECUC-BOOLEAN-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynTLVFollowUpOFSSubTLV -->
+                                                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:c17972ba-16b8-4c9a-863e-dc16febf963e">
+                                                   <SHORT-NAME>EthTSynTLVFollowUpOFSSubTLV</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents the configuration of whether an AUTOSAR Follow_Up TLV OFS Sub-TLV is used or not.</L-2>
+                                                   </DESC>
+                                                   <INTRODUCTION>
+                                                      <P>
+                                                         <L-1 L="EN">* true: This represents a configuration where an AUTOSAR Follow_Up TLV OFS Sub-TLV is used.
+                                                                * false: This represents a configuration where an AUTOSAR Follow_Up TLV OFS Sub-TLV is not used.</L-1>
+                                                      </P>
+                                                   </INTRODUCTION>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00038</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                </ECUC-BOOLEAN-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynTLVFollowUpStatusSubTLV -->
+                                                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:7792586e-71d7-4ce3-bf7f-1e1efd22ce69">
+                                                   <SHORT-NAME>EthTSynTLVFollowUpStatusSubTLV</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents the configuration of whether an AUTOSAR Follow_Up TLV Status Sub-TLV is used or not.</L-2>
+                                                   </DESC>
+                                                   <INTRODUCTION>
+                                                      <P>
+                                                         <L-1 L="EN">* true: This represents a configuration where an AUTOSAR Follow_Up TLV Status Sub-TLV is used.
+                                                                * false: This represents a configuration where an AUTOSAR Follow_Up TLV Status Sub-TLV is not used.</L-1>
+                                                      </P>
+                                                   </INTRODUCTION>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00036</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                </ECUC-BOOLEAN-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynTLVFollowUpTimeSubTLV -->
+                                                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e11aff70-3879-4d1e-9bd8-d4740a910d1e">
+                                                   <SHORT-NAME>EthTSynTLVFollowUpTimeSubTLV</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents the configuration of whether an AUTOSAR Follow_Up TLV Time Sub-TLV is used or not.</L-2>
+                                                   </DESC>
+                                                   <INTRODUCTION>
+                                                      <P>
+                                                         <L-1 L="EN">* true: This represents a configuration where an AUTOSAR Follow_Up TLV Time Sub-TLV is used.
+                                                                * false: This represents a configuration where an AUTOSAR Follow_Up TLV Time Sub-TLV is not used.</L-1>
+                                                      </P>
+                                                   </INTRODUCTION>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00035</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                </ECUC-BOOLEAN-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynTLVFollowUpUserDataSubTLV -->
+                                                <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:2c6f3bd9-1f7e-4b1c-b290-4608c7339298">
+                                                   <SHORT-NAME>EthTSynTLVFollowUpUserDataSubTLV</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents the configuration of whether an AUTOSAR Follow_Up TLV UserData Sub-TLV is used or not.</L-2>
+                                                   </DESC>
+                                                   <INTRODUCTION>
+                                                      <P>
+                                                         <L-1 L="EN">* true: This represents a configuration where an AUTOSAR Follow_Up TLV UserData Sub-TLV is used.
+                                                                * false: This represents a configuration where an AUTOSAR Follow_Up TLV UserData Sub-TLV is not used.</L-1>
+                                                      </P>
+                                                   </INTRODUCTION>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00037</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                </ECUC-BOOLEAN-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynTxTmacCalculated -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:7b954e87-109a-4dc9-ab7b-4b875b7450ed">
+                                                   <SHORT-NAME>EthTSynTxTmacCalculated</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This parameter controls whether or not TMAC calculation shall be supported.</L-2>
+                                                      <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00079</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:bf7b36b7-7112-8479-51b3-5ecc4a586537">
+                                                         <SHORT-NAME>TMAC_CALCULATED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f1fc9417-c33f-8321-62a5-5135d14c33d7">
+                                                         <SHORT-NAME>TMAC_NOT_CALCULATED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <SUB-CONTAINERS>
+                                                <!-- Container Definition: EthTSynCrcTimeFlagsTxSecured -->
+                                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:b5382ff6-ba89-4aa8-8455-6ae63fc1d83d">
+                                                   <SHORT-NAME>EthTSynCrcTimeFlagsTxSecured</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This container collects definitions which parts of the Follow_Up message elements shall be used for CRC calculation.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00057</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <MULTIPLICITY-CONFIG-CLASSES>
+                                                      <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   </MULTIPLICITY-CONFIG-CLASSES>
+                                                   <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                                   <PARAMETERS>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcCorrectionField -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:6458078f-308c-9762-0cc5-947ad3ef3b72">
+                                                         <SHORT-NAME>EthTSynCrcCorrectionField</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">correctionField from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00042</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcDomainNumber -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:2b184225-a081-8b9c-440f-385e0739e43d">
+                                                         <SHORT-NAME>EthTSynCrcDomainNumber</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">domainNumber from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00041</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcMessageLength -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:bd46fb52-c29e-9a2a-09a8-f0620e2203f1">
+                                                         <SHORT-NAME>EthTSynCrcMessageLength</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">messageLength from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00040</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcPreciseOriginTimestamp -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e6475574-5a20-9738-1808-4edf24308a2b">
+                                                         <SHORT-NAME>EthTSynCrcPreciseOriginTimestamp</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">preciseOriginTimestamp from the Follow_Up Message Field shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00045</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcSequenceId -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:8ade3424-79bd-8b78-1a92-99d8a0aadaa0">
+                                                         <SHORT-NAME>EthTSynCrcSequenceId</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">sequenceId from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00044</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcSourcePortIdentity -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:07aa7f8c-b1dc-97fb-1950-d0594b9f1920">
+                                                         <SHORT-NAME>EthTSynCrcSourcePortIdentity</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">sourcePortIdentity from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00043</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                   </PARAMETERS>
+                                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                             </SUB-CONTAINERS>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                          <!-- Container Definition: EthTSynGlobalTimeSlave -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:06ad6036-fb6a-450e-a8c1-7509babd6012">
+                                             <SHORT-NAME>EthTSynGlobalTimeSlave</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Configuration of a time slave. Each global time domain is required to have at least one time slave. The configured ECU may or may not represent a time slave.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00009</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <MULTIPLICITY-CONFIG-CLASSES>
+                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                             </MULTIPLICITY-CONFIG-CLASSES>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <PARAMETERS>
+                                                <!-- PARAMETER DEFINITION: EthTSynGlobalTimeFollowUpTimeout -->
+                                                <ECUC-FLOAT-PARAM-DEF UUID="ECUC:3e7d4950-7a0a-4eb9-93d1-daa525f08113">
+                                                   <SHORT-NAME>EthTSynGlobalTimeFollowUpTimeout</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Timeout value of the Follow_Up message (of the subsequent Sync message).</L-2>
+                                                   </DESC>
+                                                   <INTRODUCTION>
+                                                      <P>
+                                                         <L-1 L="EN">A value of 0 deactivates this timeout observation.
+
+                                                                Unit: seconds</L-1>
+                                                      </P>
+                                                   </INTRODUCTION>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00007</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <MAX INTERVAL-TYPE="CLOSED">4</MAX>
+                                                   <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                                </ECUC-FLOAT-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynRxCrcValidated -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:cca19f12-fe8f-4485-8f8d-d23eb3fef243">
+                                                   <SHORT-NAME>EthTSynRxCrcValidated</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">Definition of whether or not validation of the CRC takes place.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00049</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2244ffee-efac-8cdc-3e71-fb8742341be0">
+                                                         <SHORT-NAME>CRC_IGNORED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:35eb234d-3024-89b3-2cea-c451e46ba84e">
+                                                         <SHORT-NAME>CRC_NOT_VALIDATED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:aef5092b-bf3e-8de6-40d0-268251be330d">
+                                                         <SHORT-NAME>CRC_OPTIONAL</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2a343a60-46ab-88b0-4309-c27b3add2bf5">
+                                                         <SHORT-NAME>CRC_VALIDATED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                                <!-- PARAMETER DEFINITION: EthTSynRxTmacValidated -->
+                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:b4abf8c1-165c-4813-ac08-22efcd356dd0">
+                                                   <SHORT-NAME>EthTSynRxTmacValidated</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This parameter controls whether or not TMAC validation shall be supported.</L-2>
+                                                      <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00080</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                   <VALUE-CONFIG-CLASSES>
+                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                   </VALUE-CONFIG-CLASSES>
+                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                   <LITERALS>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:48d87f3b-1270-87c9-3a62-4e78b361e24e">
+                                                         <SHORT-NAME>TMAC_NOT_VALIDATED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:76ffb6f8-c8a6-8db3-5b8d-3279a42cdd27">
+                                                         <SHORT-NAME>TMAC_VALIDATED</SHORT-NAME>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                      </ECUC-ENUMERATION-LITERAL-DEF>
+                                                   </LITERALS>
+                                                </ECUC-ENUMERATION-PARAM-DEF>
+                                             </PARAMETERS>
+                                             <SUB-CONTAINERS>
+                                                <!-- Container Definition: EthTSynCrcFlagsRxValidated -->
+                                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:220d6ab0-34bc-41fa-818b-af47c24f7836">
+                                                   <SHORT-NAME>EthTSynCrcFlagsRxValidated</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This container collects definitions which parts of the Follow_Up message elements shall be included in CRC validation.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00050</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <MULTIPLICITY-CONFIG-CLASSES>
+                                                      <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                      </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                                   </MULTIPLICITY-CONFIG-CLASSES>
+                                                   <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                                                   <PARAMETERS>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcCorrectionField -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:d12d4248-aabf-8eb4-09fb-d8dc567cdb6b">
+                                                         <SHORT-NAME>EthTSynCrcCorrectionField</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">correctionField from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00053</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcDomainNumber -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:97ed7cdf-1ab4-82ee-4145-7cbf89c78436">
+                                                         <SHORT-NAME>EthTSynCrcDomainNumber</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">domainNumber from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00052</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcMessageLength -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:2a1c360c-3cd1-917c-06df-34c390afa3ea">
+                                                         <SHORT-NAME>EthTSynCrcMessageLength</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">messageLength from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00051</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcPreciseOriginTimestamp -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:531c902d-d453-8e8a-153e-9340a6be2a24">
+                                                         <SHORT-NAME>EthTSynCrcPreciseOriginTimestamp</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">preciseOriginTimestamp from the Follow_Up Message Field shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00056</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcSequenceId -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:f7b36edd-f3f0-82ca-17c8-de3a23387a99">
+                                                         <SHORT-NAME>EthTSynCrcSequenceId</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">sequenceId from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00055</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                      <!-- PARAMETER DEFINITION: EthTSynCrcSourcePortIdentity -->
+                                                      <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:747fba46-2c0f-8f4d-1687-14bace2cb919">
+                                                         <SHORT-NAME>EthTSynCrcSourcePortIdentity</SHORT-NAME>
+                                                         <DESC>
+                                                            <L-2 L="EN">sourcePortIdentity from the Follow_Up Message Header shall be included in CRC calculation.</L-2>
+                                                         </DESC>
+                                                         <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EthTSyn_00054</RELATED-TRACE-ITEM-REF>
+                                                         <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                         <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                         <SCOPE>LOCAL</SCOPE>
+                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                         <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                                                         <VALUE-CONFIG-CLASSES>
+                                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                                               <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                                               <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                                         </VALUE-CONFIG-CLASSES>
+                                                         <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                                         <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                                      </ECUC-BOOLEAN-PARAM-DEF>
+                                                   </PARAMETERS>
+                                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                             </SUB-CONTAINERS>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </CHOICES>
+                                    </ECUC-CHOICE-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                     </CONTAINERS>
+                  </ECUC-MODULE-DEF>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

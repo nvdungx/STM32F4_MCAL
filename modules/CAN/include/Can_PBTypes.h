@@ -8,9 +8,25 @@
 #ifndef CAN_PBTYPES_H
 #define CAN_PBTYPES_H
 
-typedef struct Can_ConfigType_STag
+/* Data structure contain post-compile data:
+  ptr to baudrate configuration structure
+  ptr to controller HW initialized data
+  ptr to HW object handle initialized data
+  ptr to receive rule initialized data
+  */
+typedef struct Can_ControllerPBConfigType_STag
 {
-  uint8 ucNumCanController;
-} Can_ConfigType;
+
+  uint8 ucControllerId;
+} Can_ControllerPBConfigType;
+
+/* Data structure contain post-compile data:
+  general HW configuration data of CAN module
+  */
+typedef struct Can_GeneralPBConfigType_STag
+{
+  
+  uint8 CanIndex;
+} Can_GeneralPBConfigType;
 
 #endif /*End of Can_PBTypes.h*/

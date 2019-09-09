@@ -70,7 +70,7 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
   P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config)
 {
   uint8 Luc_Count;
-  boolean Lbl_DeInitSts;
+  boolean Lbl_InitSts;
   #if(DEV_ERROR_DETECT_API == STD_ON)
   Std_ReturnType Luc_StdResult;
 
@@ -104,12 +104,12 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
   if (E_OK == Luc_StdResult)
   {
   #endif
-    Lbl_DeInitSts = TRUE;
+    Lbl_InitSts = TRUE;
     for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
     {
-      Lbl_DeInitSts &= Can_HwInit(Luc_Count);
+      Lbl_InitSts &= Can_HwInit(Luc_Count);
     }
-    if (TRUE == Lbl_DeInitSts)
+    if (TRUE == Lbl_InitSts)
     {
       /* There are no fail during initialized process */
       Can_DriverSts = CAN_READY;

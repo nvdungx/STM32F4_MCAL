@@ -52,12 +52,17 @@ Macro definitions
 #define SW_PATCH_VERSION          0x00U
 #define NUMBER_CAN_CONTROLLER     0x02U
 
-
-
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/
-
+typedef struct Can_ConfigType_STag
+{
+  CONSTP2VAR(Can_ControllerPCConfigType, AUTOMATIC, CAN_APPL_DATA)
+    stPCController,
+  P2CONST(Can_ControllerPBConfigType, AUTOMATIC, CAN_APPL_DATA) stPBController,
+  P2CONST(Can_GeneralPBConfigType, AUTOMATIC, CAN_APPL_DATA) stPBGeneral,
+  VAR(uint8, AUTOMATIC) ucNumCanController;
+} Can_ConfigType;
 
 
 /*******************************************************************************

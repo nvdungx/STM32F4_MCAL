@@ -21,6 +21,17 @@ Macro definitions
 #define CAN_APPL_DATA
 #define CAN_CODE_FAST
 
+#define CAN_CONST
+
+#define CAN_VAR_CLEARED
+#define CAN_VAR_CLEARED_UNSPECIFIED
+#define CAN_VAR_FAST_CLEARED
+#define CAN_VAR_SLOW_CLEARED
+
+#define CAN_CONFIG_DATA
+
+#define CAN_CONFIG_DATA_UNSPECIFIED
+
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/

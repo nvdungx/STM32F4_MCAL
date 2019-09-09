@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+  <!--
+    Document Owner:                 AUTOSAR
+    Document Responsibility:        AUTOSAR
+    Document Identification Number: 289
+    Document Status:                Final
+    Part of AUTOSAR Standard:       Classic Platform
+    Part of AUTOSAR Release:        4.4.0
+  -->
+  <ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <ISSUED-BY>AUTOSAR</ISSUED-BY>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+  <AR-PACKAGES>
+    <!-- AR-Package: AUTOSAR -->
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <!-- AR-Package: AUTOSAR -->
+        <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+          <SHORT-NAME>EcucDefs</SHORT-NAME>
+          <ELEMENTS>
+            <ECUC-DEFINITION-COLLECTION UUID="ECUC:4c30de73-30fc-43b3-a1b3-e74211eedff3">
+              <SHORT-NAME>AUTOSARParameterDefinition</SHORT-NAME>
+              <MODULE-REFS>
+                <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/Cdd</MODULE-REF>
+              </MODULE-REFS>
+            </ECUC-DEFINITION-COLLECTION>
+                  <!-- Module Definition: Cdd -->
+                  <ECUC-MODULE-DEF UUID="ECUC:1286e7ac-4948-4b92-8227-61d9d064283c">
+                     <SHORT-NAME>Cdd</SHORT-NAME>
+                     <DESC>
+                        <L-2 L="EN">The CDD module describes the minimal requirements that are necessary for the configuration of a CDD with respect to the surrounding standardized BSW modules.</L-2>
+                     </DESC>
+                     <ADMIN-DATA>
+                        <DOC-REVISIONS>
+                           <DOC-REVISION>
+                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
+                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                           </DOC-REVISION>
+                        </DOC-REVISIONS>
+                     </ADMIN-DATA>
+                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00016</RELATED-TRACE-ITEM-REF>
+                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                     <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                     <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+                     <SUPPORTED-CONFIG-VARIANTS>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-LINK-TIME</SUPPORTED-CONFIG-VARIANT>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+                        <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+                     </SUPPORTED-CONFIG-VARIANTS>
+                     <CONTAINERS>
+                        <!-- Container Definition: CddComStackContribution -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:6c020b3e-c61f-45e6-988c-8b1dd46692b8">
+                           <SHORT-NAME>CddComStackContribution</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">Contribution of COM Stack modules.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00017</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: CddComIfUpperLayerContribution -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a85003e9-585f-44b6-b499-633eeaa58362">
+                                 <SHORT-NAME>CddComIfUpperLayerContribution</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Parameters that are necessary for the configuration of a Complex Driver that serves as the UpperLayer of the Com Interface module.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00018</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: CddComIfUpperLayerRxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:c94191ae-a883-4bb9-ac3e-841fc5f69c09">
+                                       <SHORT-NAME>CddComIfUpperLayerRxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Rx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00049</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddComIfHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:cd9c5fb8-5f36-4b7a-8e90-ee6b8e7ba22c">
+                                             <SHORT-NAME>CddComIfHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00051</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddComIfPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:4a9c0e26-9b38-48f8-8180-5dcee98e0fad">
+                                             <SHORT-NAME>CddComIfPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00050</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: CddComIfUpperLayerTxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:ef09dcb2-7fd7-49cc-a931-f39a4eecac1c">
+                                       <SHORT-NAME>CddComIfUpperLayerTxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Tx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00019</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddComIfHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:b807ad28-9b7a-4650-8414-360909b41c1e">
+                                             <SHORT-NAME>CddComIfHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00021</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddComIfPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:5f78db18-cb6f-41b4-84a2-55d58da0cb0c">
+                                             <SHORT-NAME>CddComIfPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00020</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: CddComMLowerLayerContribution -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:15f24c4f-fbb3-4669-80f3-9b197deb7c62">
+                                 <SHORT-NAME>CddComMLowerLayerContribution</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Parameters that are necessary for the configuration of a Complex Driver that serves as the LowerLayer of the Communication Manager module.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00030</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: CddComMLowerLayerChannel -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:56004dbf-51bf-4a1c-a027-483d08639255">
+                                       <SHORT-NAME>CddComMLowerLayerChannel</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container contains the network specific parameters.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00031</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: CddComMLowerLayerChannelRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:5351dd2e-6f89-4c5c-9fc8-4a301d7cdac9">
+                                             <SHORT-NAME>CddComMLowerLayerChannelRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Unique handle to identify one certain network. Reference to one of the network handles configured for the ComM.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00032</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: CddGenericNmLowerLayerContribution -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d97e1043-dd9e-4703-a719-607ce792be19">
+                                 <SHORT-NAME>CddGenericNmLowerLayerContribution</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Parameters that are necessary for the configuration of a Complex Driver that serves as the LowerLayer of the Generic NM module.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00033</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: CddGenericNmLowerLayerChannel -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:119abe0c-226e-4251-abb0-d59123945082">
+                                       <SHORT-NAME>CddGenericNmLowerLayerChannel</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">NM Channel specific configuration parameters.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00034</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <REFERENCES>
+                                          <!-- Symbolic Name Reference Definition: CddGenericNmComMNetworkHandleRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:f5240286-e1ac-4c12-9f47-0c23e033cf85">
+                                             <SHORT-NAME>CddGenericNmComMNetworkHandleRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This reference points to the unique channel defined by the ComMChannel and provides access to the unique channel index value in ComMChannelId.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00035</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/ComM/ComMConfigSet/ComMChannel</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: CddJ1939RmContribution -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:71d42766-e8d1-477c-854e-5116606f8919">
+                                 <SHORT-NAME>CddJ1939RmContribution</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Contribution of J1939Rm module</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00079</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: CddJ1939RmAckIndication -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:4a9f8044-b6d2-4387-96bf-6e80fc44de6b">
+                                       <SHORT-NAME>CddJ1939RmAckIndication</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Defines whether the &lt;User&gt;_AckIndication callback function is implemented.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00081</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: CddJ1939RmRequestIndication -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:a6134d68-bd80-40a6-9140-11f2ec8ff790">
+                                       <SHORT-NAME>CddJ1939RmRequestIndication</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Defines whether the &lt;User&gt;_RequestIndication callback function is implemented.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00080</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: CddJ1939RmRequestTimeoutIndication -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:f05e976a-414f-465a-92a8-7a5c97b9e23e">
+                                       <SHORT-NAME>CddJ1939RmRequestTimeoutIndication</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Defines whether the &lt;User&gt;_RequestTimeoutIndication callback function is implemented.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00082</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                 </PARAMETERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: CddPduRLowerLayerContribution -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d4920631-85b0-4376-8743-3babb19cdc29">
+                                 <SHORT-NAME>CddPduRLowerLayerContribution</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Parameters that are necessary for the configuration of a Complex Driver that serves as the LowerLayer of the Pdu Router module.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00022</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: CddPduRLowerLayerRxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:32300c99-13ae-4fe8-8bba-93f316788818">
+                                       <SHORT-NAME>CddPduRLowerLayerRxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Rx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00046</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddPduRApiType -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:d65721d3-e955-94ac-15b1-5dab8b764c8b">
+                                             <SHORT-NAME>CddPduRApiType</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter configures the type of the CDD interface (IF/TP)</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00052</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f38bbd43-6d9f-d6fb-d3e3-59527db85c00">
+                                                   <SHORT-NAME>IF</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:4642fa5b-fa15-daa5-9ea0-4ea54811269a">
+                                                   <SHORT-NAME>TP</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: CddPduRLowerLayerHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:74dd8870-0180-4f4a-85cb-5c53a1be131a">
+                                             <SHORT-NAME>CddPduRLowerLayerHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00048</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddPduRLowerLayerPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:f4dbfb7a-93e4-4404-83f1-e66f3d41df74">
+                                             <SHORT-NAME>CddPduRLowerLayerPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00047</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: CddPduRLowerLayerTxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:186d1878-40b0-4a5a-aae4-8ba77dd3ce93">
+                                       <SHORT-NAME>CddPduRLowerLayerTxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Tx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00023</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddPduRApiType -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:bc942db3-1657-8f1e-34db-555ff2d19306">
+                                             <SHORT-NAME>CddPduRApiType</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter configures the type of the CDD interface (IF/TP)</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00052</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d9c8c922-9aa1-d16d-f30d-5106e513a27b">
+                                                   <SHORT-NAME>IF</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2c80063b-2717-d517-bdca-4659af6c6d15">
+                                                   <SHORT-NAME>TP</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: CddPduRLowerLayerHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:e95cede4-9ee6-493d-9905-de3c13f222ec">
+                                             <SHORT-NAME>CddPduRLowerLayerHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00025</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddPduRLowerLayerPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:5662fa00-3ca4-4663-ae73-ffde4f9379b5">
+                                             <SHORT-NAME>CddPduRLowerLayerPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00024</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: CddPduRUpperLayerContribution -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2eaf17e0-7822-4cb2-8cce-9083ec9291d2">
+                                 <SHORT-NAME>CddPduRUpperLayerContribution</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Parameters that are necessary for the configuration of a Complex Driver that serves as the UpperLayer of the Pdu Router module.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00026</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: CddPduRUpperLayerRxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:8f579ded-0098-42fc-81eb-9fc765136ed6">
+                                       <SHORT-NAME>CddPduRUpperLayerRxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Rx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00043</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddPduRApiType -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:337eb327-d63f-87c0-0be2-697fda113349">
+                                             <SHORT-NAME>CddPduRApiType</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter configures the type of the CDD interface (IF/TP)</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00052</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:50b34e97-5a89-ca0f-ca14-6526cc5342be">
+                                                   <SHORT-NAME>IF</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a36a8baf-e6ff-cdb9-94d1-5a7996ac0d58">
+                                                   <SHORT-NAME>TP</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: CddPduRUpperLayerHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:331ea11f-6ea6-47c4-9231-db5716ea9e69">
+                                             <SHORT-NAME>CddPduRUpperLayerHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00045</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddPduRUpperLayerPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:ce526005-b88e-4fc2-a44e-9112c948af82">
+                                             <SHORT-NAME>CddPduRUpperLayerPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00044</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: CddPduRUpperLayerTxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a52124c4-5abd-4b6a-8f67-a04f970428a3">
+                                       <SHORT-NAME>CddPduRUpperLayerTxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Tx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00027</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddPduRApiType -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:494839ff-3064-902e-195e-6a080c01ed16">
+                                             <SHORT-NAME>CddPduRApiType</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter configures the type of the CDD interface (IF/TP)</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00052</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:667cd56e-b4ae-d27d-d790-65aefe43fc8b">
+                                                   <SHORT-NAME>IF</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:b9341287-4124-d627-a24d-5b01c89cc725">
+                                                   <SHORT-NAME>TP</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: CddPduRUpperLayerHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:ba3c213c-e704-46a1-a0e5-a59e7a501d50">
+                                             <SHORT-NAME>CddPduRUpperLayerHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00029</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddPduRUpperLayerPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:245c3911-45a2-40e6-aae4-29b332894893">
+                                             <SHORT-NAME>CddPduRUpperLayerPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00028</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              <!-- Container Definition: CddSoAdUpperLayerContribution -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:56b8bb27-e9b2-46b1-a7b1-4757fd76330a">
+                                 <SHORT-NAME>CddSoAdUpperLayerContribution</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Parameters that are necessary for the configuration of a Complex Driver that serves as the UpperLayer of the SoAd module.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00060</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: CddSoAdUpperLayerRxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:da1be0d7-a4a4-49b4-869b-ed503497f5b8">
+                                       <SHORT-NAME>CddSoAdUpperLayerRxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Rx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00062</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddPduRApiType -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:7e42f612-7a4b-8e78-1092-b708a995ba2b">
+                                             <SHORT-NAME>CddPduRApiType</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter configures the type of the CDD interface (IF/TP)</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00052</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:9b779181-fe95-d0c7-cec4-b2af9bd7c9a0">
+                                                   <SHORT-NAME>IF</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:ee2ece9a-8b0b-d471-9981-a8026630943a">
+                                                   <SHORT-NAME>TP</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: CddSoAdUpperLayerHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:3acad227-b663-48e3-aaf7-7890eb1dc1eb">
+                                             <SHORT-NAME>CddSoAdUpperLayerHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00066</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddSoAdUpperLayerPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:045b5876-22bd-4561-a1bb-6b8dd539e301">
+                                             <SHORT-NAME>CddSoAdUpperLayerPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00065</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: CddSoAdUpperLayerTxPdu -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:64294f93-b185-4df9-839e-2cb2465619ea">
+                                       <SHORT-NAME>CddSoAdUpperLayerTxPdu</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">This container specifies Tx PDUs that are exchanged between the CDD and the standardized BSW module.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00061</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddPduRApiType -->
+                                          <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:085064ce-872c-92bd-0d94-f66abb53de5d">
+                                             <SHORT-NAME>CddPduRApiType</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This parameter configures the type of the CDD interface (IF/TP)</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00052</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <LITERALS>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2585003e-0b76-d50c-cbc6-f211ad95edd2">
+                                                   <SHORT-NAME>IF</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:783c3d56-97ec-d8b6-9683-e76477eeb86c">
+                                                   <SHORT-NAME>TP</SHORT-NAME>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                             </LITERALS>
+                                          </ECUC-ENUMERATION-PARAM-DEF>
+                                          <!-- PARAMETER DEFINITION: CddSoAdUpperLayerHandleId -->
+                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:c291053d-7ea3-4bf8-a6bb-cd645bc71166">
+                                             <SHORT-NAME>CddSoAdUpperLayerHandleId</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">ECU wide unique, symbolic handle for the Pdu.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00064</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                             <MAX>65535</MAX>
+                                             <MIN>0</MIN>
+                                          </ECUC-INTEGER-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <REFERENCES>
+                                          <!-- Reference Definition: CddSoAdUpperLayerPduRef -->
+                                          <ECUC-REFERENCE-DEF UUID="ECUC:0722bf06-30f1-43fa-853e-bfe084d3ef20">
+                                             <SHORT-NAME>CddSoAdUpperLayerPduRef</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">Reference to the "global" Pdu structure to allow harmonization of handle IDs in the COM-Stack.</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00063</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                          </ECUC-REFERENCE-DEF>
+                                       </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: CddEcucPartitionInteraction -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:5ddb5cdf-4b83-4980-b535-5aa4c700316f">
+                           <SHORT-NAME>CddEcucPartitionInteraction</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">This optional container holds the partition interaction configuration.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00038</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: CddPartitionStoppedFunctionName -->
+                              <ECUC-FUNCTION-NAME-DEF UUID="ECUC:b329985d-d398-4f17-93cd-f29503da4d52">
+                                 <SHORT-NAME>CddPartitionStoppedFunctionName</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Function name to be called when the partition which is triggering the Complex Driver is stopped.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00040</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                                    <ECUC-FUNCTION-NAME-DEF-CONDITIONAL/>
+                                 </ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                              </ECUC-FUNCTION-NAME-DEF>
+                           </PARAMETERS>
+                           <REFERENCES>
+                              <!-- Reference Definition: CddEcucPartitionRef -->
+                              <ECUC-REFERENCE-DEF UUID="ECUC:46cceb2a-0c28-49ac-8bad-7558446a366c">
+                                 <SHORT-NAME>CddEcucPartitionRef</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Reference to the "EcucPartition" which executes the software which triggers the CDD.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00039</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DESTINATION-REF>
+                              </ECUC-REFERENCE-DEF>
+                           </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: CddGeneral -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:164437b6-d5da-479e-8a44-2f35a377e60d">
+                           <SHORT-NAME>CddGeneral</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">Contains the general configuration parameters of the module.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00083</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <PARAMETERS>
+                              <!-- PARAMETER DEFINITION: CddInstanceId -->
+                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:569d0642-5f70-4f5f-aa77-272df0a4e010">
+                                 <SHORT-NAME>CddInstanceId</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00084</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                 <SCOPE>LOCAL</SCOPE>
+                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                 <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                 </VALUE-CONFIG-CLASSES>
+                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                 <MAX>255</MAX>
+                                 <MIN>0</MIN>
+                              </ECUC-INTEGER-PARAM-DEF>
+                           </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: CddGlobalTimeContribution -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:a03e5ebe-16e2-4b9f-affc-84c3c21c0ab6">
+                           <SHORT-NAME>CddGlobalTimeContribution</SHORT-NAME>
+                           <DESC>
+                              <L-2 L="EN">Contribution of Global Time modules.</L-2>
+                           </DESC>
+                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00068</RELATED-TRACE-ITEM-REF>
+                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                           <SUB-CONTAINERS>
+                              <!-- Container Definition: CddGlobalTimeDomain -->
+                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:f12facf9-5a1e-44aa-a986-a384933b2810">
+                                 <SHORT-NAME>CddGlobalTimeDomain</SHORT-NAME>
+                                 <DESC>
+                                    <L-2 L="EN">This represents the existence of a CDD global time domain. The CddGlobalTimeContribution can administrate several global time domains at the same time that in itself form a hierarchy of domains and sub-domains.</L-2>
+                                 </DESC>
+                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00069</RELATED-TRACE-ITEM-REF>
+                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                 <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: CddGlobalTimeDomainId -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:89cc02ac-ba99-4f80-acb9-b790496d5dee">
+                                       <SHORT-NAME>CddGlobalTimeDomainId</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">The global time domain ID.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00071</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                       <MAX>31</MAX>
+                                       <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                 </PARAMETERS>
+                                 <REFERENCES>
+                                    <!-- Symbolic Name Reference Definition: CddSynSynchronizedTimeBaseRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:cf98036b-5528-4e36-b4be-e681f06d7014">
+                                       <SHORT-NAME>CddSynSynchronizedTimeBaseRef</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Mandatory reference to the required synchronized time-base.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00070</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SCOPE>LOCAL</SCOPE>
+                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                       <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                                       <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                 </REFERENCES>
+                                 <SUB-CONTAINERS>
+                                    <!-- Container Definition: CddGlobalTimeMaster -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:207dad27-7e80-4298-864e-7e8635c35bfa">
+                                       <SHORT-NAME>CddGlobalTimeMaster</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Configuration of the global time master. Each global time domain is required to have exactly one global time master. This master may or may not exist on the configured ECU.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00072</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <PARAMETERS>
+                                          <!-- PARAMETER DEFINITION: CddGlobalTimeTxPeriod -->
+                                          <ECUC-FLOAT-PARAM-DEF UUID="ECUC:aeae86cd-fb22-4f9e-a95e-97e515273faa">
+                                             <SHORT-NAME>CddGlobalTimeTxPeriod</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This represents configuration of the TX period. Unit: seconds</L-2>
+                                             </DESC>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00074</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <SCOPE>LOCAL</SCOPE>
+                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                             <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
+                                             <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                                          </ECUC-FLOAT-PARAM-DEF>
+                                       </PARAMETERS>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: CddGlobalTimeMasterPdu -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2d7be998-7691-4591-bd81-2de3f860e3c3">
+                                             <SHORT-NAME>CddGlobalTimeMasterPdu</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This container encloses the configuration of the PDU that is supposed to contain the global time information.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">Please note that the configuration of CddGlobalTimeMasterPdu is optional and shall only be used for Complex Drivers that are using Pdus for carrying timeSync information.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00075</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <REFERENCES>
+                                                <!-- Reference Definition: CddGlobalTimeMasterPduRef -->
+                                                <ECUC-REFERENCE-DEF UUID="ECUC:ef0938aa-4a6a-41e9-8c19-d446fad40f5f">
+                                                   <SHORT-NAME>CddGlobalTimeMasterPduRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain is the sender of this Pdu.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00076</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Cdd/CddComStackContribution/CddComIfUpperLayerContribution/CddComIfUpperLayerTxPdu</DESTINATION-REF>
+                                                </ECUC-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: CddGlobalTimeSlave -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:3974d793-5ab0-43e2-8b3f-bfb6c9e21d5c">
+                                       <SHORT-NAME>CddGlobalTimeSlave</SHORT-NAME>
+                                       <DESC>
+                                          <L-2 L="EN">Configuration of a global time slave. Each global time domain is required to have at least one time slave. The configured ECU may or may not represent a time slave.</L-2>
+                                       </DESC>
+                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00073</RELATED-TRACE-ITEM-REF>
+                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                       <SUB-CONTAINERS>
+                                          <!-- Container Definition: CddGlobalTimeSlavePdu -->
+                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:7e457826-b8ef-461a-b737-e4f8702d4ac6">
+                                             <SHORT-NAME>CddGlobalTimeSlavePdu</SHORT-NAME>
+                                             <DESC>
+                                                <L-2 L="EN">This container encloses the configuration of the PDU that is supposed to contain the global time information.</L-2>
+                                             </DESC>
+                                             <INTRODUCTION>
+                                                <P>
+                                                   <L-1 L="EN">Please note that the configuration of CddGlobalTimeSlavePdu is optional and shall only be used for Complex Drivers that are using Pdus for carrying timeSync information.</L-1>
+                                                </P>
+                                             </INTRODUCTION>
+                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00077</RELATED-TRACE-ITEM-REF>
+                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                             <REFERENCES>
+                                                <!-- Reference Definition: CddGlobalTimeSlavePduRef -->
+                                                <ECUC-REFERENCE-DEF UUID="ECUC:0e7b9266-0768-4b0f-81ac-d4409246fd26">
+                                                   <SHORT-NAME>CddGlobalTimeSlavePduRef</SHORT-NAME>
+                                                   <DESC>
+                                                      <L-2 L="EN">This represents the reference to the Pdu taken to transmit the global time information. All the time slaves are supposed to receive the Pdu.</L-2>
+                                                   </DESC>
+                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_Cdd_00078</RELATED-TRACE-ITEM-REF>
+                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                                   <SCOPE>LOCAL</SCOPE>
+                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                                   <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Cdd/CddComStackContribution/CddComIfUpperLayerContribution/CddComIfUpperLayerRxPdu</DESTINATION-REF>
+                                                </ECUC-REFERENCE-DEF>
+                                             </REFERENCES>
+                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                       </SUB-CONTAINERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                 </SUB-CONTAINERS>
+                              </ECUC-PARAM-CONF-CONTAINER-DEF>
+                           </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                     </CONTAINERS>
+                  </ECUC-MODULE-DEF>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
