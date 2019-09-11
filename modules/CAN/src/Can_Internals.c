@@ -23,7 +23,10 @@
  */
 FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(VAR(uint8, AUTOMATIC) Controller)
 {
+  boolean Lbl_InitSts;
   
+  
+  return Lbl_InitSts
 }
 
 /*
@@ -41,5 +44,22 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(VAR(uint8, AUTOMATIC) Controller)
  */
 FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(VAR(uint8, AUTOMATIC) Controller)
 {
+  boolean Lbl_DeInitSts;
   
+  
+  return Lbl_InitSts
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

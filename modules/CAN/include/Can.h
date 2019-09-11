@@ -16,6 +16,7 @@ Includes
 
 #include "Can_Types.h"
 #include "Can_PBTypes.h"
+#include "Can_PCTypes.h"
 #include "MemMap.h"
 // #include "Can_Cfg.h"
 
@@ -55,16 +56,22 @@ Macro definitions
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/
+/* [ref]: ECUC_Can_00489 */
+/* Post-build configuration structure could be changed after build (i.e update
+by during run time)
+Pre-compile configuration structure is fixed after compilation process. */
 typedef struct Can_ConfigType_STag
 {
-  CONSTP2VAR(Can_ControllerPCConfigType, AUTOMATIC, CAN_APPL_DATA)
-    stPCController,
-  P2CONST(Can_ControllerPBConfigType, AUTOMATIC, CAN_APPL_DATA) stPBController,
-  P2CONST(Can_GeneralPBConfigType, AUTOMATIC, CAN_APPL_DATA) stPBGeneral,
-  VAR(uint8, AUTOMATIC) ucNumCanController;
+  const Can_ControllerPCConfigType     * const stCanPCController;
+  const Can_ControllerPBConfigType           * stCanPBController;
+  const Can_GeneralPCConfigType        * const stCanPCGeneral;
+  const Can_IcomControllerPBConfigType       * stCanIcomPBController;
+  const Can_HwObjectPBConfigType             * stCanHwObj;
+  const Can_HwFilterPBConfigType             * stCanHwFilter;
+  uint8 ucNumCanController;
 } Can_ConfigType;
 
-
+extern P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Can_GlbConfig;
 /*******************************************************************************
 Global functions
 *******************************************************************************/

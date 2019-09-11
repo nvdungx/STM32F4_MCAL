@@ -73,13 +73,21 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
   boolean Lbl_InitSts;
   #if(DEV_ERROR_DETECT_API == STD_ON)
   Std_ReturnType Luc_StdResult;
+  Can_ControllerPCConfigType Lpt_ControllerPC;
 
   Luc_StdResult = E_OK;
   /* Check if Driver not in state CAN_UNINIT */
   if (CAN_UNINIT != Can_DriverSts)
   {
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
-      CAN_SID_DEINIT, CAN_E_TRANSITION);
+      CAN_SID_INIT, CAN_E_TRANSITION);
+    Luc_StdResult = E_NOT_OK;
+  }
+  /* Verify no null ptr passed as parameter */
+  if else (NULL_PTR == Config)
+  {
+    (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
+      CAN_SID_INIT, CAN_E_PARAM_POINTER);
     Luc_StdResult = E_NOT_OK;
   }
   /* Check all CAN Controllers is not in UNINIT mode */
@@ -87,15 +95,21 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
   {
     /* access configuration structure, loop through all controller and check
     the current sw status of each controller */
-    for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
+    for (Luc_Count = 0; (NUMBER_CAN_CONTROLLER > Luc_Count)
+      && (E_OK == Luc_StdResult); Luc_Count++)
     {
       /* Check sw status of controller */
+      Lpt_ControllerPC = &(Config->stCanPCController)[Luc_Count];
+      if (CAN_CS_UNINIT != *(Lpt_ControllerPC->ptCanControllerSts))
+      {
+        Luc_StdResult = E_NOT_OK;
+      }
     }
-    if (E_OK == Luc_StdResult)
+    if (E_NOT_OK == Luc_StdResult)
     {
-    (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
-      CAN_SID_DEINIT, CAN_E_TRANSITION);
-    Luc_StdResult = E_NOT_OK;
+      (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
+        CAN_SID_DEINIT, CAN_E_TRANSITION);
+      Luc_StdResult = E_NOT_OK;
     }
   }
   #endif
@@ -146,6 +160,7 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
   boolean Lbl_DeInitSts;
   #if(DEV_ERROR_DETECT_API == STD_ON)
   Std_ReturnType Luc_StdResult;
+  Can_ControllerPCConfigType Lpt_ControllerPC;
 
   Luc_StdResult = E_OK;
   /* Check if driver is initialized - Driver not in state CAN_READY */
@@ -160,15 +175,21 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
   {
     /* access configuration structure, loop through all controller and check
     the current sw status of each controller */
-    for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
+    for (Luc_Count = 0; (NUMBER_CAN_CONTROLLER > Luc_Count)
+      && (E_OK == Luc_StdResult); Luc_Count++)
     {
       /* Check sw status of controller */
+      Lpt_ControllerPC = &(Can_GlbConfig->stCanPCController)[Luc_Count];
+      if (CAN_CS_STARTED != *(Lpt_ControllerPC->ptCanControllerSts))
+      {
+        Luc_StdResult = E_NOT_OK;
+      }
     }
     if (E_OK == Luc_StdResult)
     {
-    (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
-      CAN_SID_DEINIT, CAN_E_TRANSITION);
-    Luc_StdResult = E_NOT_OK;
+      (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
+        CAN_SID_DEINIT, CAN_E_TRANSITION);
+      Luc_StdResult = E_NOT_OK;
     }
   }
   #endif

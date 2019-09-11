@@ -28,9 +28,11 @@ Global functions
 
 /* LPDU_CALLOUTFUNCTION_NAME call out function name shall
   be configured by user */
+#ifdef LPDU_CALLOUTFUNCTION_NAME
 FUNC(boolean, CAN_CODE_FAST) LPDU_CALLOUTFUNCTION_NAME(
   VAR(uint8, AUTOMATIC) Hrh, VAR(Can_IdType, AUTOMATIC) CanId,
     VAR(uint8, AUTOMATIC) CanDataLength,
       P2CONST(uint8, AUTOMATIC, CAN_APPL_DATA) CanSduPtr);
+#endif
 
 #endif /*End of Can_Externals.h*/

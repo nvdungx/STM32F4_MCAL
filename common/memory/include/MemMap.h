@@ -27,6 +27,7 @@ Macro definitions
 #define CAN_VAR_CLEARED_UNSPECIFIED
 #define CAN_VAR_FAST_CLEARED
 #define CAN_VAR_SLOW_CLEARED
+#define CAN_VAR_INIT
 
 #define CAN_CONFIG_DATA
 

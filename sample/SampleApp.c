@@ -1,5 +1,5 @@
 #include "SampleApp.h"
-
+#include "Can.h"
 
 typedef struct List_STag
 {
@@ -24,6 +24,9 @@ int main(void)
   newEle.data_ptr = LucVar;
   add_list(&newEle);
   arr[0] = 0xFF;
+
+  Can_Init(NULL_PTR);
+
   while(1)
   {
     
