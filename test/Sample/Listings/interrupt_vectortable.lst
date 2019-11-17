@@ -1,0 +1,311 @@
+ARM GAS  C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"Interrupt_VectorTable.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.global	exception_table
+  16              		.section	.vectortable_area,"a",%progbits
+  17              		.align	2
+  18              		.type	exception_table, %object
+  19              		.size	exception_table, 64
+  20              	exception_table:
+  21 0000 00000000 		.word	_USER_STACK
+  22 0004 00000000 		.word	__user_reset_init
+  23 0008 00000000 		.word	NMIException
+  24 000c 00000000 		.word	HardFaultException
+  25 0010 00000000 		.word	MemManageException
+  26 0014 00000000 		.word	BusFaultException
+  27 0018 00000000 		.word	UsageFaultException
+  28 001c 00000000 		.word	dummy_handler
+  29 0020 00000000 		.word	dummy_handler
+  30 0024 00000000 		.word	dummy_handler
+  31 0028 00000000 		.word	dummy_handler
+  32 002c 00000000 		.word	SVCHandler
+  33 0030 00000000 		.word	DebugMonitor
+  34 0034 00000000 		.word	dummy_handler
+  35 0038 00000000 		.word	PendSVC
+  36 003c 00000000 		.word	SysTickHandler
+  37              		.text
+  38              	.Letext0:
+  39              		.file 1 "../github/stm32/common/interrupt/include/Interrupt_VectorTable.h"
+  40              		.file 2 "../github/stm32/common/interrupt/src/Interrupt_VectorTable.c"
+  41              		.section	.debug_info,"",%progbits
+  42              	.Ldebug_info0:
+  43 0000 75000000 		.4byte	0x75
+  44 0004 0200     		.2byte	0x2
+  45 0006 00000000 		.4byte	.Ldebug_abbrev0
+  46 000a 04       		.byte	0x4
+  47 000b 01       		.uleb128 0x1
+  48 000c 00000000 		.4byte	.LASF2
+  49 0010 0C       		.byte	0xc
+  50 0011 C3000000 		.4byte	.LASF3
+  51 0015 8E000000 		.4byte	.LASF4
+  52 0019 00000000 		.4byte	.Ldebug_line0
+  53 001d 02       		.uleb128 0x2
+  54 001e 0D010000 		.4byte	.LASF5
+  55 0022 01       		.byte	0x1
+  56 0023 04       		.byte	0x4
+  57 0024 2E000000 		.4byte	0x2e
+ARM GAS  C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s 			page 2
+
+
+  58 0028 03       		.uleb128 0x3
+  59 0029 04       		.byte	0x4
+  60 002a 33000000 		.4byte	0x33
+  61 002e 04       		.uleb128 0x4
+  62 002f 28000000 		.4byte	0x28
+  63 0033 05       		.uleb128 0x5
+  64 0034 01       		.byte	0x1
+  65 0035 06       		.uleb128 0x6
+  66 0036 1D000000 		.4byte	0x1d
+  67 003a 40000000 		.4byte	0x40
+  68 003e 07       		.uleb128 0x7
+  69 003f 00       		.byte	0
+  70 0040 04       		.uleb128 0x4
+  71 0041 35000000 		.4byte	0x35
+  72 0045 08       		.uleb128 0x8
+  73 0046 B3000000 		.4byte	.LASF0
+  74 004a 01       		.byte	0x1
+  75 004b 11       		.byte	0x11
+  76 004c 40000000 		.4byte	0x40
+  77 0050 01       		.byte	0x1
+  78 0051 01       		.byte	0x1
+  79 0052 08       		.uleb128 0x8
+  80 0053 A7000000 		.4byte	.LASF1
+  81 0057 01       		.byte	0x1
+  82 0058 13       		.byte	0x13
+  83 0059 66000000 		.4byte	0x66
+  84 005d 01       		.byte	0x1
+  85 005e 01       		.byte	0x1
+  86 005f 09       		.uleb128 0x9
+  87 0060 04       		.byte	0x4
+  88 0061 07       		.byte	0x7
+  89 0062 00010000 		.4byte	.LASF6
+  90 0066 04       		.uleb128 0x4
+  91 0067 5F000000 		.4byte	0x5f
+  92 006b 0A       		.uleb128 0xa
+  93 006c 45000000 		.4byte	0x45
+  94 0070 02       		.byte	0x2
+  95 0071 0F       		.byte	0xf
+  96 0072 05       		.byte	0x5
+  97 0073 03       		.byte	0x3
+  98 0074 00000000 		.4byte	exception_table
+  99 0078 00       		.byte	0
+ 100              		.section	.debug_abbrev,"",%progbits
+ 101              	.Ldebug_abbrev0:
+ 102 0000 01       		.uleb128 0x1
+ 103 0001 11       		.uleb128 0x11
+ 104 0002 01       		.byte	0x1
+ 105 0003 25       		.uleb128 0x25
+ 106 0004 0E       		.uleb128 0xe
+ 107 0005 13       		.uleb128 0x13
+ 108 0006 0B       		.uleb128 0xb
+ 109 0007 03       		.uleb128 0x3
+ 110 0008 0E       		.uleb128 0xe
+ 111 0009 1B       		.uleb128 0x1b
+ 112 000a 0E       		.uleb128 0xe
+ 113 000b 10       		.uleb128 0x10
+ 114 000c 06       		.uleb128 0x6
+ARM GAS  C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s 			page 3
+
+
+ 115 000d 00       		.byte	0
+ 116 000e 00       		.byte	0
+ 117 000f 02       		.uleb128 0x2
+ 118 0010 16       		.uleb128 0x16
+ 119 0011 00       		.byte	0
+ 120 0012 03       		.uleb128 0x3
+ 121 0013 0E       		.uleb128 0xe
+ 122 0014 3A       		.uleb128 0x3a
+ 123 0015 0B       		.uleb128 0xb
+ 124 0016 3B       		.uleb128 0x3b
+ 125 0017 0B       		.uleb128 0xb
+ 126 0018 49       		.uleb128 0x49
+ 127 0019 13       		.uleb128 0x13
+ 128 001a 00       		.byte	0
+ 129 001b 00       		.byte	0
+ 130 001c 03       		.uleb128 0x3
+ 131 001d 0F       		.uleb128 0xf
+ 132 001e 00       		.byte	0
+ 133 001f 0B       		.uleb128 0xb
+ 134 0020 0B       		.uleb128 0xb
+ 135 0021 49       		.uleb128 0x49
+ 136 0022 13       		.uleb128 0x13
+ 137 0023 00       		.byte	0
+ 138 0024 00       		.byte	0
+ 139 0025 04       		.uleb128 0x4
+ 140 0026 26       		.uleb128 0x26
+ 141 0027 00       		.byte	0
+ 142 0028 49       		.uleb128 0x49
+ 143 0029 13       		.uleb128 0x13
+ 144 002a 00       		.byte	0
+ 145 002b 00       		.byte	0
+ 146 002c 05       		.uleb128 0x5
+ 147 002d 15       		.uleb128 0x15
+ 148 002e 00       		.byte	0
+ 149 002f 27       		.uleb128 0x27
+ 150 0030 0C       		.uleb128 0xc
+ 151 0031 00       		.byte	0
+ 152 0032 00       		.byte	0
+ 153 0033 06       		.uleb128 0x6
+ 154 0034 01       		.uleb128 0x1
+ 155 0035 01       		.byte	0x1
+ 156 0036 49       		.uleb128 0x49
+ 157 0037 13       		.uleb128 0x13
+ 158 0038 01       		.uleb128 0x1
+ 159 0039 13       		.uleb128 0x13
+ 160 003a 00       		.byte	0
+ 161 003b 00       		.byte	0
+ 162 003c 07       		.uleb128 0x7
+ 163 003d 21       		.uleb128 0x21
+ 164 003e 00       		.byte	0
+ 165 003f 00       		.byte	0
+ 166 0040 00       		.byte	0
+ 167 0041 08       		.uleb128 0x8
+ 168 0042 34       		.uleb128 0x34
+ 169 0043 00       		.byte	0
+ 170 0044 03       		.uleb128 0x3
+ 171 0045 0E       		.uleb128 0xe
+ARM GAS  C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s 			page 4
+
+
+ 172 0046 3A       		.uleb128 0x3a
+ 173 0047 0B       		.uleb128 0xb
+ 174 0048 3B       		.uleb128 0x3b
+ 175 0049 0B       		.uleb128 0xb
+ 176 004a 49       		.uleb128 0x49
+ 177 004b 13       		.uleb128 0x13
+ 178 004c 3F       		.uleb128 0x3f
+ 179 004d 0C       		.uleb128 0xc
+ 180 004e 3C       		.uleb128 0x3c
+ 181 004f 0C       		.uleb128 0xc
+ 182 0050 00       		.byte	0
+ 183 0051 00       		.byte	0
+ 184 0052 09       		.uleb128 0x9
+ 185 0053 24       		.uleb128 0x24
+ 186 0054 00       		.byte	0
+ 187 0055 0B       		.uleb128 0xb
+ 188 0056 0B       		.uleb128 0xb
+ 189 0057 3E       		.uleb128 0x3e
+ 190 0058 0B       		.uleb128 0xb
+ 191 0059 03       		.uleb128 0x3
+ 192 005a 0E       		.uleb128 0xe
+ 193 005b 00       		.byte	0
+ 194 005c 00       		.byte	0
+ 195 005d 0A       		.uleb128 0xa
+ 196 005e 34       		.uleb128 0x34
+ 197 005f 00       		.byte	0
+ 198 0060 47       		.uleb128 0x47
+ 199 0061 13       		.uleb128 0x13
+ 200 0062 3A       		.uleb128 0x3a
+ 201 0063 0B       		.uleb128 0xb
+ 202 0064 3B       		.uleb128 0x3b
+ 203 0065 0B       		.uleb128 0xb
+ 204 0066 02       		.uleb128 0x2
+ 205 0067 0A       		.uleb128 0xa
+ 206 0068 00       		.byte	0
+ 207 0069 00       		.byte	0
+ 208 006a 00       		.byte	0
+ 209              		.section	.debug_aranges,"",%progbits
+ 210 0000 14000000 		.4byte	0x14
+ 211 0004 0200     		.2byte	0x2
+ 212 0006 00000000 		.4byte	.Ldebug_info0
+ 213 000a 04       		.byte	0x4
+ 214 000b 00       		.byte	0
+ 215 000c 0000     		.2byte	0
+ 216 000e 0000     		.2byte	0
+ 217 0010 00000000 		.4byte	0
+ 218 0014 00000000 		.4byte	0
+ 219              		.section	.debug_line,"",%progbits
+ 220              	.Ldebug_line0:
+ 221 0000 9D000000 		.section	.debug_str,"MS",%progbits,1
+ 221      02009700 
+ 221      00000201 
+ 221      FB0E0D00 
+ 221      01010101 
+ 222              	.LASF2:
+ 223 0000 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 223      43313120 
+ARM GAS  C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s 			page 5
+
+
+ 223      372E322E 
+ 223      31203230 
+ 223      31373039 
+ 224 0033 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mthumb -mapc"
+ 224      20726576 
+ 224      6973696F 
+ 224      6E203235 
+ 224      35323034 
+ 225 0066 732D6672 		.ascii	"s-frame -mthumb-interwork -gdwarf-2 -O0\000"
+ 225      616D6520 
+ 225      2D6D7468 
+ 225      756D622D 
+ 225      696E7465 
+ 226              	.LASF4:
+ 227 008e 443A5C54 		.ascii	"D:\\Tool\\Workspace\\Sample\000"
+ 227      6F6F6C5C 
+ 227      576F726B 
+ 227      73706163 
+ 227      655C5361 
+ 228              	.LASF1:
+ 229 00a7 5F555345 		.ascii	"_USER_STACK\000"
+ 229      525F5354 
+ 229      41434B00 
+ 230              	.LASF0:
+ 231 00b3 65786365 		.ascii	"exception_table\000"
+ 231      7074696F 
+ 231      6E5F7461 
+ 231      626C6500 
+ 232              	.LASF3:
+ 233 00c3 2E2E2F67 		.ascii	"../github/stm32/common/interrupt/src/Interrupt_Vect"
+ 233      69746875 
+ 233      622F7374 
+ 233      6D33322F 
+ 233      636F6D6D 
+ 234 00f6 6F725461 		.ascii	"orTable.c\000"
+ 234      626C652E 
+ 234      6300
+ 235              	.LASF6:
+ 236 0100 756E7369 		.ascii	"unsigned int\000"
+ 236      676E6564 
+ 236      20696E74 
+ 236      00
+ 237              	.LASF5:
+ 238 010d 45786563 		.ascii	"ExecFuncPtr\000"
+ 238      46756E63 
+ 238      50747200 
+ 239              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Interrupt_VectorTable.c
+C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s:20     .vectortable_area:00000000 exception_table
+C:\Users\nvdun\AppData\Local\Temp\cczJJATH.s:17     .vectortable_area:00000000 $d
+
+UNDEFINED SYMBOLS
+_USER_STACK
+__user_reset_init
+NMIException
+HardFaultException
+MemManageException
+BusFaultException
+UsageFaultException
+dummy_handler
+SVCHandler
+DebugMonitor
+PendSVC
+SysTickHandler
