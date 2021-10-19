@@ -1,7 +1,7 @@
 #*******************************************************************************
 # File:         module.mak
-# Revision:
-# Author:
+# Revision:     1.0.0
+# Author:       Dung van Nguyen
 # Date:         03.09.2019
 # Description:  make file rule of module part
 #*******************************************************************************

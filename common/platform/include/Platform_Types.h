@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File:         Platform_Types.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         02.08.2019
 * Description:  Standard AUTOSAR file(AUTOSAR_SWS_PlatformTypes)
 *******************************************************************************/

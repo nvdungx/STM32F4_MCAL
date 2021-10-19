@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File:         Can_IOCommon.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         02.08.2019
 * Description:  define base address and structure of bxCAN Hw STM32F407VG
 *******************************************************************************/
@@ -9,6 +9,7 @@
 #ifndef CAN_IOCOMMON_H
 #define CAN_IOCOMMON_H
 
+#include "Std_Types.h"
 /*
  * Define HW structure map
  */
@@ -85,8 +86,10 @@ typedef struct Can_Filter_STag {
 /*
  * Define address of HW
  */
-
+/* Table 1. STM32F40x and STM32F41x register boundary addresses */
+/* 0x4000 6400 - 0x4000 67FF */
 #define CAN1_BASEADDR 0x40006400UL
+/* 0x4000 6800 - 0x4000 6BFF */
 #define CAN2_BASEADDR 0x40006800UL
 
 #define CAN1_CtrlSts (*(volatile Can_CtrlSts *)(CAN1_BASEADDR + 0UL))
@@ -98,6 +101,7 @@ typedef struct Can_Filter_STag {
 #define CAN1_RxMbx (*(volatile Can_RxMbx *)(CAN1_BASEADDR + 0x1B0UL))
 #define CAN2_RxMbx (*(volatile Can_RxMbx *)(CAN2_BASEADDR + 0x1B0UL))
 
+/* 28 filter banks shared between CAN1 and CAN2 */
 #define CAN_ReceiveRule (*(volatile Can_Filter_STag *)(CAN1_BASEADDR + 0x200UL))
 
 

@@ -1,9 +1,9 @@
 /*******************************************************************************
 * File:         Can_Externals.c
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         03.09.2019
-* Description:  
+* Description:  definition for external callout and callback functions.
 *******************************************************************************/
 
 /*******************************************************************************

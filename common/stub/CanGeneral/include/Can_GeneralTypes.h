@@ -1,13 +1,15 @@
 /*******************************************************************************
 * File:         Can_GeneralTypes.h
-* Revision:
-* Author:
-* Date:         30.08.2019
-* Description:  General type definition used in CAN.
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
+* Date:         10.17.2021
+* Description:  General type definitions shared among the AUTOSAR CAN modules
+*               Can, CanIf and CanTrcv.
 *******************************************************************************/
 
 #ifndef CAN_GENERALTYPES_H
 #define CAN_GENERALTYPES_H
+/* [SWS_Can_00222] */
 /*******************************************************************************
 Includes
 *******************************************************************************/
@@ -16,6 +18,9 @@ Includes
 /*******************************************************************************
 Macro definitions
 *******************************************************************************/
+/* transmit request could not be processed because no
+  transmit object was available */
+/* [SWS_Can_00039] */
 #define CAN_BUSY 0x02U
 
 /*******************************************************************************
@@ -30,13 +35,16 @@ Typedef definitions
 *  10 CAN message with Extended CAN ID
 *  11 CAN FD frame with Extended CAN ID
 */
+/* [SWS_Can_00416] */
 typedef uint32 Can_IdType;
 
 /* Represents the hardware object handles of a CAN hardware unit. For CAN
 hardware units with more than 255 HW objects use extended range. */
+/* [SWS_Can_00429] */
 typedef uint8 Can_HwHandleType;
 
 /* States that are used by the several ControllerMode functions */
+/* [SWS_Can_91013] */
 typedef enum Can_ControllerStateType_ETag
 {
   /* CAN controller state UNINIT. */
@@ -50,20 +58,22 @@ typedef enum Can_ControllerStateType_ETag
 } Can_ControllerStateType;
 
 /* Error states of a CAN controller */
+/* [SWS_Can_91003] */
 typedef enum Can_ErrorStateType_ETag
 {
   /* The CAN controller takes fully part in communication. */
-  CAN_ERRORSTATE_ACTIVE,
+  CAN_ERRORSTATE_ACTIVE  = 0x00U,
   /* The CAN controller takes part in communication,
     but does not send active error frames. */
-  CAN_ERRORSTATE_PASSIVE,
+  CAN_ERRORSTATE_PASSIVE = 0x01U,
   /* The CAN controller does not take part in communication */
-  CAN_ERRORSTATE_BUSOFF
+  CAN_ERRORSTATE_BUSOFF  = 0x02U
 } Can_ErrorStateType;
 
 /* This type defines a data structure which clearly provides an Hardware Object
 Handle including its corresponding CAN Controller and therefore CanDrv as well
 as the specific CanId. */
+/* [SWS_CAN_00496] */
 typedef struct Can_HwType_STag
 {
   /* Standard/Extended CAN ID of CAN LPDU */
@@ -77,6 +87,7 @@ typedef struct Can_HwType_STag
 
 /* This type unites PduId (swPduHandle), SduLength (length), SduData (sdu), and
 CanId (id) for any CAN L-SDU. */
+/* [SWS_Can_00415] */
 typedef struct Can_PduType_STag
 {
   Can_IdType        id;

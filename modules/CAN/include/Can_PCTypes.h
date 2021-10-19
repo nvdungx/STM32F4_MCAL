@@ -1,9 +1,9 @@
 /*******************************************************************************
 * File:         Can_PCTypes.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         02.08.2019
-* Description:  
+* Description:  Pre-compile types
 *******************************************************************************/
 #ifndef CAN_PCTYPES_H
 #define CAN_PCTYPES_H

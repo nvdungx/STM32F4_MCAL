@@ -1,9 +1,9 @@
 /*******************************************************************************
 * File:         Can_Internals.c
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         04.09.2019
-* Description:  
+* Description:  definition for internal functions.
 *******************************************************************************/
 
 #include "Can_Internals.h"
@@ -40,12 +40,14 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(VAR(uint8, AUTOMATIC) Controller)
  *  Return Value...... : boolean(true/false)
  *  Register usage     : 
  *  Global variable    : 
- *  Description....... : 
+ *  Description....... : initialize static variables, including flags,
+ *    Common setting for the complete CAN HW unit
+ *    CAN controller specific settings for each CAN controller.
  */
 FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(VAR(uint8, AUTOMATIC) Controller)
 {
   boolean Lbl_DeInitSts;
-  
+  /* [SWS_Can_00053], [SWS_Can_00407] */
   
   return Lbl_DeInitSts;
 }

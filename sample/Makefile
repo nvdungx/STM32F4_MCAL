@@ -1,7 +1,7 @@
 #*******************************************************************************
 # File:         Makefile
-# Revision:
-# Author:
+# Revision:     1.0.0
+# Author:       Dung van Nguyen
 # Date:         03.09.2019
 # Description:  Makefile of SampleApp
 #*******************************************************************************
@@ -9,7 +9,7 @@
 MAKEFLAGS += -j
 
 # specify base path of project << shall input by tool or change manually
-BASE := C:\Users\NDY3HC\Desktop\Tool\wp\stm32
+BASE := C:\Users\Admin\Documents\Workspace\01.Projects\stm32
 MODULE := CAN
 
 include ../common/make/common.mak

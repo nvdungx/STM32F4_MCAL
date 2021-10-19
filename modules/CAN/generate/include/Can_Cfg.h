@@ -1,9 +1,9 @@
 /*******************************************************************************
 * File:         Can_Cfg.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         11.09.2019
-* Description:  
+* Description:  Pre-compile time configuration
 *******************************************************************************/
 
 #ifndef CAN_CFG_H

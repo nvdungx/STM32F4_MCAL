@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File:         Can.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         02.08.2019
 * Description:  declaration of CAN module API
 *******************************************************************************/
@@ -12,13 +12,14 @@
 Includes
 *******************************************************************************/
 #include "ComStack_Types.h"
+/* [SWS_Can_00436] */
 #include "Can_GeneralTypes.h"
 
 #include "Can_Types.h"
 #include "Can_PBTypes.h"
 #include "Can_PCTypes.h"
 #include "MemMap.h"
-// #include "Can_Cfg.h"
+#include "Can_Cfg.h"
 
 #include "Can_Internals.h"
 
@@ -60,6 +61,7 @@ Typedef definitions
 /* Post-build configuration structure could be changed after build (i.e update
 by during run time)
 Pre-compile configuration structure is fixed after compilation process. */
+/* [SWS_Can_00413] */
 typedef struct Can_ConfigType_STag
 {
   const Can_ControllerPCConfigType     * const stCanPCController;
@@ -71,7 +73,7 @@ typedef struct Can_ConfigType_STag
   uint8 ucNumCanController;
 } Can_ConfigType;
 
-extern P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Can_GlbConfig;
+extern P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Glb_CanConfig;
 /*******************************************************************************
 Global functions
 *******************************************************************************/

@@ -1,34 +1,44 @@
 /*******************************************************************************
 * File:         Compiler.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         02.08.2019
 * Description:  Standard AUTOSAR file(AUTOSAR_SWS_CompilerAbstraction)
 *******************************************************************************/
-
+/* [SWS_COMPILER_00004, SWS_COMPILER_00047, SWS_COMPILER_00050] */
 #ifndef COMPILER_H
 #define COMPILER_H
+/*******************************************************************************
+Includes
+*******************************************************************************/
+/* [SWS_COMPILER_00048] */
+#include "Compiler_Cfg.h"
 
 /*******************************************************************************
 Macro definitions - according AUTOSAR
 *******************************************************************************/
+/* [SWS_COMPILER_00010] */
+#define _GREENHILLS_C_STM32_
+#define _ADS_C_STM32_
+/* [SWS_COMPILER_00030] */
 
-
+/* [SWS_COMPILER_00053, SWS_COMPILER_00005, SWS_COMPILER_00036, SWS_COMPILER_00046] */
 #define AUTOMATIC    /* Memory class for automatic variables */
 
-
+/* [SWS_COMPILER_00059] */
 #define TYPEDEF      /* Memory class for typedef */
 
 
 #define STATIC    static
 
-
+/* [SWS_COMPILER_00051] */
 #define NULL_PTR  ((void *)0)
 
+/* [SWS_COMPILER_00057] */
+#define INLINE    inline /* The compiler abstraction shall provide the INLINE define for abstraction of the keyword inline. */
 
-#define INLINE    inline
-
-#define LOCAL_INLINE  satic inline
+/* [SWS_COMPILER_00060] */
+#define LOCAL_INLINE  static inline
 
 
 /* Object declaration macros */
@@ -41,31 +51,32 @@ Macro definitions - according AUTOSAR
    #define SPI_APPL_DATA @far
    #define SPI_VAR_FAST @near
  */
-#define FUNC(rettype, memclass)                     rettype memclass
-
+/* [SWS_COMPILER_00035, SWS_COMPILER_00001] */
+#define FUNC(rettype, memclass) rettype memclass
+/* [SWS_COMPILER_00058, SWS_COMPILER_00061, SWS_COMPILER_00062] */
 #define FUNC_P2CONST(rettype, ptrclass, memclass)\
   const ptrclass rettype * memclass
-
-#define FUNC_P2VAR(rettype, ptrclass, memclass)      ptrclass rettype * memclass
-
-#define P2VAR(ptrtype, ptrclass, memclass)           ptrclass ptrtype * memclass
-
-#define P2CONST(ptrtype,ptrclass, memclass)   const ptrclass ptrtype * memclass
-
+/* [SWS_COMPILER_00063, SWS_COMPILER_00064] */
+#define FUNC_P2VAR(rettype, ptrclass, memclass) ptrclass rettype * memclass
+/* [SWS_COMPILER_00006] */
+#define P2VAR(ptrtype, ptrclass, memclass)  ptrclass ptrtype * memclass
+/* [SWS_COMPILER_00013] */
+#define P2CONST(ptrtype,ptrclass, memclass) const ptrclass ptrtype * memclass
+/* [SWS_COMPILER_00031] */
 #define CONSTP2VAR(ptrtype, ptrclass, memclass)\
   ptrclass ptrtype * const memclass
-
+/* [SWS_COMPILER_00032] */
 #define CONSTP2CONST(ptrtype, ptrclass, memclass)\
   const ptrclass ptrtype * const memclass
-
-#define P2FUNC(rettype, ptrclass, fctname)          ptrclass rettype (* fctname)
-
+/* [SWS_COMPILER_00039] */
+#define P2FUNC(rettype, ptrclass, fctname)  ptrclass rettype (* fctname)
+/* [SWS_COMPILER_00065] */
 #define CONSTP2FUNC(rettype, ptrclass, fctname)\
   ptrclass rettype (* const fctname)
-
-#define CONST(consttype, memclass)                  memclass const consttype
-
-#define VAR(vartype, memclass)                      memclass vartype
+/* [SWS_COMPILER_00023] */
+#define CONST(consttype, memclass)  memclass const consttype
+/* [SWS_COMPILER_00026] */
+#define VAR(vartype, memclass)  memclass vartype
 
 /* To fix MISRA errors */
 #define PARAM_UNUSED(param) if ((param) != 0) {}

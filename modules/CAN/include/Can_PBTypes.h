@@ -1,9 +1,9 @@
 /*******************************************************************************
 * File:         Can_PBTypes.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         02.08.2019
-* Description:  
+* Description:  Post build types
 *******************************************************************************/
 #ifndef CAN_PBTYPES_H
 #define CAN_PBTYPES_H

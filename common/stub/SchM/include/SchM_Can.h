@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File:         SchM_Can.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         03.09.2019
 * Description:  BSW Scheduler Module(part of RTE)
 *******************************************************************************/

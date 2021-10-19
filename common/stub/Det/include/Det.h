@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File:         Det.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         04.09.2019
 * Description:  Default Error Tracer stub file.
 *******************************************************************************/

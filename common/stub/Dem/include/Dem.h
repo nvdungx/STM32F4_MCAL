@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File:         Dem.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         30.08.2019
 * Description:  Diagnostic Event Manager stub file.
 *******************************************************************************/

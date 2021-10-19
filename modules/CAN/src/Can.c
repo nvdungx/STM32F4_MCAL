@@ -1,14 +1,15 @@
 /*******************************************************************************
 * File:         Can.c
-* Revision:
-* Author:
-* Date:         02.08.2019
+* Revision:     1.0.0 - Initial version
+* Author:       Dung van Nguyen
+* Date:         10.17.2021
 * Description:  definition of CAN module API
 *******************************************************************************/
 
 /*******************************************************************************
 Includes
 *******************************************************************************/
+/* [SWS_Can_00058] */
 #include "Dem.h"
 #include "Det.h"
 #include "MemMap.h"
@@ -18,26 +19,29 @@ Includes
 #include "CanIf_Cbk.h"
 #include "Can.h"
 
+/* [SWS_Can_00103] */
 Can_DrvStsType Can_DriverSts = CAN_UNINIT;
 
 /*
  *  Service Name...... : Can_GetVersionInfo
- *  Service ID      .. : 0x07
+ *  Service ID ....... : 0x07
  *  Sync/Async........ : Synchronous
  *  Reentrancy........ : Reentrant
  *  Parameters (IN)... : None
  *  Parameters (INOUT) : versioninfo
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage ... :
+ *  Global variable .. :
  *  Description....... : This function return the version information of module.
  */
+/* [SWS_Can_00224] */
 FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
   P2VAR(Std_VersionInfoType, AUTOMATIC, CAN_APPL_DATA) versioninfo)
 {
   if (versioninfo == NULL_PTR)
   {
+    /* [SWS_Can_00177] */
     #if(DEV_ERROR_DETECT_API == STD_ON)
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
       CAN_SID_GETVERSIONINFO, CAN_E_PARAM_POINTER);
@@ -62,69 +66,79 @@ FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function initializes the module.
  */
+/* [SWS_Can_00223] */
 FUNC(void, CAN_CODE_SLOW) Can_Init (
   P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config)
 {
   uint8 Luc_Count;
   boolean Lbl_InitSts;
-  #if(DEV_ERROR_DETECT_API == STD_ON)
   Std_ReturnType Luc_StdResult;
-  Can_ControllerPCConfigType Lpt_ControllerPC;
-
+  #if(DEV_ERROR_DETECT_API == STD_ON)
+  Can_ControllerPCConfigType *Lpt_ControllerPC;
+  #endif
+  
   Luc_StdResult = E_OK;
-  /* Check if Driver not in state CAN_UNINIT */
-  if (CAN_UNINIT != Can_DriverSts)
-  {
-    (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
-      CAN_SID_INIT, CAN_E_TRANSITION);
-    Luc_StdResult = E_NOT_OK;
-  }
   /* Verify no null ptr passed as parameter */
-  if else (NULL_PTR == Config)
+  if (NULL_PTR == Config)
   {
+    #if(DEV_ERROR_DETECT_API == STD_ON)
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
       CAN_SID_INIT, CAN_E_PARAM_POINTER);
+    #endif
     Luc_StdResult = E_NOT_OK;
   }
-  /* Check all CAN Controllers is not in UNINIT mode */
   else
   {
-    /* access configuration structure, loop through all controller and check
-    the current sw status of each controller */
-    for (Luc_Count = 0; (NUMBER_CAN_CONTROLLER > Luc_Count)
-      && (E_OK == Luc_StdResult); Luc_Count++)
+    /* store the configuration structure pointer to internal global ptr */
+    Glb_CanConfig = Config;
+
+    #if(DEV_ERROR_DETECT_API == STD_ON)
+    /* Check whether or not CAN Driver is in state CAN_UNINIT */
+    if (CAN_UNINIT != Can_DriverSts)
     {
-      /* Check sw status of controller */
-      Lpt_ControllerPC = &(Config->stCanPCController)[Luc_Count];
-      if (CAN_CS_UNINIT != *(Lpt_ControllerPC->ptCanControllerSts))
-      {
-        Luc_StdResult = E_NOT_OK;
-      }
-    }
-    if (E_NOT_OK == Luc_StdResult)
-    {
+      /* [SWS_Can_00174], [SWS_Can_00259] */
       (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
-        CAN_SID_DEINIT, CAN_E_TRANSITION);
+        CAN_SID_INIT, CAN_E_TRANSITION);
       Luc_StdResult = E_NOT_OK;
     }
+    /* Check whether or not CAN Controllers is in UNINIT mode */
+    else
+    {
+      /* access configuration structure, loop through all controller and check
+      the current sw status of each controller */
+      /*  [SWS_Can_00408], [SWS_Can_00259] */
+      for (Luc_Count = 0; (NUMBER_CAN_CONTROLLER > Luc_Count)
+        && (E_OK == Luc_StdResult); Luc_Count++)
+      {
+        /* Check sw status of controller */
+        Lpt_ControllerPC = &(Config->stCanPCController)[Luc_Count];
+        if (CAN_CS_UNINIT != *(Lpt_ControllerPC->ptCanControllerSts))
+        {
+          /* if CAN controller status != CAN_CS_UNINIT then return NG */
+          (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
+            CAN_SID_INIT, CAN_E_TRANSITION);
+          Luc_StdResult = E_NOT_OK;
+        }
+      }
+    }
+    #endif
   }
-  #endif
 
-  #if(DEV_ERROR_DETECT_API == STD_ON)
   if (E_OK == Luc_StdResult)
   {
-  #endif
     Lbl_InitSts = TRUE;
     for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
     {
+      /* [SWS_Can_00238], [SWS_Can_00239], [SWS_Can_00245], [SWS_Can_00250] */
       Lbl_InitSts &= Can_HwInit(Luc_Count);
     }
     if (TRUE == Lbl_InitSts)
     {
+      /* [SWS_Can_00246] */
       /* There are no fail during initialized process */
       Can_DriverSts = CAN_READY;
     }
@@ -132,13 +146,11 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
     {
       /* There is fail during initialized controllers process */
     }
-  #if(DEV_ERROR_DETECT_API == STD_ON)
   }
   else
   {
     /* No action required */
   }
-  #endif
 }
 
 /*
@@ -150,22 +162,24 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function de-initializes the module.
  */
+/* [SWS_Can_91002] */
 FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
 {
   uint8 Luc_Count;
   boolean Lbl_DeInitSts;
   #if(DEV_ERROR_DETECT_API == STD_ON)
   Std_ReturnType Luc_StdResult;
-  Can_ControllerPCConfigType Lpt_ControllerPC;
+  Can_ControllerPCConfigType *Lpt_ControllerPC;
 
   Luc_StdResult = E_OK;
   /* Check if driver is initialized - Driver not in state CAN_READY */
   if (CAN_READY != Can_DriverSts)
   {
+    /* [SWS_Can_91011], [SWS_Can_91010]*/
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
       CAN_SID_DEINIT, CAN_E_TRANSITION);
     Luc_StdResult = E_NOT_OK;
@@ -175,29 +189,27 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
   {
     /* access configuration structure, loop through all controller and check
     the current sw status of each controller */
+    /* [SWS_Can_91012], [SWS_Can_91010]*/
     for (Luc_Count = 0; (NUMBER_CAN_CONTROLLER > Luc_Count)
       && (E_OK == Luc_StdResult); Luc_Count++)
     {
       /* Check sw status of controller */
-      Lpt_ControllerPC = &(Can_GlbConfig->stCanPCController)[Luc_Count];
-      if (CAN_CS_STARTED != *(Lpt_ControllerPC->ptCanControllerSts))
+      Lpt_ControllerPC = &(Glb_CanConfig->stCanPCController)[Luc_Count];
+      if (CAN_CS_STARTED == *(Lpt_ControllerPC->ptCanControllerSts))
       {
+        /* if CAN controller status == CAN_CS_STARTED then return NG */
+        (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
+          CAN_SID_DEINIT, CAN_E_TRANSITION);
         Luc_StdResult = E_NOT_OK;
       }
-    }
-    if (E_OK == Luc_StdResult)
-    {
-      (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
-        CAN_SID_DEINIT, CAN_E_TRANSITION);
-      Luc_StdResult = E_NOT_OK;
     }
   }
   #endif
 
-  #if(DEV_ERROR_DETECT_API == STD_ON)
+    #if(DEV_ERROR_DETECT_API == STD_ON)
   if (E_OK == Luc_StdResult)
   {
-  #endif
+    #endif
     Lbl_DeInitSts = TRUE;
     for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
     {
@@ -205,6 +217,7 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
     }
     if (TRUE == Lbl_DeInitSts)
     {
+      /* [SWS_Can_00103], [SWS_Can_ 91009] */
       /* There are no fail during deinit process */
       Can_DriverSts = CAN_UNINIT;
     }
@@ -212,13 +225,13 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
     {
       /* There is fail during deinit controllers process */
     }
-  #if(DEV_ERROR_DETECT_API == STD_ON)
+    #if(DEV_ERROR_DETECT_API == STD_ON)
   }
   else
   {
     /* No action required */
   }
-  #endif
+    #endif
 }
 
 /*
@@ -231,12 +244,13 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This service shall set the baud rate configuration of
  *                       the CAN controller. Depending on necessary baud rate
  *                       modifications the controller might have to reset.
  */
+/* [SWS_CAN_00491]  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   VAR(uint8, AUTOMATIC) Controller,
     VAR(uint16, AUTOMATIC) BaudRateConfigID)
@@ -249,26 +263,30 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   /* Check if driver is initialized - Driver not in state CAN_READY */
   if (CAN_READY != Can_DriverSts)
   {
+    /* [SWS_Can_00492] */
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
       CAN_SID_SETBAUDRATE, CAN_E_UNINIT);
     Luc_StdResult = E_NOT_OK;
   }
   /* Check if requested Controller value is valid */
-  else if (CAN_LAST_CONTROLLERID < Controller)
+  else if (CAN_LAST_CONTROLLER_ID < Controller)
   {
+    /* [SWS_Can_00494]  */
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
       CAN_SID_SETBAUDRATE, CAN_E_PARAM_CONTROLLER);
     Luc_StdResult = E_NOT_OK;
   }
   /* Check if requested BaudRateConfigID value is valid */
-  else if (CAN_MAX_BDCONFIG_ID < BaudRateConfigID)
+  else if (CAN_MAX_BAUD_CONFIG_ID < BaudRateConfigID)
   {
+    /* [SWS_Can_00493] */
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
       CAN_SID_SETBAUDRATE, CAN_E_PARAM_BAUDRATE);
     Luc_StdResult = E_NOT_OK;
   }
   else
   {
+    /* [SWS_Can_00500]?? */
     /* No action required */
   }
   #endif
@@ -278,11 +296,11 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   {
   #endif
     /* Check whether Controller mode is in STOP_MODE if required */
-  
+
     /* Get the configuration data from input controller and BaudRateConfigID */
-  
+
     /* Configure the HW of requested Controller */
-  
+
   #if(DEV_ERROR_DETECT_API == STD_ON)
   }
   else
@@ -302,8 +320,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function performs software triggered state
  *                       transitions of the CAN controller State machine.
  */
@@ -323,8 +341,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function disables all interrupts for this
  *                       CAN controller.
  */
@@ -343,8 +361,8 @@ FUNC(void, CAN_CODE_SLOW) Can_DisableControllerInterrupts (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function enables all allowed interrupts for this
  *                       CAN controller.
  */
@@ -363,8 +381,8 @@ FUNC(void, CAN_CODE_SLOW) Can_EnableControllerInterrupts (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function checks if a wakeup has occurred for
  *                       the given controller.
  */
@@ -383,8 +401,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckWakeup (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : ErrorStatePtr
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This service obtains the error state of
  *                       the CAN controller.
  */
@@ -404,8 +422,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : ControllerModePtr
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This service reports about the current status of
  *                       the requested CAN controller
  */
@@ -425,8 +443,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : RxErrorCounterPtr
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : Returns the Rx error counter for a CAN controller.
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (
@@ -445,8 +463,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : TxErrorCounterPtr
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : Returns the Tx error counter for a CAN controller.
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (
@@ -465,8 +483,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK/CAN_BUSY)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function is called by CanIf to pass a
  *                       CAN message to CanDrv for transmission.
  */
@@ -486,8 +504,8 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write (
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function performs the polling of TX confirmation
  *                       when CAN_TX_PROCESSING is set to POLLING
  */
@@ -505,8 +523,8 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Write (void)
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function performs the polling of RX indications
  *                       when CAN_RX_PROCESSING is set to POLLING
  */
@@ -524,8 +542,8 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Read (void)
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function performs the polling of bus-off events
  *                       that are configured statically as 'to be polled'.
  */
@@ -543,8 +561,8 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_BusOff (void)
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function performs the polling of wake-up events
  *                       that are configured statically as 'to be polled'.
  */
@@ -562,8 +580,8 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Wakeup (void)
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function performs the polling of
  *                       CAN controller mode transitions
  */
@@ -581,8 +599,8 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Mode (void)
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : None
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This service shall change the Icom Configuration
  *                       of a CAN controller to the requested one.
  */

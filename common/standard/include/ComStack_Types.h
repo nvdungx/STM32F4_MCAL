@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File:         ComStack_Types.h
-* Revision:
-* Author:
+* Revision:     1.0.0
+* Author:       Dung van Nguyen
 * Date:         30.08.2019
 * Description:  Communication Stack Types AUTOSAR file
 *******************************************************************************/
@@ -21,21 +21,27 @@ Macro definitions
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/
-
+/* [SWS_COMTYPE_00005] */
 typedef uint16 PduIdType;
 
+/* [SWS_COMTYPE_00008] */
 typedef uint16 PduLengthType;
 
+/* [SWS_COMTYPE_00038] */
 typedef uint8 NetworkHandleType;
 
+/* [SWS_COMTYPE_00039]  */
 typedef uint8 IcomConfigIdType;
 
 /* IcomSwitch_ErrorType defines the errors which can occur when activating or
 deactivating Pretended Networking. */
+/* [SWS_COMTYPE_00040]  */
 typedef enum IcomSwitch_ErrorType_ETag
 {
-  ICOM_SWITCH_E_OK = 0x00,
-  ICOM_SWITCH_E_FAILED = 0x01
+  /*  The activation of Pretended Networking was successful. */
+  ICOM_SWITCH_E_OK      = 0x00U,
+  /*  The activation of Pretended Networking was not successful. */
+  ICOM_SWITCH_E_FAILED  = 0x01U
 } IcomSwitch_ErrorType;
 
 /* Variables of this type shall be used to store the basic information about
