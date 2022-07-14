@@ -6,6 +6,7 @@
 * Description:  declaration of CAN module API
 *******************************************************************************/
 
+/* [SWS_Can_00386] */
 #ifndef CAN_H
 #define CAN_H
 /*******************************************************************************
@@ -21,8 +22,6 @@ Includes
 #include "MemMap.h"
 #include "Can_Cfg.h"
 
-#include "Can_Internals.h"
-
 /*******************************************************************************
 Macro definitions
 *******************************************************************************/
@@ -31,28 +30,6 @@ Macro definitions
 #define CAN_SID_INIT              0x00U
 #define CAN_SID_DEINIT            0x10U
 #define CAN_SID_SETBAUDRATE       0x0FU
-
-/* Temporary >> shall move to DET module instead */
-#define CAN_E_PARAM_POINTER       0x01U
-#define CAN_E_PARAM_HANDLE        0x02U
-#define CAN_E_PARAM_DATA_LENGTH   0x03U
-#define CAN_E_PARAM_CONTROLLER    0x04U
-#define CAN_E_UNINIT              0x05U
-#define CAN_E_TRANSITION          0x06U
-#define CAN_E_PARAM_BAUDRATE      0x07U
-#define CAN_E_ICOM_CONFIG_INVALID 0x08U
-#define CAN_E_INIT_FAILED         0x09U
-
-/* Temporary >> shall move to DEM module instead */
-#define CAN_E_DATALOST            0x01U
-
-/* These macro shall be generated in Can_Cfg.h */
-#define CAN_MODULE_ID             0x80U
-#define CAN_VENDOR_ID             0x00U
-#define SW_MINOR_VERSION          0x01U
-#define SW_MAJOR_VERSION          0x00U
-#define SW_PATCH_VERSION          0x00U
-#define NUMBER_CAN_CONTROLLER     0x02U
 
 /*******************************************************************************
 Typedef definitions
@@ -73,7 +50,6 @@ typedef struct Can_ConfigType_STag
   uint8 ucNumCanController;
 } Can_ConfigType;
 
-extern P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Glb_CanConfig;
 /*******************************************************************************
 Global functions
 *******************************************************************************/

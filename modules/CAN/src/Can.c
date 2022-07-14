@@ -9,7 +9,7 @@
 /*******************************************************************************
 Includes
 *******************************************************************************/
-/* [SWS_Can_00058] */
+/* [SWS_Can_00058], [SWS_Can_00079] */
 #include "Dem.h"
 #include "Det.h"
 #include "MemMap.h"
@@ -19,8 +19,13 @@ Includes
 #include "CanIf_Cbk.h"
 #include "Can.h"
 
+#include "Can_Internals.h"
+
+extern P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Gst_CanConfig;
+
 /* [SWS_Can_00103] */
-Can_DrvStsType Can_DriverSts = CAN_UNINIT;
+/* Internal CAN Driver state machine */
+Can_DrvStsType Gen_CanDriverState = CAN_UNINIT;
 
 /*
  *  Service Name...... : Can_GetVersionInfo
@@ -78,7 +83,7 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
   boolean Lbl_InitSts;
   Std_ReturnType Luc_StdResult;
   #if(DEV_ERROR_DETECT_API == STD_ON)
-  Can_ControllerPCConfigType *Lpt_ControllerPC;
+  const Can_ControllerPCConfigType *Lpt_ControllerPC;
   #endif
   
   Luc_StdResult = E_OK;
@@ -94,11 +99,11 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
   else
   {
     /* store the configuration structure pointer to internal global ptr */
-    Glb_CanConfig = Config;
+    Gst_CanConfig = Config;
 
     #if(DEV_ERROR_DETECT_API == STD_ON)
     /* Check whether or not CAN Driver is in state CAN_UNINIT */
-    if (CAN_UNINIT != Can_DriverSts)
+    if (CAN_UNINIT != Gen_CanDriverState)
     {
       /* [SWS_Can_00174], [SWS_Can_00259] */
       (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
@@ -133,14 +138,15 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (
     Lbl_InitSts = TRUE;
     for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
     {
-      /* [SWS_Can_00238], [SWS_Can_00239], [SWS_Can_00245], [SWS_Can_00250] */
-      Lbl_InitSts &= Can_HwInit(Luc_Count);
+      /* [SWS_Can_00237], [SWS_Can_00236], [SWS_Can_00238], [SWS_Can_00239],
+      [SWS_Can_00245], [SWS_Can_00250] */
+      Lbl_InitSts &= Can_HwInit(Config, Luc_Count);
     }
     if (TRUE == Lbl_InitSts)
     {
       /* [SWS_Can_00246] */
       /* There are no fail during initialized process */
-      Can_DriverSts = CAN_READY;
+      Gen_CanDriverState = CAN_READY;
     }
     else
     {
@@ -173,11 +179,11 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
   boolean Lbl_DeInitSts;
   #if(DEV_ERROR_DETECT_API == STD_ON)
   Std_ReturnType Luc_StdResult;
-  Can_ControllerPCConfigType *Lpt_ControllerPC;
+  const Can_ControllerPCConfigType *Lpt_ControllerPC;
 
   Luc_StdResult = E_OK;
   /* Check if driver is initialized - Driver not in state CAN_READY */
-  if (CAN_READY != Can_DriverSts)
+  if (CAN_READY != Gen_CanDriverState)
   {
     /* [SWS_Can_91011], [SWS_Can_91010]*/
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
@@ -194,7 +200,7 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
       && (E_OK == Luc_StdResult); Luc_Count++)
     {
       /* Check sw status of controller */
-      Lpt_ControllerPC = &(Glb_CanConfig->stCanPCController)[Luc_Count];
+      Lpt_ControllerPC = &(Gst_CanConfig->stCanPCController)[Luc_Count];
       if (CAN_CS_STARTED == *(Lpt_ControllerPC->ptCanControllerSts))
       {
         /* if CAN controller status == CAN_CS_STARTED then return NG */
@@ -211,15 +217,16 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
   {
     #endif
     Lbl_DeInitSts = TRUE;
+    /* [SWS_Can_00103], [SWS_Can_91009] */
+    /* Change state to UNINIT before perform actual deinit operation in CAN */
+    Gen_CanDriverState = CAN_UNINIT;
     for (Luc_Count = 0; Luc_Count < NUMBER_CAN_CONTROLLER; Luc_Count++)
     {
       Lbl_DeInitSts &= Can_HwDeInit(Luc_Count);
     }
     if (TRUE == Lbl_DeInitSts)
     {
-      /* [SWS_Can_00103], [SWS_Can_ 91009] */
-      /* There are no fail during deinit process */
-      Can_DriverSts = CAN_UNINIT;
+      /* TBD: action */
     }
     else
     {
@@ -261,7 +268,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (
   Luc_StdResult = E_OK;
   #if(DEV_ERROR_DETECT_API == STD_ON)
   /* Check if driver is initialized - Driver not in state CAN_READY */
-  if (CAN_READY != Can_DriverSts)
+  if (CAN_READY != Gen_CanDriverState)
   {
     /* [SWS_Can_00492] */
     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
@@ -511,7 +518,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write (
  */
 FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Write (void)
 {
-
+  /* [SWS_Can_00280] */
 }
 
 /*
@@ -530,7 +537,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Write (void)
  */
 FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Read (void)
 {
-
+  /* [SWS_Can_00280] */
 }
 
 /*
@@ -549,7 +556,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Read (void)
  */
 FUNC(void, CAN_CODE_SLOW) Can_MainFunction_BusOff (void)
 {
-
+  /* [SWS_Can_00280] */
 }
 
 /*
@@ -568,7 +575,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_BusOff (void)
  */
 FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Wakeup (void)
 {
-
+  /* [SWS_Can_00280] */
 }
 
 /*
@@ -587,7 +594,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Wakeup (void)
  */
 FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Mode (void)
 {
-
+  /* [SWS_Can_00280] */
 }
 
 /*

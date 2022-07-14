@@ -9,7 +9,7 @@
 MAKEFLAGS += -j
 
 # specify base path of project << shall input by tool or change manually
-BASE := C:\Users\Admin\Documents\Workspace\01.Projects\stm32
+BASE := C:\Users\Admin\Documents\Workspace\01.Projects\AUTOSAR_STM32_MCAL
 MODULE := CAN
 
 include ../common/make/common.mak

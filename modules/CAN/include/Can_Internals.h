@@ -31,7 +31,10 @@ Typedef definitions
 Global functions
 *******************************************************************************/
 
-FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(VAR(uint8, AUTOMATIC) Controller);
+FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(
+  P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config,
+    VAR(uint8, AUTOMATIC) Controller);
+
 FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(VAR(uint8, AUTOMATIC) Controller);
 
 #endif /*End of Can_Internals.h*/

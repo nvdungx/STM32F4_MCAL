@@ -8,8 +8,10 @@
 
 # Fixed dir
 MODULE_SRC := $(wildcard $(BASE)/modules/$(MODULE)/src/*.c)
+MODULE_SRC += $(wildcard $(BASE)/modules/$(MODULE)/generate/src/*.c)
 # Fixed dir
 MODULE_INC := $(BASE)/modules/$(MODULE)/include
+MODULE_INC += $(BASE)/modules/$(MODULE)/generate/include
 
 .PHONY : debug_module
 debug_module:

@@ -8,9 +8,9 @@ any service of other drivers.⌋
 OK: [SWS_Can_00239] ⌈ The function Can_Init shall initialize all on-chip hardware
 resources that are used by the CAN controller. The only exception to this is the digital
 I/O pin configuration (of pins used by CAN), which is done by the port driver.⌋  
-OK: [SWS_Can_00240] ⌈ The Mcu module (SPAL see [8]) shall configure register
+NA: [SWS_Can_00240] ⌈ The Mcu module (SPAL see [8]) shall configure register
 settings that are ‘shared’ with other modules.⌋  
-NA: [SWS_Can_00242] ⌈ If an off-chip CAN controller is used3, the Can module shall use
+NA: [SWS_Can_00242] ⌈ If an off-chip CAN controller is used, the Can module shall use
 services of other MCAL drivers (e.g. SPI).⌋  
 NA: [SWS_Can_00244] ⌈ The Can module shall use the synchronous APIs of the
 underlying MCAL drivers and shall not provide callback functions that can be called
@@ -57,7 +57,7 @@ OK: [SWS_Can_00246] ⌈ The function Can_Init shall change the module state to
 CAN_READY, after initializing all controllers inside the HW Unit.⌋  
 OK: [SWS_Can_00245] ⌈ The function Can_Init shall initialize all CAN controllers
 according to their configuration.⌋  
-OK: [SWS_Can_ 91009] ⌈ The function Can_DeInit shall change the module state to
+OK: [SWS_Can_91009] ⌈ The function Can_DeInit shall change the module state to
 CAN_UNINIT before de-initializing all controllers inside the HW unit⌋  
 
 # **7.3 CAN Controller State Machine**

@@ -16,6 +16,13 @@ Includes
 /*******************************************************************************
 Macro definitions
 *******************************************************************************/
+#define CAN_MODULE_ID             0x80U
+#define CAN_VENDOR_ID             0x00U
+#define SW_MINOR_VERSION          0x01U
+#define SW_MAJOR_VERSION          0x00U
+#define SW_PATCH_VERSION          0x00U
+#define NUMBER_CAN_CONTROLLER     0x02U
+
 /* [ref]: ECUC_Can_00328 */
 /* CanGeneral - Pre-compile time variant parameters */
 /* [ref]: ECUC_Can_00064 */
@@ -66,6 +73,10 @@ Macro definitions
 #define CAN_WAKEUP_FUNCTIONALITY_API       STD_ON
 /* [ref]: ECUC_Can_00330 */
 #define CAN_WAKEUP_SUPPORT                 STD_ON
+
+#define CAN_LAST_CONTROLLER_ID             ((uint8)1)
+
+#define CAN_MAX_BAUD_CONFIG_ID             ((uint8)2)
 
 
 

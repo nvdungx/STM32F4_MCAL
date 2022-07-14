@@ -5,7 +5,7 @@
 * Date:         04.09.2019
 * Description:  definition for internal functions.
 *******************************************************************************/
-
+#include "Can_IOCommon.h"
 #include "Can_Internals.h"
 
 /*
@@ -21,10 +21,12 @@
  *  Global variable    : 
  *  Description....... : 
  */
-FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(VAR(uint8, AUTOMATIC) Controller)
+FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(
+  P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config,
+    VAR(uint8, AUTOMATIC) Controller)
 {
   boolean Lbl_InitSts;
-  
+  /* [SWS_Can_00419] */
   
   return Lbl_InitSts;
 }

@@ -8,4 +8,4 @@
 
 #include "Can.h"
 
-P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Glb_CanConfig;
+P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Gst_CanConfig;
