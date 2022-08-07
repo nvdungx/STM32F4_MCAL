@@ -480,22 +480,31 @@ typedef struct Can_Filter_STag
 /* 0x4000 6800 - 0x4000 6BFF */
 #define CAN2_BASEADDR 0x40006800UL
 
-#define CAN1_CtrlSts (*(volatile Can_CtrlSts *)(CAN1_BASEADDR + 0UL))
-#define CAN2_CtrlSts (*(volatile Can_CtrlSts *)(CAN2_BASEADDR + 0UL))
+#define CAN1_CtrlSts ((volatile Can_CtrlSts *)(CAN1_BASEADDR + 0UL))
+#define CAN2_CtrlSts ((volatile Can_CtrlSts *)(CAN2_BASEADDR + 0UL))
 
-#define CAN1_TxMbx0 (*(volatile Can_TxMbx *)(CAN1_BASEADDR + 0x180UL))
-#define CAN1_TxMbx1 (*(volatile Can_TxMbx *)(CAN1_BASEADDR + 0x190UL))
-#define CAN1_TxMbx2 (*(volatile Can_TxMbx *)(CAN1_BASEADDR + 0x1A0UL))
-#define CAN2_TxMbx0 (*(volatile Can_TxMbx *)(CAN2_BASEADDR + 0x180UL))
-#define CAN2_TxMbx1 (*(volatile Can_TxMbx *)(CAN2_BASEADDR + 0x190UL))
-#define CAN2_TxMbx2 (*(volatile Can_TxMbx *)(CAN2_BASEADDR + 0x1A0UL))
+#define CAN1_TxMbx0 ((volatile Can_TxMbx *)(CAN1_BASEADDR + 0x180UL))
+#define CAN1_TxMbx1 ((volatile Can_TxMbx *)(CAN1_BASEADDR + 0x190UL))
+#define CAN1_TxMbx2 ((volatile Can_TxMbx *)(CAN1_BASEADDR + 0x1A0UL))
+#define CAN2_TxMbx0 ((volatile Can_TxMbx *)(CAN2_BASEADDR + 0x180UL))
+#define CAN2_TxMbx1 ((volatile Can_TxMbx *)(CAN2_BASEADDR + 0x190UL))
+#define CAN2_TxMbx2 ((volatile Can_TxMbx *)(CAN2_BASEADDR + 0x1A0UL))
 
-#define CAN1_RxMbx0 (*(volatile Can_RxMbx *)(CAN1_BASEADDR + 0x1B0UL))
-#define CAN1_RxMbx1 (*(volatile Can_RxMbx *)(CAN1_BASEADDR + 0x1C0UL))
-#define CAN2_RxMbx0 (*(volatile Can_RxMbx *)(CAN2_BASEADDR + 0x1B0UL))
-#define CAN2_RxMbx1 (*(volatile Can_RxMbx *)(CAN2_BASEADDR + 0x1C0UL))
+#define CAN1_RxMbx0 ((volatile Can_RxMbx *)(CAN1_BASEADDR + 0x1B0UL))
+#define CAN1_RxMbx1 ((volatile Can_RxMbx *)(CAN1_BASEADDR + 0x1C0UL))
+#define CAN2_RxMbx0 ((volatile Can_RxMbx *)(CAN2_BASEADDR + 0x1B0UL))
+#define CAN2_RxMbx1 ((volatile Can_RxMbx *)(CAN2_BASEADDR + 0x1C0UL))
 
 /* 28 filter banks shared between CAN1 and CAN2 */
-#define CAN_ReceiveRule (*(volatile Can_Filter_STag *)(CAN1_BASEADDR + 0x200UL))
+#define CAN_ReceiveRule ((volatile Can_Filter *)(CAN1_BASEADDR + 0x200UL))
+
+/* data structure to access CAN controller register */
+typedef struct CanCtrlrHwRegType_STag
+{
+  volatile Can_CtrlSts * const CtrlSts;
+  volatile Can_TxMbx * const TxMbx[3];
+  volatile Can_RxMbx * const RxMbx[2];
+  volatile Can_Filter * const Filter;
+} CanCtrlrHwRegType;
 
 #endif /*End of Can_IOCommon.h*/

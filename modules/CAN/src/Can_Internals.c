@@ -27,7 +27,10 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(
 {
   boolean Lbl_InitSts;
   /* [SWS_Can_00419] */
-  
+
+  /* indexing and config all global data of can hw unit */
+  CanCtrlr[0].CtrlSts->ulMCReg.RESET = 1;
+
   return Lbl_InitSts;
 }
 

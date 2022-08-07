@@ -14,6 +14,7 @@ Includes
 #include "ComStack_Types.h"
 #include "Can_GeneralTypes.h"
 
+#include "Can_IOCommon.h"
 #include "Can_Types.h"
 #include "Can_PBTypes.h"
 #include "Can.h"
@@ -30,6 +31,7 @@ Typedef definitions
 /*******************************************************************************
 Global functions
 *******************************************************************************/
+extern CONST(CanCtrlrHwRegType, CAN_APPL_CONST) CanCtrlr[2];
 
 FUNC(boolean, CAN_CODE_SLOW) Can_HwInit(
   P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config,
