@@ -1,2 +1,2 @@
-#include "Can_Lcfg.h"
+#include "Can_LCfg.h"
 /* Link time configuration source */

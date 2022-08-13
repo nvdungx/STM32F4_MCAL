@@ -1,11 +1,24 @@
 /*******************************************************************************
-* File:         Compiler_Cfg.h
-* Revision:     1.0.0
-* Author:       Dung van Nguyen
-* Date:         10.19.2021
-* Description:  Compiler configuration definition (should be generated from
-*                   options of compiler configuration)
+ * COPYRIGHT
+ * -----------------------------------------------------------------------------
+ * Copyright (c) 2022 by <<>>. All rights reserved.
+ * -----------------------------------------------------------------------------
+ * FILE DESCRIPTION
+ *  File:         Compiler_Cfg.h
+ *  Component:    <<>>
+ *  Module:       <<>>
+ *  Generator:    <<>>
+ *  Description:  Compiler configuration definition (should be generated from
+*                 options of compiler configuration)
+ * -----------------------------------------------------------------------------
+ * REVISION HISTORY
+ * -----------------------------------------------------------------------------
+ * Version   Date        Author  Description
+ * -----------------------------------------------------------------------------
+ * 01.00.00  13/08/2022  Dungnv  Initial version
+ * 
 *******************************************************************************/
+
 
 #ifndef __COMPILER_CFG_H__
 #define __COMPILER_CFG_H__

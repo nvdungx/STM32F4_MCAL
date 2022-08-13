@@ -1,20 +1,43 @@
 /*******************************************************************************
-* File:         Platform_Types.h
-* Revision:     1.0.0
-* Author:       Dung van Nguyen
-* Date:         02.08.2019
-* Description:  Standard AUTOSAR file(AUTOSAR_SWS_PlatformTypes)
+ * COPYRIGHT
+ * -----------------------------------------------------------------------------
+ * Copyright (c) 2022 by <<>>. All rights reserved.
+ * -----------------------------------------------------------------------------
+ * FILE DESCRIPTION
+ *  File:         Platform_Types.h
+ *  Component:    <<>>
+ *  Module:       <<>>
+ *  Generator:    <<>>
+ *  Description:  Standard AUTOSAR file(AUTOSAR_SWS_PlatformTypes)
+ * -----------------------------------------------------------------------------
+ * REVISION HISTORY
+ * -----------------------------------------------------------------------------
+ * Version   Date        Author  Description
+ * -----------------------------------------------------------------------------
+ * 01.00.00  13/08/2022  Dungnv  Initial version
+ * 
 *******************************************************************************/
-
 
 #ifndef PLATFORM_TYPES_H
 #define PLATFORM_TYPES_H
+
+#define PLATFORM_VENDOR_ID    (0xF0U)
+#define PLATFORM_MODULE_ID    (199U)
+
+/* AUTOSAR Software Specification Document Version Information */
+#define PLATFORM_AR_RELEASE_MAJOR_VERSION      (4U)
+#define PLATFORM_AR_RELEASE_MINOR_VERSION      (4U)
+#define PLATFORM_AR_RELEASE_REVISION_VERSION   (0U)
+
+/* Component Version Information */
+#define PLATFORM_TYPES_SW_MAJOR_VERSION       (1U)
+#define PLATFORM_TYPES_SW_MINOR_VERSION       (0U)
+#define PLATFORM_TYPES_SW_PATCH_VERSION       (0U)
 
 /*******************************************************************************
 MCU specific settings
 *******************************************************************************/
 /* CPU type */
-
 #define CPU_TYPE_8        8
 #define CPU_TYPE_16       16
 #define CPU_TYPE_32       32
