@@ -1,10 +1,23 @@
 /*******************************************************************************
-* File:         ComStack_Types.h
-* Revision:     1.0.0
-* Author:       Dung van Nguyen
-* Date:         30.08.2019
-* Description:  Communication Stack Types AUTOSAR file
+ * COPYRIGHT
+ * -----------------------------------------------------------------------------
+ * Copyright (c) 2022 by <<>>. All rights reserved.
+ * -----------------------------------------------------------------------------
+ * FILE DESCRIPTION
+ *  File:         ComStack_Types.h
+ *  Component:    <<>>
+ *  Module:       <<>>
+ *  Generator:    <<>>
+ *  Description:  Communication Stack Types AUTOSAR file
+ * -----------------------------------------------------------------------------
+ * REVISION HISTORY
+ * -----------------------------------------------------------------------------
+ * Version   Date        Author  Description
+ * -----------------------------------------------------------------------------
+ * 01.00.00  13/08/2022  Dungnv  Initial version
+ * 
 *******************************************************************************/
+
 
 #ifndef COMSTACK_TYPES_H
 #define COMSTACK_TYPES_H

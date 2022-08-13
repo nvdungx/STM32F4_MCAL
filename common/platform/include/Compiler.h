@@ -1,10 +1,23 @@
 /*******************************************************************************
-* File:         Compiler.h
-* Revision:     1.0.0
-* Author:       Dung van Nguyen
-* Date:         02.08.2019
-* Description:  Standard AUTOSAR file(AUTOSAR_SWS_CompilerAbstraction)
+ * COPYRIGHT
+ * -----------------------------------------------------------------------------
+ * Copyright (c) 2022 by <<>>. All rights reserved.
+ * -----------------------------------------------------------------------------
+ * FILE DESCRIPTION
+ *  File:         Compiler.h
+ *  Component:    <<>>
+ *  Module:       <<>>
+ *  Generator:    <<>>
+ *  Description:  Standard AUTOSAR file(AUTOSAR_SWS_CompilerAbstraction)
+ * -----------------------------------------------------------------------------
+ * REVISION HISTORY
+ * -----------------------------------------------------------------------------
+ * Version   Date        Author  Description
+ * -----------------------------------------------------------------------------
+ * 01.00.00  13/08/2022  Dungnv  Initial version
+ * 
 *******************************************************************************/
+
 /* [SWS_COMPILER_00004, SWS_COMPILER_00047, SWS_COMPILER_00050] */
 #ifndef COMPILER_H
 #define COMPILER_H
@@ -13,6 +26,19 @@ Includes
 *******************************************************************************/
 /* [SWS_COMPILER_00048] */
 #include "Compiler_Cfg.h"
+
+#define COMPILER_VENDOR_ID    (0xF0U)
+#define COMPILER_MODULE_ID    (198U)
+
+/* AUTOSAR Software Specification Release Version Information */
+#define COMPILER_AR_RELEASE_MAJOR_VERSION       (4U)
+#define COMPILER_AR_RELEASE_MINOR_VERSION       (4U)
+#define COMPILER_AR_RELEASE_REVISION_VERSION    (0U)
+
+/* Component Version Information */
+#define COMPILER_SW_MAJOR_VERSION       (1U)
+#define COMPILER_SW_MINOR_VERSION       (0U)
+#define COMPILER_SW_PATCH_VERSION       (0U)
 
 /*******************************************************************************
 Macro definitions - according AUTOSAR
