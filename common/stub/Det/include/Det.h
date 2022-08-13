@@ -30,5 +30,6 @@ Macro definitions
 Typedef definitions
 *******************************************************************************/
 Std_ReturnType Det_ReportError(uint8 module_id, uint8 module_instance, uint8 service_id, uint8 det_error);
+Std_ReturnType Det_ReportRuntimeError(void);
 
 #endif /*End of Det.h*/

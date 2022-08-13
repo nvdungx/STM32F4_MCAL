@@ -1,5 +1,7 @@
 #include "SampleApp.h"
 #include "Can.h"
+#include "Can_PBCfg.h"
+#include "Can_Cfg.h"
 
 typedef struct List_STag
 {
@@ -25,7 +27,7 @@ int main(void)
   add_list(&newEle);
   arr[0] = 0xFF;
 
-  Can_Init(NULL_PTR);
+  Can_Init(&CanConfig);
 
   while(1)
   {
