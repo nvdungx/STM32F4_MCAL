@@ -19,8 +19,8 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
 from PySide6.QtWidgets import (QApplication, QHeaderView, QMainWindow, QMenu,
     QMenuBar, QScrollArea, QSizePolicy, QStatusBar,
     QTreeView, QWidget)
-import os
 
+import os
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -30,7 +30,6 @@ class Ui_MainWindow(object):
         self.uidir = os.path.abspath(os.path.join(application_path, "../."))
         icon = QIcon()
         icon.addFile(os.path.join(self.uidir, u"icons/icon-app.png"), QSize(), QIcon.Normal, QIcon.Off)
-        icon.addFile(u"icons/CfgGenerateTool.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.action_importPDF = QAction(MainWindow)
         self.action_importPDF.setObjectName(u"action_importPDF")
@@ -79,4 +78,5 @@ class Ui_MainWindow(object):
         self.action_generate.setText(QCoreApplication.translate("MainWindow", u"Generate", None))
         self.menu_File.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
     # retranslateUi
+
 
