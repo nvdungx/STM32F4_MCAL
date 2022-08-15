@@ -2,6 +2,7 @@ import os, sys, pathlib, logging, time
 import multiprocessing
 
 import PySide6.QtCore
+import PySide6.QtXml
 from PySide6.QtWidgets import QApplication, QMainWindow
 
 from ui.src.CfgGenerateTool import *
