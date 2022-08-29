@@ -52,6 +52,7 @@ Macro definitions
 #define E_OK        0x00U
 /* request not accepted, a development error occurred */
 #define E_NOT_OK    0x01U
+
 typedef uint8 StatusType; /* OSEK compliance */
 #endif
 
