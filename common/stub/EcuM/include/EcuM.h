@@ -22,4 +22,6 @@ Typedef definitions
 *******************************************************************************/
 typedef uint32 EcuM_WakeupSourceType;
 
+void EcuM_SetWakeupEvent(void);
+
 #endif /*End of EcuM.h*/

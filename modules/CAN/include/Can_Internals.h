@@ -34,8 +34,7 @@ Includes
 /*******************************************************************************
 Macro definitions
 *******************************************************************************/
-#define CAN_MSR_SLEEP_ACK ((uint32)1 << 1)
-#define CAN_MSR_INIT_ACK ((uint32)1)
+
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/
@@ -57,4 +56,6 @@ FUNC(Can_ControllerConfigType *, CAN_CODE_SLOW) Can_GetCtrlr(P2CONST(Can_ConfigT
     VAR(uint8, AUTOMATIC) CtrlrId);
 FUNC(Can_BaudrateConfigType *, CAN_CODE_SLOW) Can_GetBaudrateCfg(Can_ControllerConfigType *CtrlrPtr,
     VAR(uint8, AUTOMATIC) BaudRateConfigID);
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckValidSetCtrlrModeTrans(Can_ControllerStateType CurState,
+                                                                    Can_ControllerStateType NextState);
 #endif /*End of Can_Internals.h*/

@@ -9,7 +9,7 @@
 MAKEFLAGS += -j
 
 # specify base path of project << shall input by tool or change manually
-BASE := C:\Users\Admin\Documents\Workspace\01.Projects\AUTOSAR_STM32_MCAL
+BASE := C:/Users/Admin/Documents/Workspace/01.Projects/AUTOSAR_STM32_MCAL
 MODULE := CAN
 
 include ../common/make/common.mak
@@ -27,7 +27,8 @@ include ../modules/$(MODULE)/make/module.mak
 #Device
 DEVICE=stm32f407vg
 
-# TOOLCHAIN_PATH = D:\Tool\GNUToolsARMEmbedded\ARMCompiler\bin
+# TOOLCHAIN_PATH = D:/Tool/GNUToolsARMEmbedded/ARMCompiler/bin
+JLINK_PATH = C:/Program Files/SEGGER/JLink_V796e
 
 CC = $(TOOLCHAIN_PATH)/arm-none-eabi-gcc
 AS = $(TOOLCHAIN_PATH)/arm-none-eabi-as
@@ -80,10 +81,29 @@ SampleApp.hex: SampleApp.elf
 	$(OBJCPY) -O ihex $^ $@
 
 clean:
-	rm -rf *.o *.elf *.bin *.hex *.map
+	rm -rf *.o *.elf *.bin *.hex *.map *.jlink
+
+JFLASH_CMD=$(BASE)/sample/flash.jlink
+$(JFLASH_CMD): $(BASE)/sample/SampleApp.bin
+	@touch $@
+	@echo device $(DEVICE) > $@
+	@echo selectinterface SWD >> $@
+	@echo speed 4000 >> $@
+	@echo connect >> $@
+	@echo loadbin $< 0x08000000 >> $@
+	@echo reset >> $@
+	@echo go >> $@
+	@echo exit >> $@
+
+flash: $(JFLASH_CMD)
+	$(JLINK_PATH)/Jlink.exe -CommandFile $<
 
 .PHONY : debug_vars
 debug_vars:
 	@echo SRCFILES: $(SRCFILES)
+	@echo
 	@echo INCFILES: $(INCFILES)
+	@echo
 	@echo OBJECTS: $(OBJECTS)
+	@echo
+	@echo FLASH: $(JFLASH_CMD)

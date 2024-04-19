@@ -49,8 +49,8 @@ Can_ControllerConfigType CanControllers[] =
         .stBaudrateCfgs = CanBaudrateConfig,
         .ucBaudrateCfgSize = 2,
         .ucCanCtrlEcucPartRef = 0,
-        .ucFltBankEnd = 0,
-        .ucFltBankStart = 14,
+        .ucFltBankStart = 0,
+        .ucFltBankEnd = 14,
         .ucId = 0,
         .ulHwBaseAddr = 0x40006400UL
     },
@@ -66,8 +66,8 @@ Can_ControllerConfigType CanControllers[] =
         .stBaudrateCfgs = CanBaudrateConfig,
         .ucBaudrateCfgSize = 2,
         .ucCanCtrlEcucPartRef = 0,
-        .ucFltBankEnd = 15,
-        .ucFltBankStart = 27,
+        .ucFltBankStart = 15,
+        .ucFltBankEnd = 27,
         .ucId = 1,
         .ulHwBaseAddr = 0x40006800UL
     }

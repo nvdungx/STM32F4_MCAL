@@ -12,5 +12,6 @@
 Includes
 *******************************************************************************/
 
+void CanIf_TriggerTransmit(void);
 
 #endif /*End of CanIf.h*/

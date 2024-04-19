@@ -32,6 +32,9 @@
 #define GetExtendedRuleConfig(val)   ((((uint32)val & 0x000007FF) << 21) | (((uint32)val & 0x1FFFF800) >> 11) << 3 | (uint32)1 << 2)
 #define GetStandardRuleConfig(val)   (((uint16)val & 0x07FF) << 5 | (uint16)1 << 3)
 
+#define GetCurrentStateMask(state) ((uint8)(state == CAN_CS_STARTED) | ((uint8)(state == CAN_CS_STOPPED) << 1) | ((uint8)(state == CAN_CS_SLEEP) << 2))
+#define GetTargetStateMask(state) (GetCurrentStateMask(state) << 4)
+
 /*
  *  Service Name...... : Can_HwCtrlInit
  *  Service ID      .. : None
@@ -351,8 +354,8 @@ FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 Idx, uint8 FltBankStart,
  */
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_WaitRegValUntilTimeout(uint32 * RegAddr, uint32 ExpectedValue)
 {
-    TickType Lul_PreOsTick;
-    TickType Lul_CurOsTick;
+    TickType Lul_PreOsTick = 0;
+    TickType Lul_CurOsTick = 0;
     Std_ReturnType Luc_ReturnVal;
     Luc_ReturnVal = E_NOT_OK;
     GetCounterValue(CAN_OS_COUNTER, &Lul_PreOsTick);
@@ -364,7 +367,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_WaitRegValUntilTimeout(uint32 * RegAddr,
             Luc_ReturnVal = E_OK;
             break;
         }
-    } while ((Lul_CurOsTick - Lul_PreOsTick) < CAN_TIMEOUT_DURATION);
+    } while ((Lul_CurOsTick - Lul_PreOsTick) < (uint32)(CAN_TIMEOUT_DURATION*1E6));
     return Luc_ReturnVal;
 }
 
@@ -410,7 +413,30 @@ FUNC(Can_BaudrateConfigType *, CAN_CODE_SLOW) Can_GetBaudrateCfg(Can_ControllerC
     return CtrlrPtr;
 }
 
-
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckValidSetCtrlrModeTrans(Can_ControllerStateType CurState,
+                                                                    Can_ControllerStateType NextState)
+{
+    static uint8 Lar_ValidTransition[] = {
+        GetCurrentStateMask(CAN_CS_STARTED) | GetTargetStateMask(CAN_CS_STARTED),
+        GetCurrentStateMask(CAN_CS_STARTED) | GetTargetStateMask(CAN_CS_STOPPED),
+        GetCurrentStateMask(CAN_CS_STOPPED) | GetTargetStateMask(CAN_CS_STOPPED),
+        GetCurrentStateMask(CAN_CS_STOPPED) | GetTargetStateMask(CAN_CS_STARTED),
+        GetCurrentStateMask(CAN_CS_STARTED) | GetTargetStateMask(CAN_CS_SLEEP),
+        GetCurrentStateMask(CAN_CS_SLEEP)   | GetTargetStateMask(CAN_CS_SLEEP),
+        GetCurrentStateMask(CAN_CS_SLEEP)   | GetTargetStateMask(CAN_CS_STARTED)
+    };
+    /* valid state: STARTED, STOP, SLEEP -> 3 value, 3 bit
+        2 state -> 6 bit */
+    uint8 Transition = GetCurrentStateMask(CurState) | GetTargetStateMask(NextState);
+    for (uint8 i = 0; i < sizeof(Lar_ValidTransition); i++)
+    {
+        if (Transition == Lar_ValidTransition[i])
+        {
+            return E_OK;
+        }
+    }
+    return E_NOT_OK;
+}
 
 
 

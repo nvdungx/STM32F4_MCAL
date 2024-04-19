@@ -44,7 +44,7 @@ Macro definitions
 /* [ref]: ECUC_Can_00482 */
 #define CAN_SET_BAUDRATE_API                STD_ON
 /* [ref]: ECUC_Can_00113 */
-#define CAN_TIMEOUT_DURATION                (float32)1E-6
+#define CAN_TIMEOUT_DURATION                (float32)1E-4
 /* [ref]: ECUC_Can_00106 */
 #define CAN_VERSIONINFO_API                 STD_ON
 /* [ref]: ECUC_Can_00431 */

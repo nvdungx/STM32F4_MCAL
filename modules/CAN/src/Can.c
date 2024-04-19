@@ -267,7 +267,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (VAR(uint8, AUTOMATIC) Contr
     Luc_StdResult = E_OK;
     Lpt_Ctrlr = Can_GetCtrlr(Glb_CanCfgPtr, Controller);
     /* Check if driver is initialized - Driver not in state CAN_READY */
-    if (CAN_READY != Gen_CanDriverState)
+    if (CAN_UNINIT == Gen_CanDriverState)
     {
         #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
         /* [SWS_Can_00492] */
@@ -353,7 +353,56 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (VAR(uint8, AUTOMATIC) Contr
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (VAR(uint8, AUTOMATIC) Controller,
     VAR(Can_ControllerStateType, AUTOMATIC) Transition)
 {
+    Std_ReturnType Luc_StdResult;
+    Can_ControllerConfigType *Lpt_Ctrlr;
 
+    Luc_StdResult = E_OK;
+    Lpt_Ctrlr = Can_GetCtrlr(Glb_CanCfgPtr, Controller);
+    /* Check if driver is initialized - Driver not in state CAN_READY */
+    if (CAN_UNINIT == Gen_CanDriverState)
+    {
+        #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+        /* [SWS_Can_00198] */
+        (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_UNINIT);
+        #endif
+        Luc_StdResult = E_NOT_OK;
+    }
+    /* Check if requested Controller value is valid */
+    else if (NULL_PTR == Lpt_Ctrlr)
+    {
+        /* [SWS_Can_00199] */
+        #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+        (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_PARAM_CONTROLLER);
+        #endif
+        Luc_StdResult = E_NOT_OK;
+    }
+    else
+    {
+        /* check invalid transition request */
+        /* [SWS_Can_00200] */
+        if (E_NOT_OK == Can_CheckValidSetCtrlrModeTrans(*Lpt_Ctrlr->ptCanCtrlSts, Transition))
+        {
+            #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+            (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_TRANSITION);
+            #endif
+            Luc_StdResult = E_NOT_OK;
+        }
+        else
+        {
+            /* empty */
+        }
+    }
+
+    /* Check if requested BaudRateConfigID value is valid */
+    if (E_OK == Luc_StdResult)
+    {
+
+    }
+    else
+    {
+        /* No action required */
+    }
+    return Luc_StdResult;
 }
 
 /*

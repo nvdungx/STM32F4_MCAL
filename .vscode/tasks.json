@@ -7,6 +7,34 @@
       "label": "activateVenv",
       "type": "shell",
       "command": "${workspaceFolder}/script/config_generation/.venv/Scripts/Activate.ps1"
+    },
+    {
+      "label": "Re-build Sample",
+      "type": "shell",
+      "group": "build",
+      "command": "cd ${workspaceFolder}/sample; make clean; make -j4 all",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Sample",
+      "type": "shell",
+      "group": "build",
+      "command": "cd ${workspaceFolder}/sample; make -j4 all",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean Sample",
+      "type": "shell",
+      "group": "build",
+      "command": "cd ${workspaceFolder}/sample; make -j4 clean",
+      "problemMatcher": []
+    },
+    {
+      "label": "Flash Sample",
+      "type": "shell",
+      "group": "build",
+      "command": "cd ${workspaceFolder}/sample; make -j4 flash",
+      "problemMatcher": []
     }
   ]
 }

@@ -11,7 +11,8 @@
 /*******************************************************************************
 Includes
 *******************************************************************************/
-
+#include "Std_Types.h"
+#include "Platform_Types.h"
 
 /*******************************************************************************
 Macro definitions
@@ -21,5 +22,8 @@ Macro definitions
 Typedef definitions
 *******************************************************************************/
 typedef uint8 Icu_ChannelType;
+
+void Icu_DisableNotification(void);
+void Icu_EnableNotification(void);
 
 #endif /*End of Icu.h*/

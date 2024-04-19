@@ -11,6 +11,35 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal"
+    },
+    {
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/sample/SampleApp.elf",
+      "name": "JLink debug",
+      "request": "launch",
+      "type": "cortex-debug",
+      "device": "STM32F407VG",
+      "interface": "swd",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      "servertype": "jlink",
+      "preLaunchTask": "Re-build Sample",
+      "svdFile": "C:\\ST\\STM32CubeIDE_1.4.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.productdb.debug_2.1.200.202403061128\\resources\\cmsis\\STMicroelectronics_CMSIS_SVD\\STM32F407.svd",
+      "swoConfig": {
+        "enabled": true,
+        "swoFrequency": 4000000,
+        "source": "probe",
+        "cpuFrequency": 160000000,
+        "decoders": [
+          {
+            "label": "ITM port 0 output",
+            "type": "console",
+            "port": 0,
+            "showOnStartup": true,
+            "encoding": "ascii"
+          }
+        ]
+      }
     }
   ]
 }
