@@ -237,10 +237,11 @@ typedef struct Can_ControllerConfigType_STag
     Can_TrxType enCanRxModeOp;
     /*[ref]: ECUC_Can_00318 */
     Can_TrxType enCanTxModeOp;
-    /* [ref]: ECUC_Can_00316 */
+    /* [ref]: ECUC_Can_00316, this should be can hardware controller id */
     uint8 ucId;
     /* [ref]: ECUC_Can_00492 */
     uint8 ucCanCtrlEcucPartRef;
+    uint8 ucBaudrateCfgSize;
     uint8 ucFltBankStart;
     uint8 ucFltBankEnd;
     /* [ref]: ECUC_Can_00315 */

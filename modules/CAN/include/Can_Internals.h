@@ -34,11 +34,12 @@ Includes
 /*******************************************************************************
 Macro definitions
 *******************************************************************************/
-
+#define CAN_MSR_SLEEP_ACK ((uint32)1 << 1)
+#define CAN_MSR_INIT_ACK ((uint32)1)
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/
-#define CAN_MSR_SLEEP_ACK ((uint32)1 << 1)
+
 /*******************************************************************************
 Global functions
 *******************************************************************************/
@@ -52,4 +53,8 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(P2CONST(Can_ConfigType, AUTOMATIC, CAN
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_WaitRegValUntilTimeout(uint32 * RegAddr, uint32 ExpectedValue);
 FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 CtrlrIdx, uint8 FltBankStart, uint8 FltBankEnd,
     uint8 FltBankType, Can_HwFilterConfigType *HwFilterRule);
+FUNC(Can_ControllerConfigType *, CAN_CODE_SLOW) Can_GetCtrlr(P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) ConfigPtr,
+    VAR(uint8, AUTOMATIC) CtrlrId);
+FUNC(Can_BaudrateConfigType *, CAN_CODE_SLOW) Can_GetBaudrateCfg(Can_ControllerConfigType *CtrlrPtr,
+    VAR(uint8, AUTOMATIC) BaudRateConfigID);
 #endif /*End of Can_Internals.h*/

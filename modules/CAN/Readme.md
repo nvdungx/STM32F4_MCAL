@@ -1,5 +1,5 @@
 # AUTOSAR MCAL CAN Driver
-CAN hardware unit:  
+CAN hardware unit:
 - 2 CAN controller.
 - support 2.0A, 2.0B(11 bit or 29 bit arbitration identifier)
 - CAN1: Master bxCAN, CAN2: Slave bxCAN, 512-byte SRAM memory
@@ -23,4 +23,12 @@ CAN hardware unit:
   - Maskable interrupts
   - Software-efficient mailbox mapping
 
+bxCAN has three main operating modes: initialization, normal and Sleep<br/>
 
+map software state to bxCAN hw state<br/>
+CAN_UNINIT:<br/>
+  CAN_CS_UNINIT, Sleep<br/>
+CAN_INIT:<br/>
+  CAN_CS_START, normal<br/>
+  CAN_CS_STOPPED, initialization<br/>
+  CAN_CS_SLEEP, Sleep<br/>

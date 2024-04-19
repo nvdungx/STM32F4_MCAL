@@ -259,58 +259,79 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (VAR(uint8, AUTOMATIC) Controller,
                                                     VAR(uint16, AUTOMATIC) BaudRateConfigID)
 {
-
+    uint8 Luc_HwId;
     Std_ReturnType Luc_StdResult;
+    Can_ControllerConfigType *Lpt_Ctrlr;
+    Can_BaudrateConfigType *Lpt_Baudrate;
 
     Luc_StdResult = E_OK;
-    // /* Check if driver is initialized - Driver not in state CAN_READY */
-    // if (CAN_READY != Gen_CanDriverState)
-    // {
-    //     #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
-    //     /* [SWS_Can_00492] */
-    //     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_UNINIT);
-    //     #endif
-    //     Luc_StdResult = E_NOT_OK;
-    // }
-    // /* Check if requested Controller value is valid */
-    // else if (CAN_LAST_CONTROLLER_ID < Controller)
-    // {
-    //     /* [SWS_Can_00494]  */
-    //     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_PARAM_CONTROLLER);
-    //     Luc_StdResult = E_NOT_OK;
-    // }
-    // /* Check if requested BaudRateConfigID value is valid */
-    // else if (CAN_MAX_BAUD_CONFIG_ID < BaudRateConfigID)
-    // {
-    //     /* [SWS_Can_00493] */
-    //     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID,
-    //     CAN_SID_SET_BAUDRATE, CAN_E_PARAM_BAUDRATE);
-    //     Luc_StdResult = E_NOT_OK;
-    // }
-    // else
-    // {
-    //     /* [SWS_Can_00500]?? */
-    //     /* No action required */
-    // }
-    // #endif
-
-    #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+    Lpt_Ctrlr = Can_GetCtrlr(Glb_CanCfgPtr, Controller);
+    /* Check if driver is initialized - Driver not in state CAN_READY */
+    if (CAN_READY != Gen_CanDriverState)
+    {
+        #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+        /* [SWS_Can_00492] */
+        (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_UNINIT);
+        #endif
+        Luc_StdResult = E_NOT_OK;
+    }
+    /* Check if requested Controller value is valid */
+    else if (NULL_PTR == Lpt_Ctrlr)
+    {
+        /* [SWS_Can_00494]  */
+        #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+        (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_PARAM_CONTROLLER);
+        #endif
+        Luc_StdResult = E_NOT_OK;
+    }
+    else
+    {
+        Lpt_Baudrate = Can_GetBaudrateCfg(Lpt_Ctrlr, BaudRateConfigID);
+        if (NULL_PTR == Lpt_Baudrate)
+        {
+            /* [SWS_Can_00493] */
+            #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+            (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_PARAM_BAUDRATE);
+            #endif
+            Luc_StdResult = E_NOT_OK;
+        }
+        else
+        {
+            /* [SWS_Can_00500, SWS_Can_00256, SWS_Can_00062] */
+            /* required CAN controller to be in stop state before change baudrate */
+            if (*Lpt_Ctrlr->ptCanCtrlSts != CAN_CS_STOPPED)
+            {
+                Luc_StdResult = E_NOT_OK;
+            }
+            else
+            {
+                /* empty */
+            }
+        }
+    }
+    /* Check if requested BaudRateConfigID value is valid */
     if (E_OK == Luc_StdResult)
     {
-    #endif
+        Luc_HwId = Lpt_Ctrlr->ucId;
         /* Check whether Controller mode is in STOP_MODE if required */
-
-        /* Get the configuration data from input controller and BaudRateConfigID */
-
-        /* Configure the HW of requested Controller */
-
-    #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+        if ((HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg.INAK) != REGISTER_BIT_SET)
+        {
+            Luc_StdResult = E_NOT_OK;
+        }
+        else
+        {
+            /* Configure the HW of requested Controller */
+            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.val = REGISTER_RESET_VALUE;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.SJW = Lpt_Baudrate->ucBaudrateSJW;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.TS2 = Lpt_Baudrate->ucBaudrateSeg2;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.TS1 = Lpt_Baudrate->ucBaudrateSeg1;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.BRP = Lpt_Baudrate->usBaudrateBRP;
+        }
     }
     else
     {
         /* No action required */
     }
-    #endif
     return Luc_StdResult;
 }
 #endif
