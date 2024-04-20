@@ -30,7 +30,7 @@ int main(void)
   // enable CAN module
   RCC_APB1ENR |= (3 << 25);
   Can_Init(&CanConfig);
-
+  Can_SetControllerMode(0, CAN_CS_STARTED);
   while(1)
   {
 

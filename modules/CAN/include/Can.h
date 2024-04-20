@@ -40,7 +40,14 @@ Macro definitions
 #define CAN_SID_INIT 0x00U
 #define CAN_SID_DEINIT 0x10U
 #define CAN_SID_SET_BAUDRATE 0x0FU
-
+#define CAN_SID_SET_CONTROLLER_MODE 0x03U
+#define CAN_SID_DISABLE_CONTROLLER_INTERRUPT 0x04U
+#define CAN_SID_ENABLE_CONTROLLER_INTERRUPT 0x05U
+#define CAN_SID_CHECK_WAKEUP 0x0BU
+#define CAN_SID_GET_CONTROLLER_ERROR_STATE 0x11U
+#define CAN_SID_GET_CONTROLLER_MODE 0x12U
+#define CAN_SID_GET_CONTROLLER_RX_ERROR_COUNTER 0x30U
+#define CAN_SID_GET_CONTROLLER_TX_ERROR_COUNTER 0x31U
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/

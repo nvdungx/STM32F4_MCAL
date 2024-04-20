@@ -21,14 +21,16 @@
 #include "Can_IOCommon.h"
 #include "Can_Internals.h"
 #include "Os.h"
+#include "Det.h"
 
-#define CAN_MSR_SLEEP_ACK ((uint32)1 << 1)
-#define CAN_MSR_INIT_ACK ((uint32)1)
 
-#define FLT_ATTR_EXTENDED_MASKED    0x01
-#define FLT_ATTR_EXTENDED_IDENT     0x00
-#define FLT_ATTR_STANDARD_MASKED    0x03
-#define FLT_ATTR_STANDARD_IDENT     0x02
+/* scale        |mode,
+1:32bit, 0:16bit|1:IdentList, 0:IdentMask */
+#define FLT_ATTR_EXTENDED_MASKED    0b10
+#define FLT_ATTR_EXTENDED_IDENT     0b11
+#define FLT_ATTR_STANDARD_MASKED    0b00
+#define FLT_ATTR_STANDARD_IDENT     0b01
+#define IGNORE_MODE_BIT             ((uint32)0x00000003)
 #define GetExtendedRuleConfig(val)   ((((uint32)val & 0x000007FF) << 21) | (((uint32)val & 0x1FFFF800) >> 11) << 3 | (uint32)1 << 2)
 #define GetStandardRuleConfig(val)   (((uint16)val & 0x07FF) << 5 | (uint16)1 << 3)
 
@@ -64,7 +66,7 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwCtrlInit(P2CONST(Can_ConfigType, AUTOMATIC, C
     /* Request CAN hw controller exit sleep mode */
     HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.SLEEP = REGISTER_BIT_CLEAR;
     HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.INRQ = REGISTER_BIT_SET;
-    if (E_OK != Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg, CAN_MSR_INIT_ACK))
+    if (E_OK != Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg, CAN_MSR_INIT_ACK, CAN_MSR_INIT_ACK))
     {
         *(ConfigPtr->stCanCtrlrs[Luc_HwId].ptCanCtrlSts) = CAN_CS_UNINIT;
         Lbl_InitSts = FALSE;
@@ -75,7 +77,7 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwCtrlInit(P2CONST(Can_ConfigType, AUTOMATIC, C
         /* Clear all CAN hw unit interrupt setting by default, interrupt shall be configured by SetControllerMode API */
         HwCanCtrlr[Luc_HwId].CtrlNSts->ulIEReg.val = REGISTER_RESET_VALUE;
 
-        HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.val = REGISTER_RESET_VALUE;
+        HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.val &= IGNORE_MODE_BIT;
         #if(CAN_SUPPORT_TTCAN == STD_ON)
         /* Enable time trigger communication mode */
         HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.TTCM = REGISTER_BIT_SET;
@@ -125,9 +127,10 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwCtrlInit(P2CONST(Can_ConfigType, AUTOMATIC, C
             */
             for (Luc_FltIdx = 0; Luc_FltIdx < ConfigPtr->stCanHwObjs[Luc_ObjIdx].ucCanHwFilterSize; Luc_FltIdx++)
             {
-                FltBankType = ((uint8)(ConfigPtr->stCanHwObjs[Luc_ObjIdx].enObjIdType == CAN_ID_STANDARD) << 2) |
-                                    ((uint8)ConfigPtr->stCanHwObjs[Luc_ObjIdx].stCanHwFilters[Luc_FltIdx].blMasked << 1) |
-                                    ConfigPtr->stCanHwObjs[Luc_ObjIdx].ucHwRxFIFOId;
+                /* bit2: standard = 0 else 1, bit1 IdentMask = 0 else 1, bit0 FIFOId(config either 0 or 1 << tool gen check) */
+                FltBankType = ((uint8)(ConfigPtr->stCanHwObjs[Luc_ObjIdx].enObjIdType != CAN_ID_STANDARD) << 2) |
+                    ((uint8)(ConfigPtr->stCanHwObjs[Luc_ObjIdx].stCanHwFilters[Luc_FltIdx].blMasked == FALSE) << 1) |
+                    ConfigPtr->stCanHwObjs[Luc_ObjIdx].ucHwRxFIFOId;
                 (void)Can_ConfigFilterRule(Luc_HwId, Lpt_Ctrlr->ucFltBankStart, Lpt_Ctrlr->ucFltBankEnd, FltBankType,
                                         &ConfigPtr->stCanHwObjs[Luc_ObjIdx].stCanHwFilters[Luc_FltIdx]);
             }
@@ -135,7 +138,7 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwCtrlInit(P2CONST(Can_ConfigType, AUTOMATIC, C
 
         /* exit initialization mode to config filter */
         HwCanCtrlr[Luc_HwId].Filter->ulFMReg.FINIT = REGISTER_BIT_CLEAR;
-        /* Change software state of CAN controllers to STOPPED */
+        /* [SWS_Can_00259] Change software state of CAN controllers to STOPPED */
         *(ConfigPtr->stCanCtrlrs[Luc_HwId].ptCanCtrlSts) = CAN_CS_STOPPED;
     }
     return Lbl_InitSts;
@@ -163,9 +166,10 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(P2CONST(Can_ConfigType, AUTOMATIC, CAN
     uint8 Luc_Count;
     uint8 Luc_HwId;
     Luc_HwId = ConfigPtr->stCanCtrlrs[CtrlrIdx].ucId;
+    /* change to initialization mode and clear out register setting */
     HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.SLEEP = REGISTER_BIT_CLEAR;
     HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.INRQ = REGISTER_BIT_SET;
-    if (E_OK != Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg, CAN_MSR_INIT_ACK))
+    if (E_OK != Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg, CAN_MSR_INIT_ACK, CAN_MSR_INIT_ACK))
     {
         Lbl_DeInitSts = FALSE;
     }
@@ -192,7 +196,7 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(P2CONST(Can_ConfigType, AUTOMATIC, CAN
         /* Request CAN hw controller into sleep mode by default */
         HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.SLEEP = REGISTER_BIT_SET;
         HwCanCtrlr[Luc_HwId].CtrlNSts->ulMCReg.INRQ = REGISTER_BIT_CLEAR;
-        if (E_OK != Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg, CAN_MSR_SLEEP_ACK))
+        if (E_OK != Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg, CAN_MSR_SLEEP_ACK, CAN_MSR_SLEEP_ACK))
         {
             Lbl_DeInitSts = FALSE;
         }
@@ -217,6 +221,8 @@ FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(P2CONST(Can_ConfigType, AUTOMATIC, CAN
  *  Register usage     :
  *  Global variable    :
  *  Description....... : fill in filter rule to available CAN hardware filter bank.
+ * Configuration tool: shall generate HwFilterRule to fill out the most of hw bank according to
+ * "Figure 299. Filter bank scale configuration - register organization"
  */
 FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 Idx, uint8 FltBankStart, uint8 FltBankEnd,
     uint8 FltBankType, Can_HwFilterConfigType *HwFilterRule)
@@ -225,9 +231,9 @@ FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 Idx, uint8 FltBankStart,
     boolean Lbl_Success;
     /* if init(i.e != 0 then bank has attributes, check and find available) */
     /* 1 bit = 16 byte data */
-    static uint8 Lar_FltBankCfgSts[CAN_HW_FILTER_BANK_MAX] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    static uint8 Lar_FltBankCfgSts[CAN_HW_FILTER_BANK_MAX] = {0b0000};
     /* filter bank only have 1 attributes */
-    static uint8 Lar_FltBankAttr[CAN_HW_FILTER_BANK_MAX] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    static uint8 Lar_FltBankAttr[CAN_HW_FILTER_BANK_MAX] = {0b000};
 
     Lbl_Success = FALSE;
     /* One 32-bit filter for the STDID[10:0], EXTID[17:0], IDE and RTR bits.
@@ -256,20 +262,26 @@ FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 Idx, uint8 FltBankStart,
             case FLT_ATTR_EXTENDED_MASKED:
                 HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] = GetExtendedRuleConfig(HwFilterRule->ulHwFilterCode);
                 HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = GetExtendedRuleConfig(HwFilterRule->ulHwFilterMask);
-                Lar_FltBankCfgSts[Luc_Count] |= 0b00001111;
+                Lar_FltBankCfgSts[Luc_Count] |= 0b1111;
                 break;
             case FLT_ATTR_EXTENDED_IDENT:
                 HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] = GetExtendedRuleConfig(HwFilterRule->ulHwFilterCode);
-                Lar_FltBankCfgSts[Luc_Count] |= 0b00000011;
+                /* clear unused */
+                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = REGISTER_RESET_VALUE;
+                Lar_FltBankCfgSts[Luc_Count] |= 0b0011;
                 break;
             case FLT_ATTR_STANDARD_MASKED:
-                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] = (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
-                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] |= (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterMask) << 16;
-                Lar_FltBankCfgSts[Luc_Count] |= 0b00000011;
+                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] = (uint16)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
+                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] |= (uint16)GetStandardRuleConfig(HwFilterRule->ulHwFilterMask) << 16;
+                /* clear unused */
+                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = REGISTER_RESET_VALUE;
+                Lar_FltBankCfgSts[Luc_Count] |= 0b0011;
                 break;
             case FLT_ATTR_STANDARD_IDENT:
-                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] = (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
-                Lar_FltBankCfgSts[Luc_Count] |= 0b00000001;
+                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] = (uint16)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
+                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] = (uint16)0x0000 << 16;
+                HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = REGISTER_RESET_VALUE;
+                Lar_FltBankCfgSts[Luc_Count] |= 0b0001;
                 break;
             default:
                 break;
@@ -287,7 +299,7 @@ FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 Idx, uint8 FltBankStart,
             // check if current rule FltBankType match
             if (Lar_FltBankAttr[Luc_Count] == FltBankType)
             {
-                switch ((FltBankType >> 1) & 0x03)
+                switch ((FltBankType >> 1) & 0b11)
                 {
                 case FLT_ATTR_EXTENDED_MASKED:
                     /* should not fall into this since this should get a bank fill completely */
@@ -295,30 +307,30 @@ FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 Idx, uint8 FltBankStart,
                 case FLT_ATTR_EXTENDED_IDENT:
                     /* 1st reg bank ident should be filled with extended ident*/
                     HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = GetExtendedRuleConfig(HwFilterRule->ulHwFilterCode);
-                    Lar_FltBankCfgSts[Luc_Count] |= 0b00001100;
+                    Lar_FltBankCfgSts[Luc_Count] |= 0b1100;
                     break;
                 case FLT_ATTR_STANDARD_MASKED:
                     /* 1st reg bank ident should be filled with standard ident and mask */
-                    HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
-                    HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] |= (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterMask) << 16;
-                    Lar_FltBankCfgSts[Luc_Count] |= 0b00001100;
+                    HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = (uint16)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
+                    HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] |= (uint16)GetStandardRuleConfig(HwFilterRule->ulHwFilterMask) << 16;
+                    Lar_FltBankCfgSts[Luc_Count] |= 0b1100;
                     break;
                 case FLT_ATTR_STANDARD_IDENT:
-                    /* 1st 2 byte of Ident reg should be fill with standard ident  */
-                    if ((Lar_FltBankCfgSts[Luc_Count] & 0b00000010) == 0)
+                    /* 1st 2 byte of Ident reg should be fill with standard ident, check for next available slot */
+                    if ((Lar_FltBankCfgSts[Luc_Count] & 0b0010) == 0)
                     {
-                        HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] |= (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode) << 16;
-                        Lar_FltBankCfgSts[Luc_Count] |= 0b00000010;
+                        HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_ID] |= (uint16)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode) << 16;
+                        Lar_FltBankCfgSts[Luc_Count] |= 0b0010;
                     }
-                    else if ((Lar_FltBankCfgSts[Luc_Count] & 0b00000100) == 0)
+                    else if ((Lar_FltBankCfgSts[Luc_Count] & 0b0100) == 0)
                     {
-                        HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
-                        Lar_FltBankCfgSts[Luc_Count] |= 0b00000100;
+                        HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] = (uint16)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode);
+                        Lar_FltBankCfgSts[Luc_Count] |= 0b0100;
                     }
-                    else if ((Lar_FltBankCfgSts[Luc_Count] & 0b00001000) == 0)
+                    else if ((Lar_FltBankCfgSts[Luc_Count] & 0b1000) == 0)
                     {
                         HwCanCtrlr[Idx].Filter->ulFReg[Luc_Count][FILTER_BANK_MASK] |= (uint32)GetStandardRuleConfig(HwFilterRule->ulHwFilterCode) << 16;
-                        Lar_FltBankCfgSts[Luc_Count] |= 0b00001000;
+                        Lar_FltBankCfgSts[Luc_Count] |= 0b1000;
                     }
                     else
                     {
@@ -352,7 +364,7 @@ FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 Idx, uint8 FltBankStart,
  *  Global variable    :
  *  Description....... : wait until input register match expected value or timeout occur.
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_WaitRegValUntilTimeout(uint32 * RegAddr, uint32 ExpectedValue)
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_WaitRegValUntilTimeout(uint32 * RegAddr, uint32 ExpectedValue, uint32 Mask)
 {
     TickType Lul_PreOsTick = 0;
     TickType Lul_CurOsTick = 0;
@@ -362,7 +374,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_WaitRegValUntilTimeout(uint32 * RegAddr,
     do
     {
         GetCounterValue(CAN_OS_COUNTER, &Lul_CurOsTick);
-        if (((*(volatile uint32 *)RegAddr) & ExpectedValue) == ExpectedValue)
+        if (((*(volatile uint32 *)RegAddr) & Mask) == ExpectedValue)
         {
             Luc_ReturnVal = E_OK;
             break;
@@ -410,12 +422,13 @@ FUNC(Can_BaudrateConfigType *, CAN_CODE_SLOW) Can_GetBaudrateCfg(Can_ControllerC
             /* next */
         }
     }
-    return CtrlrPtr;
+    return Lpt_BaudratePtr;
 }
 
 FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckValidSetCtrlrModeTrans(Can_ControllerStateType CurState,
                                                                     Can_ControllerStateType NextState)
 {
+    /* [SWS_Can_00409] */
     static uint8 Lar_ValidTransition[] = {
         GetCurrentStateMask(CAN_CS_STARTED) | GetTargetStateMask(CAN_CS_STARTED),
         GetCurrentStateMask(CAN_CS_STARTED) | GetTargetStateMask(CAN_CS_STOPPED),
@@ -438,10 +451,37 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckValidSetCtrlrModeTrans(Can_Controll
     return E_NOT_OK;
 }
 
+FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckDevError(P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) ConfigPtr,
+    VAR(uint8, AUTOMATIC) Controller, VAR(uint8, AUTOMATIC) ServiceID, Can_ControllerConfigType *Lpt_Ctrlr)
+{
+    Std_ReturnType Luc_StdResult;
 
-
-
-
+    Luc_StdResult = E_OK;
+    Lpt_Ctrlr = Can_GetCtrlr(ConfigPtr, Controller);
+    /* Check if driver is initialized - Driver not in state CAN_READY */
+    if (CAN_UNINIT == Gen_CanDriverState)
+    {
+        #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+        /* [SWS_Can_00492, SWS_Can_00198, SWS_Can_00209, SWS_Can_00362, SWS_Can_91005, SWS_Can_91016, SWS_Can_00512, SWS_Can_00517] */
+        (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, ServiceID, CAN_E_UNINIT);
+        #endif
+        Luc_StdResult = E_NOT_OK;
+    }
+    /* Check if requested Controller value is valid */
+    else if (NULL_PTR == Lpt_Ctrlr)
+    {
+        /* [SWS_Can_00494, SWS_Can_00199, SWS_Can_00210, SWS_Can_00363, SWS_Can_91006, SWS_Can_91017, SWS_Can_00513, SWS_Can_00518] */
+        #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+        (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, ServiceID, CAN_E_PARAM_CONTROLLER);
+        #endif
+        Luc_StdResult = E_NOT_OK;
+    }
+    else
+    {
+        /* empty */
+    }
+    return Luc_StdResult;
+}
 
 
 
