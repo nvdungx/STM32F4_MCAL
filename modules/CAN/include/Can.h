@@ -27,7 +27,6 @@ Includes
 #include "ComStack_Types.h"
 /* [SWS_Can_00436] */
 #include "Can_GeneralTypes.h"
-
 #include "Can_Types.h"
 #include "MemMap.h"
 #include "Can_Cfg.h"
@@ -35,104 +34,91 @@ Includes
 /*******************************************************************************
 Macro definitions
 *******************************************************************************/
+#define CAN_SID_GET_VERSIONINFO                     0x07U
+#define CAN_SID_INIT                                0x00U
+#define CAN_SID_DEINIT                              0x10U
+#define CAN_SID_SET_BAUDRATE                        0x0FU
+#define CAN_SID_SET_CONTROLLER_MODE                 0x03U
+#define CAN_SID_DISABLE_CONTROLLER_INTERRUPT        0x04U
+#define CAN_SID_ENABLE_CONTROLLER_INTERRUPT         0x05U
+#define CAN_SID_CHECK_WAKEUP                        0x0BU
+#define CAN_SID_GET_CONTROLLER_ERROR_STATE          0x11U
+#define CAN_SID_GET_CONTROLLER_MODE                 0x12U
+#define CAN_SID_GET_CONTROLLER_RX_ERROR_COUNTER     0x30U
+#define CAN_SID_GET_CONTROLLER_TX_ERROR_COUNTER     0x31U
+#define CAN_SID_GET_TIMESTAMP                       0x32U
+#define CAN_SID_ENABLE_EGRESS_TIMESTAMP             0x33U
+#define CAN_SID_GET_EGRESS_TIMESTAMP                0x34U
+#define CAN_SID_GET_INGRESS_TIMESTAMP               0x35U
+#define CAN_SID_MAINFUNCTION_WRITE                  0x01U
+#define CAN_SID_MAINFUNCTION_READ                   0x08U
+#define CAN_SID_MAINFUNCTION_BUSOFF                 0x09U
+#define CAN_SID_MAINFUNCTION_WAKEUP                 0x0AU
+#define CAN_SID_MAINFUNCTION_MODE                   0x0CU
 
-#define CAN_SID_GET_VERSIONINFO 0x07U
-#define CAN_SID_INIT 0x00U
-#define CAN_SID_DEINIT 0x10U
-#define CAN_SID_SET_BAUDRATE 0x0FU
-#define CAN_SID_SET_CONTROLLER_MODE 0x03U
-#define CAN_SID_DISABLE_CONTROLLER_INTERRUPT 0x04U
-#define CAN_SID_ENABLE_CONTROLLER_INTERRUPT 0x05U
-#define CAN_SID_CHECK_WAKEUP 0x0BU
-#define CAN_SID_GET_CONTROLLER_ERROR_STATE 0x11U
-#define CAN_SID_GET_CONTROLLER_MODE 0x12U
-#define CAN_SID_GET_CONTROLLER_RX_ERROR_COUNTER 0x30U
-#define CAN_SID_GET_CONTROLLER_TX_ERROR_COUNTER 0x31U
 /*******************************************************************************
 Typedef definitions
 *******************************************************************************/
-/* [ref]: ECUC_Can_00489 */
-/* Post-build configuration structure could be changed after build (i.e update
-by during run time)
-Pre-compile configuration structure is fixed after compilation process. */
-/* [SWS_Can_00413] */
-typedef struct Can_ConfigType_STag
-{
-    /* CanGeneral */
-    Can_GeneralConfigType                   * stCanGeneral;
-    /* CanConfigSet */
-        /* CanControllers */
-        Can_ControllerConfigType                *stCanCtrlrs;
-        /* CanIcom */
-        Can_IcomControllerConfigType            *stCanIcomCtrlr;
-        /* CanHardwareObject */
-        Can_HwObjectConfigType                  *stCanHwObjs;
-    uint8                                   ucNumCanController;
-} Can_ConfigType;
 
 /*******************************************************************************
 Global functions
 *******************************************************************************/
 #if(CAN_VERSIONINFO_API == STD_ON)
-FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo(P2VAR(Std_VersionInfoType, AUTOMATIC, CAN_APPL_DATA) versioninfo);
+void Can_GetVersionInfo(Std_VersionInfoType* versioninfo);
 #endif
 
-FUNC(void, CAN_CODE_SLOW) Can_Init(P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config);
+void Can_Init(const Can_ConfigType* Config);
 
-FUNC(void, CAN_CODE_SLOW) Can_DeInit(void);
+void Can_DeInit(void);
 
 #if(CAN_SET_BAUDRATE_API == STD_ON)
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate(VAR(uint8, AUTOMATIC) Controller,
-                                                    VAR(uint16, AUTOMATIC) BaudRateConfigID);
+Std_ReturnType Can_SetBaudrate(uint8 Controller, uint16 BaudRateConfigID);
 #endif
 
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode(VAR(uint8, AUTOMATIC) Controller,
-                                                          VAR(Can_ControllerStateType, AUTOMATIC) Transition);
+Std_ReturnType Can_SetControllerMode(uint8 Controller, Can_ControllerStateType Transition);
 
-FUNC(void, CAN_CODE_SLOW) Can_DisableControllerInterrupts(VAR(uint8, AUTOMATIC) Controller);
+void Can_DisableControllerInterrupts(uint8 Controller);
 
-FUNC(void, CAN_CODE_SLOW) Can_EnableControllerInterrupts(VAR(uint8, AUTOMATIC) Controller);
+void Can_EnableControllerInterrupts(uint8 Controller);
 
 #if(CAN_WAKEUP_FUNCTIONALITY_API == STD_ON)
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckWakeup(VAR(uint8, AUTOMATIC) Controller);
+Std_ReturnType Can_CheckWakeup(uint8 Controller);
 #endif
 
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState(VAR(uint8, AUTOMATIC) ControllerId,
-                                                    P2VAR(Can_ErrorStateType, AUTOMATIC, CAN_APPL_DATA) ErrorStatePtr);
+Std_ReturnType Can_GetControllerErrorState(uint8 ControllerId, Can_ErrorStateType* ErrorStatePtr);
 
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode(VAR(uint8, AUTOMATIC) Controller,
-                                            P2VAR(Can_ControllerStateType, AUTOMATIC, CAN_APPL_DATA) ControllerModePtr);
+Std_ReturnType Can_GetControllerMode(uint8 Controller, Can_ControllerStateType* ControllerModePtr);
 
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter(VAR(uint8, AUTOMATIC) ControllerId,
-                                                              P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) RxErrorCounterPtr);
+Std_ReturnType Can_GetControllerRxErrorCounter(uint8 ControllerId, uint8* RxErrorCounterPtr);
 
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter(VAR(uint8, AUTOMATIC) ControllerId,
-                                                              P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) TxErrorCounterPtr);
+Std_ReturnType Can_GetControllerTxErrorCounter(uint8 ControllerId, uint8* TxErrorCounterPtr);
 
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write(VAR(Can_HwHandleType, AUTOMATIC) Hth,
-                                              P2CONST(Can_PduType, AUTOMATIC, CAN_APPL_DATA) PduInfo);
+Std_ReturnType Can_GetCurrentTime(uint8 ControllerId, Can_TimeStampType* TimeStampPtr);
+
+void Can_EnableEgressTimeStamp(Can_HwHandleType Hth);
+
+Std_ReturnType Can_GetEgressTimeStamp(PduIdType TxPduId, Can_HwHandleType Hth, Can_TimeStampType* TimeStampPtr);
+
+Std_ReturnType Can_GetIngressTimeStamp(Can_HwHandleType Hrh, Can_TimeStampType* TimeStampPtr);
+
+Std_ReturnType Can_Write(Can_HwHandleType Hth, const Can_PduType* PduInfo);
 
 #if(CAN_TX_PROCESSING_API == STD_ON)
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Write (void);
+void Can_MainFunction_Write(void);
 #endif
 
 #if(CAN_RX_PROCESSING_API == STD_ON)
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Read (void);
+void Can_MainFunction_Read(void);
 #endif
 
 #if(CAN_BUSOFF_PROCESSING_API == STD_ON)
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_BusOff (void);
+void Can_MainFunction_BusOff(void);
 #endif
 
 #if(CAN_WAKEUP_PROCESSING_API == STD_ON)
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Wakeup (void);
+void Can_MainFunction_Wakeup(void);
 #endif
 
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Mode (void);
-
-#if(CAN_PUBLIC_ICOM_SUPPORT == STD_ON)
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetIcomConfiguration(VAR(uint8, AUTOMATIC) Controller,
-                                                            VAR(IcomConfigIdType, AUTOMATIC) ConfigurationId);
-#endif
+void Can_MainFunction_Mode(void);
 
 #endif /* End of Can.h */

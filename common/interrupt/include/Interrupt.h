@@ -1,7 +1,6 @@
 #ifndef _INTERRUPT_H_
 #define _INTERRUPT_H_
 
-#include "Compiler.h"
 #include "Interrupt_VectorTable.h"
 
 void NMIException(void);

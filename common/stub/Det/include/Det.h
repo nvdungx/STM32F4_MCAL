@@ -23,7 +23,6 @@ Macro definitions
 #define CAN_E_UNINIT              0x05U
 #define CAN_E_TRANSITION          0x06U
 #define CAN_E_PARAM_BAUDRATE      0x07U
-#define CAN_E_ICOM_CONFIG_INVALID 0x08U
 #define CAN_E_INIT_FAILED         0x09U
 
 /*******************************************************************************

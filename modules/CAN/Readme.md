@@ -2,15 +2,15 @@
 CAN hardware unit:
 - 2 CAN controller.
 - support 2.0A, 2.0B(11 bit or 29 bit arbitration identifier)
-- CAN1: Master bxCAN, CAN2: Slave bxCAN, 512-byte SRAM memory
+- CAN1: Master bxCAN, CAN2: Slave bxCAN, 512-byte shared SRAM memory(master access)
 - Bit rates up to 1 Mbit/s
 - Support TTCAN
 1. Transmission:
-  - 3 tx mailbox
+  - 3 tx mailbox (3 msgs)
   - configurable priority
   - timestamp
 2. Reception:
-  - 2 rx FIFO with 3 stages
+  - 2 rx FIFO with 3 stages (6 msgs)
   - 28 filter bank shared between 2 CAN
   - identifier list
   - configurable FIFO overrun

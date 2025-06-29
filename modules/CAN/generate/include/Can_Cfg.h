@@ -1,10 +1,22 @@
 /*******************************************************************************
-* File:         Can_Cfg.h
-* Revision:     1.0.0
-* Author:       Dung van Nguyen
-* Date:         11.09.2019
-* Description:  Pre-compile time configuration
-*******************************************************************************/
+ * COPYRIGHT
+ * -----------------------------------------------------------------------------
+ * Copyright (c) 2022 by <<>>. All rights reserved.
+ * -----------------------------------------------------------------------------
+ * FILE DESCRIPTION
+ *  File:         Can_Cfg.h
+ *  Component:    Header
+ *  Module:       CAN
+ *  Generator:    CAN Module Configuration Generator
+ *  Description:  CAN Driver pre-compile configuration header file
+ * -----------------------------------------------------------------------------
+ * REVISION HISTORY
+ * -----------------------------------------------------------------------------
+ * Version   Date        Author  Description
+ * -----------------------------------------------------------------------------
+ * 01.00.00  13/03/2026  Dungnv  Initial version
+ *
+ *******************************************************************************/
 
 #ifndef CAN_CFG_H
 #define CAN_CFG_H
@@ -23,83 +35,77 @@ Macro definitions
 #define SW_PATCH_VERSION          0x00U
 #define NUMBER_CAN_CONTROLLER     0x02U
 
-/* [ref]: ECUC_Can_00328 */
-/* CanGeneral - Pre-compile time variant parameters */
-/* [ref]: ECUC_Can_00064 */
+/* [ECUC_Can_00497] CanGeneral - Pre-compile time variant parameters */
+/* [ECUC_Can_00064] CanDevErrorDetect */
 #define CAN_DEV_ERROR_DETECT_API            STD_ON
-/* [ref]: ECUC_Can_00320 */
-#define CAN_INSTANCE_ID                     (uint8)0x00
-/* [ref]: ECUC_Can_00434 */
+/* [ECUC_Can_00496] CanEnableSecurityEventReporting */
+#define CAN_SEC_EVENT_REPORT                STD_ON
+/* [ECUC_Can_00498] CanGlobalTimeSupport */
+#define CAN_GLOBAL_TIME_SUPPORT             STD_ON
+/* [ECUC_Can_00320] CanIndex */
+#define CAN_INSTANCE_ID                     (uint8)0x00U
+/* [ECUC_Can_00434] CanLPduReceiveCalloutFunction */
 #define CAN_LPDU_CALLOUT_FUNCTION_NAME      CanLPduReceiveCalloutFunction
-/* [ref]: ECUC_Can_00355 */
-#define CAN_MAINFUNCTION_BUSOFF_PERIOD      (float32)0
-/* [ref]: ECUC_Can_00376 */
-#define CAN_MAINFUNCTION_MODE_PERIOD        (float32)0
-/* [ref]: ECUC_Can_00357 */
-#define CAN_MAINFUNCTION_WAKEUP_PERIOD      (float32)0
-/* [ref]: ECUC_Can_00095 */
+/* [ECUC_Can_00355] CanMainFunctionBusoffPeriod */
+#define CAN_MAINFUNCTION_BUSOFF_PERIOD      (float32)0.1f
+/* [ECUC_Can_00376] CanMainFunctionModePeriod */
+#define CAN_MAINFUNCTION_MODE_PERIOD        (float32)0.1f
+/* [ECUC_Can_00357] CanMainFunctionWakeupPeriod */
+#define CAN_MAINFUNCTION_WAKEUP_PERIOD      (float32)0.1f
+/* [ECUC_Can_00095] CanMultiplexedTransmission */
 #define CAN_MULTIPLEXED_TRANSMISSION        STD_ON
-/* [ref]: ECUC_Can_00483 */
-#define CAN_PUBLIC_ICOM_SUPPORT             STD_ON
-/* [ref]: ECUC_Can_00482 */
+/* [ECUC_Can_00482] CanSetBaudrateApi */
 #define CAN_SET_BAUDRATE_API                STD_ON
-/* [ref]: ECUC_Can_00113 */
-#define CAN_TIMEOUT_DURATION                (float32)1E-4
-/* [ref]: ECUC_Can_00106 */
+/* [ECUC_Can_00113] CanTimeoutDuration */
+#define CAN_TIMEOUT_DURATION                (float32)0.1f
+/* [ECUC_Can_00106] CanVersionInfoApi */
 #define CAN_VERSIONINFO_API                 STD_ON
-/* [ref]: ECUC_Can_00431 */
+/* [ECUC_Can_00431] CanOsCounterRef */
 #define CAN_OS_COUNTER                      0 // name of OsCounter ref
-#define CAN_ECUC_PART_REF                   EcucPartition
-/* [ref]: ECUC_Can_00430 */
+/* [ECUC_Can_00491] CanEcucPartitionRef */
+#define CAN_ECUC_PART_REF                   EcucPartition_Core0QM
+/* [ECUC_Can_00430] CanSupportTTCANRef */
 #define CAN_SUPPORT_TTCAN                   STD_OFF
+/* [ECUC_Can_00437] CanMainFunctionRWPeriods */
+#define CAN_MAINFUNCTION_RW_PERIOD          (float32)0.1f
+/* [ECUC_Can_00525, ECUC_Can_00524] CanXLEthGlobalTimeSupport - CANXL driver */
+#define CANXL_ETH_GLOBALTIME_SUPPORT        STD_OFF
 
-/* CanIcomGeneral - precompile data could be fixed constant in Can_Cfg.c */
-/* [ref]: ECUC_Can_00445 */
-#define CAN_ICOM_LEVEL                     CAN_ICOM_LEVEL_ONE
-/* [ref]: ECUC_Can_00446 */
-#define CAN_ICOM_VARIANT                   CAN_ICOM_VARIANT_SW
-
-/* [ref]: ECUC_Can_00354 */
-/* CanController - pre-compile time variant parameters */
-/*[ref]: ECUC_Can_00314 */
-#define CAN_BUSOFF_PROCESSING_API          STD_ON
-/* [ref]: ECUC_Can_00316 */
-#define CAN_CONTROLLER0_ID                    (uint8)0x00
-#define CAN_CONTROLLER1_ID                    (uint8)0x01
-/*[ref]: ECUC_Can_00317 */
+/* [ECUC_Can_00354] CanController - pre-compile time variant parameters */
+/* [ECUC_Can_00314] CanBusoffProcessing */
+#define CAN_BUSOFF_PROCESSING_API           STD_ON
+/* [ECUC_Can_00316] */
+#define CAN_CONTROLLER0_ID                  (uint8)0x00U
+#define CAN_CONTROLLER1_ID                  (uint8)0x01U
+/* [ECUC_Can_00317] CanRxProcessing */
 #define CAN_RX_PROCESSING_API               STD_ON
-/*[ref]: ECUC_Can_00318 */
+/* [ECUC_Can_00318] CanTxProcessing */
 #define CAN_TX_PROCESSING_API               STD_ON
-/*[ref]: ECUC_Can_00319 */
+/* [ECUC_Can_00319] CanWakeupProcessing */
 #define CAN_WAKEUP_PROCESSING_API           STD_ON
-/*[ref]: ECUC_Can_00466 */
-#define CAN_WAKEUP_FUNCTIONALITY_API       STD_ON
-/* [ref]: ECUC_Can_00330 */
-#define CAN_WAKEUP_SUPPORT                 STD_ON
-/* [ref]: ECUC_Can_00492 */
-#define CAN_CTRL_ECUC_PARTITION_REF         (uint8)0x00
-/* [ref]: ECUC_Can_00313 */
-#define CAN_CPU_CLK_REF                     McuClockReferencePoint
-/* [ref]: ECUC_Can_00359 */
-#define CAN_WAKEUP_SOURCE_REF               0
-/* [ref]: ECUC_Can_00435 */
+/* [ECUC_Can_00330] CanWakeupSupport */
+#define CAN_WAKEUP_SUPPORT                  STD_ON
+/* [ECUC_Can_00313] CanCpuClockRef - not used #define CAN_CPU_CLK_REF McuClockReferencePoint */
+/* [ECUC_Can_00359] CanWakeupSourceRef - not used #define CAN_WAKEUP_SOURCE_REF 0*/
+
+/* [ECUC_Can_00435] */
 #define CAN_DEFAULT_BAUDRATE_IDX            (uint8)0x00
 
 #define CAN_CONTROLLER_NUM             ((uint8)2)
 
-/* [ref]: ECUC_Can_00387 */
+/* [ECUC_Can_00387] */
 #define CAN_MAX_BAUD_CONFIG_NUM            ((uint8)2)
 
 /* CanHardwareObject - pre-compile time variant parameters */
-/* [ref]: ECUC_Can_00326 */
+/* [ECUC_Can_00326] */
 #define CAN_HWOBJ_RX_HRH0_0 ((uint8)0)
 #define CAN_HWOBJ_RX_HRH1_1 ((uint8)1)
 #define CAN_HWOBJ_RX_HRH0_2 ((uint8)2)
 #define CAN_HWOBJ_RX_HRH1_3 ((uint8)3)
 
 /* CanMainFunctionRWPeriods */
-/* [ref]: ECUC_Can_00437 */
-/* [ref]: ECUC_Can_00484 */
+/* [ECUC_Can_00437] */
+/* [ECUC_Can_00484] */
 #define CAN_MAINFUNCTION_READWRITE_PERIOD      (float32)0
 
 #define CAN_HW_OBJS_SIZE ((uint8)2)

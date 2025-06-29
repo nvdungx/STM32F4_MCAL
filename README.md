@@ -1,5 +1,5 @@
 # stm32 AUTOSAR MCAL<br/>
-# target is to create AUTOSAR MCAL(4.4.0) and sample bare metal embedded project<br/>
+# target is to create AUTOSAR MCAL(R24) and sample bare metal embedded project<br/>
 # directory structure<br/>
 **common**: startup code, interrupt table, memory mapping, platform, standard abstraction and stub code<br/>
 **modules**: mcal modules for stm32f407vg mcu<br/>

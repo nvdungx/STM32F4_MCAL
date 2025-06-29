@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
-  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00053.xsd">
+  <!-- AUTOSAR ECU Configuration Parameter Definition -->
   <!--
     Document Owner:                 AUTOSAR
     Document Responsibility:        AUTOSAR
     Document Identification Number: 289
-    Document Status:                Final
+    Document Status:                Published
     Part of AUTOSAR Standard:       Classic Platform
-    Part of AUTOSAR Release:        4.4.0
-  -->
+    Part of AUTOSAR Release:        R24-11
+    -->
   <ADMIN-DATA>
     <DOC-REVISIONS>
       <DOC-REVISION>
-        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <REVISION-LABEL>4.10.0</REVISION-LABEL>
         <ISSUED-BY>AUTOSAR</ISSUED-BY>
       </DOC-REVISION>
     </DOC-REVISIONS>
@@ -32,869 +32,1282 @@
                 <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/EcuC</MODULE-REF>
               </MODULE-REFS>
             </ECUC-DEFINITION-COLLECTION>
-                  <!-- Module Definition: EcuC -->
-                  <ECUC-MODULE-DEF UUID="ECUC:f72efedf-ee71-4a1b-b4d6-b77adfbf4cf2">
-                     <SHORT-NAME>EcuC</SHORT-NAME>
-                     <DESC>
-                        <L-2 L="EN">Virtual module to collect ECU Configuration specific / global configuration information.</L-2>
-                     </DESC>
-                     <ADMIN-DATA>
-                        <DOC-REVISIONS>
-                           <DOC-REVISION>
-                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
-                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
-                           </DOC-REVISION>
-                        </DOC-REVISIONS>
-                     </ADMIN-DATA>
-                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00008</RELATED-TRACE-ITEM-REF>
-                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                     <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                     <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
-                     <SUPPORTED-CONFIG-VARIANTS>
-                        <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
-                        <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
-                     </SUPPORTED-CONFIG-VARIANTS>
-                     <CONTAINERS>
-                        <!-- Container Definition: EcucConfigSet -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:37cb0ecf-a6ac-4b05-aaf8-d97ec61f1ae8">
-                           <SHORT-NAME>EcucConfigSet</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">This container contains the configuration parameters and sub containers of the global PduCollection.</L-2>
-                           </DESC>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00061</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                           <SUB-CONTAINERS>
-                              <!-- Container Definition: EcucPduCollection -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:cece0b62-6981-43fb-a5b7-d573fdfb2344">
-                                 <SHORT-NAME>EcucPduCollection</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Collection of all Pdu objects flowing through the Com-Stack.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00002</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <PARAMETERS>
-                                    <!-- PARAMETER DEFINITION: PduIdTypeEnum -->
-                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:58955203-89bd-4dcf-b3d4-c5e83c87080b">
-                                       <SHORT-NAME>PduIdTypeEnum</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">The PduIdType is used within the entire AUTOSAR Com Stack except for bus drivers. The size of this global type depends on the maximum number of PDUs used within one software module. If no software module deals with more PDUs that 256, this type can be set to uint8. If at least one software module handles more than 256 PDUs, this type must be set to uint16. See AUTOSAR_SWS_CommunicationStackTypes for more details.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00041</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <LITERALS>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:331a8418-77d1-db36-f360-72b0ae0c73b6">
-                                             <SHORT-NAME>UINT16</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:74f5ad84-30ee-dd82-07d3-02065af14706">
-                                             <SHORT-NAME>UINT8</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                       </LITERALS>
-                                    </ECUC-ENUMERATION-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: PduLengthTypeEnum -->
-                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:3ffce745-6c26-4c88-a57f-cd785b21e467">
-                                       <SHORT-NAME>PduLengthTypeEnum</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">The PduLengthType is used within the entire AUTOSAR Com Stack except for bus drivers. The size of this global type depends on the maximum length of PDUs to be sent by an ECU. If no segmentation is used the length depends on the maximum payload size of a frame of the underlying communication system (for FlexRay maximum size is 255 bytes, therefore uint8). If segmentation is used it depends on the maximum length of a  segmented N-SDU (in general uint16 is used). See AUTOSAR_SWS_CommunicationStackTypes for more details.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00042</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <LITERALS>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:1a82195a-5a3a-d9ef-e50b-7a40cca75012">
-                                             <SHORT-NAME>UINT16</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:71d1c418-a527-86b0-4d9d-21c19a6fd501">
-                                             <SHORT-NAME>UINT32</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:5c5d42c6-1357-dc3b-f97e-0996798c2362">
-                                             <SHORT-NAME>UINT8</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                       </LITERALS>
-                                    </ECUC-ENUMERATION-PARAM-DEF>
-                                 </PARAMETERS>
-                                 <SUB-CONTAINERS>
-                                    <!-- Container Definition: MetaDataType -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:03261d0a-fb6a-4d11-a678-56f0d13d2795">
-                                       <SHORT-NAME>MetaDataType</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Meta data serves to transport information through the AUTOSAR layers. It is transported by the PduInfoType structure via a separate pointer to a byte array alongside the length of and a pointer to the payload of the PDU. This container defines the content of the meta data.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00073</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                       <MULTIPLICITY-CONFIG-CLASSES>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       </MULTIPLICITY-CONFIG-CLASSES>
-                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                       <SUB-CONTAINERS>
-                                          <!-- Container Definition: MetaDataItem -->
-                                          <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1d41effa-e300-40ad-93ad-d0c2f40573dc">
-                                             <SHORT-NAME>MetaDataItem</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">The content of meta data in a Pdu consists of an ordered list of meta data items.</L-2>
-                                             </DESC>
-                                             <INTRODUCTION>
-                                                <P>
-                                                   <L-1 L="EN">This container represents a meta data item that is contained in meta data of a Pdu.</L-1>
-                                                </P>
-                                             </INTRODUCTION>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00074</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                             <MULTIPLICITY-CONFIG-CLASSES>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             </MULTIPLICITY-CONFIG-CLASSES>
-                                             <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                             <REQUIRES-INDEX>true</REQUIRES-INDEX>
-                                             <PARAMETERS>
-                                                <!-- PARAMETER DEFINITION: MetaDataItemLength -->
-                                                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:60a1fc78-cb1e-4deb-9fa6-b896616a947f">
-                                                   <SHORT-NAME>MetaDataItemLength</SHORT-NAME>
-                                                   <DESC>
-                                                      <L-2 L="EN">This parameter defines the length of a meta data item in bytes.</L-2>
-                                                   </DESC>
-                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00075</RELATED-TRACE-ITEM-REF>
-                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                                   <SCOPE>LOCAL</SCOPE>
-                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                                   <VALUE-CONFIG-CLASSES>
-                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   </VALUE-CONFIG-CLASSES>
-                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                                   <MAX>64</MAX>
-                                                   <MIN>1</MIN>
-                                                </ECUC-INTEGER-PARAM-DEF>
-                                                <!-- PARAMETER DEFINITION: MetaDataItemType -->
-                                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:e455132d-9166-4d5e-9dfc-56d895fe87c9">
-                                                   <SHORT-NAME>MetaDataItemType</SHORT-NAME>
-                                                   <DESC>
-                                                      <L-2 L="EN">This parameter defines the type of a meta data item.</L-2>
-                                                   </DESC>
-                                                   <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00076</RELATED-TRACE-ITEM-REF>
-                                                   <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                                   <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                                   <SCOPE>LOCAL</SCOPE>
-                                                   <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                   <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                                   <VALUE-CONFIG-CLASSES>
-                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                         <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                      <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                         <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                         <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                      </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   </VALUE-CONFIG-CLASSES>
-                                                   <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                                   <LITERALS>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:935d4601-0cbc-8cf4-381e-ea20eb428f7a">
-                                                         <SHORT-NAME>ADDRESS_EXTENSION_8</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:4a123eeb-c754-8b3a-1f16-e7afd42a37b6">
-                                                         <SHORT-NAME>CAN_ID_32</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a90dbef4-392e-8a9e-1ddf-2ff9c696620e">
-                                                         <SHORT-NAME>ETHERNET_MAC_64</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:6d9442ff-658e-82ab-284e-821916845612">
-                                                         <SHORT-NAME>LIN_NAD_8</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:3fa08da8-206b-8d51-1ac4-6eeb34061f58">
-                                                         <SHORT-NAME>PRIORITY_8</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:aec152c4-86f9-843c-26c1-e9b9916cf4a6">
-                                                         <SHORT-NAME>SOCKET_CONNECTION_ID_16</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:ca1d8af3-4a3b-8d39-4288-73a6b24c3905">
-                                                         <SHORT-NAME>SOURCE_ADDRESS_16</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                      <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:25559ce3-6dee-8c34-1e82-5f403d6991b0">
-                                                         <SHORT-NAME>TARGET_ADDRESS_16</SHORT-NAME>
-                                                         <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                                      </ECUC-ENUMERATION-LITERAL-DEF>
-                                                   </LITERALS>
-                                                </ECUC-ENUMERATION-PARAM-DEF>
-                                             </PARAMETERS>
-                                          </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                       </SUB-CONTAINERS>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                    <!-- Container Definition: Pdu -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:422a7abf-add2-418a-81a6-af5cdeae1930">
-                                       <SHORT-NAME>Pdu</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">One Pdu flowing through the COM-Stack.</L-2>
-                                       </DESC>
-                                       <INTRODUCTION>
-                                          <P>
-                                             <L-1 L="EN">This Pdu is used by all Com-Stack modules to agree on referencing the same Pdu.</L-1>
-                                          </P>
-                                       </INTRODUCTION>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00001</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                       <MULTIPLICITY-CONFIG-CLASSES>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       </MULTIPLICITY-CONFIG-CLASSES>
-                                       <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                       <PARAMETERS>
-                                          <!-- PARAMETER DEFINITION: DynamicLength -->
-                                          <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:52670d39-4d5a-4425-a1e0-03e0764d596d">
-                                             <SHORT-NAME>DynamicLength</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">This parameter defines whether the Pdu has dynamic length (true) or not (false). Please note that the usage of this attribute is restricted by [constr_3448].</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00078</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <MULTIPLICITY-CONFIG-CLASSES>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             </MULTIPLICITY-CONFIG-CLASSES>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                          </ECUC-BOOLEAN-PARAM-DEF>
-                                          <!-- PARAMETER DEFINITION: J1939Requestable -->
-                                          <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:5f51de6e-5995-4e90-b083-1d5b7a90848c">
-                                             <SHORT-NAME>J1939Requestable</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Pdu can be triggered by the J1939 request message.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00072</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <MULTIPLICITY-CONFIG-CLASSES>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             </MULTIPLICITY-CONFIG-CLASSES>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                          </ECUC-BOOLEAN-PARAM-DEF>
-                                          <!-- PARAMETER DEFINITION: PduLength -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:3996a201-ffdf-43d1-a5e8-f88592a78a35">
-                                             <SHORT-NAME>PduLength</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Length of the Pdu in bytes.  It should be noted that in former AUTOSAR releases (Rel 2.1, Rel 3.0, Rel 3.1, Rel 4.0 Rev. 1) this parameter was defined in bits.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00003</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>4294967295</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                       </PARAMETERS>
-                                       <REFERENCES>
-                                          <!-- Reference Definition: MetaDataTypeRef -->
-                                          <ECUC-REFERENCE-DEF UUID="ECUC:d99ff055-271b-4801-8368-10f5cf18976a">
-                                             <SHORT-NAME>MetaDataTypeRef</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Reference to meta data that is transported in the Pdu through the AUTOSAR layers.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00077</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/MetaDataType</DESTINATION-REF>
-                                          </ECUC-REFERENCE-DEF>
-                                          <!-- Foreign Reference Definition: SysTPduToFrameTriggeringRef -->
-                                          <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:c540d959-e145-47c1-b8d4-7bba46200f34">
-                                             <SHORT-NAME>SysTPduToFrameTriggeringRef</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Reference to the FrameTriggering from the SystemTemplate which this Pdu belongs to.</L-2>
-                                             </DESC>
-                                             <INTRODUCTION>
-                                                <P>
-                                                   <L-1 L="EN">SysTPduToFrameTriggeringRef shall be used for UserDefinedPdus, NmPdus and NPdus which are not going through the Pdu Router. This reference shall not be used if SysTPduToPduTriggeringRef exists.</L-1>
-                                                </P>
-                                             </INTRODUCTION>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00052</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <MULTIPLICITY-CONFIG-CLASSES>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             </MULTIPLICITY-CONFIG-CLASSES>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <DESTINATION-TYPE>FRAME-TRIGGERING</DESTINATION-TYPE>
-                                          </ECUC-FOREIGN-REFERENCE-DEF>
-                                          <!-- Foreign Reference Definition: SysTPduToPduTriggeringRef -->
-                                          <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:8ae470f5-d0b3-40ad-b681-a858fc793be3">
-                                             <SHORT-NAME>SysTPduToPduTriggeringRef</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Reference to the PduTriggering from the SystemTemplate which this Pdu represents.</L-2>
-                                             </DESC>
-                                             <INTRODUCTION>
-                                                <P>
-                                                   <L-1 L="EN">SysTPduToPduTriggeringRef shall be used for all Pdus except UserDefinedPdus, NmPdus and NPdus which are not going through the Pdu Router. For these Pdus, SysTPduToFrameTriggeringRef shall be used.</L-1>
-                                                </P>
-                                             </INTRODUCTION>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00054</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <MULTIPLICITY-CONFIG-CLASSES>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             </MULTIPLICITY-CONFIG-CLASSES>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <DESTINATION-TYPE>PDU-TRIGGERING</DESTINATION-TYPE>
-                                          </ECUC-FOREIGN-REFERENCE-DEF>
-                                       </REFERENCES>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                 </SUB-CONTAINERS>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                           </SUB-CONTAINERS>
-                        </ECUC-PARAM-CONF-CONTAINER-DEF>
-                        <!-- Container Definition: EcucHardware -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:4494efcd-a0fa-42f6-9f5d-25817cdc0188">
-                           <SHORT-NAME>EcucHardware</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">Hardware definition of this Ecu.</L-2>
-                           </DESC>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00056</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                           <SUB-CONTAINERS>
-                              <!-- Container Definition: EcucCoreDefinition -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e12b8e86-0925-4854-b1a6-adee8a2cf090">
-                                 <SHORT-NAME>EcucCoreDefinition</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Definition of one Core on this Ecu.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00057</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                 <PARAMETERS>
-                                    <!-- PARAMETER DEFINITION: EcucCoreId -->
-                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:9127a2e5-b908-4f76-b741-655836d78c67">
-                                       <SHORT-NAME>EcucCoreId</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">ID of the core.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00058</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <MAX>65535</MAX>
-                                       <MIN>0</MIN>
-                                    </ECUC-INTEGER-PARAM-DEF>
-                                 </PARAMETERS>
-                                 <REFERENCES>
-                                    <!-- Foreign Reference Definition: EcucCoreHwRef -->
-                                    <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:7ad013ef-fbcb-4c2a-aef2-be260c5016b4">
-                                       <SHORT-NAME>EcucCoreHwRef</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Optional reference to the HwElement of HwCategory ProcessingUnit that represents this Core in the ECU Resource Template.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00059</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <MULTIPLICITY-CONFIG-CLASSES>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       </MULTIPLICITY-CONFIG-CLASSES>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <DESTINATION-TYPE>HW-ELEMENT</DESTINATION-TYPE>
-                                    </ECUC-FOREIGN-REFERENCE-DEF>
-                                 </REFERENCES>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                           </SUB-CONTAINERS>
-                        </ECUC-PARAM-CONF-CONTAINER-DEF>
-                        <!-- Container Definition: EcucPartitionCollection -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:ed28c0d5-4e0c-4826-89fa-449203a3ce8e">
-                           <SHORT-NAME>EcucPartitionCollection</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">Collection of Partitions defined for this ECU.</L-2>
-                           </DESC>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00007</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                           <SUB-CONTAINERS>
-                              <!-- Container Definition: EcucPartition -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:c11de67e-41cd-4da2-8cfc-01c5e34209be">
-                                 <SHORT-NAME>EcucPartition</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Definition of one Partition on this ECU.</L-2>
-                                 </DESC>
-                                 <INTRODUCTION>
-                                    <P>
-                                       <L-1 L="EN">One Partition will be implemented using one Os-Application.</L-1>
-                                    </P>
-                                 </INTRODUCTION>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00005</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <PARAMETERS>
-                                    <!-- PARAMETER DEFINITION: EcucPartitionBswModuleExecution -->
-                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:72f87183-bf87-4f64-a990-38b29817aa2c">
-                                       <SHORT-NAME>EcucPartitionBswModuleExecution</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Denotes that this partition will execute BSW Modules. BSW Modules can only be executed in such partitions.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00037</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                    </ECUC-BOOLEAN-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: EcucPartitionQmBswModuleExecution -->
-                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:1248216f-2cb5-4a86-9bb1-210ea8a1de75">
-                                       <SHORT-NAME>EcucPartitionQmBswModuleExecution</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Denotes that this partition will execute QM BSW.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00069</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>ECU</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <DEFAULT-VALUE>true</DEFAULT-VALUE>
-                                    </ECUC-BOOLEAN-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: PartitionCanBeRestarted -->
-                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:4fbca4af-d17a-463a-9b70-fad218ab42a9">
-                                       <SHORT-NAME>PartitionCanBeRestarted</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Specifies the requirement whether the Partition can be restarted. If set to true all software executing in this partition shall be capable of handling a restart.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00006</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                    </ECUC-BOOLEAN-PARAM-DEF>
-                                 </PARAMETERS>
-                                 <REFERENCES>
-                                    <!-- Foreign Reference Definition: EcucPartitionBswModuleDistinguishedPartition -->
-                                    <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:1772e02e-3cd8-4f8f-b959-5ec38aafef41">
-                                       <SHORT-NAME>EcucPartitionBswModuleDistinguishedPartition</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This maps the abstract partition of the Bsw Module to a concrete Partition existing in the ECU.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00068</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                       <MULTIPLICITY-CONFIG-CLASSES>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       </MULTIPLICITY-CONFIG-CLASSES>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <DESTINATION-TYPE>BSW-DISTINGUISHED-PARTITION</DESTINATION-TYPE>
-                                    </ECUC-FOREIGN-REFERENCE-DEF>
-                                    <!-- Instance Reference Definition: EcucPartitionSoftwareComponentInstanceRef -->
-                                    <ECUC-INSTANCE-REFERENCE-DEF UUID="ECUC:fcd3eca6-d43f-42f7-86a1-80043415256b">
-                                       <SHORT-NAME>EcucPartitionSoftwareComponentInstanceRef</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">References the SW Component instances from the Ecu Extract that shall be executed in this partition.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00036</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                       <MULTIPLICITY-CONFIG-CLASSES>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                          <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       </MULTIPLICITY-CONFIG-CLASSES>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                       <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <DESTINATION-CONTEXT>ROOT-SW-COMPOSITION-PROTOTYPE</DESTINATION-CONTEXT>
-                                       <DESTINATION-TYPE>SW-COMPONENT-PROTOTYPE</DESTINATION-TYPE>
-                                    </ECUC-INSTANCE-REFERENCE-DEF>
-                                 </REFERENCES>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                           </SUB-CONTAINERS>
-                        </ECUC-PARAM-CONF-CONTAINER-DEF>
-                        <!-- Container Definition: EcucPostBuildVariants -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:154a283d-82e3-45cd-a7a1-f3264adee18b">
-                           <SHORT-NAME>EcucPostBuildVariants</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">Collection of toplevel PostBuildSelectable variants. The PredefinedVariants linked inside this container will determine how many PostBuildSelectableVariants exist. If this container exist the name pattern for initialization of BSW modules will be &lt;Mip&gt;_Config_&lt;PredefinedVariant.shortName&gt;. If this container does not exist the name pattern for initialization of BSW modlues will be &lt;Mip&gt;_Config.</L-2>
-                           </DESC>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00070</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                           <REFERENCES>
-                              <!-- Foreign Reference Definition: EcucPostBuildVariantRef -->
-                              <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:6e75f9c8-e66b-4ca6-8d0b-c14951c14811">
-                                 <SHORT-NAME>EcucPostBuildVariantRef</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Reference to a PredefinedVariant that defines one toplevel postBuild configuration set (covering all post-build capable BSW modules). PredefinedVariants that are referenced here shall contain only PostBuildVariantCriterionValueSets.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00071</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
+            <!-- Module Definition: EcuC -->
+            <ECUC-MODULE-DEF UUID="ECUC:f72efedf-ee71-4a1b-b4d6-b77adfbf4cf2">
+              <SHORT-NAME>EcuC</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Virtual module to collect ECU Configuration specific / global configuration information.</L-2>
+              </DESC>
+              <ADMIN-DATA>
+                <DOC-REVISIONS>
+                  <DOC-REVISION>
+                    <REVISION-LABEL>4.10.0</REVISION-LABEL>
+                    <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                  </DOC-REVISION>
+                </DOC-REVISIONS>
+              </ADMIN-DATA>
+              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00008</RELATED-TRACE-ITEM-REF>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+              <SUPPORTED-CONFIG-VARIANTS>
+                <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+                <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+              </SUPPORTED-CONFIG-VARIANTS>
+              <CONTAINERS>
+                <!-- Container Definition: EcucConfigSet -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:37cb0ecf-a6ac-4b05-aaf8-d97ec61f1ae8">
+                  <SHORT-NAME>EcucConfigSet</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This container contains the configuration parameters and sub containers of the global PduCollection.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00061</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SUB-CONTAINERS>
+                    <!-- Container Definition: EcucPduCollection -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:cece0b62-6981-43fb-a5b7-d573fdfb2344">
+                      <SHORT-NAME>EcucPduCollection</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Collection of all Pdu objects flowing through the Com-Stack.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00002</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: PduIdTypeEnum -->
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:58955203-89bd-4dcf-b3d4-c5e83c87080b">
+                          <SHORT-NAME>PduIdTypeEnum</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">The PduIdType is used within the entire AUTOSAR Com Stack except for bus drivers. The size of this global type depends on the maximum number of PDUs used within one software module. If no software module deals with more PDUs that 256, this type can be set to uint8. If at least one software module handles more than 256 PDUs, this type shall be set to uint16. See AUTOSAR_SWS_CommunicationStackTypes for more details.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00041</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:331a8418-77d1-db36-f360-72b0ae0c73b6">
+                              <SHORT-NAME>UINT16</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:74f5ad84-30ee-dd82-07d3-02065af14706">
+                              <SHORT-NAME>UINT8</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: PduLengthTypeEnum -->
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:3ffce745-6c26-4c88-a57f-cd785b21e467">
+                          <SHORT-NAME>PduLengthTypeEnum</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">The PduLengthType is used within the entire AUTOSAR Com Stack except for bus drivers. The size of this global type depends on the maximum length of PDUs to be sent by an ECU. If no segmentation is used the length depends on the maximum payload size of a frame of the underlying communication system (for FlexRay maximum size is 255 bytes, therefore uint8). If segmentation is used it depends on the maximum length of a segmented N-SDU (in general uint16 is used). See AUTOSAR_SWS_CommunicationStackTypes for more details.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00042</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:1a82195a-5a3a-d9ef-e50b-7a40cca75012">
+                              <SHORT-NAME>UINT16</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:71d1c418-a527-86b0-4d9d-21c19a6fd501">
+                              <SHORT-NAME>UINT32</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:5c5d42c6-1357-dc3b-f97e-0996798c2362">
+                              <SHORT-NAME>UINT8</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                      </PARAMETERS>
+                      <SUB-CONTAINERS>
+                        <!-- Container Definition: MetaDataType -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:03261d0a-fb6a-4d11-a678-56f0d13d2795">
+                          <SHORT-NAME>MetaDataType</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Meta data serves to transport information through the AUTOSAR layers. It is transported by the PduInfoType structure via a separate pointer to a byte array alongside the length of and a pointer to the payload of the PDU. This container defines the content of the meta data.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00073</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <SUB-CONTAINERS>
+                            <!-- Container Definition: MetaDataItem -->
+                            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1d41effa-e300-40ad-93ad-d0c2f40573dc">
+                              <SHORT-NAME>MetaDataItem</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">The content of meta data in a Pdu consists of an ordered list of meta data items.</L-2>
+                              </DESC>
+                              <INTRODUCTION>
+                                <P>
+                                  <L-1 L="EN">This container represents a meta data item that is contained in meta data of a Pdu.</L-1>
+                                </P>
+                              </INTRODUCTION>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00074</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <REQUIRES-INDEX>true</REQUIRES-INDEX>
+                              <PARAMETERS>
+                                <!-- PARAMETER DEFINITION: MetaDataItemLength -->
+                                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:60a1fc78-cb1e-4deb-9fa6-b896616a947f">
+                                  <SHORT-NAME>MetaDataItemLength</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">This parameter defines the length of a meta data item in bytes.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00075</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
                                     <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
                                     </ECUC-VALUE-CONFIGURATION-CLASS>
                                     <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
                                     </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <DESTINATION-TYPE>PREDEFINED-VARIANT</DESTINATION-TYPE>
-                              </ECUC-FOREIGN-REFERENCE-DEF>
-                           </REFERENCES>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                  <MAX>64</MAX>
+                                  <MIN>1</MIN>
+                                </ECUC-INTEGER-PARAM-DEF>
+                                <!-- PARAMETER DEFINITION: MetaDataItemType -->
+                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:e455132d-9166-4d5e-9dfc-56d895fe87c9">
+                                  <SHORT-NAME>MetaDataItemType</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">This parameter defines the type of a meta data item.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00076</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                  <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e4b2cfbc-5034-9070-220d-015971605a13">
+                                      <SHORT-NAME>ACCEPTANCEFIELD_32</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:935d4601-0cbc-8cf4-381e-ea20eb428f7a">
+                                      <SHORT-NAME>ADDRESS_EXTENSION_8</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:19f965c7-f68d-8865-1ee6-fb227249afc7">
+                                      <SHORT-NAME>BROADCAST_8</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:4a123eeb-c754-8b3a-1f16-e7afd42a37b6">
+                                      <SHORT-NAME>CAN_ID_32</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d6a4e7ae-d27a-8314-396c-d8f6ee6bd20a">
+                                      <SHORT-NAME>CAN_ID_PROPS_8</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a90dbef4-392e-8a9e-1ddf-2ff9c696620e">
+                                      <SHORT-NAME>ETHERNET_MAC_64</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a6b942a9-6452-8525-4527-d0962162bc7e">
+                                      <SHORT-NAME>FILTER_RULE_ID_16</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:72aa221c-4fe5-8d27-529f-dbf29606df8b">
+                                      <SHORT-NAME>IEEE1722TP_COMMON_STREAM_HEADER_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:b933a690-3cc8-8255-19f2-ed7cd9510d04">
+                                      <SHORT-NAME>IEEE1722TP_RX_AAF_AES3_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:b8519a03-fa3a-8c38-2298-6fb2d395c5a5">
+                                      <SHORT-NAME>IEEE1722TP_RX_AAF_PCM_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f6198196-72ba-87d2-32ba-7e1065c6ea07">
+                                      <SHORT-NAME>IEEE1722TP_RX_CRF_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:08fb3919-44df-8530-1432-3993eefc4f39">
+                                      <SHORT-NAME>IEEE1722TP_RX_IEC68133_CIP_NO_SPH_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a2042444-db79-904a-2bef-052b6a65ed36">
+                                      <SHORT-NAME>IEEE1722TP_RX_IEC68133_CIP_WITH_SPH_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d8c2711c-e994-81c1-5098-e077d178bbf2">
+                                      <SHORT-NAME>IEEE1722TP_RX_IEC68133_IIDC_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:b121cfff-baee-8400-4e0a-e34205a79649">
+                                      <SHORT-NAME>IEEE1722TP_RX_IEC68133_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:1188cd27-62b3-8b98-1ed5-65f5dc905363">
+                                      <SHORT-NAME>IEEE1722TP_RX_RVF_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d4d69c92-f78b-8b74-4d2a-30a6991fcad0">
+                                      <SHORT-NAME>IEEE1722TP_TX_AAF_AES3_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:222a8ba1-bc68-81cd-4472-67d7069f50d6">
+                                      <SHORT-NAME>IEEE1722TP_TX_AAF_PCM_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:b3c2d761-ec7b-8e1a-24cb-4697d4b1c7a1">
+                                      <SHORT-NAME>IEEE1722TP_TX_CRF_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:875f959c-4eac-84f4-2042-968cd38f8860">
+                                      <SHORT-NAME>IEEE1722TP_TX_IEC68133_CIP_NO_SPH_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:d3ba55e6-2ec7-8b7f-49ac-594ee7d0de4d">
+                                      <SHORT-NAME>IEEE1722TP_TX_IEC68133_CIP_WITH_SPH_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:73ab5e3a-da12-85a4-286e-6c1dd59f379c">
+                                      <SHORT-NAME>IEEE1722TP_TX_IEC68133_IIDC_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2e57e70e-2091-8972-25ef-ed403bebddea">
+                                      <SHORT-NAME>IEEE1722TP_TX_IEC68133_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f6d0baec-a1a6-8658-516f-0abf4c96b768">
+                                      <SHORT-NAME>IEEE1722TP_TX_RVF_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:6d9442ff-658e-82ab-284e-821916845612">
+                                      <SHORT-NAME>LIN_NAD_8</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:99e02817-b19b-8f3f-3986-c7782365ab9e">
+                                      <SHORT-NAME>LISTELEM_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:3df13a66-f740-87a3-2a51-d1bc65ac6181">
+                                      <SHORT-NAME>MESSAGE_TIMESTAMP_64</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:875af0aa-05e2-8f85-2bbb-d8b253e20a23">
+                                      <SHORT-NAME>MESSAGE_TIMESTAMP_VALID_8</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:855a356a-c7bb-8aa2-50db-94d6dfbf3fca">
+                                      <SHORT-NAME>PRIORITY_16</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:3fa08da8-206b-8d51-1ac4-6eeb34061f58">
+                                      <SHORT-NAME>PRIORITY_8</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:85a2d593-a190-81fb-1597-cc7bd9aba20a">
+                                      <SHORT-NAME>SDUTYPE_8</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:aec152c4-86f9-843c-26c1-e9b9916cf4a6">
+                                      <SHORT-NAME>SOCKET_CONNECTION_ID_16</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:ca1d8af3-4a3b-8d39-4288-73a6b24c3905">
+                                      <SHORT-NAME>SOURCE_ADDRESS_16</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:25559ce3-6dee-8c34-1e82-5f403d6991b0">
+                                      <SHORT-NAME>TARGET_ADDRESS_16</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2dcc2ca6-0656-8889-2d8b-7dec3c6f8ab8">
+                                      <SHORT-NAME>TIMETUPLE_TYPE_PTR</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                                      </DESC>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:96a64884-4e00-89cc-1e0c-56b2557c7998">
+                                      <SHORT-NAME>VLAN_16</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                  </LITERALS>
+                                </ECUC-ENUMERATION-PARAM-DEF>
+                              </PARAMETERS>
+                            </ECUC-PARAM-CONF-CONTAINER-DEF>
+                          </SUB-CONTAINERS>
                         </ECUC-PARAM-CONF-CONTAINER-DEF>
-                        <!-- Container Definition: EcucUnitGroupAssignment -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2b261d84-fed7-4fd0-b94b-2cac2e4fb5fe">
-                           <SHORT-NAME>EcucUnitGroupAssignment</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">Collection of UnitGroup references to support the generation of ASAM MCD file.</L-2>
-                           </DESC>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00063</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                           <REFERENCES>
-                              <!-- Foreign Reference Definition: EcucUnitGroupRef -->
-                              <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:bdb68486-b9c6-47e4-baac-ff65e646115f">
-                                 <SHORT-NAME>EcucUnitGroupRef</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Optional reference to the UnitGroup to support the generation of ASAM MCD file. These UnitGroups are selecting a set of  units for a specific country.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00062</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
+                        <!-- Container Definition: Pdu -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:422a7abf-add2-418a-81a6-af5cdeae1930">
+                          <SHORT-NAME>Pdu</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">One Pdu flowing through the COM-Stack.</L-2>
+                          </DESC>
+                          <INTRODUCTION>
+                            <P>
+                              <L-1 L="EN">This Pdu is used by all Com-Stack modules to agree on referencing the same Pdu.</L-1>
+                            </P>
+                          </INTRODUCTION>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00001</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: DynamicLength -->
+                            <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:52670d39-4d5a-4425-a1e0-03e0764d596d">
+                              <SHORT-NAME>DynamicLength</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This parameter defines whether the Pdu has dynamic length (true) or not (false). Please note that the usage of this attribute is restricted by [constr_3448].</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00078</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                            </ECUC-BOOLEAN-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: J1939Requestable -->
+                            <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:5f51de6e-5995-4e90-b083-1d5b7a90848c">
+                              <SHORT-NAME>J1939Requestable</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Pdu can be triggered by the J1939 request message.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00072</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                            </ECUC-BOOLEAN-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: KeepLocalPduBuffer -->
+                            <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e11f927c-f360-4a75-9047-f2f50c243a9c">
+                              <SHORT-NAME>KeepLocalPduBuffer</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This parameter defines whether a module that handles the PDU would keep a temporary local buffer</L-2>
+                                <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                              </DESC>
+                              <INTRODUCTION>
+                                <P>
+                                  <L-1 L="EN">* until a confirmation or release-rx-buffer function call arrives (KeepLocalPduBuffer = TRUE) or * if a temporary local buffer is released after transmission or rx indication return (KeepLocalPduBuffer = FALSE).</L-1>
+                                </P>
+                              </INTRODUCTION>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00087</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                            </ECUC-BOOLEAN-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: PduBufferAlignment -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:3092130b-8699-4722-a482-035431d1467e">
+                              <SHORT-NAME>PduBufferAlignment</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This parameter defines the byte alignment of temporary local buffers that is required by the hardware. Using this parameter, a configuration can ensure that an upper layer module is aware of the alignment requirements of a driver.</L-2>
+                                <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                              </DESC>
+                              <INTRODUCTION>
+                                <P>
+                                  <L-1 L="EN">Unit: Byte</L-1>
+                                </P>
+                              </INTRODUCTION>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00088</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>ECU</SCOPE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <DEFAULT-VALUE>2</DEFAULT-VALUE>
+                              <MAX>8</MAX>
+                              <MIN>1</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: PduLength -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:3996a201-ffdf-43d1-a5e8-f88592a78a35">
+                              <SHORT-NAME>PduLength</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Length of the Pdu in bytes. It should be noted that in former AUTOSAR releases (Rel 2.1, Rel 3.0, Rel 3.1, Rel 4.0 Rev. 1) this parameter was defined in bits.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00003</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX>4294967295</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <!-- Reference Definition: EcucPduDefaultPartitionRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:e84f924e-0c50-452e-9a98-39623ea1896b">
+                              <SHORT-NAME>EcucPduDefaultPartitionRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Reference to EcucPartition, where the according Pdu is assigned to.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00082</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                            <!-- Reference Definition: MetaDataTypeRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:d99ff055-271b-4801-8368-10f5cf18976a">
+                              <SHORT-NAME>MetaDataTypeRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Reference to meta data that is transported in the Pdu through the AUTOSAR layers.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00077</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/MetaDataType</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                            <!-- Foreign Reference Definition: SysTPduToFrameTriggeringRef -->
+                            <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:c540d959-e145-47c1-b8d4-7bba46200f34">
+                              <SHORT-NAME>SysTPduToFrameTriggeringRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Reference to the FrameTriggering from the SystemTemplate which this Pdu belongs to.</L-2>
+                              </DESC>
+                              <INTRODUCTION>
+                                <P>
+                                  <L-1 L="EN">SysTPduToFrameTriggeringRef shall be used for UserDefinedPdus, NmPdus and NPdus which are not going through the Pdu Router. This reference shall not be used if SysTPduToPduTriggeringRef exists.</L-1>
+                                </P>
+                              </INTRODUCTION>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00052</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <DESTINATION-TYPE>FRAME-TRIGGERING</DESTINATION-TYPE>
+                            </ECUC-FOREIGN-REFERENCE-DEF>
+                            <!-- Foreign Reference Definition: SysTPduToPduTriggeringRef -->
+                            <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:8ae470f5-d0b3-40ad-b681-a858fc793be3">
+                              <SHORT-NAME>SysTPduToPduTriggeringRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Reference to the PduTriggering from the SystemTemplate which this Pdu represents.</L-2>
+                              </DESC>
+                              <INTRODUCTION>
+                                <P>
+                                  <L-1 L="EN">SysTPduToPduTriggeringRef shall be used for all Pdus except UserDefinedPdus, NmPdus and NPdus which are not going through the Pdu Router. For these Pdus, SysTPduToFrameTriggeringRef shall be used.</L-1>
+                                </P>
+                              </INTRODUCTION>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00054</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>POST-BUILD</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <DESTINATION-TYPE>PDU-TRIGGERING</DESTINATION-TYPE>
+                            </ECUC-FOREIGN-REFERENCE-DEF>
+                          </REFERENCES>
+                          <SUB-CONTAINERS>
+                            <!-- Container Definition: EcucPduDedicatedPartition -->
+                            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:20ef08f0-35a1-4cd6-8bb4-3af6cb661363">
+                              <SHORT-NAME>EcucPduDedicatedPartition</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Module specific container for Pdu to partition assignment.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00079</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <REFERENCES>
+                                <!-- Foreign Reference Definition: EcucPduDedicatedPartitionBswModuleRef -->
+                                <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:bf0aa4d3-c511-4829-bb62-a942702d4bd1">
+                                  <SHORT-NAME>EcucPduDedicatedPartitionBswModuleRef</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Reference to BSW module, for which the according dedicated Pdu assignment is valid.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00080</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
                                     <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
                                     </ECUC-VALUE-CONFIGURATION-CLASS>
                                     <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
                                     </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <DESTINATION-TYPE>UNIT-GROUP</DESTINATION-TYPE>
-                              </ECUC-FOREIGN-REFERENCE-DEF>
-                           </REFERENCES>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <DESTINATION-TYPE>ECUC-MODULE-CONFIGURATION-VALUES</DESTINATION-TYPE>
+                                </ECUC-FOREIGN-REFERENCE-DEF>
+                                <!-- Reference Definition: EcucPduDedicatedPartitionRef -->
+                                <ECUC-REFERENCE-DEF UUID="ECUC:3e26ec77-57b0-473a-8249-dd17eeec350a">
+                                  <SHORT-NAME>EcucPduDedicatedPartitionRef</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Module specific reference to EcucPartition, where the according Pdu is assigned to. The dedicated partition reference shall overrule the default partition reference for the respective module.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00081</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DESTINATION-REF>
+                                </ECUC-REFERENCE-DEF>
+                              </REFERENCES>
+                            </ECUC-PARAM-CONF-CONTAINER-DEF>
+                          </SUB-CONTAINERS>
                         </ECUC-PARAM-CONF-CONTAINER-DEF>
-                        <!-- Container Definition: EcucVariationResolver -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:973d00a5-5e98-4b38-8b7b-ddd518d40317">
-                           <SHORT-NAME>EcucVariationResolver</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">Collection of PredefinedVariant elements containing definition of values for SwSystemconst which shall be applied when resolving the variability during ECU Configuration.</L-2>
-                           </DESC>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00009</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                           <REFERENCES>
-                              <!-- Foreign Reference Definition: PredefinedVariantRef -->
-                              <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:84013509-59a1-46d4-ba0d-5bcfb76b941f">
-                                 <SHORT-NAME>PredefinedVariantRef</SHORT-NAME>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00010</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <DESTINATION-TYPE>PREDEFINED-VARIANT</DESTINATION-TYPE>
-                              </ECUC-FOREIGN-REFERENCE-DEF>
-                           </REFERENCES>
-                        </ECUC-PARAM-CONF-CONTAINER-DEF>
-                     </CONTAINERS>
-                  </ECUC-MODULE-DEF>
+                      </SUB-CONTAINERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <!-- Container Definition: EcucHardware -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:4494efcd-a0fa-42f6-9f5d-25817cdc0188">
+                  <SHORT-NAME>EcucHardware</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Hardware definition of this Ecu.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00056</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SUB-CONTAINERS>
+                    <!-- Container Definition: EcucCoreDefinition -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e12b8e86-0925-4854-b1a6-adee8a2cf090">
+                      <SHORT-NAME>EcucCoreDefinition</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Definition of one Core on this Ecu.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00057</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: EcucCoreId -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:9127a2e5-b908-4f76-b741-655836d78c67">
+                          <SHORT-NAME>EcucCoreId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">ID of the core.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00058</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                      </PARAMETERS>
+                      <REFERENCES>
+                        <!-- Foreign Reference Definition: EcucCoreHwRef -->
+                        <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:7ad013ef-fbcb-4c2a-aef2-be260c5016b4">
+                          <SHORT-NAME>EcucCoreHwRef</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Optional reference to the HwElement of HwCategory ProcessingUnit that represents this Core in the ECU Resource Template.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00059</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-TYPE>HW-ELEMENT</DESTINATION-TYPE>
+                        </ECUC-FOREIGN-REFERENCE-DEF>
+                      </REFERENCES>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <!-- Container Definition: EcucPartitionCollection -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:ed28c0d5-4e0c-4826-89fa-449203a3ce8e">
+                  <SHORT-NAME>EcucPartitionCollection</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Collection of Partitions defined for this ECU.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00007</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SUB-CONTAINERS>
+                    <!-- Container Definition: EcucPartition -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:c11de67e-41cd-4da2-8cfc-01c5e34209be">
+                      <SHORT-NAME>EcucPartition</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Definition of one Partition on this ECU.</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">One Partition will be implemented using one Os-Application.</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00005</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: EcucPartitionId -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:55d02c79-413c-4c21-8443-7ebb75814eb8">
+                          <SHORT-NAME>EcucPartitionId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">ID of the partition.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00085</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>ECU</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                      </PARAMETERS>
+                      <REFERENCES>
+                        <!-- Foreign Reference Definition: EcucEcuPartitionRef -->
+                        <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:9fb7bf7e-a179-44de-a4cd-5265263cea55">
+                          <SHORT-NAME>EcucEcuPartitionRef</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Reference to the EcuPartition to define the link to the partition described in the System description.</L-2>
+                            <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00083</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>ECU</SCOPE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-TYPE>ECU-PARTITION</DESTINATION-TYPE>
+                        </ECUC-FOREIGN-REFERENCE-DEF>
+                        <!-- Foreign Reference Definition: EcucPartitionBswModuleDistinguishedPartition -->
+                        <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:1772e02e-3cd8-4f8f-b959-5ec38aafef41">
+                          <SHORT-NAME>EcucPartitionBswModuleDistinguishedPartition</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This maps the abstract partition of the Bsw Module to a concrete Partition existing in the ECU.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00068</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-TYPE>BSW-DISTINGUISHED-PARTITION</DESTINATION-TYPE>
+                        </ECUC-FOREIGN-REFERENCE-DEF>
+                        <!-- Reference Definition: EcucPartitionCoreRef -->
+                        <ECUC-REFERENCE-DEF UUID="ECUC:69502c7e-7304-4437-8028-2b5ac02c5a66">
+                          <SHORT-NAME>EcucPartitionCoreRef</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Reference to the core definition. This reference is used to describe to which core the EcucPartition is bound.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00086</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>ECU</SCOPE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucHardware/EcucCoreDefinition</DESTINATION-REF>
+                        </ECUC-REFERENCE-DEF>
+                        <!-- Instance Reference Definition: EcucPartitionSoftwareComponentInstanceRef -->
+                        <ECUC-INSTANCE-REFERENCE-DEF UUID="ECUC:fcd3eca6-d43f-42f7-86a1-80043415256b">
+                          <SHORT-NAME>EcucPartitionSoftwareComponentInstanceRef</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">References the SW Component instances from the Ecu Extract that shall be executed in this partition.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00036</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-CONTEXT>ROOT-SW-COMPOSITION-PROTOTYPE</DESTINATION-CONTEXT>
+                          <DESTINATION-TYPE>SW-COMPONENT-PROTOTYPE</DESTINATION-TYPE>
+                        </ECUC-INSTANCE-REFERENCE-DEF>
+                      </REFERENCES>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <!-- Container Definition: EcucPostBuildVariants -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:154a283d-82e3-45cd-a7a1-f3264adee18b">
+                  <SHORT-NAME>EcucPostBuildVariants</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Collection of toplevel PostBuildSelectable variants. The PredefinedVariants linked inside this container will determine how many PostBuildSelectableVariants exist. If this container exist the name pattern for initialization of BSW modules will be &lt;Mip&gt;_Config_&lt;PredefinedVariant.shortName&gt;. If this container does not exist the name pattern for initialization of BSW modlues will be &lt;Mip&gt;_Config.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00070</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <REFERENCES>
+                    <!-- Foreign Reference Definition: EcucPostBuildVariantRef -->
+                    <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:6e75f9c8-e66b-4ca6-8d0b-c14951c14811">
+                      <SHORT-NAME>EcucPostBuildVariantRef</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Reference to a PredefinedVariant that defines one toplevel postBuild configuration set (covering all post-build capable BSW modules). PredefinedVariants that are referenced here shall contain only PostBuildVariantCriterionValueSets.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00071</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <DESTINATION-TYPE>PREDEFINED-VARIANT</DESTINATION-TYPE>
+                    </ECUC-FOREIGN-REFERENCE-DEF>
+                  </REFERENCES>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <!-- Container Definition: EcucUnitGroupAssignment -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2b261d84-fed7-4fd0-b94b-2cac2e4fb5fe">
+                  <SHORT-NAME>EcucUnitGroupAssignment</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Collection of UnitGroup references to support the generation of ASAM MCD file.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00063</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <REFERENCES>
+                    <!-- Foreign Reference Definition: EcucUnitGroupRef -->
+                    <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:bdb68486-b9c6-47e4-baac-ff65e646115f">
+                      <SHORT-NAME>EcucUnitGroupRef</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Optional reference to the UnitGroup to support the generation of ASAM MCD file. These UnitGroups are selecting a set of units for a specific country.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00062</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <DESTINATION-TYPE>UNIT-GROUP</DESTINATION-TYPE>
+                    </ECUC-FOREIGN-REFERENCE-DEF>
+                  </REFERENCES>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <!-- Container Definition: EcucVariationResolver -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:973d00a5-5e98-4b38-8b7b-ddd518d40317">
+                  <SHORT-NAME>EcucVariationResolver</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Collection of PredefinedVariant elements containing definition of values for SwSystemconst which shall be applied when resolving the variability during ECU Configuration.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00009</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <REFERENCES>
+                    <!-- Foreign Reference Definition: PredefinedVariantRef -->
+                    <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:84013509-59a1-46d4-ba0d-5bcfb76b941f">
+                      <SHORT-NAME>PredefinedVariantRef</SHORT-NAME>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_EcuC_00010</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <DESTINATION-TYPE>PREDEFINED-VARIANT</DESTINATION-TYPE>
+                    </ECUC-FOREIGN-REFERENCE-DEF>
+                  </REFERENCES>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </CONTAINERS>
+            </ECUC-MODULE-DEF>
           </ELEMENTS>
         </AR-PACKAGE>
       </AR-PACKAGES>

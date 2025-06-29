@@ -1,7 +1,7 @@
 /*******************************************************************************
  * COPYRIGHT
  * -----------------------------------------------------------------------------
- * Copyright (c) 2022 by <<>>. All rights reserved.
+ * Copyright (c) 2022 by <<DungNV>>. All rights reserved.
  * -----------------------------------------------------------------------------
  * FILE DESCRIPTION
  *  File:         Can.c
@@ -14,7 +14,7 @@
  * -----------------------------------------------------------------------------
  * Version   Date        Author  Description
  * -----------------------------------------------------------------------------
- * 01.00.00  13/08/2022  Dungnv  Initial version
+ * 01.00.00  03/01/2026  Dungnv  Initial version(R24 update)
  *
 *******************************************************************************/
 
@@ -30,10 +30,9 @@ Includes
 #include "Os.h"
 #include "CanIf_Cbk.h"
 #include "Can.h"
-
 #include "Can_Internals.h"
 
-extern P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Glb_CanCfgPtr;
+extern const Can_ConfigType* g_CanCfgPtr;
 
 #define INT_MASK_BUSOFF      ((uint32)1 << 10)
 #define INT_MASK_WAKEUP      ((uint32)1 << 16)
@@ -41,13 +40,15 @@ extern P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Glb_CanCfgPtr;
 #define INT_MASK_TX          ((uint32)1)
 #define INT_NESTED_SET_MAX 255
 #define INT_NESTED_SET_MIN 0
-uint8 Guc_InterruptSetCounter = 0;
-uint32 Gul_InterruptSetting = 0;
+
 /* [SWS_Can_00103] */
 /* Internal CAN Driver state machine */
-Can_DrvStsType Gen_CanDriverState = CAN_UNINIT;
+Can_DrvStsType g_enCanDriverState = CAN_UNINIT;
 
-#define GetControllerState(index) (*Glb_CanCfgPtr->stCanCtrlrs[index].ptCanCtrlSts)
+static uint8 m_u8InterruptSetCounter = 0;
+static uint32 m_u32InterruptSetting = 0;
+
+#define GetControllerState(index) (*g_CanCfgPtr->ptrCanCtrlrs[index].ptrCanCtrlrSts)
 
 #if(CAN_VERSIONINFO_API == STD_ON)
 /*
@@ -64,7 +65,7 @@ Can_DrvStsType Gen_CanDriverState = CAN_UNINIT;
  *  Description....... : This function return the version information of module.
  */
 /* [SWS_Can_00224] */
-FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (P2VAR(Std_VersionInfoType, AUTOMATIC, CAN_APPL_DATA) versioninfo)
+void Can_GetVersionInfo(Std_VersionInfoType* versioninfo)
 {
     if (versioninfo == NULL_PTR)
     {
@@ -98,13 +99,13 @@ FUNC(void, CAN_CODE_SLOW) Can_GetVersionInfo (P2VAR(Std_VersionInfoType, AUTOMAT
  *  Description....... : This function initializes the module.
  */
 /* [SWS_Can_00223] */
-FUNC(void, CAN_CODE_SLOW) Can_Init (P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Config)
+void Can_Init(const Can_ConfigType* Config)
 {
-    uint8 Luc_Count;
-    boolean Lbl_InitSts;
-    Std_ReturnType Luc_StdResult;
+    uint8 u8Count;
+    boolean blInitSts;
+    Std_ReturnType u8StdResult;
 
-    Luc_StdResult = E_OK;
+    u8StdResult = E_OK;
 
     /* Verify no null ptr passed as parameter */
     if (NULL_PTR == Config)
@@ -112,63 +113,63 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_
         #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
         (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_INIT, CAN_E_PARAM_POINTER);
         #endif
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
     else
     {
         /* store the configuration structure pointer to internal global ptr */
-        Glb_CanCfgPtr = Config;
+        g_CanCfgPtr = Config;
 
         /* Check whether or not CAN Driver is in state CAN_UNINIT */
-        if (CAN_UNINIT != Gen_CanDriverState)
+        if (CAN_UNINIT != g_enCanDriverState)
         {
             #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
             /* [SWS_Can_00174], [SWS_Can_00259] */
             (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_INIT, CAN_E_TRANSITION);
             #endif
-            Luc_StdResult = E_NOT_OK;
+            u8StdResult = E_NOT_OK;
         }
         /* Check whether or not CAN Controllers is in UNINIT mode */
         else
         {
             /* access configuration structure, loop through all controller
                 and check the current sw status of each controller */
-            /*  [SWS_Can_00408], [SWS_Can_00259] */
-            for (Luc_Count = 0; (Luc_Count < Glb_CanCfgPtr->ucNumCanController) && (E_OK == Luc_StdResult); Luc_Count++)
+            /*  [SWS_Can_00408, SWS_Can_00259] */
+            for (u8Count = 0; (u8Count < g_CanCfgPtr->u8NumCanCtrlr) && (E_OK == u8StdResult); u8Count++)
             {
                 /* Check sw status of controller */
-                if (CAN_CS_UNINIT != GetControllerState(Luc_Count))
+                if (CAN_CS_UNINIT != GetControllerState(u8Count))
                 {
                     #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
                     /* if CAN controller status != CAN_CS_UNINIT then return NG */
                     (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_INIT, CAN_E_TRANSITION);
                     #endif
-                    Luc_StdResult = E_NOT_OK;
+                    u8StdResult = E_NOT_OK;
                 }
             }
         }
     }
 
-    if (E_OK == Luc_StdResult)
+    if (E_OK == u8StdResult)
     {
-        Lbl_InitSts = TRUE;
-        /* static variables, including flags */
-        /* general initialization of CAN hardware module: N/A */
-        /* specific initialization of CAN controllers */
-        for (Luc_Count = 0; Luc_Count < Glb_CanCfgPtr->ucNumCanController; Luc_Count++)
+        blInitSts = TRUE;
+        /* 1. module global variables: N/A */
+        /* 2. general initialization of CAN hardware module: N/A */
+        /* 3. specific initialization of CAN controllers */
+        for (u8Count = 0; u8Count < g_CanCfgPtr->u8NumCanCtrlr; u8Count++)
         {
-            /* [SWS_Can_00237], [SWS_Can_00236], [SWS_Can_00238], [SWS_Can_00239], [SWS_Can_00245], [SWS_Can_00250] */
-            Lbl_InitSts &= Can_HwCtrlInit(Config, Luc_Count);
+            /* [SWS_Can_00237, SWS_Can_00236, SWS_Can_00238, SWS_Can_00239, SWS_Can_00245, SWS_Can_00250] */
+            blInitSts &= Can_HwCtrlInit(Config, u8Count);
         }
-        if (TRUE == Lbl_InitSts)
+        if (TRUE == blInitSts)
         {
             /* [SWS_Can_00246] */
             /* There are no fail during initialized process */
-            Gen_CanDriverState = CAN_READY;
+            g_enCanDriverState = CAN_READY;
         }
         else
         {
-            /* There is fail during initialized controllers process */
+            /* There is fail during initialized controllers process, CanDriverState remain in UNINIT state */
         }
     }
     else
@@ -191,21 +192,21 @@ FUNC(void, CAN_CODE_SLOW) Can_Init (P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_
  *  Description....... : This function de-initializes the module.
  */
 /* [SWS_Can_91002] */
-FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
+void Can_DeInit(void)
 {
-    uint8 Luc_Count;
+    uint8 u8Count;
     boolean Lbl_DeInitSts;
-    Std_ReturnType Luc_StdResult;
+    Std_ReturnType u8StdResult;
 
-    Luc_StdResult = E_OK;
+    u8StdResult = E_OK;
     /* Check if driver is initialized - Driver not in state CAN_READY */
-    if (CAN_READY != Gen_CanDriverState)
+    if (CAN_READY != g_enCanDriverState)
     {
         #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
         /* [SWS_Can_91011], [SWS_Can_91010]*/
         (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_DEINIT, CAN_E_TRANSITION);
         #endif
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
     /* Check all CAN Controllers is not in START mode */
     else
@@ -213,32 +214,32 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
         /* access configuration structure, loop through all controller and check
         the current sw status of each controller */
         /* [SWS_Can_91012], [SWS_Can_91010]*/
-        for (Luc_Count = 0; (Luc_Count < Glb_CanCfgPtr->ucNumCanController) && (E_OK == Luc_StdResult); Luc_Count++)
+        for (u8Count = 0; (u8Count < g_CanCfgPtr->u8NumCanCtrlr) && (E_OK == u8StdResult); u8Count++)
         {
             /* Check sw status of controller, no controllers in STARTED state before deinit */
-            if (CAN_CS_STARTED == *(Glb_CanCfgPtr->stCanCtrlrs[Luc_Count].ptCanCtrlSts))
+            if (CAN_CS_STARTED == *(g_CanCfgPtr->ptrCanCtrlrs[u8Count].ptrCanCtrlrSts))
             {
                 /* if CAN controller status == CAN_CS_STARTED then return NG */
                 #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
                 (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_DEINIT, CAN_E_TRANSITION);
                 #endif
-                Luc_StdResult = E_NOT_OK;
+                u8StdResult = E_NOT_OK;
             }
         }
     }
 
-    if (E_OK == Luc_StdResult)
+    if (E_OK == u8StdResult)
     {
         Lbl_DeInitSts = TRUE;
-        /* [SWS_Can_00103], [SWS_Can_91009] */
+        /* [SWS_Can_00103, SWS_Can_91009] */
         /* Change state to UNINIT before perform actual deinit operation in CAN */
-        Gen_CanDriverState = CAN_UNINIT;
-        /* deinit static variables, including flags */
-        /* general de-initialization of CAN hardware module: N/A */
-        /* specific de-initialization of CAN controllers */
-        for (Luc_Count = 0; Luc_Count < Glb_CanCfgPtr->ucNumCanController; Luc_Count++)
+        g_enCanDriverState = CAN_UNINIT;
+        /* 1. deinit static variables, including flags: N/A */
+        /* 2. general de-initialization of CAN hardware module: N/A */
+        /* 3. specific de-initialization of CAN controllers */
+        for (u8Count = 0; u8Count < g_CanCfgPtr->u8NumCanCtrlr; u8Count++)
         {
-            Lbl_DeInitSts &= Can_HwDeInit(Glb_CanCfgPtr, Luc_Count);
+            Lbl_DeInitSts &= Can_HwDeInit(g_CanCfgPtr, u8Count);
         }
     }
     else
@@ -265,16 +266,15 @@ FUNC(void, CAN_CODE_SLOW) Can_DeInit (void)
  *                       modifications the controller might have to reset.
  */
 /* [SWS_CAN_00491]  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (VAR(uint8, AUTOMATIC) Controller,
-                                                    VAR(uint16, AUTOMATIC) BaudRateConfigID)
+Std_ReturnType Can_SetBaudrate(uint8 Controller, uint16 BaudRateConfigID)
 {
     uint8 Luc_HwId;
-    Std_ReturnType Luc_StdResult;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
     Can_BaudrateConfigType *Lpt_Baudrate;
 
-    Luc_StdResult = E_OK;
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, Controller, CAN_SID_SET_BAUDRATE, Lpt_Ctrlr))
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, Controller, CAN_SID_SET_BAUDRATE, Lpt_Ctrlr))
     {
         Lpt_Baudrate = Can_GetBaudrateCfg(Lpt_Ctrlr, BaudRateConfigID);
         if (NULL_PTR == Lpt_Baudrate)
@@ -283,15 +283,15 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (VAR(uint8, AUTOMATIC) Contr
             #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
             (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_BAUDRATE, CAN_E_PARAM_BAUDRATE);
             #endif
-            Luc_StdResult = E_NOT_OK;
+            u8StdResult = E_NOT_OK;
         }
         else
         {
             /* [SWS_Can_00500, SWS_Can_00256, SWS_Can_00062, SWS_Can_00260] */
             /* required CAN controller to be in stop state before change baudrate */
-            if (*Lpt_Ctrlr->ptCanCtrlSts != CAN_CS_STOPPED)
+            if (*Lpt_Ctrlr->ptrCanCtrlrSts != CAN_CS_STOPPED)
             {
-                Luc_StdResult = E_NOT_OK;
+                u8StdResult = E_NOT_OK;
             }
             else
             {
@@ -301,32 +301,32 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (VAR(uint8, AUTOMATIC) Contr
     }
     else
     {
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
     /* Check if requested BaudRateConfigID value is valid */
-    if (E_OK == Luc_StdResult)
+    if (E_OK == u8StdResult)
     {
-        Luc_HwId = Lpt_Ctrlr->ucId;
+        Luc_HwId = Lpt_Ctrlr->u8Id;
         /* Check whether Controller mode is in STOP_MODE(initialization) */
-        if ((HwCanCtrlr[Luc_HwId].CtrlNSts->ulMSReg.INAK) != REGISTER_BIT_SET)
+        if ((HwCanCtrlr[Luc_HwId].CtrlNSts->u32MSReg.INAK) != REGISTER_BIT_SET)
         {
-            Luc_StdResult = E_NOT_OK;
+            u8StdResult = E_NOT_OK;
         }
         else
         {
             /* [SWS_Can_00422] Configure the HW of requested Controller */
-            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.val = REGISTER_RESET_VALUE;
-            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.SJW = Lpt_Baudrate->ucBaudrateSJW;
-            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.TS2 = Lpt_Baudrate->ucBaudrateSeg2;
-            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.TS1 = Lpt_Baudrate->ucBaudrateSeg1;
-            HwCanCtrlr[Luc_HwId].CtrlNSts->ulBTReg.BRP = Lpt_Baudrate->usBaudrateBRP;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->u32BTReg.val = REGISTER_RESET_VALUE;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->u32BTReg.SJW = Lpt_Baudrate->u8BaudrateSJW;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->u32BTReg.TS2 = Lpt_Baudrate->u8BaudrateSeg2;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->u32BTReg.TS1 = Lpt_Baudrate->u8BaudrateSeg1;
+            HwCanCtrlr[Luc_HwId].CtrlNSts->u32BTReg.BRP = Lpt_Baudrate->usBaudrateBRP;
         }
     }
     else
     {
         /* empty */
     }
-    return Luc_StdResult;
+    return u8StdResult;
 }
 #endif
 
@@ -344,25 +344,24 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetBaudrate (VAR(uint8, AUTOMATIC) Contr
  *  Description....... : This function performs software triggered state
  *                       transitions of the CAN controller State machine.
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (VAR(uint8, AUTOMATIC) Controller,
-    VAR(Can_ControllerStateType, AUTOMATIC) Transition)
+Std_ReturnType Can_SetControllerMode(uint8 Controller, Can_ControllerStateType Transition)
 {
     /* [SWS_Can_00230] */
-    Std_ReturnType Luc_StdResult;
-    uint8 Luc_Count;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Std_ReturnType u8StdResult;
+    uint8 u8Count;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    Luc_StdResult = E_OK;
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, Controller, CAN_SID_SET_CONTROLLER_MODE, Lpt_Ctrlr))
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, Controller, CAN_SID_SET_CONTROLLER_MODE, Lpt_Ctrlr))
     {
         /* check invalid transition request */
         /* [SWS_Can_00200] */
-        if (E_NOT_OK == Can_CheckValidSetCtrlrModeTrans(*Lpt_Ctrlr->ptCanCtrlSts, Transition))
+        if (E_NOT_OK == Can_CheckValidSetCtrlrModeTrans(*Lpt_Ctrlr->ptrCanCtrlrSts, Transition))
         {
             #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
             (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_SET_CONTROLLER_MODE, CAN_E_TRANSITION);
             #endif
-            Luc_StdResult = E_NOT_OK;
+            u8StdResult = E_NOT_OK;
         }
         else
         {
@@ -371,11 +370,11 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (VAR(uint8, AUTOMATIC)
     }
     else
     {
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
 
     /* Check if requested BaudRateConfigID value is valid */
-    if ((E_OK == Luc_StdResult) && (*Lpt_Ctrlr->ptCanCtrlSts != Transition))
+    if ((E_OK == u8StdResult) && (*Lpt_Ctrlr->ptrCanCtrlrSts != Transition))
     {
         /* [SWS_Can_00384, SWS_Can_00017] re-init controller same as Can_SetBaudrate and Can_Init when CAN_CS_STARTED
             there is no setting change done by other operation, so no re-init operation require */
@@ -384,79 +383,79 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (VAR(uint8, AUTOMATIC)
         case CAN_CS_STARTED:
             /* [SWS_Can_00384, SWS_Can_00261] */
             /* clear init to transit to hw normal state */
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMCReg.SLEEP = REGISTER_BIT_CLEAR;
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMCReg.INRQ = REGISTER_BIT_CLEAR;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MCReg.SLEEP = REGISTER_BIT_CLEAR;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MCReg.INRQ = REGISTER_BIT_CLEAR;
             /* [SWS_Can_00196, SWS_Can_00425], enable/disable interrupt setting */
-            if (Guc_InterruptSetCounter == INT_NESTED_SET_MIN)
+            if (m_u8InterruptSetCounter == INT_NESTED_SET_MIN)
             {
                 /* enable interrupt required for current state */
-                Gul_InterruptSetting = INT_MASK_BUSOFF * (uint32)(Lpt_Ctrlr->enCanBusoffModeOp == CAN_MODE_OPR_INTERRUPT);
-                Gul_InterruptSetting |= INT_MASK_WAKEUP * (uint32)REGISTER_BIT_CLEAR;
-                Gul_InterruptSetting |= INT_MASK_RX * (uint32)(Lpt_Ctrlr->enCanRxModeOp != CAN_TRANSCEIVE_POLLING);
-                Gul_InterruptSetting |= INT_MASK_TX * (uint32)(Lpt_Ctrlr->enCanTxModeOp != CAN_TRANSCEIVE_POLLING);
-                HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulIEReg.val = Gul_InterruptSetting;
+                m_u32InterruptSetting = INT_MASK_BUSOFF * (uint32)(Lpt_Ctrlr->enCanBusoffModeOp == CAN_MODE_OPR_INTERRUPT);
+                m_u32InterruptSetting |= INT_MASK_WAKEUP * (uint32)REGISTER_BIT_CLEAR;
+                m_u32InterruptSetting |= INT_MASK_RX * (uint32)(Lpt_Ctrlr->enCanRxModeOp != CAN_TRANSCEIVE_POLLING);
+                m_u32InterruptSetting |= INT_MASK_TX * (uint32)(Lpt_Ctrlr->enCanTxModeOp != CAN_TRANSCEIVE_POLLING);
+                HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32IEReg.val = m_u32InterruptSetting;
             }
             else
             {
                 /* disable interrupt */
             }
             /* [SWS_Can_00398, SWS_Can_00372, SWS_Can_00262] wait for mode change */
-            Luc_StdResult = Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMSReg, REGISTER_RESET_VALUE ,CAN_MSR_INIT_ACK);
+            u8StdResult = Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MSReg, REGISTER_RESET_VALUE ,CAN_MSR_INIT_ACK);
             break;
         case CAN_CS_STOPPED:
             /* [SWS_Can_00197, SWS_Can_00426], disable all interrupt */
-            Gul_InterruptSetting = REGISTER_RESET_VALUE;
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulIEReg.val = Gul_InterruptSetting;
+            m_u32InterruptSetting = REGISTER_RESET_VALUE;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32IEReg.val = m_u32InterruptSetting;
 
             /* [SWS_Can_00282] abort all transmission, clear all hardware and software FIFOs */
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulTSReg.ABRQ0 = REGISTER_BIT_SET;
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulTSReg.ABRQ1 = REGISTER_BIT_SET;
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulTSReg.ABRQ2 = REGISTER_BIT_SET;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32TSReg.ABRQ0 = REGISTER_BIT_SET;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32TSReg.ABRQ1 = REGISTER_BIT_SET;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32TSReg.ABRQ2 = REGISTER_BIT_SET;
 
             /* [SWS_Can_00282] cancel all pending receive, release all hardware and software mailboxs */
-            for (Luc_Count = 0; (Luc_Count < HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulRF0Reg.FMP0) ||
-                (HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulRF0Reg.RFOM0 == REGISTER_BIT_SET); Luc_Count++)
+            for (u8Count = 0; (u8Count < HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32RF0Reg.FMP0) ||
+                (HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32RF0Reg.RFOM0 == REGISTER_BIT_SET); u8Count++)
             {
-                HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulRF0Reg.RFOM0 = REGISTER_BIT_SET;
+                HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32RF0Reg.RFOM0 = REGISTER_BIT_SET;
             }
-            for (Luc_Count = 0; (Luc_Count < HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulRF1Reg.FMP1) ||
-                (HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulRF1Reg.RFOM1 == REGISTER_BIT_SET); Luc_Count++)
+            for (u8Count = 0; (u8Count < HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32RF1Reg.FMP1) ||
+                (HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32RF1Reg.RFOM1 == REGISTER_BIT_SET); u8Count++)
             {
-                HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulRF1Reg.RFOM1 = REGISTER_BIT_SET;
+                HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32RF1Reg.RFOM1 = REGISTER_BIT_SET;
             }
 
             /* [SWS_Can_00263] back to hw init state */
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMCReg.SLEEP = REGISTER_BIT_CLEAR;
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMCReg.INRQ = REGISTER_BIT_SET;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MCReg.SLEEP = REGISTER_BIT_CLEAR;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MCReg.INRQ = REGISTER_BIT_SET;
             /* [SWS_Can_00372, SWS_Can_00264, SWS_Can_00268] */
-            Luc_StdResult = Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMSReg, CAN_MSR_INIT_ACK ,CAN_MSR_INIT_ACK);
+            u8StdResult = Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MSReg, CAN_MSR_INIT_ACK ,CAN_MSR_INIT_ACK);
             break;
         case CAN_CS_SLEEP:
             /* [SWS_Can_00294] */
             /* [SWS_Can_00257, SWS_Can_00265] to hw sleep state */
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMCReg.AWUM = REGISTER_BIT_SET;
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMCReg.INRQ = REGISTER_BIT_CLEAR;
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMCReg.SLEEP = REGISTER_BIT_SET;
-            if (Guc_InterruptSetCounter == INT_NESTED_SET_MIN)
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MCReg.AWUM = REGISTER_BIT_SET;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MCReg.INRQ = REGISTER_BIT_CLEAR;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MCReg.SLEEP = REGISTER_BIT_SET;
+            if (m_u8InterruptSetCounter == INT_NESTED_SET_MIN)
             {
-                Gul_InterruptSetting = INT_MASK_WAKEUP * (uint32)(Lpt_Ctrlr->enCanWakeupModeOp == CAN_MODE_OPR_INTERRUPT);
-                HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulIEReg.val = Gul_InterruptSetting;
+                m_u32InterruptSetting = INT_MASK_WAKEUP * (uint32)(Lpt_Ctrlr->enCanWakeupModeOp == CAN_MODE_OPR_INTERRUPT);
+                HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32IEReg.val = m_u32InterruptSetting;
             }
             else
             {
                 /* empty */
             }
             /* [SWS_Can_00372, SWS_Can_00266] */
-            Luc_StdResult = Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulMSReg, CAN_MSR_SLEEP_ACK ,CAN_MSR_SLEEP_ACK);
+            u8StdResult = Can_WaitRegValUntilTimeout((uint32 *)&HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32MSReg, CAN_MSR_SLEEP_ACK ,CAN_MSR_SLEEP_ACK);
             break;
         default:
             /* empty */
             break;
         }
-        if (Luc_StdResult == E_OK)
+        if (u8StdResult == E_OK)
         {
             /* [SWS_Can_00017] */
-            *Lpt_Ctrlr->ptCanCtrlSts = Transition;
+            *Lpt_Ctrlr->ptrCanCtrlrSts = Transition;
         }
         else
         {
@@ -467,7 +466,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (VAR(uint8, AUTOMATIC)
     {
         /* No action required */
     }
-    return Luc_StdResult;
+    return u8StdResult;
 }
 
 /*
@@ -484,27 +483,27 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetControllerMode (VAR(uint8, AUTOMATIC)
  *  Description....... : This function disables all interrupts for this
  *                       CAN controller.
  */
-FUNC(void, CAN_CODE_SLOW) Can_DisableControllerInterrupts (VAR(uint8, AUTOMATIC) Controller)
+void Can_DisableControllerInterrupts(uint8 Controller)
 {
     /* [SWS_Can_00231] */
-    Std_ReturnType Luc_StdResult;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    Luc_StdResult = E_OK;
+    u8StdResult = E_OK;
     /* [SWS_Can_00049] */
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, Controller, CAN_SID_DISABLE_CONTROLLER_INTERRUPT, Lpt_Ctrlr))
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, Controller, CAN_SID_DISABLE_CONTROLLER_INTERRUPT, Lpt_Ctrlr))
     {
         /* [SWS_Can_00202] */
-        if (Guc_InterruptSetCounter != INT_NESTED_SET_MAX)
+        if (m_u8InterruptSetCounter != INT_NESTED_SET_MAX)
         {
-            Guc_InterruptSetCounter++;
+            m_u8InterruptSetCounter++;
         }
         else
         {
             /* empty */
         }
         /* [SWS_Can_00204] */
-        HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulIEReg.val = REGISTER_RESET_VALUE;
+        HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32IEReg.val = REGISTER_RESET_VALUE;
     }
     else
     {
@@ -526,22 +525,22 @@ FUNC(void, CAN_CODE_SLOW) Can_DisableControllerInterrupts (VAR(uint8, AUTOMATIC)
  *  Description....... : This function enables all allowed interrupts for this
  *                       CAN controller.
  */
-FUNC(void, CAN_CODE_SLOW) Can_EnableControllerInterrupts (VAR(uint8, AUTOMATIC) Controller)
+void Can_EnableControllerInterrupts(uint8 Controller)
 {
     /* [SWS_Can_00232] */
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, Controller, CAN_SID_ENABLE_CONTROLLER_INTERRUPT, Lpt_Ctrlr))
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, Controller, CAN_SID_ENABLE_CONTROLLER_INTERRUPT, Lpt_Ctrlr))
     {
         /* [SWS_Can_00208] */
-        if (Guc_InterruptSetCounter != INT_NESTED_SET_MIN)
+        if (m_u8InterruptSetCounter != INT_NESTED_SET_MIN)
         {
-            Guc_InterruptSetCounter--;
+            m_u8InterruptSetCounter--;
         }
         else
         {
             /* [SWS_Can_00050] */
-            HwCanCtrlr[Lpt_Ctrlr->ucId].CtrlNSts->ulIEReg.val = Gul_InterruptSetting;
+            HwCanCtrlr[Lpt_Ctrlr->u8Id].CtrlNSts->u32IEReg.val = m_u32InterruptSetting;
         }
     }
     else
@@ -550,7 +549,6 @@ FUNC(void, CAN_CODE_SLOW) Can_EnableControllerInterrupts (VAR(uint8, AUTOMATIC) 
     }
 }
 
-#if(CAN_WAKEUP_FUNCTIONALITY_API == STD_ON)
 /*
  *  Service Name...... : Can_CheckWakeup
  *  Service ID      .. : 0x0B
@@ -565,30 +563,22 @@ FUNC(void, CAN_CODE_SLOW) Can_EnableControllerInterrupts (VAR(uint8, AUTOMATIC) 
  *  Description....... : This function checks if a wakeup has occurred for
  *                       the given controller.
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckWakeup (VAR(uint8, AUTOMATIC) Controller)
+Std_ReturnType Can_CheckWakeup(uint8 Controller)
 {
-    Std_ReturnType Luc_StdResult;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    /* [SWS_Can_00360] */
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    Luc_StdResult = E_OK;
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, Controller, CAN_SID_CHECK_WAKEUP, Lpt_Ctrlr))
-    {
-
-    }
-    else
-    {
-        Luc_StdResult = E_NOT_OK;
-    }
-    if (E_OK == Luc_StdResult)
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, Controller, CAN_SID_CHECK_WAKEUP, Lpt_Ctrlr))
     {
 
     }
     else
     {
-        /* empty */
+        u8StdResult = E_NOT_OK;
     }
 }
-#endif
 
 /*
  *  Service Name...... : Can_GetControllerErrorState
@@ -604,22 +594,21 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckWakeup (VAR(uint8, AUTOMATIC) Contr
  *  Description....... : This service obtains the error state of
  *                       the CAN controller.
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState (VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(Can_ErrorStateType, AUTOMATIC, CAN_APPL_DATA) ErrorStatePtr)
+Std_ReturnType Can_GetControllerErrorState(uint8 ControllerId, Can_ErrorStateType* ErrorStatePtr)
 {
-    Std_ReturnType Luc_StdResult;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    Luc_StdResult = E_OK;
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, ControllerId, CAN_SID_GET_CONTROLLER_ERROR_STATE, Lpt_Ctrlr))
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, ControllerId, CAN_SID_GET_CONTROLLER_ERROR_STATE, Lpt_Ctrlr))
     {
 
     }
     else
     {
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
-    if (E_OK == Luc_StdResult)
+    if (E_OK == u8StdResult)
     {
 
     }
@@ -643,22 +632,21 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerErrorState (VAR(uint8, AUTO
  *  Description....... : This service reports about the current status of
  *                       the requested CAN controller
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode (VAR(uint8, AUTOMATIC) Controller,
-    P2VAR(Can_ControllerStateType, AUTOMATIC, CAN_APPL_DATA) ControllerModePtr)
+Std_ReturnType Can_GetControllerMode(uint8 Controller, Can_ControllerStateType* ControllerModePtr)
 {
-    Std_ReturnType Luc_StdResult;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    Luc_StdResult = E_OK;
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, Controller, CAN_SID_GET_CONTROLLER_MODE, Lpt_Ctrlr))
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, Controller, CAN_SID_GET_CONTROLLER_MODE, Lpt_Ctrlr))
     {
 
     }
     else
     {
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
-    if (E_OK == Luc_StdResult)
+    if (E_OK == u8StdResult)
     {
 
     }
@@ -681,22 +669,21 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerMode (VAR(uint8, AUTOMATIC)
  *  Global variable    :
  *  Description....... : Returns the Rx error counter for a CAN controller.
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) RxErrorCounterPtr)
+Std_ReturnType Can_GetControllerRxErrorCounter(uint8 ControllerId, uint8* RxErrorCounterPtr)
 {
-    Std_ReturnType Luc_StdResult;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    Luc_StdResult = E_OK;
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, ControllerId, CAN_SID_GET_CONTROLLER_RX_ERROR_COUNTER, Lpt_Ctrlr))
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, ControllerId, CAN_SID_GET_CONTROLLER_RX_ERROR_COUNTER, Lpt_Ctrlr))
     {
 
     }
     else
     {
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
-    if (E_OK == Luc_StdResult)
+    if (E_OK == u8StdResult)
     {
 
     }
@@ -719,22 +706,22 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerRxErrorCounter (VAR(uint8, 
  *  Global variable    :
  *  Description....... : Returns the Tx error counter for a CAN controller.
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (VAR(uint8, AUTOMATIC) ControllerId,
-    P2VAR(uint8, AUTOMATIC, CAN_APPL_DATA) TxErrorCounterPtr)
+Std_ReturnType Can_GetControllerTxErrorCounter(uint8 ControllerId,
+                                                    uint8* TxErrorCounterPtr)
 {
-    Std_ReturnType Luc_StdResult;
-    Can_ControllerConfigType *Lpt_Ctrlr;
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
 
-    Luc_StdResult = E_OK;
-    if (E_OK == Can_CheckDevError(Glb_CanCfgPtr, ControllerId, CAN_SID_GET_CONTROLLER_TX_ERROR_COUNTER, Lpt_Ctrlr))
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, ControllerId, CAN_SID_GET_CONTROLLER_TX_ERROR_COUNTER, Lpt_Ctrlr))
     {
 
     }
     else
     {
-        Luc_StdResult = E_NOT_OK;
+        u8StdResult = E_NOT_OK;
     }
-    if (E_OK == Luc_StdResult)
+    if (E_OK == u8StdResult)
     {
 
     }
@@ -742,6 +729,110 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (VAR(uint8, 
     {
         /* empty */
     }
+}
+
+/*
+ *  Service Name...... : Can_GetCurrentTime
+ *  Service ID      .. : 0x32
+ *  Sync/Async........ : Synchronous
+ *  Reentrancy........ : Non Reentrant (for the same ControllerId)
+ *  Parameters (IN)... : ControllerId
+ *  Parameters (INOUT) : None
+ *  Parameters (OUT).. : TimeStampPtr
+ *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
+ *  Register usage     :
+ *  Global variable    :
+ *  Description....... : Returns a time value out of the HW registers according to the capability of the HW
+ */
+Std_ReturnType Can_GetCurrentTime(uint8 ControllerId, Can_TimeStampType* TimeStampPtr)
+{
+    Std_ReturnType u8StdResult;
+    Can_ControllerType *Lpt_Ctrlr;
+
+    u8StdResult = E_OK;
+    if (E_OK == Can_CheckDevError(g_CanCfgPtr, ControllerId, CAN_SID_GET_TIMESTAMP, Lpt_Ctrlr))
+    {
+        /* [SWS_Can_00493] */
+        if (NULL_PTR == TimeStampPtr)
+        {
+            #if(CAN_DEV_ERROR_DETECT_API == STD_ON)
+            (void)Det_ReportError(CAN_MODULE_ID, CAN_INSTANCE_ID, CAN_SID_GET_TIMESTAMP,  CAN_E_PARAM_POINTER);
+            #endif
+            u8StdResult = E_NOT_OK;
+        }
+        else
+        {
+            /* empty */
+        }
+    }
+    else
+    {
+        u8StdResult = E_NOT_OK;
+    }
+    if (E_OK == u8StdResult)
+    {
+
+    }
+    else
+    {
+        /* empty */
+    }
+}
+
+/*
+ *  Service Name...... : Can_EnableEgressTimeStamp
+ *  Service ID      .. : 0x33
+ *  Sync/Async........ : Synchronous
+ *  Reentrancy........ : Non Reentrant (for same Hth)
+ *  Parameters (IN)... : Hth
+ *  Parameters (INOUT) : None
+ *  Parameters (OUT).. : None
+ *  Return Value...... : None
+ *  Register usage     :
+ *  Global variable    :
+ *  Description....... : Activates egress time stamping on a dedicated HTH.
+ */
+void Can_EnableEgressTimeStamp(Can_HwHandleType Hth)
+{
+
+}
+
+/*
+ *  Service Name...... : Can_GetEgressTimeStamp
+ *  Service ID      .. : 0x34
+ *  Sync/Async........ : Synchronous
+ *  Reentrancy........ : Non Reentrant (for same TxPduId)
+ *  Parameters (IN)... : TxPduId, Hth
+ *  Parameters (INOUT) : TimeStampPtr
+ *  Parameters (OUT).. : None
+ *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
+ *  Register usage     :
+ *  Global variable    :
+ *  Description....... : Reads back the egress time stamp on a dedicated message object.
+ *                       It needs to be called within the TxConfirmation() function.
+ */
+Std_ReturnType Can_GetEgressTimeStamp(PduIdType TxPduId, Can_HwHandleType Hth, Can_TimeStampType* TimeStampPtr)
+{
+
+}
+
+/*
+ *  Service Name...... : Can_GetIngressTimeStamp
+ *  Service ID      .. : 0x35
+ *  Sync/Async........ : Synchronous
+ *  Reentrancy........ : Non Reentrant (for same Hrh)
+ *  Parameters (IN)... : Hrh
+ *  Parameters (INOUT) : TimeStampPtr
+ *  Parameters (OUT).. : None
+ *  Return Value...... : Std_ReturnType(E_OK/E_NOT_OK)
+ *  Register usage     :
+ *  Global variable    :
+ *  Description....... : Reads back the ingress time stamp on a dedicated message object.
+ *                       It needs to be called within the RxIndication() function.
+ */
+Std_ReturnType Can_GetIngressTimeStamp(Can_HwHandleType Hrh, Can_TimeStampType* TimeStampPtr)
+{
+
 }
 
 /*
@@ -758,8 +849,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_GetControllerTxErrorCounter (VAR(uint8, 
  *  Description....... : This function is called by CanIf to pass a
  *                       CAN message to CanDrv for transmission.
  */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write (VAR(Can_HwHandleType, AUTOMATIC) Hth,
-    P2CONST(Can_PduType, AUTOMATIC, CAN_APPL_DATA) PduInfo)
+Std_ReturnType Can_Write(Can_HwHandleType Hth, const Can_PduType* PduInfo)
 {
 
 }
@@ -779,7 +869,7 @@ FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_Write (VAR(Can_HwHandleType, AUTOMATIC) 
  *  Description....... : This function performs the polling of TX confirmation
  *                       when CAN_TX_PROCESSING is set to POLLING
  */
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Write (void)
+void Can_MainFunction_Write(void)
 {
   /* [SWS_Can_00280] */
 }
@@ -800,7 +890,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Write (void)
  *  Description....... : This function performs the polling of RX indications
  *                       when CAN_RX_PROCESSING is set to POLLING
  */
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Read (void)
+void Can_MainFunction_Read(void)
 {
   /* [SWS_Can_00280] */
 }
@@ -821,7 +911,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Read (void)
  *  Description....... : This function performs the polling of bus-off events
  *                       that are configured statically as 'to be polled'.
  */
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_BusOff (void)
+void Can_MainFunction_BusOff(void)
 {
   /* [SWS_Can_00280] */
 }
@@ -842,7 +932,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_BusOff (void)
  *  Description....... : This function performs the polling of wake-up events
  *                       that are configured statically as 'to be polled'.
  */
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Wakeup (void)
+void Can_MainFunction_Wakeup(void)
 {
   /* [SWS_Can_00280] */
 }
@@ -862,29 +952,7 @@ FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Wakeup (void)
  *  Description....... : This function performs the polling of
  *                       CAN controller mode transitions
  */
-FUNC(void, CAN_CODE_SLOW) Can_MainFunction_Mode (void)
+void Can_MainFunction_Mode(void)
 {
   /* [SWS_Can_00280] */
 }
-
-#if(CAN_PUBLIC_ICOM_SUPPORT == STD_ON)
-/*
- *  Service Name...... : Can_SetIcomConfiguration
- *  Service ID      .. : 0x21
- *  Sync/Async........ : Asynchronous
- *  Reentrancy........ : Reentrant (for different controller Ids)
- *  Parameters (IN)... : Controller, ConfigurationId
- *  Parameters (INOUT) : None
- *  Parameters (OUT).. : None
- *  Return Value...... : None
- *  Register usage     :
- *  Global variable    :
- *  Description....... : This service shall change the Icom Configuration
- *                       of a CAN controller to the requested one.
- */
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_SetIcomConfiguration (VAR(uint8, AUTOMATIC) Controller,
-    VAR(IcomConfigIdType, AUTOMATIC) ConfigurationId)
-{
-
-}
-#endif

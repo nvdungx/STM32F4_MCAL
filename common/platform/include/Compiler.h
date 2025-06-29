@@ -15,7 +15,7 @@
  * Version   Date        Author  Description
  * -----------------------------------------------------------------------------
  * 01.00.00  13/08/2022  Dungnv  Initial version
- * 
+ * Deprecated: 29/06/2025  Dungnv  Update R24, no longer used
 *******************************************************************************/
 
 /* [SWS_COMPILER_00004, SWS_COMPILER_00047, SWS_COMPILER_00050] */

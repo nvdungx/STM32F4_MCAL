@@ -43,23 +43,16 @@ Typedef definitions
 /*******************************************************************************
 Global functions
 *******************************************************************************/
-extern CONST(CanCtrlrHwRegType, CAN_APPL_CONST) HwCanCtrlr[];
-extern Can_DrvStsType Gen_CanDriverState;
+extern const CanCtrlrHwRegType HwCanCtrlr[];
+extern Can_DrvStsType g_enCanDriverState;
 
-FUNC(boolean, CAN_CODE_SLOW) Can_HwCtrlInit(P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) ConfigPtr,
-                                            VAR(uint8, AUTOMATIC) CtrlrIdx);
+boolean Can_HwCtrlInit(const Can_ConfigType* ConfigPtr, uint8 CtrlrIdx);
+boolean Can_HwDeInit(const Can_ConfigType* ConfigPtr, uint8 CtrlrIdx);
+Std_ReturnType Can_WaitRegValUntilTimeout(uint32 * RegAddr, uint32 ExpectedValue, uint32 Mask);
+boolean Can_ConfigFilterRule(uint8 CtrlrIdx, uint8 FltBankStart, uint8 FltBankEnd, uint8 FltBankType, Can_HwFilterType *HwFilterRule);
+Can_ControllerType* Can_GetCtrlr(const Can_ConfigType* ConfigPtr, uint8 CtrlrId);
+Can_BaudrateConfigType* Can_GetBaudrateCfg(Can_ControllerType *CtrlrPtr, uint8 BaudRateConfigID);
+Std_ReturnType Can_CheckValidSetCtrlrModeTrans(Can_ControllerStateType CurState, Can_ControllerStateType NextState);
+Std_ReturnType Can_CheckDevError(const Can_ConfigType* ConfigPtr, uint8 Controller, uint8 ServiceID, Can_ControllerType *Lpt_Ctrlr);
 
-FUNC(boolean, CAN_CODE_SLOW) Can_HwDeInit(P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) ConfigPtr,
-                                            VAR(uint8, AUTOMATIC) CtrlrIdx);
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_WaitRegValUntilTimeout(uint32 * RegAddr, uint32 ExpectedValue, uint32 Mask);
-FUNC(boolean, CAN_CODE_SLOW) Can_ConfigFilterRule(uint8 CtrlrIdx, uint8 FltBankStart, uint8 FltBankEnd,
-    uint8 FltBankType, Can_HwFilterConfigType *HwFilterRule);
-FUNC(Can_ControllerConfigType *, CAN_CODE_SLOW) Can_GetCtrlr(P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) ConfigPtr,
-    VAR(uint8, AUTOMATIC) CtrlrId);
-FUNC(Can_BaudrateConfigType *, CAN_CODE_SLOW) Can_GetBaudrateCfg(Can_ControllerConfigType *CtrlrPtr,
-    VAR(uint8, AUTOMATIC) BaudRateConfigID);
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckValidSetCtrlrModeTrans(Can_ControllerStateType CurState,
-                                                                    Can_ControllerStateType NextState);
-FUNC(Std_ReturnType, CAN_CODE_SLOW) Can_CheckDevError(P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) ConfigPtr,
-    VAR(uint8, AUTOMATIC) Controller, VAR(uint8, AUTOMATIC) ServiceID, Can_ControllerConfigType *Lpt_Ctrlr);
 #endif /*End of Can_Internals.h*/

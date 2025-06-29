@@ -126,7 +126,7 @@ typedef struct Can_CtrlSts_STag
         /* Debug freeze */
         __rw uint32 DBF : 1;
         };
-    } ulMCReg;
+    } u32MCReg;
 
     /* Master status register */
     union
@@ -154,7 +154,7 @@ typedef struct Can_CtrlSts_STag
         /* CAN Rx signal */
         __r uint32 RX : 1;
         };
-    } ulMSReg;
+    } u32MSReg;
 
     /* Transmit mailbox status register */
     union
@@ -210,7 +210,7 @@ typedef struct Can_CtrlSts_STag
         /* Lowest priority flag for mailbox 2 */
         __r uint32 LOW2 : 1;
         };
-    } ulTSReg;
+    } u32TSReg;
 
     /* Receive FIFO0 status register */
     union
@@ -228,7 +228,7 @@ typedef struct Can_CtrlSts_STag
         /* Release FIFO 0 output mailbox */
         __rs uint32 RFOM0 : 1;
         };
-    } ulRF0Reg;
+    } u32RF0Reg;
 
     /* Receive FIFO1 status register */
     union
@@ -246,7 +246,7 @@ typedef struct Can_CtrlSts_STag
         /* Release FIFO 1 output mailbox */
         __rs uint32 RFOM1 : 1;
         };
-    } ulRF1Reg;
+    } u32RF1Reg;
 
     /* Interrupt enable register */
     union
@@ -285,7 +285,7 @@ typedef struct Can_CtrlSts_STag
         /*  Sleep interrupt enable */
         __rw uint32 SLKIE : 1;
         };
-    } ulIEReg;
+    } u32IEReg;
 
     /* Error status register */
     union
@@ -308,7 +308,7 @@ typedef struct Can_CtrlSts_STag
         /* Receive error counter */
         __r uint32 REC : 8;
         };
-    } ulESReg;
+    } u32ESReg;
 
     /* Bit timing register, configure baudrate */
     union
@@ -332,7 +332,7 @@ typedef struct Can_CtrlSts_STag
         /* Silent mode (debug) */
         __rw uint32 SILM : 1;
         };
-    } ulBTReg;
+    } u32BTReg;
 } Can_CtrlNSts;
 
 /* Transmit mailbox register */
@@ -355,7 +355,7 @@ typedef struct Can_TxMbx_STag
         /* Standard identifier or 11 MSB extended identifier */
         __rw uint32 STID : 11;
         };
-    } ulTXIDRQReg;
+    } u32TXIDRQReg;
 
     /* DLC, TimeStamp - TDTxR */
     union
@@ -372,21 +372,21 @@ typedef struct Can_TxMbx_STag
         /* Message time stamp */
         __rw uint32 TIME : 16;
         };
-    } ulTXDLCTSReg;
+    } u32TXDLCTSReg;
 
     /* Data low - TDLxR */
     union
     {
         __rw uint32 val;
         __rw uint8 DATA[4];
-    } ulTXDATALReg;
+    } u32TXDATALReg;
 
     /* Data high - TDHxR */
     union
     {
         __rw uint32 val;
         __rw uint8 DATA[4];
-    } ulTXDATAHReg;
+    } u32TXDATAHReg;
 
 } Can_TxMbx;
 
@@ -409,7 +409,7 @@ typedef struct Can_RxMbx_STag
         /* Standard identifier or 11 MSB extended identifier */
         __r uint32 STID : 11;
         };
-    } ulRXIDReg;
+    } u32RXIDReg;
 
     /* DLC, Filter match index, TimeStamp - RDTxR */
     union
@@ -425,21 +425,21 @@ typedef struct Can_RxMbx_STag
         /* Message time stamp */
         __r uint32 TIME : 16;
         };
-    } ulRXDLCTSReg;
+    } u32RXDLCTSReg;
 
     /* Receive Data low - RDLxR */
     union
     {
         __r uint32 val;
         __r uint8 DATA[4];
-    } ulRXDATALReg;
+    } u32RXDATALReg;
 
     /* Receive Data high - RDHxR */
     union
     {
         __r uint32 val;
         __r uint8 DATA[4];
-    } ulRXDATAHReg;
+    } u32RXDATAHReg;
 } Can_RxMbx;
 
 /* Receive rule register */
@@ -457,34 +457,34 @@ typedef struct Can_Filter_STag
         /*  CAN2 start bank */
         __rw uint32 CAN2SB : 6;
         };
-    } ulFMReg;
+    } u32FMReg;
 
     /* filter mode register */
-    __rw uint32 ulFM1Reg;
+    __rw uint32 u32FM1Reg;
 
     /* dummy address value */
     __res uint32 dummy0;
 
     /* filter scale register */
-    __rw uint32 ulFS1Reg;
+    __rw uint32 u32FS1Reg;
 
     /* dummy address value */
     __res uint32 dummy1;
 
     /* filter FIFO assignment register */
-    __rw uint32 ulFFA1Reg;
+    __rw uint32 u32FFA1Reg;
 
     /* dummy address value */
     __res uint32 dummy2;
 
     /* filter activation register */
-    __rw uint32 ulFA1Reg;
+    __rw uint32 u32FA1Reg;
 
     /* dummy address value */
     __res uint32 dummy3[8];
 
     /* Filter bank i register x */
-    __rw uint32 ulFReg[CAN_HW_FILTER_BANK_MAX][2];
+    __rw uint32 u32FReg[CAN_HW_FILTER_BANK_MAX][2];
 } Can_Filter;
 
 /*

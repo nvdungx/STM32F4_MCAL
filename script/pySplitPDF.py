@@ -9,20 +9,20 @@ str = File.read()
 File.close()
 
 headerStr = """<?xml version="1.0" encoding="UTF-8"?>
-<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
-  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00053.xsd">
+  <!-- AUTOSAR ECU Configuration Parameter Definition -->
   <!--
     Document Owner:                 AUTOSAR
     Document Responsibility:        AUTOSAR
     Document Identification Number: 289
-    Document Status:                Final
+    Document Status:                Published
     Part of AUTOSAR Standard:       Classic Platform
-    Part of AUTOSAR Release:        4.4.0
-  -->
+    Part of AUTOSAR Release:        R24-11
+    -->
   <ADMIN-DATA>
     <DOC-REVISIONS>
       <DOC-REVISION>
-        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <REVISION-LABEL>4.10.0</REVISION-LABEL>
         <ISSUED-BY>AUTOSAR</ISSUED-BY>
       </DOC-REVISION>
     </DOC-REVISIONS>

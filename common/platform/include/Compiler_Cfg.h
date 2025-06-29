@@ -16,7 +16,7 @@
  * Version   Date        Author  Description
  * -----------------------------------------------------------------------------
  * 01.00.00  13/08/2022  Dungnv  Initial version
- * 
+ * Deprecated: 29/06/2025  Dungnv  Update R24, no longer used
 *******************************************************************************/
 
 
@@ -99,7 +99,7 @@ replaced with the number of bytes (i.e. 8,16 or 32). */
 /* To be used for references on application constants (expected to be certainly in
 ROM, for instance pointer of Init-function) passed via API */
 #define CAN_APPL_CONST
-/* To be used for pointers to registers 
+/* To be used for pointers to registers
 (e.g. static volatile CONSTP2VAR(uint16, PWM_CONST, REGSPACE)). */
 #define REGSPACE
 /******************************************************************************/

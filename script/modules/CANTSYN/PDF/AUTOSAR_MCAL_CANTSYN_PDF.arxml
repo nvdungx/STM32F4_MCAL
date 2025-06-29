@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
-  <!-- AUTOSAR CAN Configuration Parameter Definition -->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00053.xsd">
+  <!-- AUTOSAR ECU Configuration Parameter Definition -->
   <!--
     Document Owner:                 AUTOSAR
     Document Responsibility:        AUTOSAR
     Document Identification Number: 289
-    Document Status:                Final
+    Document Status:                Published
     Part of AUTOSAR Standard:       Classic Platform
-    Part of AUTOSAR Release:        4.4.0
-  -->
+    Part of AUTOSAR Release:        R24-11
+    -->
   <ADMIN-DATA>
     <DOC-REVISIONS>
       <DOC-REVISION>
-        <REVISION-LABEL>4.4.0</REVISION-LABEL>
+        <REVISION-LABEL>4.10.0</REVISION-LABEL>
         <ISSUED-BY>AUTOSAR</ISSUED-BY>
       </DOC-REVISION>
     </DOC-REVISIONS>
@@ -32,998 +32,1526 @@
                 <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/CanTSyn</MODULE-REF>
               </MODULE-REFS>
             </ECUC-DEFINITION-COLLECTION>
-                  <!-- Module Definition: CanTSyn -->
-                  <ECUC-MODULE-DEF UUID="ECUC:487e0b72-0f0e-45a4-a63a-0aa6a27da3be">
-                     <SHORT-NAME>CanTSyn</SHORT-NAME>
-                     <DESC>
-                        <L-2 L="EN">Configuration of the Synchronized Time-base Manager (StbM) module with respect to global time handling on CAN.</L-2>
-                     </DESC>
-                     <ADMIN-DATA>
-                        <DOC-REVISIONS>
-                           <DOC-REVISION>
-                              <REVISION-LABEL>4.4.0</REVISION-LABEL>
-                              <ISSUED-BY>AUTOSAR</ISSUED-BY>
-                           </DOC-REVISION>
-                        </DOC-REVISIONS>
-                     </ADMIN-DATA>
-                     <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00001</RELATED-TRACE-ITEM-REF>
-                     <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                     <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                     <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
-                     <SUPPORTED-CONFIG-VARIANTS>
-                        <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
-                     </SUPPORTED-CONFIG-VARIANTS>
-                     <CONTAINERS>
-                        <!-- Container Definition: CanTSynGeneral -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:02a0a14a-86e3-40a8-a811-a5cbc17c2aae">
-                           <SHORT-NAME>CanTSynGeneral</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">This container holds the general parameters of the CAN-specific Synchronized Time-base Manager</L-2>
-                           </DESC>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00003</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                           <PARAMETERS>
-                              <!-- PARAMETER DEFINITION: CanTSynDevErrorDetect -->
-                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:20d72b9e-168f-496d-a253-7205a230ae2a">
-                                 <SHORT-NAME>CanTSynDevErrorDetect</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Switches the development error detection and notification on or off.</L-2>
-                                 </DESC>
-                                 <INTRODUCTION>
-                                    <P>
-                                       <L-1 L="EN">* true: detection and notification is enabled.
-                                        * false: detection and notification is disabled.</L-1>
-                                    </P>
-                                 </INTRODUCTION>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00002</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <SCOPE>LOCAL</SCOPE>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
-                              </ECUC-BOOLEAN-PARAM-DEF>
-                              <!-- PARAMETER DEFINITION: CanTSynMainFunctionPeriod -->
-                              <ECUC-FLOAT-PARAM-DEF UUID="ECUC:6912c04d-042a-4186-94ef-d8a6c7a6d461">
-                                 <SHORT-NAME>CanTSynMainFunctionPeriod</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Schedule period of the main function CanTSyn_MainFunction. Unit: [s].</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00019</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <SCOPE>LOCAL</SCOPE>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                 <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
-                                 <MIN INTERVAL-TYPE="OPEN">0</MIN>
-                              </ECUC-FLOAT-PARAM-DEF>
-                              <!-- PARAMETER DEFINITION: CanTSynVersionInfoApi -->
-                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:d296ff0f-50b5-4d5e-9178-302ecdc22a86">
-                                 <SHORT-NAME>CanTSynVersionInfoApi</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Activate/Deactivate the version information API (CanTSyn_GetVersionInfo). True: version information API activated False: version information API deactivated.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00023</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <SCOPE>LOCAL</SCOPE>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
-                              </ECUC-BOOLEAN-PARAM-DEF>
-                           </PARAMETERS>
+            <!-- Module Definition: CanTSyn -->
+            <ECUC-MODULE-DEF UUID="ECUC:487e0b72-0f0e-45a4-a63a-0aa6a27da3be">
+              <SHORT-NAME>CanTSyn</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Configuration of the Synchronized Time-base Manager (StbM) module with respect to global time handling on CAN.</L-2>
+              </DESC>
+              <ADMIN-DATA>
+                <DOC-REVISIONS>
+                  <DOC-REVISION>
+                    <REVISION-LABEL>4.10.0</REVISION-LABEL>
+                    <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                  </DOC-REVISION>
+                </DOC-REVISIONS>
+              </ADMIN-DATA>
+              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00001</RELATED-TRACE-ITEM-REF>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+              <SUPPORTED-CONFIG-VARIANTS>
+                <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+              </SUPPORTED-CONFIG-VARIANTS>
+              <CONTAINERS>
+                <!-- Container Definition: CanTSynGeneral -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:02a0a14a-86e3-40a8-a811-a5cbc17c2aae">
+                  <SHORT-NAME>CanTSynGeneral</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This container holds the general parameters of the CAN-specific Synchronized Time-base Manager</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00003</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <PARAMETERS>
+                    <!-- PARAMETER DEFINITION: CanTSynDevErrorDetect -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:20d72b9e-168f-496d-a253-7205a230ae2a">
+                      <SHORT-NAME>CanTSynDevErrorDetect</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Switches the development error detection and notification on or off.</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">* true: detection and notification is enabled. * false: detection and notification is disabled.</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00002</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynEnableSecurityEventReporting -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:5719509d-3708-40e7-9413-09b81890491a">
+                      <SHORT-NAME>CanTSynEnableSecurityEventReporting</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Switches the reporting of security events to the IdsM:</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">- true: reporting is enabled. - false: reporting is disabled.</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00055</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynHardwareTimestampSupport -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:0277ac9c-1fa0-4ab8-bdb3-d9d0801c7064">
+                      <SHORT-NAME>CanTSynHardwareTimestampSupport</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Activate/Deactivate the hardware time stamping functionality of the CAN hardware.</L-2>
+                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">True: Timestamp is retrieved from the CAN hardware False: Timestamp is retrieved from the StbM</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00054</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynMainFunctionPeriod -->
+                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:6912c04d-042a-4186-94ef-d8a6c7a6d461">
+                      <SHORT-NAME>CanTSynMainFunctionPeriod</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Schedule period of the main function CanTSyn_MainFunction. Unit: [s].</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00019</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <MAX INTERVAL-TYPE="OPEN">INF</MAX>
+                      <MIN INTERVAL-TYPE="OPEN">0</MIN>
+                    </ECUC-FLOAT-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynSyncTransmissionsPerCycle -->
+                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:395eec45-93be-4710-8c58-0b3dd15dcb37">
+                      <SHORT-NAME>CanTSynSyncTransmissionsPerCycle</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Maximum number of SYNC message transmissions within one CanTSyn_MainFunction</L-2>
+                        <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00088</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                      <MAX>255</MAX>
+                      <MIN>0</MIN>
+                    </ECUC-INTEGER-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynTimeValidationSupport -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:6ab0072a-4afa-4de1-a0f7-7353c9754d01">
+                      <SHORT-NAME>CanTSynTimeValidationSupport</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Switches support for Time Validation on or off.</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">* true: Time Validation is enabled. * false: Time Validation is disabled</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00050</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynVersionInfoApi -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:d296ff0f-50b5-4d5e-9178-302ecdc22a86">
+                      <SHORT-NAME>CanTSynVersionInfoApi</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Activate/Deactivate the version information API (CanTSyn_GetVersionInfo). True: version information API activated False: version information API deactivated.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00023</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                  <SUB-CONTAINERS>
+                    <!-- Container Definition: CanTSynSecurityEventRefs -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:22b32c54-35eb-4b6a-8dd5-10fd2a7a2b9c">
+                      <SHORT-NAME>CanTSynSecurityEventRefs</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Container for the references to IdsMEvent elements representing the security events that the CanTSyn module shall report to the IdsM in case the coresponding security related event occurs (and if</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">CanTSynEnableSecurityEventReporting is set to "true"). The standardized security events in this container can be extended by vendor-specific security events.</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00056</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <REFERENCES>
+                        <!-- Symbolic Name Reference Definition: SEV_TSYN_CAN_FRESHNESS_NOT_AVAILABLE -->
+                        <ECUC-REFERENCE-DEF UUID="ECUC:e522d176-d0ee-473d-bd27-45be7e122215">
+                          <SHORT-NAME>SEV_TSYN_CAN_FRESHNESS_NOT_AVAILABLE</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">FV not available from FVM. Context data provides the respective domain ID.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00059</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/IdsM/IdsMConfiguration/IdsMEvent</DESTINATION-REF>
+                        </ECUC-REFERENCE-DEF>
+                        <!-- Symbolic Name Reference Definition: SEV_TSYN_CAN_ICV_GENERATION_FAILED -->
+                        <ECUC-REFERENCE-DEF UUID="ECUC:cc5aa46b-8ac7-47a0-8ee0-bca60cb2f61e">
+                          <SHORT-NAME>SEV_TSYN_CAN_ICV_GENERATION_FAILED</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">ICV generation for Follow_Up message failed. Context data provides the respective domain ID</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00057</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/IdsM/IdsMConfiguration/IdsMEvent</DESTINATION-REF>
+                        </ECUC-REFERENCE-DEF>
+                        <!-- Symbolic Name Reference Definition: SEV_TSYN_CAN_ICV_VERIFICATION_FAILED -->
+                        <ECUC-REFERENCE-DEF UUID="ECUC:f901b7a4-b2f4-4c75-81d2-c1d112591e80">
+                          <SHORT-NAME>SEV_TSYN_CAN_ICV_VERIFICATION_FAILED</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">ICV verification for Follow_Up message failed. Context data provides the respective domain ID.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00058</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/IdsM/IdsMConfiguration/IdsMEvent</DESTINATION-REF>
+                        </ECUC-REFERENCE-DEF>
+                        <!-- Symbolic Name Reference Definition: SEV_TSYN_CAN_MSG_SEQUENCE_ERROR -->
+                        <ECUC-REFERENCE-DEF UUID="ECUC:c2a4b3b8-3aaf-4c31-9bbc-323e874e1018">
+                          <SHORT-NAME>SEV_TSYN_CAN_MSG_SEQUENCE_ERROR</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Failed to receive correct sequence of SYNC and FUP from the TimeMaster within (CanTSynGlobalTimeFollowUpTimeout).</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00083</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/IdsM/IdsMConfiguration/IdsMEvent</DESTINATION-REF>
+                        </ECUC-REFERENCE-DEF>
+                      </REFERENCES>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <!-- Container Definition: CanTSynGlobalTimeDomain -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e4a9aecb-0fe0-4597-9f3b-8f156d9ac964">
+                  <SHORT-NAME>CanTSynGlobalTimeDomain</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This represents the existence of a global time domain on CAN. The CanTSyn module can administrate several global time domains at the same time that in itself form a hierarchy of domains and sub-domains.</L-2>
+                  </DESC>
+                  <INTRODUCTION>
+                    <P>
+                      <L-1 L="EN">If the CanTSyn exists it is assumed that at least one global time domain exists.</L-1>
+                    </P>
+                  </INTRODUCTION>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00004</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <PARAMETERS>
+                    <!-- PARAMETER DEFINITION: CanTSynEnableTimeValidation -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:7a96eafd-c998-47db-8d72-a08089b4cad9">
+                      <SHORT-NAME>CanTSynEnableTimeValidation</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Enables/disables time recording for Time Validation for a specific Time Domain.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00051</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeDomainId -->
+                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:f6ad8a08-a1be-4d15-9351-d5c855dd5461">
+                      <SHORT-NAME>CanTSynGlobalTimeDomainId</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">The global time domain ID.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00005</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <MAX>15</MAX>
+                      <MIN>0</MIN>
+                    </ECUC-INTEGER-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeNetworkSegmentId -->
+                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:202c8674-6494-471b-bbf6-56bcd2414f34">
+                      <SHORT-NAME>CanTSynGlobalTimeNetworkSegmentId</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">This represents the numerical identifier of the network on system level scope where this Global Time has been communicated on.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00052</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <MAX>255</MAX>
+                      <MIN>0</MIN>
+                    </ECUC-INTEGER-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: CanTSynUseExtendedMsgFormat -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e212434b-42cb-4ce2-96b1-4ac324375d34">
+                      <SHORT-NAME>CanTSynUseExtendedMsgFormat</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Switches support for 16 Byte Timesync messages on or off (for CAN FD only)</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">* true: CAN FD support is active: use at least 16 byte for Timesync messages (depending on configuration) * false: Classic CAN support is active: use always 8 byte for Timesync messages</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00042</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                  <REFERENCES>
+                    <!-- Symbolic Name Reference Definition: CanTSynSynchronizedTimeBaseRef -->
+                    <ECUC-REFERENCE-DEF UUID="ECUC:5edfeb0d-45c7-42d0-8089-f0a608cbeeed">
+                      <SHORT-NAME>CanTSynSynchronizedTimeBaseRef</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Mandatory reference to the required synchronized time-base.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00022</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                      <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase</DESTINATION-REF>
+                    </ECUC-REFERENCE-DEF>
+                  </REFERENCES>
+                  <SUB-CONTAINERS>
+                    <!-- Container Definition: CanTSynGlobalTimeFupDataIDList -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:abc1d52e-6df4-4042-8017-444e921ac4ec">
+                      <SHORT-NAME>CanTSynGlobalTimeFupDataIDList</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">The DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00025</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <SUB-CONTAINERS>
+                        <!-- Container Definition: CanTSynGlobalTimeFupDataIDListElement -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:deb2e88e-f8a9-477f-acf5-7e27044cc69b">
+                          <SHORT-NAME>CanTSynGlobalTimeFupDataIDListElement</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Element of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00031</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>16</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>16</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: CanTSynGlobalTimeFupDataIDListIndex -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:0252fc76-81cf-4537-9ee4-81a5c4bba99f">
+                              <SHORT-NAME>CanTSynGlobalTimeFupDataIDListIndex</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Index of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00032</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX>15</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynGlobalTimeFupDataIDListValue -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:48586ce3-ee92-4c63-b162-197ade1807bb">
+                              <SHORT-NAME>CanTSynGlobalTimeFupDataIDListValue</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Value of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00033</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX>255</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
                         </ECUC-PARAM-CONF-CONTAINER-DEF>
-                        <!-- Container Definition: CanTSynGlobalTimeDomain -->
-                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e4a9aecb-0fe0-4597-9f3b-8f156d9ac964">
-                           <SHORT-NAME>CanTSynGlobalTimeDomain</SHORT-NAME>
-                           <DESC>
-                              <L-2 L="EN">This represents the existence of a global time domain on CAN. The CanTSyn module can administrate several global time domains at the same time that in itself form a hierarchy of domains and sub-domains.</L-2>
-                           </DESC>
-                           <INTRODUCTION>
-                              <P>
-                                 <L-1 L="EN">If the CanTSyn exists it is assumed that at least one global time domain exists.</L-1>
-                              </P>
-                           </INTRODUCTION>
-                           <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00004</RELATED-TRACE-ITEM-REF>
-                           <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                           <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
-                           <PARAMETERS>
-                              <!-- PARAMETER DEFINITION: CanTSynGlobalTimeDomainId -->
-                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:f6ad8a08-a1be-4d15-9351-d5c855dd5461">
-                                 <SHORT-NAME>CanTSynGlobalTimeDomainId</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">The global time domain ID.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00005</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <SCOPE>LOCAL</SCOPE>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                 <MAX>31</MAX>
-                                 <MIN>0</MIN>
-                              </ECUC-INTEGER-PARAM-DEF>
-                              <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSecureTmacLength -->
-                              <ECUC-INTEGER-PARAM-DEF UUID="ECUC:eb08092a-3604-47ea-aaf0-35c4cd3ca8a7">
-                                 <SHORT-NAME>CanTSynGlobalTimeSecureTmacLength</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Represents the number of bytes for the used Truncated Message Authentication Code (TMAC). If 0, no message authentication will be used.</L-2>
-                                    <L-2 L="EN">Tags: atp.Status=draft</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00046</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <SCOPE>LOCAL</SCOPE>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                 <DEFAULT-VALUE>0</DEFAULT-VALUE>
-                                 <MAX>16</MAX>
-                                 <MIN>0</MIN>
-                              </ECUC-INTEGER-PARAM-DEF>
-                              <!-- PARAMETER DEFINITION: CanTSynUseExtendedMsgFormat -->
-                              <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e212434b-42cb-4ce2-96b1-4ac324375d34">
-                                 <SHORT-NAME>CanTSynUseExtendedMsgFormat</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Switches support for 16 Byte Timesync messages on or off (for CAN FD only)</L-2>
-                                 </DESC>
-                                 <INTRODUCTION>
-                                    <P>
-                                       <L-1 L="EN">* true: CAN FD support is active: use at least 16 byte for Timesync messages (depending on configuration)
-
-                                        * false: Classic CAN support is active: use always 8 byte for Timesync messages</L-1>
-                                    </P>
-                                 </INTRODUCTION>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00042</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <SCOPE>LOCAL</SCOPE>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                 <DEFAULT-VALUE>false</DEFAULT-VALUE>
-                              </ECUC-BOOLEAN-PARAM-DEF>
-                           </PARAMETERS>
-                           <REFERENCES>
-                              <!-- Symbolic Name Reference Definition: CanTSynSynchronizedTimeBaseRef -->
-                              <ECUC-REFERENCE-DEF UUID="ECUC:5edfeb0d-45c7-42d0-8089-f0a608cbeeed">
-                                 <SHORT-NAME>CanTSynSynchronizedTimeBaseRef</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Mandatory reference to the required synchronized time-base.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00022</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <SCOPE>LOCAL</SCOPE>
-                                 <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                 <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
-                                 <VALUE-CONFIG-CLASSES>
-                                    <ECUC-VALUE-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-VALUE-CONFIGURATION-CLASS>
-                                 </VALUE-CONFIG-CLASSES>
-                                 <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
-                                 <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/StbM/StbMSynchronizedTimeBase</DESTINATION-REF>
-                              </ECUC-REFERENCE-DEF>
-                           </REFERENCES>
-                           <SUB-CONTAINERS>
-                              <!-- Container Definition: CanTSynGlobalTimeFupDataIDList -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:abc1d52e-6df4-4042-8017-444e921ac4ec">
-                                 <SHORT-NAME>CanTSynGlobalTimeFupDataIDList</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">The DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00025</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <SUB-CONTAINERS>
-                                    <!-- Container Definition: CanTSynGlobalTimeFupDataIDListElement -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:deb2e88e-f8a9-477f-acf5-7e27044cc69b">
-                                       <SHORT-NAME>CanTSynGlobalTimeFupDataIDListElement</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Element of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00031</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>16</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>16</UPPER-MULTIPLICITY>
-                                       <PARAMETERS>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeFupDataIDListIndex -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:0252fc76-81cf-4537-9ee4-81a5c4bba99f">
-                                             <SHORT-NAME>CanTSynGlobalTimeFupDataIDListIndex</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Index of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00032</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>15</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeFupDataIDListValue -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:48586ce3-ee92-4c63-b162-197ade1807bb">
-                                             <SHORT-NAME>CanTSynGlobalTimeFupDataIDListValue</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Value of the DataIDList for FUP messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00033</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>255</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                       </PARAMETERS>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                 </SUB-CONTAINERS>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                              <!-- Container Definition: CanTSynGlobalTimeMaster -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:cff9a851-6d70-4e41-a02c-77f9b7a76422">
-                                 <SHORT-NAME>CanTSynGlobalTimeMaster</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Configuration of the global time master. Each global time domain is required to have exactly one global time master. This master may or may not exist on the configured ECU.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00007</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <PARAMETERS>
-                                    <!-- PARAMETER DEFINITION: CanTSynCyclicMsgResumeTime -->
-                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:b498400e-64dc-4c5a-8491-0b185d152ea2">
-                                       <SHORT-NAME>CanTSynCyclicMsgResumeTime</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Defines the time where the 1st regular cycle time based message transmission takes place, after an immediate transmission before. Unit: seconds</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00044</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
-                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
-                                    </ECUC-FLOAT-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeDebounceTime -->
-                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:a10ed78e-4e7c-43d6-abff-7e566918a74b">
-                                       <SHORT-NAME>CanTSynGlobalTimeDebounceTime</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This represents the configuration of a TX debounce time for SYNC, FUP, OFS and OFNS messages compared to a message before with the same PDU. Unit: seconds</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00045</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
-                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
-                                    </ECUC-FLOAT-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeTxCrcSecured -->
-                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:688ff3f8-829d-4ffe-a058-d39f4094eb3b">
-                                       <SHORT-NAME>CanTSynGlobalTimeTxCrcSecured</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This represents the configuration of whether or not CRC is supported.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00015</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <LITERALS>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e12b6a1a-20be-ea48-dda8-490ee70eb1ff">
-                                             <SHORT-NAME>CRC_NOT_SUPPORTED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c50d57f1-a223-ecb5-c578-d36a6c40f904">
-                                             <SHORT-NAME>CRC_SUPPORTED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                       </LITERALS>
-                                    </ECUC-ENUMERATION-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeTxPeriod -->
-                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:6f787960-e6d3-4cd8-9be0-b8b8f1cfd6fa">
-                                       <SHORT-NAME>CanTSynGlobalTimeTxPeriod</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This represents configuration of the TX period. Unit: seconds</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00017</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
-                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
-                                    </ECUC-FLOAT-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynImmediateTimeSync -->
-                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:ebca5b87-af6f-48c1-9aa2-e82ad75f4a24">
-                                       <SHORT-NAME>CanTSynImmediateTimeSync</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Enables/Disables the cyclic polling of StbM_GetTimeBaseUpdateCounter() within CanTSyn_MainFunction().</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00043</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                    </ECUC-BOOLEAN-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynMasterConfirmationTimeout -->
-                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:5134b771-783b-49e8-aa30-7b1c92f56e2a">
-                                       <SHORT-NAME>CanTSynMasterConfirmationTimeout</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This represents the confirmation timeout after transmission of each Timesync message.</L-2>
-                                       </DESC>
-                                       <INTRODUCTION>
-                                          <P>
-                                             <L-1 L="EN">Unit: seconds.</L-1>
-                                          </P>
-                                       </INTRODUCTION>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00020</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
-                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
-                                    </ECUC-FLOAT-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynTxTmacCalculated -->
-                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:bed9ef3b-eec5-4e82-8845-8e8aa702038d">
-                                       <SHORT-NAME>CanTSynTxTmacCalculated</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This parameter controls whether or not TMAC calculation shall be supported.</L-2>
-                                          <L-2 L="EN">Tags: atp.Status=draft</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00047</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <LITERALS>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:32746bb9-8e44-8e73-4702-9aed5c49ab31">
-                                             <SHORT-NAME>TMAC_CALCULATED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:bad102da-bea8-91f6-4a2e-8b989cde381e">
-                                             <SHORT-NAME>TMAC_NOT_CALCULATED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                       </LITERALS>
-                                    </ECUC-ENUMERATION-PARAM-DEF>
-                                 </PARAMETERS>
-                                 <SUB-CONTAINERS>
-                                    <!-- Container Definition: CanTSynGlobalTimeMasterPdu -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d5318374-9ff0-4dea-abdf-12e25c4fc4fd">
-                                       <SHORT-NAME>CanTSynGlobalTimeMasterPdu</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This container encloses the configuration of the PDU that is supposed to contain the global time information.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00009</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <PARAMETERS>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeMasterConfirmationHandleId -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:19d98c8e-3bc0-4332-9f2f-53900e56fa17">
-                                             <SHORT-NAME>CanTSynGlobalTimeMasterConfirmationHandleId</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">This represents the handle ID of the PDU that contains the global time information.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00008</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
-                                             <MAX>65535</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                       </PARAMETERS>
-                                       <REFERENCES>
-                                          <!-- Reference Definition: CanTSynGlobalTimePduRef -->
-                                          <ECUC-REFERENCE-DEF UUID="ECUC:6847e4d6-07d1-953f-4c6a-eb3652785f28">
-                                             <SHORT-NAME>CanTSynGlobalTimePduRef</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00027</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
-                                          </ECUC-REFERENCE-DEF>
-                                       </REFERENCES>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                 </SUB-CONTAINERS>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                              <!-- Container Definition: CanTSynGlobalTimeOfnsDataIDList -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:dfb15310-255c-4300-8b18-a0358d7715d6">
-                                 <SHORT-NAME>CanTSynGlobalTimeOfnsDataIDList</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">The DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00041</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <SUB-CONTAINERS>
-                                    <!-- Container Definition: CanTSynGlobalTimeOfnsDataIDListElement -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:043eac8f-d650-4961-bcc7-e9333e5d08d5">
-                                       <SHORT-NAME>CanTSynGlobalTimeOfnsDataIDListElement</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Element of the DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00037</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>16</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>16</UPPER-MULTIPLICITY>
-                                       <PARAMETERS>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeOfnsDataIDListIndex -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:fdf8cdfc-7e96-45a9-a4df-69231bc76599">
-                                             <SHORT-NAME>CanTSynGlobalTimeOfnsDataIDListIndex</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Index of the DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00038</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>15</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeOfnsDataIDListValue -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:4af36e4e-d14a-4c28-b314-7fb50d25f8cd">
-                                             <SHORT-NAME>CanTSynGlobalTimeOfnsDataIDListValue</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Value of the DataIDList for OFNS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00039</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>255</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                       </PARAMETERS>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                 </SUB-CONTAINERS>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                              <!-- Container Definition: CanTSynGlobalTimeOfsDataIDList -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:e4a4477c-b6df-4583-8a10-1e3998161b99">
-                                 <SHORT-NAME>CanTSynGlobalTimeOfsDataIDList</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">The DataIDList for OFS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00026</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <SUB-CONTAINERS>
-                                    <!-- Container Definition: CanTSynGlobalTimeOfsDataIDListElement -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:b7844e27-1032-4657-99db-2ac78efe1383">
-                                       <SHORT-NAME>CanTSynGlobalTimeOfsDataIDListElement</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Element of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00034</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>16</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>16</UPPER-MULTIPLICITY>
-                                       <PARAMETERS>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeOfsDataIDListIndex -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:2f032f6a-4a7f-4889-8caa-64ea7469d5db">
-                                             <SHORT-NAME>CanTSynGlobalTimeOfsDataIDListIndex</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Index of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00035</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>15</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeOfsDataIDListValue -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:d1a8db01-fb51-4af5-a947-2733f1c1910d">
-                                             <SHORT-NAME>CanTSynGlobalTimeOfsDataIDListValue</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Value of the DataIDList for OFS messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00036</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>255</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                       </PARAMETERS>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                 </SUB-CONTAINERS>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                              <!-- Container Definition: CanTSynGlobalTimeSlave -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:453b6e91-cb63-4fdc-b77d-2204844ed77a">
-                                 <SHORT-NAME>CanTSynGlobalTimeSlave</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">Configuration of a global time slave. Each global time domain is required to have at least one time slave. The configured ECU may or may not represent a time slave.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00012</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <PARAMETERS>
-                                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeFollowUpTimeout -->
-                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:0d5073b6-c81e-4f08-9fb7-4638128c5801">
-                                       <SHORT-NAME>CanTSynGlobalTimeFollowUpTimeout</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Rx timeout for the follow-up message. This is only relevant for selected bus systems Unit:seconds</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00006</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <MAX INTERVAL-TYPE="CLOSED">Inf</MAX>
-                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
-                                    </ECUC-FLOAT-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeMinMsgGap -->
-                                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:03346a12-717f-4795-a508-a2b0f7b206a2">
-                                       <SHORT-NAME>CanTSynGlobalTimeMinMsgGap</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This parameter represents the configuration of a minimum message gap time for received Timesync messages compared to a message before with the same PDU. If PDUs are received more often in between than this parameter allows, they shall be ignored.</L-2>
-                                          <L-2 L="EN">Tags: atp.Status=draft</L-2>
-                                       </DESC>
-                                       <INTRODUCTION>
-                                          <P>
-                                             <L-1 L="EN">Unit: seconds</L-1>
-                                          </P>
-                                       </INTRODUCTION>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00049</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <DEFAULT-VALUE>0</DEFAULT-VALUE>
-                                       <MAX INTERVAL-TYPE="OPEN">Inf</MAX>
-                                       <MIN INTERVAL-TYPE="CLOSED">0</MIN>
-                                    </ECUC-FLOAT-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSequenceCounterJumpWidth -->
-                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:e77f7729-6186-4ac0-9020-5d883541ea54">
-                                       <SHORT-NAME>CanTSynGlobalTimeSequenceCounterJumpWidth</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">The SequenceCounterJumpWidth specifies the maximum allowed gap of the Sequence Counter between two SYNC resp. two OFS messages.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00011</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <MAX>15</MAX>
-                                       <MIN>1</MIN>
-                                    </ECUC-INTEGER-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynRxCrcValidated -->
-                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:7784397b-19ae-463b-a28c-5e41dba352aa">
-                                       <SHORT-NAME>CanTSynRxCrcValidated</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Definition of whether or not validation of the CRC is supported.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00021</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <LITERALS>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:163d77eb-69bf-d88b-13b9-ff4d0713f105">
-                                             <SHORT-NAME>CRC_IGNORED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:54dbe24c-c7f1-dd3b-e361-ea7bbc897d5b">
-                                             <SHORT-NAME>CRC_NOT_VALIDATED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:1adb35fc-c264-d6f4-efb5-3798a309e1a1">
-                                             <SHORT-NAME>CRC_OPTIONAL</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:41234a8d-1706-e2fc-de33-607ec8553b0c">
-                                             <SHORT-NAME>CRC_VALIDATED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                       </LITERALS>
-                                    </ECUC-ENUMERATION-PARAM-DEF>
-                                    <!-- PARAMETER DEFINITION: CanTSynRxTmacValidated -->
-                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:bb66806e-07cb-4752-aa1e-69873f0ae91c">
-                                       <SHORT-NAME>CanTSynRxTmacValidated</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This parameter controls whether or not TMAC validation shall be supported.</L-2>
-                                          <L-2 L="EN">Tags: atp.Status=draft</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00048</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <SCOPE>LOCAL</SCOPE>
-                                       <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                       <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                       <VALUE-CONFIG-CLASSES>
-                                          <ECUC-VALUE-CONFIGURATION-CLASS>
-                                             <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                             <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                          </ECUC-VALUE-CONFIGURATION-CLASS>
-                                       </VALUE-CONFIG-CLASSES>
-                                       <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                       <LITERALS>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:38066c3f-ea7b-9ac1-649d-05a0bd042129">
-                                             <SHORT-NAME>TMAC_NOT_VALIDATED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                          <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:63290d18-bc45-9724-46a3-559176930011">
-                                             <SHORT-NAME>TMAC_VALIDATED</SHORT-NAME>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                          </ECUC-ENUMERATION-LITERAL-DEF>
-                                       </LITERALS>
-                                    </ECUC-ENUMERATION-PARAM-DEF>
-                                 </PARAMETERS>
-                                 <SUB-CONTAINERS>
-                                    <!-- Container Definition: CanTSynGlobalTimeSlavePdu -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:98a5703c-de7c-4eab-80aa-8f4df6f3eb46">
-                                       <SHORT-NAME>CanTSynGlobalTimeSlavePdu</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">This container encloses the configuration of the PDU that is supposed to contain the global time information.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00014</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                       <PARAMETERS>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSlaveHandleId -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:f7af8e82-c061-4415-9619-25e5c1bccf67">
-                                             <SHORT-NAME>CanTSynGlobalTimeSlaveHandleId</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">This represents the handle ID of the PDU that contains the global time information.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00013</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
-                                             <MAX>65535</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                       </PARAMETERS>
-                                       <REFERENCES>
-                                          <!-- Reference Definition: CanTSynGlobalTimePduRef -->
-                                          <ECUC-REFERENCE-DEF UUID="ECUC:2bbbd19e-465d-9600-2136-67a1ed1c8571">
-                                             <SHORT-NAME>CanTSynGlobalTimePduRef</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00040</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
-                                          </ECUC-REFERENCE-DEF>
-                                       </REFERENCES>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                 </SUB-CONTAINERS>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                              <!-- Container Definition: CanTSynGlobalTimeSyncDataIDList -->
-                              <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:17dbc6e9-2139-482c-a18d-65f2aa7563a8">
-                                 <SHORT-NAME>CanTSynGlobalTimeSyncDataIDList</SHORT-NAME>
-                                 <DESC>
-                                    <L-2 L="EN">The DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                 </DESC>
-                                 <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00024</RELATED-TRACE-ITEM-REF>
-                                 <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
-                                 <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                 <MULTIPLICITY-CONFIG-CLASSES>
-                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                       <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                       <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
-                                 </MULTIPLICITY-CONFIG-CLASSES>
-                                 <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
-                                 <SUB-CONTAINERS>
-                                    <!-- Container Definition: CanTSynGlobalTimeSyncDataIDListElement -->
-                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2b135526-8dc8-4081-945d-6883ea7e6139">
-                                       <SHORT-NAME>CanTSynGlobalTimeSyncDataIDListElement</SHORT-NAME>
-                                       <DESC>
-                                          <L-2 L="EN">Element of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                       </DESC>
-                                       <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00028</RELATED-TRACE-ITEM-REF>
-                                       <LOWER-MULTIPLICITY>16</LOWER-MULTIPLICITY>
-                                       <UPPER-MULTIPLICITY>16</UPPER-MULTIPLICITY>
-                                       <PARAMETERS>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSyncDataIDListIndex -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:1e79e595-d2c7-412b-a23f-afa0763fb6f2">
-                                             <SHORT-NAME>CanTSynGlobalTimeSyncDataIDListIndex</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Index for the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00029</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>15</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                          <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSyncDataIDListValue -->
-                                          <ECUC-INTEGER-PARAM-DEF UUID="ECUC:308d7e86-9415-4519-9698-d1773b851afe">
-                                             <SHORT-NAME>CanTSynGlobalTimeSyncDataIDListValue</SHORT-NAME>
-                                             <DESC>
-                                                <L-2 L="EN">Value of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
-                                             </DESC>
-                                             <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00030</RELATED-TRACE-ITEM-REF>
-                                             <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
-                                             <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
-                                             <SCOPE>LOCAL</SCOPE>
-                                             <ORIGIN>AUTOSAR_ECUC</ORIGIN>
-                                             <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
-                                             <VALUE-CONFIG-CLASSES>
-                                                <ECUC-VALUE-CONFIGURATION-CLASS>
-                                                   <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
-                                                   <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
-                                                </ECUC-VALUE-CONFIGURATION-CLASS>
-                                             </VALUE-CONFIG-CLASSES>
-                                             <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
-                                             <MAX>255</MAX>
-                                             <MIN>0</MIN>
-                                          </ECUC-INTEGER-PARAM-DEF>
-                                       </PARAMETERS>
-                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
-                                 </SUB-CONTAINERS>
-                              </ECUC-PARAM-CONF-CONTAINER-DEF>
-                           </SUB-CONTAINERS>
+                      </SUB-CONTAINERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <!-- Container Definition: CanTSynGlobalTimeMaster -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:cff9a851-6d70-4e41-a02c-77f9b7a76422">
+                      <SHORT-NAME>CanTSynGlobalTimeMaster</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Configuration of a Time Master for a Time Domain (refer to parent container). If CanTSynGlobalTimeMaster container exists, the local ECU acts as a Time Master for the Time Domain.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00007</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: CanTSynCyclicMsgResumeTime -->
+                        <ECUC-FLOAT-PARAM-DEF UUID="ECUC:b498400e-64dc-4c5a-8491-0b185d152ea2">
+                          <SHORT-NAME>CanTSynCyclicMsgResumeTime</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Defines the time where the 1st regular cycle time based message transmission takes place, after an immediate transmission before. Unit: seconds</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00044</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX INTERVAL-TYPE="OPEN">INF</MAX>
+                          <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                        </ECUC-FLOAT-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeDebounceTime -->
+                        <ECUC-FLOAT-PARAM-DEF UUID="ECUC:a10ed78e-4e7c-43d6-abff-7e566918a74b">
+                          <SHORT-NAME>CanTSynGlobalTimeDebounceTime</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This represents the configuration of a TX debounce time for SYNC and FUP messages compared to a message before with the same PDU. Unit: seconds</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00045</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX INTERVAL-TYPE="CLOSED">4</MAX>
+                          <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                        </ECUC-FLOAT-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeTxCrcSecured -->
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:688ff3f8-829d-4ffe-a058-d39f4094eb3b">
+                          <SHORT-NAME>CanTSynGlobalTimeTxCrcSecured</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This represents the configuration of whether or not CRC is supported.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00015</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e12b6a1a-20be-ea48-dda8-490ee70eb1ff">
+                              <SHORT-NAME>CRC_NOT_SUPPORTED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:c50d57f1-a223-ecb5-c578-d36a6c40f904">
+                              <SHORT-NAME>CRC_SUPPORTED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeTxIcvSecured -->
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:60bd6d16-4c6e-4f74-a9e2-1d51703a1d24">
+                          <SHORT-NAME>CanTSynGlobalTimeTxIcvSecured</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This parameter controls whether or not ICV generation shall be supported.</L-2>
+                            <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00111</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>ICV_NOT_SUPPORTED</DEFAULT-VALUE>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:f8ffc9c5-f82b-98b2-3a17-89c1731a8f2f">
+                              <SHORT-NAME>ICV_NOT_SUPPORTED</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                              </DESC>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:85721517-0d50-9354-4d9b-80fa982e403d">
+                              <SHORT-NAME>ICV_SUPPORTED</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Tags: atp.Status=draft</L-2>
+                              </DESC>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeTxPeriod -->
+                        <ECUC-FLOAT-PARAM-DEF UUID="ECUC:6f787960-e6d3-4cd8-9be0-b8b8f1cfd6fa">
+                          <SHORT-NAME>CanTSynGlobalTimeTxPeriod</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This represents configuration of the TX period. Unit: seconds</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00017</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX INTERVAL-TYPE="CLOSED">INF</MAX>
+                          <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                        </ECUC-FLOAT-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynImmediateTimeSync -->
+                        <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:ebca5b87-af6f-48c1-9aa2-e82ad75f4a24">
+                          <SHORT-NAME>CanTSynImmediateTimeSync</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Enables/Disables the cyclic polling of StbM_GetTimeBaseUpdateCounter() within CanTSyn_MainFunction().</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00043</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                        </ECUC-BOOLEAN-PARAM-DEF>
+                      </PARAMETERS>
+                      <SUB-CONTAINERS>
+                        <!-- Container Definition: CanTSynGlobalTimeMasterPdu -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d5318374-9ff0-4dea-abdf-12e25c4fc4fd">
+                          <SHORT-NAME>CanTSynGlobalTimeMasterPdu</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This container encloses the configuration of the PDU that is supposed to contain the global time information.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00009</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: CanTSynGlobalTimeMasterConfirmationHandleId -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:19d98c8e-3bc0-4332-9f2f-53900e56fa17">
+                              <SHORT-NAME>CanTSynGlobalTimeMasterConfirmationHandleId</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the handle ID of the PDU that contains the global time information.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00008</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                              <WITH-AUTO>true</WITH-AUTO>
+                              <MAX>65535</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <!-- Reference Definition: CanTSynGlobalTimePduRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:6847e4d6-07d1-953f-4c6a-eb3652785f28">
+                              <SHORT-NAME>CanTSynGlobalTimePduRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00027</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                          </REFERENCES>
                         </ECUC-PARAM-CONF-CONTAINER-DEF>
-                     </CONTAINERS>
-                  </ECUC-MODULE-DEF>
+                        <!-- Container Definition: CanTSynGlobalTimeTxIcvGeneration -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:69f1bc8d-97c4-4089-bdac-21258efa7d95">
+                          <SHORT-NAME>CanTSynGlobalTimeTxIcvGeneration</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This container collects configuration that shall be used for ICV generation.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00060</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: CanTSynIcvGenerationBase -->
+                            <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:e9c1e99f-aae2-483e-a789-12d1aff19e42">
+                              <SHORT-NAME>CanTSynIcvGenerationBase</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Symmetric or asymmetric cryptography selection for the ICV generation</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00062</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <LITERALS>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:393148fd-af8a-8c50-5b5d-48f4ae1aca4e">
+                                  <SHORT-NAME>ICV_MAC</SHORT-NAME>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:07c0b422-e933-87a9-426c-b5f12832f513">
+                                  <SHORT-NAME>ICV_SIGNATURE</SHORT-NAME>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                              </LITERALS>
+                            </ECUC-ENUMERATION-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynIcvGenerationTimeout -->
+                            <ECUC-FLOAT-PARAM-DEF UUID="ECUC:d5f37d0d-448f-4146-9386-f8f70762be04">
+                              <SHORT-NAME>CanTSynIcvGenerationTimeout</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Timeout of ICV generation (respective CSM job completion in asynchronous behavior). A value of 0 disables the ICV timeout monitoring. Unit: Seconds</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00065</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX INTERVAL-TYPE="OPEN">INF</MAX>
+                              <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                            </ECUC-FLOAT-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynIcvTxLength -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:b7155864-bfad-4d10-861b-3614c1b770b2">
+                              <SHORT-NAME>CanTSynIcvTxLength</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Length of ICV to be transmitted within Follow_Up Message on the bus (in bytes).</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00063</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX>54</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynTxAuthenticationBuildAttempts -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:3f541399-6db3-4b60-b328-c7551aadea48">
+                              <SHORT-NAME>CanTSynTxAuthenticationBuildAttempts</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This parameter specifies the number of authentication build attempts that are to be carried out when the generation of the ICV failed for a given FUP message. If zero is set, then only one ICV build attempt is done.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00086</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                              <MAX>65535</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <!-- Symbolic Name Reference Definition: CanTSynIcvGenerationFvIdRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:e5051d07-0759-431a-9bde-29568928e73c">
+                              <SHORT-NAME>CanTSynIcvGenerationFvIdRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the reference to the FV taken to generate the ICV generation.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00061</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/StbM/StbMFreshnessValueInformation/StbMFreshnessValue</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                            <!-- Symbolic Name Reference Definition: CanTSynIcvGenerationJobRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:ec253753-cb31-4ffa-9b49-a6f4b1e9328b">
+                              <SHORT-NAME>CanTSynIcvGenerationJobRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the reference to the CSM job to fetch the CSM job ID.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00064</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Csm/CsmJobs/CsmJob</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                          </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                      </SUB-CONTAINERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <!-- Container Definition: CanTSynGlobalTimeSlave -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:453b6e91-cb63-4fdc-b77d-2204844ed77a">
+                      <SHORT-NAME>CanTSynGlobalTimeSlave</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Configuration of a Time Slave for a Time Domain (refer to parent container). If CanTSynGlobalTimeSlave container exists, the local ECU acts as a Time Slave for the Time Domain.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00012</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeFollowUpTimeout -->
+                        <ECUC-FLOAT-PARAM-DEF UUID="ECUC:0d5073b6-c81e-4f08-9fb7-4638128c5801">
+                          <SHORT-NAME>CanTSynGlobalTimeFollowUpTimeout</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Rx timeout for the follow-up message. This is only relevant for selected bus systems Unit:seconds</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00006</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX INTERVAL-TYPE="CLOSED">INF</MAX>
+                          <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                        </ECUC-FLOAT-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeRxDebounceTime -->
+                        <ECUC-FLOAT-PARAM-DEF UUID="ECUC:32bda224-74de-47dd-a6eb-bf70e032a3f7">
+                          <SHORT-NAME>CanTSynGlobalTimeRxDebounceTime</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This represents the configuration of a RX debounce time for the Sync and FUP. Unit: seconds</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00068</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX INTERVAL-TYPE="CLOSED">4</MAX>
+                          <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                        </ECUC-FLOAT-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSequenceCounterHysteresis -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:801ef1ce-f881-4d40-85be-016029168269">
+                          <SHORT-NAME>CanTSynGlobalTimeSequenceCounterHysteresis</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">CanTSynGlobalTimeSequenceCounterHysteresis specifies the number of consecutive valid message pairs that are required by the Time Slave while being in Timeout state until a Time Tuple is forwarded to the StbM.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00053</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>15</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSequenceCounterJumpWidth -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:e77f7729-6186-4ac0-9020-5d883541ea54">
+                          <SHORT-NAME>CanTSynGlobalTimeSequenceCounterJumpWidth</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">The SequenceCounterJumpWidth specifies the maximum allowed gap of the Sequence Counter between two SYNC messages.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00011</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>15</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynRxCrcValidated -->
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:7784397b-19ae-463b-a28c-5e41dba352aa">
+                          <SHORT-NAME>CanTSynRxCrcValidated</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Definition of whether or not validation of the CRC is supported.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00021</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:163d77eb-69bf-d88b-13b9-ff4d0713f105">
+                              <SHORT-NAME>CRC_IGNORED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:54dbe24c-c7f1-dd3b-e361-ea7bbc897d5b">
+                              <SHORT-NAME>CRC_NOT_VALIDATED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:1adb35fc-c264-d6f4-efb5-3798a309e1a1">
+                              <SHORT-NAME>CRC_OPTIONAL</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:41234a8d-1706-e2fc-de33-607ec8553b0c">
+                              <SHORT-NAME>CRC_VALIDATED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: CanTSynRxIcvVerificationType -->
+                        <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:2539a0cb-20c5-483c-a3dd-98dfcf28e8ab">
+                          <SHORT-NAME>CanTSynRxIcvVerificationType</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This parameter controls whether or not ICV verification shall be supported.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00075</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <LITERALS>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:1d53d1aa-c2ae-9abc-38fa-696800f5b9a9">
+                              <SHORT-NAME>ICV_IGNORED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a15b2bda-3db5-99f8-3814-00b6548bb78c">
+                              <SHORT-NAME>ICV_NOT_VERIFIED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:e5e951b6-4928-9aa9-7237-1da28d7ddaa2">
+                              <SHORT-NAME>ICV_OPTIONAL</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2d3fb92e-fa00-917a-6de8-085975508a44">
+                              <SHORT-NAME>ICV_VERIFIED</SHORT-NAME>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                            </ECUC-ENUMERATION-LITERAL-DEF>
+                          </LITERALS>
+                        </ECUC-ENUMERATION-PARAM-DEF>
+                      </PARAMETERS>
+                      <SUB-CONTAINERS>
+                        <!-- Container Definition: CanTSynGlobalTimeRxIcvVerification -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:9309b1e5-5ca6-45dc-a275-e6e59af60197">
+                          <SHORT-NAME>CanTSynGlobalTimeRxIcvVerification</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This container collects configuration required for ICV verification.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00076</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: CanTSynIcvRxLength -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:16eca3c8-7d9c-4f48-8036-8e498a9e2221">
+                              <SHORT-NAME>CanTSynIcvRxLength</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Length of ICV to be used for verification of received ICV within FUP Message in Bytes.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00079</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX>54</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynIcvVerificationAttempts -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:12f87f90-00d7-4f10-82ed-d18196eeb636">
+                              <SHORT-NAME>CanTSynIcvVerificationAttempts</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This parameter specifies the number of ICV verification attempts that are to be carried out when the verification of the ICV failed for a given FUP message. If zero is set, then only one ICV verification attempt is</L-2>
+                              </DESC>
+                              <INTRODUCTION>
+                                <P>
+                                  <L-1 L="EN">done.</L-1>
+                                </P>
+                              </INTRODUCTION>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00082</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                              <MAX>65535</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynIcvVerificationBase -->
+                            <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:4c291e67-1bd5-4891-9594-b6eb7092ba46">
+                              <SHORT-NAME>CanTSynIcvVerificationBase</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Symmetric or asymmetric cryptography selection for the ICV generation</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00078</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <LITERALS>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:a4472f8c-5898-8700-485a-9db72cc31caf">
+                                  <SHORT-NAME>ICV_MAC</SHORT-NAME>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                                <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:861c4ca6-e244-8677-267f-64f306135ee3">
+                                  <SHORT-NAME>ICV_SIGNATURE</SHORT-NAME>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                </ECUC-ENUMERATION-LITERAL-DEF>
+                              </LITERALS>
+                            </ECUC-ENUMERATION-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynIcvVerificationTimeout -->
+                            <ECUC-FLOAT-PARAM-DEF UUID="ECUC:e4a28291-0b1e-4a95-8411-4869d32b35b6">
+                              <SHORT-NAME>CanTSynIcvVerificationTimeout</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Timeout of ICV generation (respective CSM job completion in asynchronous behavior). A value of 0 disables the ICV timeout monitoring. Unit: Seconds</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00081</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX INTERVAL-TYPE="OPEN">INF</MAX>
+                              <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                            </ECUC-FLOAT-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynRxAuthenticationBuildAttempts -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:4ecf3359-e7ad-478f-8345-5e7d0b6acdf4">
+                              <SHORT-NAME>CanTSynRxAuthenticationBuildAttempts</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This parameter specifies the number of authentication build attempts that are to be carried out when the verification of the ICV failed for a given FUP message. If zero is set, then only one ICV verification attempt is done.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00084</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                              <MAX>65535</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <!-- Symbolic Name Reference Definition: CanTSynIcvVerificationFvIdRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:1a77622b-7452-4c26-9cfd-7ec6141fbfc8">
+                              <SHORT-NAME>CanTSynIcvVerificationFvIdRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the reference to the FV taken to generate the ICV generation.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00077</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/StbM/StbMFreshnessValueInformation/StbMFreshnessValue</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                            <!-- Symbolic Name Reference Definition: CanTSynIcvVerificationJobRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:1f2a6637-0897-472c-a420-40b34d056ea5">
+                              <SHORT-NAME>CanTSynIcvVerificationJobRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the reference to the CSM job to fetch the CSM job ID.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00080</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <REQUIRES-SYMBOLIC-NAME-VALUE>true</REQUIRES-SYMBOLIC-NAME-VALUE>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Csm/CsmJobs/CsmJob</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                          </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                        <!-- Container Definition: CanTSynGlobalTimeSlavePdu -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:98a5703c-de7c-4eab-80aa-8f4df6f3eb46">
+                          <SHORT-NAME>CanTSynGlobalTimeSlavePdu</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This container encloses the configuration of the PDU that is supposed to contain the global time information.</L-2>
+                          </DESC>
+                          <INTRODUCTION>
+                            <P>
+                              <L-1 L="EN">Supported MetaData entry: TIMETUPLE_TYPE_PTR</L-1>
+                            </P>
+                          </INTRODUCTION>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00014</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: CanTSynGlobalTimePropagationDelay -->
+                            <ECUC-FLOAT-PARAM-DEF UUID="ECUC:7eee68af-a643-4554-8a72-5407980e4718">
+                              <SHORT-NAME>CanTSynGlobalTimePropagationDelay</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Physical Layer specific propagation delay of a SYNC message to be compensated upon SYNC reception. Unit: seconds.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00089</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                              <MAX INTERVAL-TYPE="CLOSED">1</MAX>
+                              <MIN INTERVAL-TYPE="CLOSED">0</MIN>
+                            </ECUC-FLOAT-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSlaveHandleId -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:f7af8e82-c061-4415-9619-25e5c1bccf67">
+                              <SHORT-NAME>CanTSynGlobalTimeSlaveHandleId</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the handle ID of the PDU that contains the global time information.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00013</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                              <WITH-AUTO>true</WITH-AUTO>
+                              <MAX>65535</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <!-- Reference Definition: CanTSynGlobalTimePduRef -->
+                            <ECUC-REFERENCE-DEF UUID="ECUC:2bbbd19e-465d-9600-2136-67a1ed1c8571">
+                              <SHORT-NAME>CanTSynGlobalTimePduRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This represents the reference to the Pdu taken to transmit the global time information. The global time master of a global time domain acts as the sender of the Pdu while all the time slaves are supposed to receive the Pdu.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00027</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                            </ECUC-REFERENCE-DEF>
+                          </REFERENCES>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                      </SUB-CONTAINERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <!-- Container Definition: CanTSynGlobalTimeSyncDataIDList -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:17dbc6e9-2139-482c-a18d-65f2aa7563a8">
+                      <SHORT-NAME>CanTSynGlobalTimeSyncDataIDList</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">The DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00024</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>true</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <SUB-CONTAINERS>
+                        <!-- Container Definition: CanTSynGlobalTimeSyncDataIDListElement -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2b135526-8dc8-4081-945d-6883ea7e6139">
+                          <SHORT-NAME>CanTSynGlobalTimeSyncDataIDListElement</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Element of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00028</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>16</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>16</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSyncDataIDListIndex -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:1e79e595-d2c7-412b-a23f-afa0763fb6f2">
+                              <SHORT-NAME>CanTSynGlobalTimeSyncDataIDListIndex</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Index for the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00029</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX>15</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                            <!-- PARAMETER DEFINITION: CanTSynGlobalTimeSyncDataIDListValue -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:308d7e86-9415-4519-9698-d1773b851afe">
+                              <SHORT-NAME>CanTSynGlobalTimeSyncDataIDListValue</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Value of the DataIDList for SYNC messages ensures the identification of data elements due to CRC calculation and message authentication process.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_CanTSyn_00030</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>true</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                              <MAX>255</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                      </SUB-CONTAINERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </CONTAINERS>
+            </ECUC-MODULE-DEF>
           </ELEMENTS>
         </AR-PACKAGE>
       </AR-PACKAGES>

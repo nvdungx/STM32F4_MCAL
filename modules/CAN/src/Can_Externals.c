@@ -15,7 +15,7 @@
  * Version   Date        Author  Description
  * -----------------------------------------------------------------------------
  * 01.00.00  13/08/2022  Dungnv  Initial version
- * 
+ *
 *******************************************************************************/
 
 /*******************************************************************************
@@ -32,14 +32,14 @@ Includes
  *  Parameters (INOUT) : None
  *  Parameters (OUT).. : None
  *  Return Value...... : boolean(true/false)
- *  Register usage     : 
- *  Global variable    : 
+ *  Register usage     :
+ *  Global variable    :
  *  Description....... : This function handle L-PDU callouts on every reception
  *                       of a L-PDU.
  */
-/* CAN_LPDU_CALLOUT_FUNCTION_NAME call out function name shall
-  be configured by user */
-#ifdef CAN_LPDU_CALLOUT_FUNCTION_NAME
+/* CAN_LPDU_CALLOUT_FUNCTION_NAME call out function name shall be configured by user */
+/* [ECUC_Can_00434] CanLPduReceiveCalloutFunction */
+#ifndef CAN_LPDU_CALLOUT_FUNCTION_NAME
 FUNC(boolean, CAN_CODE_FAST) CAN_LPDU_CALLOUT_FUNCTION_NAME(VAR(uint8, AUTOMATIC) Hrh, VAR(Can_IdType, AUTOMATIC) CanId,
     VAR(uint8, AUTOMATIC) CanDataLength, P2CONST(uint8, AUTOMATIC, CAN_APPL_DATA) CanSduPtr)
 {

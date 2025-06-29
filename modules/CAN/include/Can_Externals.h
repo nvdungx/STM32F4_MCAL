@@ -8,14 +8,14 @@
  *  Component:    Header
  *  Module:       CAN
  *  Generator:    N/A
- *  Description:  
+ *  Description:
  * -----------------------------------------------------------------------------
  * REVISION HISTORY
  * -----------------------------------------------------------------------------
  * Version   Date        Author  Description
  * -----------------------------------------------------------------------------
  * 01.00.00  13/08/2022  Dungnv  Initial version
- * 
+ *
 *******************************************************************************/
 
 #ifndef CAN_EXTERNALS_H
@@ -24,7 +24,7 @@
 Includes
 *******************************************************************************/
 #include "Can_GeneralTypes.h"
-
+#include "Can_Cfg.h"
 /*******************************************************************************
 Macro definitions
 *******************************************************************************/
@@ -40,7 +40,7 @@ Global functions
 
 /* CAN_LPDU_CALLOUT_FUNCTION_NAME call out function name shall
   be configured by user */
-#ifdef CAN_LPDU_CALLOUT_FUNCTION_NAME
+#ifndef CAN_LPDU_CALLOUT_FUNCTION_NAME
 FUNC(boolean, CAN_CODE_FAST) CAN_LPDU_CALLOUT_FUNCTION_NAME(VAR(uint8, AUTOMATIC) Hrh, VAR(Can_IdType, AUTOMATIC) CanId,
     VAR(uint8, AUTOMATIC) CanDataLength, P2CONST(uint8, AUTOMATIC, CAN_APPL_DATA) CanSduPtr);
 #endif

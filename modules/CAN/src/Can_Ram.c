@@ -23,7 +23,7 @@
 
 /* Global CAN Driver configuration data structure - should be provided(pointed)
   to generated configured data array */
-P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) Glb_CanCfgPtr;
+P2CONST(Can_ConfigType, AUTOMATIC, CAN_APPL_DATA) g_CanCfgPtr;
 
 /* Constant data structure provide access to corresponding hardware registers
   of CAN Hardware controllers */

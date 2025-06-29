@@ -1,0 +1,2155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00053.xsd">
+  <!-- AUTOSAR ECU Configuration Parameter Definition -->
+  <!--
+    Document Owner:                 AUTOSAR
+    Document Responsibility:        AUTOSAR
+    Document Identification Number: 289
+    Document Status:                Published
+    Part of AUTOSAR Standard:       Classic Platform
+    Part of AUTOSAR Release:        R24-11
+    -->
+  <ADMIN-DATA>
+    <DOC-REVISIONS>
+      <DOC-REVISION>
+        <REVISION-LABEL>4.10.0</REVISION-LABEL>
+        <ISSUED-BY>AUTOSAR</ISSUED-BY>
+      </DOC-REVISION>
+    </DOC-REVISIONS>
+  </ADMIN-DATA>
+  <AR-PACKAGES>
+    <!-- AR-Package: AUTOSAR -->
+    <AR-PACKAGE UUID="ECUC:AUTOSAR">
+      <SHORT-NAME>AUTOSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <!-- AR-Package: AUTOSAR -->
+        <AR-PACKAGE UUID="ECUC:ECUCDEFS">
+          <SHORT-NAME>EcucDefs</SHORT-NAME>
+          <ELEMENTS>
+            <ECUC-DEFINITION-COLLECTION UUID="ECUC:4c30de73-30fc-43b3-a1b3-e74211eedff3">
+              <SHORT-NAME>AUTOSARParameterDefinition</SHORT-NAME>
+              <MODULE-REFS>
+                <MODULE-REF DEST="ECUC-MODULE-DEF">/AUTOSAR/EcucDefs/V2xDM</MODULE-REF>
+              </MODULE-REFS>
+            </ECUC-DEFINITION-COLLECTION>
+            <!-- Module Definition: V2xDM -->
+            <ECUC-MODULE-DEF UUID="ECUC:511c05e5-2e36-4ef0-8e67-7ffd9c6ce375">
+              <SHORT-NAME>V2xDM</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Configuration of the V2XDM module</L-2>
+              </DESC>
+              <ADMIN-DATA>
+                <DOC-REVISIONS>
+                  <DOC-REVISION>
+                    <REVISION-LABEL>4.10.0</REVISION-LABEL>
+                    <ISSUED-BY>AUTOSAR</ISSUED-BY>
+                  </DOC-REVISION>
+                </DOC-REVISIONS>
+              </ADMIN-DATA>
+              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00001</RELATED-TRACE-ITEM-REF>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+              <POST-BUILD-VARIANT-SUPPORT>false</POST-BUILD-VARIANT-SUPPORT>
+              <SUPPORTED-CONFIG-VARIANTS>
+                <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+              </SUPPORTED-CONFIG-VARIANTS>
+              <CONTAINERS>
+                <!-- Container Definition: V2xDMConfigSet -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:9d22ae88-56cd-4d38-a499-d48203689511">
+                  <SHORT-NAME>V2xDMConfigSet</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Container contains all configuration items for the V2xDM</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00086</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <SUB-CONTAINERS>
+                    <!-- Container Definition: V2xDMCatalogItem -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:929acf4d-3ee4-4325-b065-13d413eb71cf">
+                      <SHORT-NAME>V2xDMCatalogItem</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Contains all catalog items of the V2x DataManager</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00065</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <REFERENCES>
+                        <!-- Foreign Reference Definition: V2xDMCatalogItemTypeRef -->
+                        <ECUC-FOREIGN-REFERENCE-DEF UUID="ECUC:de4873b3-f8b3-46f2-aa7c-aea23ff31df3">
+                          <SHORT-NAME>V2xDMCatalogItemTypeRef</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Reference to the base type of this catalog item.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00064</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-TYPE>SW-BASE-TYPE</DESTINATION-TYPE>
+                        </ECUC-FOREIGN-REFERENCE-DEF>
+                      </REFERENCES>
+                      <SUB-CONTAINERS>
+                        <!-- Container Definition: V2xDMConnection -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:5ab70525-98b1-4896-bb6e-6a7409166c66">
+                          <SHORT-NAME>V2xDMConnection</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Collects all connection information for this catalog item.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00066</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <SUB-CONTAINERS>
+                            <!-- Container Definition: V2xDMConnectionSource -->
+                            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:b1ae9b88-69be-4a1a-a953-f92ee8d1615a">
+                              <SHORT-NAME>V2xDMConnectionSource</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Contains definition for the connected sources of V2x message items.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00067</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <PARAMETERS>
+                                <!-- PARAMETER DEFINITION: V2xDMConnectionSourceOperator -->
+                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:39e9a23b-74d2-4243-9a46-4ce13c96ebd6">
+                                  <SHORT-NAME>V2xDMConnectionSourceOperator</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Selects the source type of the operator.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00072</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                  <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2059adad-b494-948f-319e-d6cb05e5975d">
+                                      <SHORT-NAME>V2XDM_CONN_SRC_OP_EXISTS</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:472cfa35-054f-9589-4746-717309542dd6">
+                                      <SHORT-NAME>V2XDM_CONN_SRC_OP_LENGTH</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                  </LITERALS>
+                                </ECUC-ENUMERATION-PARAM-DEF>
+                              </PARAMETERS>
+                              <REFERENCES>
+                                <!-- Reference Definition: V2xDMConnectionSourceTargetRef -->
+                                <ECUC-REFERENCE-DEF UUID="ECUC:db4a4ec7-1902-47f9-b163-61b9fcae95f2">
+                                  <SHORT-NAME>V2xDMConnectionSourceTargetRef</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Links to the simple type of a V2x message.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00073</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMSimpleType</DESTINATION-REF>
+                                </ECUC-REFERENCE-DEF>
+                              </REFERENCES>
+                              <SUB-CONTAINERS>
+                                <!-- Container Definition: V2xDMConnectionSourceContext -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1106a811-c78f-4ac7-918a-77b37f2cf196">
+                                  <SHORT-NAME>V2xDMConnectionSourceContext</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Contains information to uniquely address a V2X message element. I.e. the V2x message element can be contained in a SequenceOf. In that case the index inside the SequenceOf must be provided to avoid an ambiguous reference.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00069</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMConnectionSourceContextIndex -->
+                                    <ECUC-INTEGER-PARAM-DEF UUID="ECUC:de35ce1b-87cf-48f2-a9d5-be4d92372b7d">
+                                      <SHORT-NAME>V2xDMConnectionSourceContextIndex</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Index to the SequenceOf element that the SourceContextRef references to.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00070</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <SCOPE>LOCAL</SCOPE>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                      <MAX>65535</MAX>
+                                      <MIN>0</MIN>
+                                    </ECUC-INTEGER-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <REFERENCES>
+                                    <!-- Reference Definition: V2xDMConnectionSourceContextRef -->
+                                    <ECUC-REFERENCE-DEF UUID="ECUC:13bffeef-d58c-44a6-8d96-1639abc8edc3">
+                                      <SHORT-NAME>V2xDMConnectionSourceContextRef</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Reference to the SequenceOf element of a V2x message.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00071</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <SCOPE>LOCAL</SCOPE>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMStructuredType/V2xDMStructuredTypeSequenceOf</DESTINATION-REF>
+                                    </ECUC-REFERENCE-DEF>
+                                  </REFERENCES>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              </SUB-CONTAINERS>
+                            </ECUC-PARAM-CONF-CONTAINER-DEF>
+                            <!-- Container Definition: V2xDMConversion -->
+                            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:3e471925-c408-45c7-9b17-75c41423e0be">
+                              <SHORT-NAME>V2xDMConversion</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Allows to define a conversion routine to adapt V2x simple item(s) to the data catalog element.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00068</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <PARAMETERS>
+                                <!-- PARAMETER DEFINITION: V2xDMConversionFunc -->
+                                <ECUC-FUNCTION-NAME-DEF UUID="ECUC:eb856e11-165b-4476-8353-3f3f7f98800a">
+                                  <SHORT-NAME>V2xDMConversionFunc</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">This parameter provides the function name for the callback &lt;V2xDM_ItemConversionFunc&gt;.It is used to convert the simple type information into the data catalog item value and its base type.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00075</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                  <ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                                    <ECUC-FUNCTION-NAME-DEF-CONDITIONAL></ECUC-FUNCTION-NAME-DEF-CONDITIONAL>
+                                  </ECUC-FUNCTION-NAME-DEF-VARIANTS>
+                                </ECUC-FUNCTION-NAME-DEF>
+                              </PARAMETERS>
+                              <SUB-CONTAINERS>
+                                <!-- Container Definition: V2xDMConversionFunction -->
+                                <ECUC-CHOICE-CONTAINER-DEF UUID="ECUC:0bf22e27-57a3-49c1-8f8b-bd0dc9e43586">
+                                  <SHORT-NAME>V2xDMConversionFunction</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Defines the conversion function container that shall be applied to convert the V2x message element into the unified data catalog item.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00074</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <CHOICES>
+                                    <!-- Container Definition: V2xDMConversionFunctionLinear -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:5ecb4297-3d11-466a-aaf3-8e29a5a8436f">
+                                      <SHORT-NAME>V2xDMConversionFunctionLinear</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">This container defines th parameter for the linear conversion routine.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00076</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMConversionFunctionLinearConstant -->
+                                        <ECUC-FLOAT-PARAM-DEF UUID="ECUC:81ade697-931e-4b26-a302-ef85fc611617">
+                                          <SHORT-NAME>V2xDMConversionFunctionLinearConstant</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">This parameter defines the offset to the linear conversion function</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00077</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                        </ECUC-FLOAT-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMConversionFunctionLinearFactor -->
+                                        <ECUC-FLOAT-PARAM-DEF UUID="ECUC:4a7c32ce-cf12-4433-99dd-b868fde7869d">
+                                          <SHORT-NAME>V2xDMConversionFunctionLinearFactor</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">This defines the scale factor for the linear conversion function.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00078</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                        </ECUC-FLOAT-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </CHOICES>
+                                </ECUC-CHOICE-CONTAINER-DEF>
+                              </SUB-CONTAINERS>
+                            </ECUC-PARAM-CONF-CONTAINER-DEF>
+                          </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                      </SUB-CONTAINERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <!-- Container Definition: V2xDMLink -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1e6b0afc-5a9b-4db5-9343-4e3e927f8149">
+                      <SHORT-NAME>V2xDMLink</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Defines the links between the VariableDataPrototypes of the V2x object to the V2x catalog items.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00079</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <REFERENCES>
+                        <!-- Reference Definition: V2xDMLinkCatalogItemRef -->
+                        <ECUC-REFERENCE-DEF UUID="ECUC:a0ba1e6f-db16-4e59-9f1c-a3daf72aefd8">
+                          <SHORT-NAME>V2xDMLinkCatalogItemRef</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">References to the catalog item that is used for this link.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00080</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMCatalogItem</DESTINATION-REF>
+                        </ECUC-REFERENCE-DEF>
+                        <!-- Instance Reference Definition: V2xDMLinkV2xObjectElementInstanceRef -->
+                        <ECUC-INSTANCE-REFERENCE-DEF UUID="ECUC:64702ebf-7597-433a-9b48-b0f4d8896c3c">
+                          <SHORT-NAME>V2xDMLinkV2xObjectElementInstanceRef</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">This container references to the port prototype and VariableDataPrototype as a V2x object.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00081</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <DESTINATION-CONTEXT>ROOT-SW-COMPOSITION-PROTOTYPE SW-COMPONENT-PROTOTYPE PORT-PROTOTYPE AUTOSAR-DATA-PROTOTYPE IMPLEMENTATION-DATA-TYPE-ELEMENT*</DESTINATION-CONTEXT>
+                          <DESTINATION-TYPE>IMPLEMENTATION-DATA-TYPE-ELEMENT</DESTINATION-TYPE>
+                        </ECUC-INSTANCE-REFERENCE-DEF>
+                      </REFERENCES>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <!-- Container Definition: V2xDMMsgQueue -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:bec52cda-030d-4267-b3a8-dfc099088d1a">
+                      <SHORT-NAME>V2xDMMsgQueue</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Specifies a message queue for incoming V2x messages of the data manager. If this container is not present, no queue is used for incoming V2x messages. If it is present, the elements of the container specifies the queue depth and its elements.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00102</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <PARAMETERS>
+                        <!-- PARAMETER DEFINITION: V2xDMMsgQueueElementSize -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:ac06fee6-b54a-4c0b-8178-1fb2ca526620">
+                          <SHORT-NAME>V2xDMMsgQueueElementSize</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Size of a queue entry in bytes. All queue entries have the same size. The value shall be large enough to store the largest V2x message.</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00097</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <MAX>65535</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                        <!-- PARAMETER DEFINITION: V2xDMMsgQueueNumberOfEntries -->
+                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:a34e9635-a4e0-41b0-afbb-b00c5784cefd">
+                          <SHORT-NAME>V2xDMMsgQueueNumberOfEntries</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Specifies the number of Queue entries for incoming V2x messages. One entry per V2x message.</L-2>
+                          </DESC>
+                          <INTRODUCTION>
+                            <P>
+                              <L-1 L="EN">A number of 0 in this field disables the queue and actions are performed only in the V2xDM_RxIndication.</L-1>
+                            </P>
+                          </INTRODUCTION>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00096</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                          <SCOPE>LOCAL</SCOPE>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                          <VALUE-CONFIG-CLASSES>
+                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                          </VALUE-CONFIG-CLASSES>
+                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                          <DEFAULT-VALUE>0</DEFAULT-VALUE>
+                          <MAX>255</MAX>
+                          <MIN>0</MIN>
+                        </ECUC-INTEGER-PARAM-DEF>
+                      </PARAMETERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                    <!-- Container Definition: V2xDMStack -->
+                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:9b4a229a-d61b-4ff8-9058-f9bfabb26f66">
+                      <SHORT-NAME>V2xDMStack</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Holds the V2x stack specific container and parameter.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00005</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <SUB-CONTAINERS>
+                        <!-- Container Definition: V2xDMMessage -->
+                        <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:103df866-dd2e-48b8-a4e1-522efadeb12b">
+                          <SHORT-NAME>V2xDMMessage</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="EN">Definition of a V2x message and its layout</L-2>
+                          </DESC>
+                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00006</RELATED-TRACE-ITEM-REF>
+                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                          <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                          <MULTIPLICITY-CONFIG-CLASSES>
+                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          </MULTIPLICITY-CONFIG-CLASSES>
+                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                          <PARAMETERS>
+                            <!-- PARAMETER DEFINITION: V2xDMMsgId -->
+                            <ECUC-INTEGER-PARAM-DEF UUID="ECUC:02f01bf4-b432-466f-b1ee-f866c23aeadf">
+                              <SHORT-NAME>V2xDMMsgId</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Identifier of the message. The set of V2x message identifiers shall be consecutive and gapless.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00088</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <SCOPE>LOCAL</SCOPE>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                              <MAX>4294967295</MAX>
+                              <MIN>0</MIN>
+                            </ECUC-INTEGER-PARAM-DEF>
+                          </PARAMETERS>
+                          <REFERENCES>
+                            <!-- Choice Reference Definition: V2xDMMsgRootRef -->
+                            <ECUC-CHOICE-REFERENCE-DEF UUID="ECUC:5167893a-4492-4716-8256-1f0845709c18">
+                              <SHORT-NAME>V2xDMMsgRootRef</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">This element links to the first structured element within the V2x message.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00012</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                              <VALUE-CONFIG-CLASSES>
+                                <ECUC-VALUE-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-VALUE-CONFIGURATION-CLASS>
+                              </VALUE-CONFIG-CLASSES>
+                              <DESTINATION-REFS>
+                                <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMSimpleType</DESTINATION-REF>
+                                <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMStructuredType</DESTINATION-REF>
+                              </DESTINATION-REFS>
+                            </ECUC-CHOICE-REFERENCE-DEF>
+                          </REFERENCES>
+                          <SUB-CONTAINERS>
+                            <!-- Container Definition: V2xDMPdu -->
+                            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:f37e9d3e-d46d-4853-8270-9aecd820aa10">
+                              <SHORT-NAME>V2xDMPdu</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Container for parameters that are necessary for the configuration of the V2xDM to serve as the UpperLayer of the PDU-Router module.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00087</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <PARAMETERS>
+                                <!-- PARAMETER DEFINITION: V2xDMPduDirection -->
+                                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:429374bb-425e-4d78-b1cf-5f648acb957d">
+                                  <SHORT-NAME>V2xDMPduDirection</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Defines the direction of the PDU:</L-2>
+                                  </DESC>
+                                  <INTRODUCTION>
+                                    <P>
+                                      <L-1 L="EN">V2XDM_PDU_SEND - V2xDM passes on the V2x message as raw data to the PduR. V2XDM_PDU_RECEIVE - V2xDM receives the V2x message through the PduR (no V2x stack present in the ECU).</L-1>
+                                    </P>
+                                  </INTRODUCTION>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00091</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                  <LITERALS>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:eafc3e7d-0891-8d53-3a93-8f85db19c3ef">
+                                      <SHORT-NAME>V2XDM_PDU_RECEIVE</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                    <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:2aa69463-6e7d-8c29-3d72-a992eb54e98a">
+                                      <SHORT-NAME>V2XDM_PDU_SEND</SHORT-NAME>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                    </ECUC-ENUMERATION-LITERAL-DEF>
+                                  </LITERALS>
+                                </ECUC-ENUMERATION-PARAM-DEF>
+                                <!-- PARAMETER DEFINITION: V2xDMPduId -->
+                                <ECUC-INTEGER-PARAM-DEF UUID="ECUC:6a40521d-6f64-4365-be57-bb311d1d56c3">
+                                  <SHORT-NAME>V2xDMPduId</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">The numerical value used as the ID of this I-PDU. The ComIPduHandleId</L-2>
+                                  </DESC>
+                                  <INTRODUCTION>
+                                    <P>
+                                      <L-1 L="EN">is required by the API calls PduR_V2xDMRxIndication to receive I-PDUs from the PduR (ComIP-duDirection: Receive) For Tx-I-PDUs (ComIPduDirection: Send), this handle Id is used for the APIs call PduR_V2xDMTransmit to transmit I-PDUs.</L-1>
+                                    </P>
+                                  </INTRODUCTION>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00089</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <SYMBOLIC-NAME-VALUE>true</SYMBOLIC-NAME-VALUE>
+                                  <MAX>65535</MAX>
+                                  <MIN>0</MIN>
+                                </ECUC-INTEGER-PARAM-DEF>
+                              </PARAMETERS>
+                              <REFERENCES>
+                                <!-- Reference Definition: V2xDMPduRef -->
+                                <ECUC-REFERENCE-DEF UUID="ECUC:06296147-6d06-48e2-8bbd-cda6824dde42">
+                                  <SHORT-NAME>V2xDMPduRef</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Reference to the global Pdu structure.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00090</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <SCOPE>LOCAL</SCOPE>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                  <VALUE-CONFIG-CLASSES>
+                                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                                  </VALUE-CONFIG-CLASSES>
+                                  <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucConfigSet/EcucPduCollection/Pdu</DESTINATION-REF>
+                                </ECUC-REFERENCE-DEF>
+                              </REFERENCES>
+                            </ECUC-PARAM-CONF-CONTAINER-DEF>
+                            <!-- Container Definition: V2xDMSimpleType -->
+                            <ECUC-CHOICE-CONTAINER-DEF UUID="ECUC:da08264e-e2b8-44eb-8d89-736b578aeb8a">
+                              <SHORT-NAME>V2xDMSimpleType</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Definition of simple types within a V2x message as a choice of simple types.</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00008</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <CHOICES>
+                                <!-- Container Definition: V2xDMSimpleTypeBitString -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d1cf008c-0b58-4d89-b39c-dd32b483ed8d">
+                                  <SHORT-NAME>V2xDMSimpleTypeBitString</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Definition of the ASN.1 Bit String</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00013</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMSimpleTypeBitStringIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:c3d88cc9-ead1-49ee-be04-a6311c9c5c91">
+                                      <SHORT-NAME>V2xDMSimpleTypeBitStringIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines if the item is extensible in future releases.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00062</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2xDMSimpleTypeBitStringConstr -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:997581c1-7397-40ef-b1b2-a9e0e44988fb">
+                                      <SHORT-NAME>V2xDMSimpleTypeBitStringConstr</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Container defines the constraints for the length of the bit string (Min/Max).</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00056</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>65535</UPPER-MULTIPLICITY>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeBitStringConstrMax -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:6489faef-a505-40cb-82f4-5d07634e7276">
+                                          <SHORT-NAME>V2xDMSimpleTypeBitStringConstrMax</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Max length of the BitString parameter.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00058</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeBitStringConstrMin -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:3299ecef-6f73-47a4-a63a-f180b3ff51de">
+                                          <SHORT-NAME>V2xDMSimpleTypeBitStringConstrMin</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Min length of the BitString parameter.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00057</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>4294967295</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: V2xDMSimpleTypeBitStringItem -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:7b8e2885-2556-41d3-89e0-6ef708a5e8b1">
+                                      <SHORT-NAME>V2xDMSimpleTypeBitStringItem</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines item values as Key-Pair-Values for the BitString.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00059</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeBitStringItemIdentifier -->
+                                        <ECUC-STRING-PARAM-DEF UUID="ECUC:592bef7b-99ff-4ea4-976a-428b2f86ce88">
+                                          <SHORT-NAME>V2xDMSimpleTypeBitStringItemIdentifier</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the name for the Key-Pair-Values for the BitString.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00061</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                            <ECUC-STRING-PARAM-DEF-CONDITIONAL></ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                                          </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                        </ECUC-STRING-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeBitStringItemValue -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:e19feb43-0071-4354-a788-e2b664f8ea4a">
+                                          <SHORT-NAME>V2xDMSimpleTypeBitStringItemValue</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the value representation for the Key-Pair-Values for the BitString.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00060</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                <!-- Container Definition: V2xDMSimpleTypeBoolean -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:d5a52a26-0796-457f-8445-d87bd69197fa">
+                                  <SHORT-NAME>V2xDMSimpleTypeBoolean</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Definition of the ASN.1 boolean type</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00014</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                <!-- Container Definition: V2xDMSimpleTypeCharString -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1cf73858-603f-4f77-8f7f-9d54a5fa4ebd">
+                                  <SHORT-NAME>V2xDMSimpleTypeCharString</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Definition of the ASN.1 type character string</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00015</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMSimpleTypeCharStringAlphabet -->
+                                    <ECUC-STRING-PARAM-DEF UUID="ECUC:9de19e3c-5d96-4a0e-8185-a6eddd447a79">
+                                      <SHORT-NAME>V2xDMSimpleTypeCharStringAlphabet</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines the character set that is used and allowed for this CharString.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00055</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                      <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                        <ECUC-STRING-PARAM-DEF-CONDITIONAL></ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                                      </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                    </ECUC-STRING-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: V2xDMSimpleTypeCharStringIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:94513ee8-32bf-429b-8595-051f28bba9c5">
+                                      <SHORT-NAME>V2xDMSimpleTypeCharStringIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines if future extensions of this parameter shall be considered.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00054</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: V2xDMSimpleTypeCharStringType -->
+                                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:bf7ca717-a619-48f3-98ef-e62e3538dec8">
+                                      <SHORT-NAME>V2xDMSimpleTypeCharStringType</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines the type of CharString SimpleType.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00053</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                      <LITERALS>
+                                        <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:fa02a805-76f7-9aa1-42fd-37807dce7cf1">
+                                          <SHORT-NAME>V2XDM_SIMPLETYPE_CHARSTR_IA5</SHORT-NAME>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                        </ECUC-ENUMERATION-LITERAL-DEF>
+                                        <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:7f928eac-c853-9bc2-1f21-3a24954a8663">
+                                          <SHORT-NAME>V2XDM_SIMPLETYPE_CHARSTR_NUMERIC</SHORT-NAME>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                        </ECUC-ENUMERATION-LITERAL-DEF>
+                                        <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:94301487-59b2-959d-1446-c85d021473e0">
+                                          <SHORT-NAME>V2XDM_SIMPLETYPE_CHARSTR_UTF8</SHORT-NAME>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                        </ECUC-ENUMERATION-LITERAL-DEF>
+                                      </LITERALS>
+                                    </ECUC-ENUMERATION-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2xDMSimpleTypeCharStringConstr -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:5d4c3a5a-3ec9-40e2-9214-b3350e328650">
+                                      <SHORT-NAME>V2xDMSimpleTypeCharStringConstr</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Container defines the constraints for the character string (Min/Max).</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00050</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeCharStringConstrMax -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:e9b2dc8d-3921-44fe-bfa5-a0f00909e329">
+                                          <SHORT-NAME>V2xDMSimpleTypeCharStringConstrMax</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Max number of values for the char string parameter.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00052</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeCharStringConstrMin -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:55e3f0c8-868f-4ac2-8597-5a0b0ca6c474">
+                                          <SHORT-NAME>V2xDMSimpleTypeCharStringConstrMin</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Min number of values for the char string parameter.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00051</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                <!-- Container Definition: V2xDMSimpleTypeEnum -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:334ebb1e-336e-4125-b5f3-197198fc5354">
+                                  <SHORT-NAME>V2xDMSimpleTypeEnum</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Definition of the ASN.1 enumeration type</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00016</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2XDMSimpleTypeEnumerationIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e64fb3f3-1729-4545-bc7b-015624052f0a">
+                                      <SHORT-NAME>V2XDMSimpleTypeEnumerationIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines if the enumeration can be extended in future releases (...).</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00045</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2XDMSimpleTypeEnumerationItem -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:8e02f7b2-56b1-4806-9805-d431099d46dd">
+                                      <SHORT-NAME>V2XDMSimpleTypeEnumerationItem</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Parameter description for the enumeration simple type.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00042</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2XDMSimpleTypeEnumerationItemName -->
+                                        <ECUC-STRING-PARAM-DEF UUID="ECUC:ee8efc2c-e6a1-4d02-aa3e-f84e81d3112e">
+                                          <SHORT-NAME>V2XDMSimpleTypeEnumerationItemName</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the name of the enumeration item.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00043</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                            <ECUC-STRING-PARAM-DEF-CONDITIONAL></ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                                          </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                        </ECUC-STRING-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2XDMSimpleTypeEnumerationItemValue -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:ea8d32b4-e118-4da1-9293-5bd5541ad088">
+                                          <SHORT-NAME>V2XDMSimpleTypeEnumerationItemValue</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Definition of the item value of the enumeration.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00044</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>255</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                <!-- Container Definition: V2xDMSimpleTypeInteger -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:412f692e-b4d9-4243-8018-9739f23cb589">
+                                  <SHORT-NAME>V2xDMSimpleTypeInteger</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Definition of the ASN.1 integer type</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00017</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMSimpleTypeIntegerIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:23b016df-9df9-4075-8102-7754d15f2b19">
+                                      <SHORT-NAME>V2xDMSimpleTypeIntegerIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Indicates if data for the integer simple types can be extended in the future (...).</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00037</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <SCOPE>LOCAL</SCOPE>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2xDMSimpleTypeIntegerConstr -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:f5634490-0504-4644-bed5-b109b11f26e6">
+                                      <SHORT-NAME>V2xDMSimpleTypeIntegerConstr</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines the constraints for the integer simple type</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00035</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeIntegerConstrMax -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:22290cac-e763-4653-9e5c-b7b38c5a08b1">
+                                          <SHORT-NAME>V2xDMSimpleTypeIntegerConstrMax</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the max value for this integer simple type.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00039</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>4398046511103</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeIntegerConstrMin -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:740c398b-2a0e-4f19-bc20-87c96fbf42e4">
+                                          <SHORT-NAME>V2xDMSimpleTypeIntegerConstrMin</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the min value for this integer simple type.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00038</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>0</MAX>
+                                          <MIN>-4398046511104</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                    <!-- Container Definition: V2xDMSimpleTypeIntegerItem -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:61dfc24f-9193-4d8f-babe-6655f9dd1cb3">
+                                      <SHORT-NAME>V2xDMSimpleTypeIntegerItem</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Descriptor parameters of the simple type integer item.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00036</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeIntegerItemName -->
+                                        <ECUC-STRING-PARAM-DEF UUID="ECUC:4685a683-c8b7-446f-882d-7e206ea142ae">
+                                          <SHORT-NAME>V2xDMSimpleTypeIntegerItemName</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Provide a name for this integer item.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00041</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                            <ECUC-STRING-PARAM-DEF-CONDITIONAL></ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                                          </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                        </ECUC-STRING-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeIntegerItemValue -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:f6941d3e-0e6d-4175-a992-fff3a29963e6">
+                                          <SHORT-NAME>V2xDMSimpleTypeIntegerItemValue</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">The default value for this integer</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00040</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>4398046511103</MAX>
+                                          <MIN>-4398046511104</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                <!-- Container Definition: V2xDMSimpleTypeOctetString -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:2d10c9a4-a0d9-4aa5-8dc8-ad871c50bedc">
+                                  <SHORT-NAME>V2xDMSimpleTypeOctetString</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Definition of the ASN.1 Octet String.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00018</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMSimpleTypeOctetStringIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:c846cd67-2582-4e76-9dc3-06db7f5320f8">
+                                      <SHORT-NAME>V2xDMSimpleTypeOctetStringIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines if the octet string can be extended in future releases (...).</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00049</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2xDMSimpleTypeOctetStringConstr -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:6c2b8587-7c20-464d-bf2a-e59247efe978">
+                                      <SHORT-NAME>V2xDMSimpleTypeOctetStringConstr</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines the constraint for the octet string as simple type according to ASN.1.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00046</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeOctetStringConstrMax -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:9a2813cc-5682-4018-a31b-2340559dafd2">
+                                          <SHORT-NAME>V2xDMSimpleTypeOctetStringConstrMax</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the max length for the octet string.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00048</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMSimpleTypeOctetStringConstrMin -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:1925d681-cd57-4447-98eb-0ca45d136954">
+                                          <SHORT-NAME>V2xDMSimpleTypeOctetStringConstrMin</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the min length for the octet string.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00047</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              </CHOICES>
+                            </ECUC-CHOICE-CONTAINER-DEF>
+                            <!-- Container Definition: V2xDMStructuredType -->
+                            <ECUC-CHOICE-CONTAINER-DEF UUID="ECUC:5738b05c-8883-4047-8252-a68fde5e6049">
+                              <SHORT-NAME>V2xDMStructuredType</SHORT-NAME>
+                              <DESC>
+                                <L-2 L="EN">Definition of structured types in a V2x message</L-2>
+                              </DESC>
+                              <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00007</RELATED-TRACE-ITEM-REF>
+                              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                              <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                              <MULTIPLICITY-CONFIG-CLASSES>
+                                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                              </MULTIPLICITY-CONFIG-CLASSES>
+                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                              <CHOICES>
+                                <!-- Container Definition: V2xDMStructuredTypeChoice -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:72bd1ce4-5df4-405d-af67-2e4a1f25abf0">
+                                  <SHORT-NAME>V2xDMStructuredTypeChoice</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Defines a choice of elements within a V2x message.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00011</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMStructuredTypeChoiceCallbackEnabled -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:7da16511-ae68-4079-8696-700014d3528b">
+                                      <SHORT-NAME>V2xDMStructuredTypeChoiceCallbackEnabled</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Enables a callback when the structure has been decoded.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00095</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <SCOPE>LOCAL</SCOPE>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: V2xDMStructuredTypeChoiceIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:d80fbfe7-55bd-4951-811d-38cfc15e80c0">
+                                      <SHORT-NAME>V2xDMStructuredTypeChoiceIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Indicates if the choice container can be extended in future releases (marked with '...' in ASN.1)</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00031</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2xDMStructuredTypeChoiceOption -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:25be7cc1-d5a0-465c-a643-fd007ec6231f">
+                                      <SHORT-NAME>V2xDMStructuredTypeChoiceOption</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines the reference and order of types in this choice element.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00032</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMStructuredTypeChoiceOptionIndex -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:21aaa8e1-22ca-4290-91d3-064bb094c81f">
+                                          <SHORT-NAME>V2xDMStructuredTypeChoiceOptionIndex</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the order of elements inside the choice container.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00033</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                      <REFERENCES>
+                                        <!-- Choice Reference Definition: V2xDMStructuredTypeChoiceOptionType -->
+                                        <ECUC-CHOICE-REFERENCE-DEF UUID="ECUC:6eacb256-224e-4751-a791-e00621bbdd3e">
+                                          <SHORT-NAME>V2xDMStructuredTypeChoiceOptionType</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Define a link to a simple or structured type that is present in this choice container.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00034</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <DESTINATION-REFS>
+                                            <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMSimpleType</DESTINATION-REF>
+                                            <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMStructuredType</DESTINATION-REF>
+                                          </DESTINATION-REFS>
+                                        </ECUC-CHOICE-REFERENCE-DEF>
+                                      </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                <!-- Container Definition: V2xDMStructuredTypeSequence -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:3c2c3758-e47a-457f-b23b-70de5b900eba">
+                                  <SHORT-NAME>V2xDMStructuredTypeSequence</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Defines a sequence of elements within a V2x message.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00010</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceCallbackEnabled -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:2d81e3ea-e479-4b65-b4e8-b7aca8602d77">
+                                      <SHORT-NAME>V2xDMStructuredTypeSequenceCallbackEnabled</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Enables a callback when the structure has been decoded.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00094</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <SCOPE>LOCAL</SCOPE>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:e00b7457-b261-42f9-972e-86dd29259f00">
+                                      <SHORT-NAME>V2xDMStructuredTypeSequenceIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines if this sequence can be extended in the future (typically declared in ASN.1 with '...').</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00025</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2xDMStructuredTypeSequenceChild -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:f875cb81-7179-489d-a3f3-38b22c0ae361">
+                                      <SHORT-NAME>V2xDMStructuredTypeSequenceChild</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Declares all attributes for a child element in the ASN.1 structured type sequence element.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00021</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceChildAttribute -->
+                                        <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:ed641db7-6d2b-4df0-ac28-3aa23725cc2a">
+                                          <SHORT-NAME>V2xDMStructuredTypeSequenceChildAttribute</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Select the attribute of a sequence element.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00022</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <LITERALS>
+                                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:3fcc8c01-0bbb-8c10-32a0-7769b8bbf4dc">
+                                              <SHORT-NAME>V2XDM_STRUCTURED_TYPE_SEQUENCE_CHILD_ATTRIBUTE_DEFAULT</SHORT-NAME>
+                                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                            </ECUC-ENUMERATION-LITERAL-DEF>
+                                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:29c30bef-4f89-9160-2ae6-83a13c54e234">
+                                              <SHORT-NAME>V2XDM_STRUCTURED_TYPE_SEQUENCE_CHILD_ATTRIBUTE_NONE</SHORT-NAME>
+                                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                            </ECUC-ENUMERATION-LITERAL-DEF>
+                                            <ECUC-ENUMERATION-LITERAL-DEF UUID="ECUC:eb65fa09-2c64-8c35-50e7-912aead3f3e0">
+                                              <SHORT-NAME>V2XDM_STRUCTURED_TYPE_SEQUENCE_CHILD_ATTRIBUTE_OPTIONAL</SHORT-NAME>
+                                              <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                            </ECUC-ENUMERATION-LITERAL-DEF>
+                                          </LITERALS>
+                                        </ECUC-ENUMERATION-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceChildDefault -->
+                                        <ECUC-STRING-PARAM-DEF UUID="ECUC:3ef59ce3-cf77-4b6f-9d4c-e3532ac66ae5">
+                                          <SHORT-NAME>V2xDMStructuredTypeSequenceChildDefault</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Default values of the structure.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00092</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <SCOPE>LOCAL</SCOPE>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <ECUC-STRING-PARAM-DEF-VARIANTS>
+                                            <ECUC-STRING-PARAM-DEF-CONDITIONAL></ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                                          </ECUC-STRING-PARAM-DEF-VARIANTS>
+                                        </ECUC-STRING-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceChildIndex -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:50fcad1b-7f24-48d7-a17e-4f4f2ccbcf45">
+                                          <SHORT-NAME>V2xDMStructuredTypeSequenceChildIndex</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Define the index of the element within the structure.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00023</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                      <REFERENCES>
+                                        <!-- Choice Reference Definition: V2xDMStructuredTypeSequenceChildType -->
+                                        <ECUC-CHOICE-REFERENCE-DEF UUID="ECUC:c873362c-e524-48f0-a470-7353ed7b94a2">
+                                          <SHORT-NAME>V2xDMStructuredTypeSequenceChildType</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Reference to the child element in the structure as a simple or structured type.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00024</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <DESTINATION-REFS>
+                                            <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMSimpleType</DESTINATION-REF>
+                                            <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMStructuredType</DESTINATION-REF>
+                                          </DESTINATION-REFS>
+                                        </ECUC-CHOICE-REFERENCE-DEF>
+                                      </REFERENCES>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                <!-- Container Definition: V2xDMStructuredTypeSequenceOf -->
+                                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:9c5aef18-62d8-4461-a323-365950a8f04e">
+                                  <SHORT-NAME>V2xDMStructuredTypeSequenceOf</SHORT-NAME>
+                                  <DESC>
+                                    <L-2 L="EN">Defines a list of elements within a V2x message. Comparable to an array.</L-2>
+                                  </DESC>
+                                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00009</RELATED-TRACE-ITEM-REF>
+                                  <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                  <MULTIPLICITY-CONFIG-CLASSES>
+                                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                  </MULTIPLICITY-CONFIG-CLASSES>
+                                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                  <PARAMETERS>
+                                    <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceOfCallbackEnabled -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:2a15f7fb-322f-4e74-ba5f-8d245aac7155">
+                                      <SHORT-NAME>V2xDMStructuredTypeSequenceOfCallbackEnabled</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Enables a generated callback when the structure is decoded.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00093</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <SCOPE>LOCAL</SCOPE>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                    <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceOfIsExtensible -->
+                                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:b31cafc3-7846-4a36-b87f-1e9099a466cf">
+                                      <SHORT-NAME>V2xDMStructuredTypeSequenceOfIsExtensible</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Defines if the SequenceOf is extensible in the future (marked as '...' in ASN.1)</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00027</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                                    </ECUC-BOOLEAN-PARAM-DEF>
+                                  </PARAMETERS>
+                                  <REFERENCES>
+                                    <!-- Choice Reference Definition: V2xDMStructuredTypeSequenceOfType -->
+                                    <ECUC-CHOICE-REFERENCE-DEF UUID="ECUC:cc8b6ba7-bb4b-4cf8-ae23-e77e868cd9c7">
+                                      <SHORT-NAME>V2xDMStructuredTypeSequenceOfType</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">Reference to the next structured or simple type.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00026</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                      <VALUE-CONFIG-CLASSES>
+                                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                                      </VALUE-CONFIG-CLASSES>
+                                      <DESTINATION-REFS>
+                                        <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMSimpleType</DESTINATION-REF>
+                                        <DESTINATION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/AUTOSAR/EcucDefs/V2xDM/V2xDMConfigSet/V2xDMStack/V2xDMMessage/V2xDMStructuredType</DESTINATION-REF>
+                                      </DESTINATION-REFS>
+                                    </ECUC-CHOICE-REFERENCE-DEF>
+                                  </REFERENCES>
+                                  <SUB-CONTAINERS>
+                                    <!-- Container Definition: V2xDMStructuredTypeSequenceOfConstr -->
+                                    <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:1ac2026c-1d70-4b50-91f4-14cf1d996c0e">
+                                      <SHORT-NAME>V2xDMStructuredTypeSequenceOfConstr</SHORT-NAME>
+                                      <DESC>
+                                        <L-2 L="EN">This container defines the constraints of the SequenceOf parent container.</L-2>
+                                      </DESC>
+                                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00028</RELATED-TRACE-ITEM-REF>
+                                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                      <UPPER-MULTIPLICITY-INFINITE>true</UPPER-MULTIPLICITY-INFINITE>
+                                      <MULTIPLICITY-CONFIG-CLASSES>
+                                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                      </MULTIPLICITY-CONFIG-CLASSES>
+                                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                      <PARAMETERS>
+                                        <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceOfConstrMax -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:bae7756d-71ef-4fd7-97d7-84f174c6da3a">
+                                          <SHORT-NAME>V2xDMStructuredTypeSequenceOfConstrMax</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the max. number of SequenceOf values.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00030</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                        <!-- PARAMETER DEFINITION: V2xDMStructuredTypeSequenceOfConstrMin -->
+                                        <ECUC-INTEGER-PARAM-DEF UUID="ECUC:f0ee43c0-683d-4264-8876-c6bfc8f023b7">
+                                          <SHORT-NAME>V2xDMStructuredTypeSequenceOfConstrMin</SHORT-NAME>
+                                          <DESC>
+                                            <L-2 L="EN">Defines the minimum number of the SequenceOf container.</L-2>
+                                          </DESC>
+                                          <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00029</RELATED-TRACE-ITEM-REF>
+                                          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                                          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                                          <MULTIPLICITY-CONFIG-CLASSES>
+                                            <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                                          </MULTIPLICITY-CONFIG-CLASSES>
+                                          <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                                          <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                                          <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                                          <VALUE-CONFIG-CLASSES>
+                                            <ECUC-VALUE-CONFIGURATION-CLASS>
+                                              <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                                              <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                                            </ECUC-VALUE-CONFIGURATION-CLASS>
+                                          </VALUE-CONFIG-CLASSES>
+                                          <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                                          <MAX>65535</MAX>
+                                          <MIN>0</MIN>
+                                        </ECUC-INTEGER-PARAM-DEF>
+                                      </PARAMETERS>
+                                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                                  </SUB-CONTAINERS>
+                                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                              </CHOICES>
+                            </ECUC-CHOICE-CONTAINER-DEF>
+                          </SUB-CONTAINERS>
+                        </ECUC-PARAM-CONF-CONTAINER-DEF>
+                      </SUB-CONTAINERS>
+                    </ECUC-PARAM-CONF-CONTAINER-DEF>
+                  </SUB-CONTAINERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+                <!-- Container Definition: V2xDMGeneral -->
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="ECUC:196896c6-1b5a-4f78-88f2-4439d4770d4f">
+                  <SHORT-NAME>V2xDMGeneral</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">This container contains the general configuration parameters of the Vehicle-2-X Data Manager.</L-2>
+                  </DESC>
+                  <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00002</RELATED-TRACE-ITEM-REF>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                  <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                  <PARAMETERS>
+                    <!-- PARAMETER DEFINITION: V2xDMDevErrorDetect -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:1d701d62-bdd3-40d8-8c56-3b9f2795fb4e">
+                      <SHORT-NAME>V2xDMDevErrorDetect</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Switches the Default Error Tracer (Det) detection and notification ON or OFF.</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">* true: enabled (ON) * false: disabled (OFF)</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00003</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: V2xDMMainFunctionPeriod -->
+                    <ECUC-FLOAT-PARAM-DEF UUID="ECUC:83f23004-d014-4350-ab7f-fa4965047e08">
+                      <SHORT-NAME>V2xDMMainFunctionPeriod</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Specifies the period of main function V2xDM_MainFunction in seconds.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00020</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>ECU</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>0.01</DEFAULT-VALUE>
+                      <MAX INTERVAL-TYPE="OPEN">INF</MAX>
+                      <MIN INTERVAL-TYPE="OPEN">0</MIN>
+                    </ECUC-FLOAT-PARAM-DEF>
+                    <!-- PARAMETER DEFINITION: V2xDMVersionInfoApi -->
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="ECUC:7fde2cf3-1614-4ce1-8f14-411f7781f5de">
+                      <SHORT-NAME>V2xDMVersionInfoApi</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Enable/disables the API for reading the version information of the V2xDM Module.</L-2>
+                      </DESC>
+                      <INTRODUCTION>
+                        <P>
+                          <L-1 L="EN">* true: enabled (ON) * false: disabled (OFF)</L-1>
+                        </P>
+                      </INTRODUCTION>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00004</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                  <REFERENCES>
+                    <!-- Reference Definition: V2xDMEcucPartitionRef -->
+                    <ECUC-REFERENCE-DEF UUID="ECUC:8f8b8d5a-8a19-411d-8cbd-d9cff7d5c15d">
+                      <SHORT-NAME>V2xDMEcucPartitionRef</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Reference to EcucPartition, where V2x Data Manager module is assigned to.</L-2>
+                      </DESC>
+                      <RELATED-TRACE-ITEM-REF BASE="ArTrace" DEST="TRACEABLE">ECUC_V2xDM_00098</RELATED-TRACE-ITEM-REF>
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <SCOPE>LOCAL</SCOPE>
+                      <MULTIPLICITY-CONFIG-CLASSES>
+                        <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      </MULTIPLICITY-CONFIG-CLASSES>
+                      <ORIGIN>AUTOSAR_ECUC</ORIGIN>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EcuC/EcucPartitionCollection/EcucPartition</DESTINATION-REF>
+                    </ECUC-REFERENCE-DEF>
+                  </REFERENCES>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </CONTAINERS>
+            </ECUC-MODULE-DEF>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
